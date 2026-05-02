@@ -1,0 +1,30 @@
+{
+  "number": 4,
+  "question": "An application runs on an Amazon EC2 instance in a VPC. The application processes logs that are stored in an Amazon S3 bucket. The EC2 instance needs to access the S3 bucket without connectivity to the internet. Which solution will provide private network connectivity to Amazon S3?",
+  "choices": [
+    {
+      "letter": "A",
+      "text": "Create a gateway VPC endpoint to the S3 bucket.",
+      "isMostVoted": true,
+      "isHiddenCorrect": true
+    },
+    {
+      "letter": "B",
+      "text": "Stream the logs to Amazon CloudWatch Logs. Export the logs to the S3 bucket.",
+      "isMostVoted": false,
+      "isHiddenCorrect": false
+    },
+    {
+      "letter": "C",
+      "text": "Create an instance profile on Amazon EC2 to allow S3 access.",
+      "isMostVoted": false,
+      "isHiddenCorrect": false
+    },
+    {
+      "letter": "D",
+      "text": "Create an Amazon API Gateway API with a private link to access the S3 endpoint.",
+      "isMostVoted": false,
+      "isHiddenCorrect": false
+    }
+  ]
+}
