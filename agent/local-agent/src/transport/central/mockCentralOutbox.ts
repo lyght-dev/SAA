@@ -1,10 +1,10 @@
 import { appendFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import * as v from "valibot";
-import { type DomainEvent, OutboundEnvelopeSchema } from "../domain/schemas.ts";
-import { toOutboundEnvelope } from "../domain/envelope.ts";
+import { type DomainEvent, OutboundEnvelopeSchema } from "../../domain/schemas.ts";
+import { toOutboundEnvelope } from "../../domain/envelope.ts";
 
-export class JsonlOutboxTransport {
+export class MockCentralOutbox {
   private readonly outboxPath: string;
   private readonly agentId: string;
 

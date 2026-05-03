@@ -1,10 +1,7 @@
+import { randomUUID } from "node:crypto";
 import * as v from "valibot";
 import { type LocalAgentConfig } from "../config.ts";
-import { CodexHookInputSchema } from "../domain/schemas.ts";
-import { JsonlOutboxTransport } from "../transport/jsonlOutbox.ts";
-import { FileTranscriptCursorStore } from "../transcript/fileCursorStore.ts";
-import { readTranscriptIncrement } from "../transcript/reader.ts";
-import { extractDomainEvents } from "../transcript/extractor.ts";
+import { CodexHookInputSchema, type HookRelayRequest } from "../domain/schemas.ts";
 
 async function readStdin(): Promise<string> {
   const chunks: Buffer[] = [];
@@ -14,28 +11,46 @@ async function readStdin(): Promise<string> {
   return Buffer.concat(chunks).toString("utf8");
 }
 
-export async function runHook(config: LocalAgentConfig): Promise<number> {
+export type HookRuntime = {
+  stdin?: AsyncIterable<Buffer | string>;
+  fetch?: typeof fetch;
+  stderr?: Pick<NodeJS.WriteStream, "write">;
+};
+
+export async function runHook(config: LocalAgentConfig, runtime: HookRuntime = {}): Promise<number> {
   try {
-    const raw = await readStdin();
-    const hookInput = v.parse(CodexHookInputSchema, JSON.parse(raw));
-    if (!hookInput.transcript_path) {
-      return 0;
+    const raw = runtime.stdin ? await readInput(runtime.stdin) : await readStdin();
+    const response = await relayHook(config, JSON.parse(raw), runtime.fetch ?? fetch);
+    if (!response.ok) {
+      throw new Error(`local agent app returned ${response.status}`);
     }
-
-    const cursorStore = new FileTranscriptCursorStore(config.cursorPath);
-    const cursor = cursorStore.get(hookInput.session_id, hookInput.transcript_path);
-    const events = extractDomainEvents(readTranscriptIncrement(cursor), hookInput, cursor);
-    const outbox = new JsonlOutboxTransport(config.outboxPath, config.agentId);
-
-    for (const event of events) {
-      outbox.send(event);
-    }
-
-    cursorStore.save(hookInput.session_id, cursor);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    process.stderr.write(`LocalAgent hook failed open: ${message}\n`);
+    (runtime.stderr ?? process.stderr).write(`LocalAgent hook relay failed open: ${message}\n`);
   }
 
   return 0;
+}
+
+async function readInput(input: AsyncIterable<Buffer | string>): Promise<string> {
+  const chunks: Buffer[] = [];
+  for await (const chunk of input) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  }
+  return Buffer.concat(chunks).toString("utf8");
+}
+
+async function relayHook(config: LocalAgentConfig, hookInput: unknown, fetchFn: typeof fetch): Promise<Response> {
+  const request: HookRelayRequest = {
+    protocolVersion: "local-agent.codex-hook.v1",
+    eventId: `hook_${randomUUID().replaceAll("-", "")}`,
+    sentAt: new Date().toISOString(),
+    hookInput: v.parse(CodexHookInputSchema, hookInput),
+  };
+
+  return fetchFn(`http://${config.hookRelayHost}:${config.hookRelayPort}/codex/hooks`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(request),
+  });
 }

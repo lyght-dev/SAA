@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { isArray, isNumber, isPlainObject, isString } from "es-toolkit/compat";
 
 export type ZellijCommandResult = {
   stdout: string;
@@ -22,6 +23,21 @@ export type SendZellijCommandInput = {
   sessionName: string;
   paneId: string;
   command: string;
+};
+
+export type SendZellijTextInput = {
+  sessionName: string;
+  paneId: string;
+  text: string;
+};
+
+export type ZellijPane = {
+  paneId: string;
+};
+
+export type ZellijPaneLookupInput = {
+  sessionName: string;
+  paneId: string;
 };
 
 export class ZellijTransportError extends Error {
@@ -63,11 +79,34 @@ export class ZellijTransport {
   }
 
   async sendCommand(input: SendZellijCommandInput): Promise<void> {
-    const { sessionName, paneId, command } = input;
+    await this.sendText({ sessionName: input.sessionName, paneId: input.paneId, text: input.command });
+  }
+
+  async sendText(input: SendZellijTextInput): Promise<void> {
+    const { sessionName, paneId, text } = input;
     const targetArgs = ["--session", sessionName, "action"];
 
-    await this.run([...targetArgs, "paste", "--pane-id", paneId, command]);
+    await this.run([...targetArgs, "paste", "--pane-id", paneId, text]);
     await this.run([...targetArgs, "send-keys", "--pane-id", paneId, "Enter"]);
+  }
+
+  async listPanes(sessionName: string): Promise<ZellijPane[]> {
+    const result = await this.run([
+      "--session",
+      sessionName,
+      "action",
+      "list-panes",
+      "--json",
+      "--all",
+      "--state",
+    ]);
+
+    return parsePanes(result.stdout);
+  }
+
+  async paneExists(input: ZellijPaneLookupInput): Promise<boolean> {
+    const panes = await this.listPanes(input.sessionName);
+    return panes.some(({ paneId }) => paneId === input.paneId);
   }
 
   private async run(args: string[]): Promise<ZellijCommandResult> {
@@ -78,6 +117,45 @@ export class ZellijTransport {
 
     throw new ZellijTransportError(this.binaryPath, args, result);
   }
+}
+
+function parsePanes(text: string): ZellijPane[] {
+  try {
+    const parsed = JSON.parse(text);
+    if (!isArray(parsed)) {
+      return [];
+    }
+
+    return parsed.flatMap((value) => {
+      const paneId = getPaneId(value);
+      return paneId ? [{ paneId }] : [];
+    });
+  } catch {
+    return [];
+  }
+}
+
+function getPaneId(value: unknown): string | null {
+  if (!isPlainObject(value)) {
+    return null;
+  }
+
+  const record = value as Record<string, unknown>;
+  if (record.is_plugin === true) {
+    return null;
+  }
+
+  if (isString(record.pane_id)) {
+    return record.pane_id;
+  }
+  if (isString(record.paneId)) {
+    return record.paneId;
+  }
+  if (isNumber(record.id)) {
+    return `terminal_${record.id}`;
+  }
+
+  return null;
 }
 
 async function runCommand(command: string, args: string[]): Promise<ZellijCommandResult> {

@@ -99,6 +99,105 @@ test("pastes a command into a pane and sends Enter", async () => {
   ]);
 });
 
+test("sends text into a specific pane and sends Enter", async () => {
+  const calls: Array<{ command: string; args: string[] }> = [];
+  const runner: ZellijRunner = async (command, args) => {
+    calls.push({ command, args });
+    return { stdout: "", stderr: "", exitCode: 0 };
+  };
+
+  const zellij = new ZellijTransport(runner);
+  await zellij.sendText({
+    sessionName: "saa-agent",
+    paneId: "terminal_7",
+    text: "어떤 skill들이 있어?",
+  });
+
+  assert.deepEqual(calls, [
+    {
+      command: "zellij",
+      args: [
+        "--session",
+        "saa-agent",
+        "action",
+        "paste",
+        "--pane-id",
+        "terminal_7",
+        "어떤 skill들이 있어?",
+      ],
+    },
+    {
+      command: "zellij",
+      args: ["--session", "saa-agent", "action", "send-keys", "--pane-id", "terminal_7", "Enter"],
+    },
+  ]);
+});
+
+test("checks whether a specific pane exists in a session", async () => {
+  const calls: Array<{ command: string; args: string[] }> = [];
+  const runner: ZellijRunner = async (command, args) => {
+    calls.push({ command, args });
+    return {
+      stdout: JSON.stringify([
+        { id: 1, pane_id: "terminal_1", is_plugin: false },
+        { id: 7, pane_id: "terminal_7", is_plugin: false },
+      ]),
+      stderr: "",
+      exitCode: 0,
+    };
+  };
+
+  const zellij = new ZellijTransport(runner);
+  const exists = await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" });
+
+  assert.equal(exists, true);
+  assert.deepEqual(calls, [
+    {
+      command: "zellij",
+      args: ["--session", "saa-agent", "action", "list-panes", "--json", "--all", "--state"],
+    },
+  ]);
+});
+
+test("treats missing pane ids as absent", async () => {
+  const runner: ZellijRunner = async () => ({
+    stdout: JSON.stringify([{ id: 1, pane_id: "terminal_1", is_plugin: false }]),
+    stderr: "",
+    exitCode: 0,
+  });
+
+  const zellij = new ZellijTransport(runner);
+
+  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), false);
+});
+
+test("ignores plugin panes when checking terminal pane ids", async () => {
+  const runner: ZellijRunner = async () => ({
+    stdout: JSON.stringify([
+      { id: 7, is_plugin: true, title: "status-bar" },
+      { id: 1, is_plugin: false, title: "codex" },
+    ]),
+    stderr: "",
+    exitCode: 0,
+  });
+
+  const zellij = new ZellijTransport(runner);
+
+  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), false);
+});
+
+test("maps zellij terminal pane ids from numeric list-panes ids", async () => {
+  const runner: ZellijRunner = async () => ({
+    stdout: JSON.stringify([{ id: 7, is_plugin: false, title: "codex" }]),
+    stderr: "",
+    exitCode: 0,
+  });
+
+  const zellij = new ZellijTransport(runner);
+
+  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), true);
+});
+
 test("throws a zellij error when an action exits non-zero", async () => {
   const runner: ZellijRunner = async () => ({
     stdout: "",

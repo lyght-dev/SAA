@@ -48,6 +48,17 @@ export const TerminalCommandRequestSchema = v.object({
 
 export type TerminalCommandRequest = v.InferOutput<typeof TerminalCommandRequestSchema>;
 
+export const CodexMessageRequestSchema = v.object({
+  type: v.literal("codex.message.send"),
+  sessionName: v.string(),
+  paneId: v.string(),
+  message: v.string(),
+  targetId: v.optional(v.string()),
+  codexSessionId: v.optional(v.string()),
+});
+
+export type CodexMessageRequest = v.InferOutput<typeof CodexMessageRequestSchema>;
+
 export const AssistantMessageEventSchema = v.object({
   type: v.literal("assistant.message"),
   sessionId: v.string(),

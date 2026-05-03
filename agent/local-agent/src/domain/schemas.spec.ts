@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import * as v from "valibot";
-import { CodexHookInputSchema, TerminalCommandRequestSchema } from "./schemas.ts";
+import { CodexHookInputSchema, CodexMessageRequestSchema, TerminalCommandRequestSchema } from "./schemas.ts";
 
 test("parses captured Codex hook payload shapes", () => {
   const samples = [
@@ -50,5 +50,25 @@ test("parses a terminal command request for zellij-backed execution", () => {
     paneName: "worker",
     cwd: "/workspaces/SAA",
     command: "pnpm --dir agent test",
+  });
+});
+
+test("parses a codex message request with central-managed pane routing", () => {
+  const request = v.parse(CodexMessageRequestSchema, {
+    type: "codex.message.send",
+    targetId: "discord-thread-123",
+    sessionName: "saa-agent",
+    paneId: "terminal_7",
+    codexSessionId: "codex-session",
+    message: "어떤 skill들이 있어?",
+  });
+
+  assert.deepEqual(request, {
+    type: "codex.message.send",
+    targetId: "discord-thread-123",
+    sessionName: "saa-agent",
+    paneId: "terminal_7",
+    codexSessionId: "codex-session",
+    message: "어떤 skill들이 있어?",
   });
 });

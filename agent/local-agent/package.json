@@ -12,7 +12,9 @@
     "test": "node --experimental-strip-types --test \"src/**/*.spec.ts\""
   },
   "dependencies": {
+    "@hono/node-server": "^2.0.1",
     "es-toolkit": "^1.46.1",
+    "hono": "^4.12.16",
     "valibot": "^1.2.0"
   }
 }
