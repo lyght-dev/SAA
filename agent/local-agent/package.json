@@ -1,0 +1,18 @@
+{
+  "name": "local-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "local-agent": "./src/cli/main.ts"
+  },
+  "scripts": {
+    "hook": "node --experimental-strip-types src/cli/main.ts hook",
+    "check": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test \"src/**/*.spec.ts\""
+  },
+  "dependencies": {
+    "es-toolkit": "^1.46.1",
+    "valibot": "^1.2.0"
+  }
+}
