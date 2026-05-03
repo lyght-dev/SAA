@@ -167,3 +167,125 @@ Current tests cover:
 - Hono HTTP listener routing to the Codex hook handler
 - file-backed transcript cursor behavior
 - transcript extraction into `assistant.message`, `tool.call`, and `approval.requested`
+
+# Central Orchestrator
+
+`agent/central-orchestrator` is the first server-side control-plane package. It assumes a single admin user for v1 and models the Supabase-backed orchestrator as Postgres source of truth plus API writes plus Realtime notifications.
+
+The package is shaped as a serverless Hono app. `src/app.ts` exports `createApp()` and a default Hono app; `src/index.ts` re-exports that default app for serverless runtimes. It does not start a Node HTTP listener.
+
+The current implementation is in-memory and test-focused. It defines the route boundary, class-based domain services, event append/dispatch path, command routing, and state transitions that a Supabase adapter can persist later.
+
+## Central Flow
+
+```text
+LocalAgent boot
+  -> POST /agents/register
+  -> central upserts local_agents
+  -> LocalAgent subscribes to Realtime topic agent:<agent_id>
+
+Admin / DiscordBot / UI
+  -> GET /agents
+  -> choose LocalAgent node
+  -> POST /sessions
+  -> central stores session binding
+  -> POST /sessions/:sessionId/messages
+  -> central queues command for bound LocalAgent
+  -> Realtime command.created { commandId }
+
+LocalAgent
+  -> fetch/claim command
+  -> execute zellij/codex action
+  -> POST /agent-events
+  -> central appends event and updates projections
+```
+
+## Central Domain
+
+The server domain is class-based:
+
+- `LocalAgent`: registration, heartbeat-ready online state, discovery snapshot.
+- `AgentSession`: selected LocalAgent plus exact zellij/codex binding.
+- `AgentCommand`: durable command queue item routed to one LocalAgent.
+- `ApprovalRequest`: pending approval state and admin allow/deny transition.
+
+Directory structure follows a serverless app layout:
+
+- `src/app.ts`: Hono app composition and dependency wiring.
+- `src/routes/*`: thin HTTP route modules.
+- `src/modules/*`: domain classes, schemas, events, and services.
+- `src/events/*`: domain event envelope, store, bus, and projector.
+- `src/infrastructure/*`: persistence and Realtime adapters.
+- `src/shared/*`: app-wide HTTP and runtime helpers.
+
+Primary events:
+
+- `agent.registered`
+- `session.bound`
+- `command.queued`
+- `agent.event.received`
+- `approval.requested`
+- `approval.responded`
+
+Realtime notifications are derived from events. For v1, `command.queued` publishes `command.created { commandId }` to `agent:<agent_id>`.
+
+## Central ERD Target
+
+The Supabase adapter should persist these tables:
+
+- `local_agents`: `agent_id`, `node_name`, `hostname`, `capabilities`, `status`, `registered_at`, `last_seen_at`
+- `agent_sessions`: `id`, `agent_id`, `conversation_id`, `status`, `created_at`, `updated_at`
+- `session_bindings`: `session_id`, `session_name`, `pane_id`, `codex_session_id`
+- `agent_commands`: `id`, `agent_id`, `session_id`, `type`, `status`, `payload`, `queued_at`
+- `domain_events`: `id`, `agent_id`, `session_id`, `type`, `occurred_at`, `payload`
+- `messages`: projected user-visible message rows
+- `approval_requests`: `id`, `session_id`, `agent_id`, `status`, `tool_name`, `question`, `choices`, `arguments`, `requested_at`, `responded_at`
+- `approval_responses`: audit rows for admin decisions
+
+## Central State Machines
+
+LocalAgent:
+
+```text
+registered -> online -> stale -> offline
+offline -> online
+```
+
+AgentSession:
+
+```text
+created -> bound -> active
+active -> waiting_approval -> active
+active -> completed
+active -> agent_offline -> active | failed
+```
+
+AgentCommand:
+
+```text
+queued -> leased -> acked -> completed
+queued | leased -> expired -> queued
+leased | acked -> failed
+```
+
+ApprovalRequest:
+
+```text
+pending -> approved | denied | expired | cancelled
+```
+
+## Central HTTP API
+
+- `POST /agents/register`: LocalAgent boot registration.
+- `GET /agents`: admin discovery of online LocalAgent nodes.
+- `POST /sessions`: create a session bound to a selected LocalAgent and exact pane.
+- `POST /sessions/:sessionId/messages`: queue `codex.message.send` for the bound LocalAgent.
+- `POST /agent-events`: ingest LocalAgent domain events.
+- `POST /approvals/:requestId/respond`: queue `approval.respond` for the bound LocalAgent.
+
+Run:
+
+```sh
+pnpm --dir agent --filter central-orchestrator test
+pnpm --dir agent --filter central-orchestrator check
+```
