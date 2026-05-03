@@ -37,6 +37,17 @@ export const HookRelayRequestSchema = v.object({
 
 export type HookRelayRequest = v.InferOutput<typeof HookRelayRequestSchema>;
 
+export const TerminalCommandRequestSchema = v.object({
+  type: v.literal("terminal.command.send"),
+  sessionName: v.string(),
+  paneName: v.string(),
+  paneId: v.optional(v.string()),
+  cwd: v.optional(v.string()),
+  command: v.string(),
+});
+
+export type TerminalCommandRequest = v.InferOutput<typeof TerminalCommandRequestSchema>;
+
 export const AssistantMessageEventSchema = v.object({
   type: v.literal("assistant.message"),
   sessionId: v.string(),

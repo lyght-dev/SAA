@@ -4,6 +4,7 @@ export type LocalAgentConfig = {
   agentId: string;
   outboxPath: string;
   cursorPath: string;
+  zellijBinaryPath: string;
 };
 
 export function loadConfig(): LocalAgentConfig {
@@ -14,5 +15,6 @@ export function loadConfig(): LocalAgentConfig {
     agentId: process.env.LOCAL_AGENT_ID ?? "local-agent-dev",
     outboxPath,
     cursorPath,
+    zellijBinaryPath: process.env.LOCAL_AGENT_ZELLIJ_BIN ?? "zellij",
   };
 }
