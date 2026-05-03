@@ -1,6 +1,5 @@
-import test from "node:test";
-import assert from "node:assert/strict";
 import { Readable } from "node:stream";
+import { expect, test } from "vitest";
 import { runHook } from "./hook-codex.ts";
 import { type LocalAgentConfig } from "../config.ts";
 
@@ -32,15 +31,15 @@ test("relays stdin hook payload to the local agent app over HTTP", async () => {
     stderr: { write: () => true },
   });
 
-  assert.equal(exitCode, 0);
-  assert.equal(requests.length, 1);
-  assert.equal(requests[0]?.url, "http://127.0.0.1:47231/codex/hooks");
-  assert.equal(requests[0]?.init.method, "POST");
+  expect(exitCode).toBe(0);
+  expect(requests).toHaveLength(1);
+  expect(requests[0]?.url).toBe("http://127.0.0.1:47231/codex/hooks");
+  expect(requests[0]?.init.method).toBe("POST");
   const body = JSON.parse(String(requests[0]?.init.body));
-  assert.equal(body.protocolVersion, "local-agent.codex-hook.v1");
-  assert.match(body.eventId, /^hook_/);
-  assert.match(body.sentAt, /^\d{4}-\d{2}-\d{2}T/);
-  assert.deepEqual(body.hookInput, hookInput);
+  expect(body.protocolVersion).toBe("local-agent.codex-hook.v1");
+  expect(body.eventId).toMatch(/^hook_/);
+  expect(body.sentAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  expect(body.hookInput).toEqual(hookInput);
 });
 
 test("fails open when the local agent app is unavailable", async () => {
@@ -58,6 +57,6 @@ test("fails open when the local agent app is unavailable", async () => {
     },
   });
 
-  assert.equal(exitCode, 0);
-  assert.match(messages.join(""), /LocalAgent hook relay failed open: /);
+  expect(exitCode).toBe(0);
+  expect(messages.join("")).toMatch(/LocalAgent hook relay failed open: /);
 });

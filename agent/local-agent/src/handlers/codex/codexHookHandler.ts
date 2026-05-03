@@ -6,8 +6,11 @@ import { readTranscriptIncrement } from "../../transcript/reader.ts";
 import { extractDomainEvents } from "../../transcript/extractor.ts";
 
 export type CodexHookHandlerOptions = {
+  /** Local agent id attached to outbound central events. */
   agentId: string;
+  /** File path used to persist transcript cursor state between hook calls. */
   cursorPath: string;
+  /** JSONL file path used as the mock central outbound transport. */
   outboxPath: string;
 };
 
@@ -22,6 +25,13 @@ export class CodexHookHandler {
     this.outboxPath = options.outboxPath;
   }
 
+  /**
+   * Accepts a relayed Codex hook request and exports newly discovered events.
+   *
+   * Incoming hook requests may include a transcript path. When present, the
+   * handler reads only unread transcript rows, extracts domain events, and
+   * writes outbound central envelopes through the configured outbox transport.
+   */
   async handle(request: HookRelayRequest): Promise<void> {
     const { hookInput } = v.parse(HookRelayRequestSchema, request);
     if (!hookInput.transcript_path) {

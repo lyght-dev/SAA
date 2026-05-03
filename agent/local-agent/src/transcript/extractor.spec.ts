@@ -1,5 +1,4 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+import { expect, test } from "vitest";
 import * as v from "valibot";
 import { CodexHookInputSchema } from "../domain/schemas.ts";
 import { extractDomainEvents } from "./extractor.ts";
@@ -59,20 +58,23 @@ test("extracts assistant message, tool call, and approval request from transcrip
 
   const events = extractDomainEvents(rows, hookInput, cursor());
 
-  assert.deepEqual(
+  expect(
     events.map((event) => event.type),
-    ["assistant.message", "tool.call", "approval.requested"],
+  ).toEqual(["assistant.message", "tool.call", "approval.requested"]);
+  expect(events[0]?.type === "assistant.message" ? events[0].text : undefined).toBe(
+    "Running the requested command.",
   );
-  assert.equal(events[0]?.type === "assistant.message" ? events[0].text : undefined, "Running the requested command.");
-  assert.equal(events[1]?.type === "tool.call" ? events[1].callId : undefined, "call_123");
-  assert.equal(events[2]?.type === "approval.requested" ? events[2].question : undefined, "Do you want to delete .git?");
+  expect(events[1]?.type === "tool.call" ? events[1].callId : undefined).toBe("call_123");
+  expect(events[2]?.type === "approval.requested" ? events[2].question : undefined).toBe(
+    "Do you want to delete .git?",
+  );
 });
 
 test("uses PermissionRequest hook as approval fallback when transcript has no approval call", () => {
   const events = extractDomainEvents([], hookInput, cursor());
 
-  assert.deepEqual(events.map((event) => event.type), ["approval.requested"]);
-  assert.equal(events[0]?.type === "approval.requested" ? events[0].toolName : undefined, "Bash");
+  expect(events.map((event) => event.type)).toEqual(["approval.requested"]);
+  expect(events[0]?.type === "approval.requested" ? events[0].toolName : undefined).toBe("Bash");
 });
 
 test("deduplicates events by cursor seen ids", () => {
@@ -90,6 +92,6 @@ test("deduplicates events by cursor seen ids", () => {
     }),
   ];
 
-  assert.equal(extractDomainEvents(rows, preToolHookInput, sharedCursor).length, 1);
-  assert.equal(extractDomainEvents(rows, preToolHookInput, sharedCursor).length, 0);
+  expect(extractDomainEvents(rows, preToolHookInput, sharedCursor)).toHaveLength(1);
+  expect(extractDomainEvents(rows, preToolHookInput, sharedCursor)).toHaveLength(0);
 });

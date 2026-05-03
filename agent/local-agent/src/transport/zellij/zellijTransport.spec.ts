@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { expect, test } from "vitest";
 import { ZellijTransport, type ZellijRunner } from "./zellijTransport.ts";
 
 test("ensures a background zellij session through the official attach API", async () => {
@@ -12,7 +11,7 @@ test("ensures a background zellij session through the official attach API", asyn
   const zellij = new ZellijTransport(runner);
   await zellij.ensureSession("saa-agent");
 
-  assert.deepEqual(calls, [
+  expect(calls).toEqual([
     {
       command: "zellij",
       args: ["attach", "--create-background", "saa-agent"],
@@ -30,7 +29,7 @@ test("uses a configured zellij binary path", async () => {
   const zellij = new ZellijTransport(runner, { binaryPath: "/opt/bin/zellij" });
   await zellij.ensureSession("saa-agent");
 
-  assert.equal(calls[0]?.command, "/opt/bin/zellij");
+  expect(calls[0]?.command).toBe("/opt/bin/zellij");
 });
 
 test("creates a named pane in a target zellij session and returns its pane id", async () => {
@@ -47,8 +46,8 @@ test("creates a named pane in a target zellij session and returns its pane id", 
     cwd: "/workspaces/SAA",
   });
 
-  assert.equal(paneId, "terminal_7");
-  assert.deepEqual(calls, [
+  expect(paneId).toBe("terminal_7");
+  expect(calls).toEqual([
     {
       command: "zellij",
       args: [
@@ -79,7 +78,7 @@ test("pastes a command into a pane and sends Enter", async () => {
     command: "pnpm --dir agent test",
   });
 
-  assert.deepEqual(calls, [
+  expect(calls).toEqual([
     {
       command: "zellij",
       args: [
@@ -113,7 +112,7 @@ test("sends text into a specific pane and sends Enter", async () => {
     text: "어떤 skill들이 있어?",
   });
 
-  assert.deepEqual(calls, [
+  expect(calls).toEqual([
     {
       command: "zellij",
       args: [
@@ -150,8 +149,8 @@ test("checks whether a specific pane exists in a session", async () => {
   const zellij = new ZellijTransport(runner);
   const exists = await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" });
 
-  assert.equal(exists, true);
-  assert.deepEqual(calls, [
+  expect(exists).toBe(true);
+  expect(calls).toEqual([
     {
       command: "zellij",
       args: ["--session", "saa-agent", "action", "list-panes", "--json", "--all", "--state"],
@@ -168,7 +167,7 @@ test("treats missing pane ids as absent", async () => {
 
   const zellij = new ZellijTransport(runner);
 
-  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), false);
+  await expect(zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" })).resolves.toBe(false);
 });
 
 test("ignores plugin panes when checking terminal pane ids", async () => {
@@ -183,7 +182,7 @@ test("ignores plugin panes when checking terminal pane ids", async () => {
 
   const zellij = new ZellijTransport(runner);
 
-  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), false);
+  await expect(zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" })).resolves.toBe(false);
 });
 
 test("maps zellij terminal pane ids from numeric list-panes ids", async () => {
@@ -195,7 +194,7 @@ test("maps zellij terminal pane ids from numeric list-panes ids", async () => {
 
   const zellij = new ZellijTransport(runner);
 
-  assert.equal(await zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" }), true);
+  await expect(zellij.paneExists({ sessionName: "saa-agent", paneId: "terminal_7" })).resolves.toBe(true);
 });
 
 test("throws a zellij error when an action exits non-zero", async () => {
@@ -207,11 +206,7 @@ test("throws a zellij error when an action exits non-zero", async () => {
 
   const zellij = new ZellijTransport(runner);
 
-  await assert.rejects(
-    () => zellij.ensureSession("saa-agent"),
-    (error) =>
-      error instanceof Error &&
-      error.message.includes("zellij attach --create-background saa-agent failed with exit code 1") &&
-      error.message.includes("No active zellij sessions found."),
+  await expect(zellij.ensureSession("saa-agent")).rejects.toThrow(
+    /zellij attach --create-background saa-agent failed with exit code 1[\s\S]*No active zellij sessions found\./,
   );
 });

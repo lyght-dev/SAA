@@ -13,6 +13,9 @@ export class MockCentralOutbox {
     this.agentId = agentId;
   }
 
+  /**
+   * Sends an extracted local-agent event to the mock central JSONL outbox.
+   */
   send(event: DomainEvent): void {
     const envelope = toOutboundEnvelope(this.agentId, event);
     v.parse(OutboundEnvelopeSchema, envelope);

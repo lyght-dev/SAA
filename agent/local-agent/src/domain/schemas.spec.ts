@@ -1,5 +1,4 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+import { expect, test } from "vitest";
 import * as v from "valibot";
 import { CodexHookInputSchema, CodexMessageRequestSchema, TerminalCommandRequestSchema } from "./schemas.ts";
 
@@ -31,7 +30,7 @@ test("parses captured Codex hook payload shapes", () => {
   ];
 
   for (const sample of samples) {
-    assert.equal(v.parse(CodexHookInputSchema, sample).session_id, "sess");
+    expect(v.parse(CodexHookInputSchema, sample).session_id).toBe("sess");
   }
 });
 
@@ -44,7 +43,7 @@ test("parses a terminal command request for zellij-backed execution", () => {
     command: "pnpm --dir agent test",
   });
 
-  assert.deepEqual(request, {
+  expect(request).toEqual({
     type: "terminal.command.send",
     sessionName: "saa-agent",
     paneName: "worker",
@@ -63,7 +62,7 @@ test("parses a codex message request with central-managed pane routing", () => {
     message: "어떤 skill들이 있어?",
   });
 
-  assert.deepEqual(request, {
+  expect(request).toEqual({
     type: "codex.message.send",
     targetId: "discord-thread-123",
     sessionName: "saa-agent",

@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { expect, test } from "vitest";
 import {
   CodexMessageHandler,
   type CodexMessageTransport,
@@ -27,8 +26,8 @@ test("sends a codex message to the exact pane from the central request", async (
 
   const result = await new CodexMessageHandler(transport).handle(request);
 
-  assert.deepEqual(result, { ok: true, sessionName: "saa-agent", paneId: "terminal_7" });
-  assert.deepEqual(calls, [
+  expect(result).toEqual({ ok: true, sessionName: "saa-agent", paneId: "terminal_7" });
+  expect(calls).toEqual([
     { name: "paneExists", input: { sessionName: "saa-agent", paneId: "terminal_7" } },
     {
       name: "sendText",
@@ -56,13 +55,13 @@ test("returns a failed result and does not send text when the pane is missing", 
     message: "hello world",
   });
 
-  assert.deepEqual(result, {
+  expect(result).toEqual({
     ok: false,
     sessionName: "saa-agent",
     paneId: "terminal_missing",
     reason: "pane_not_found",
   });
-  assert.deepEqual(calls, [
+  expect(calls).toEqual([
     { name: "paneExists", input: { sessionName: "saa-agent", paneId: "terminal_missing" } },
   ]);
 });

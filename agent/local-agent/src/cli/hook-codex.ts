@@ -12,11 +12,21 @@ async function readStdin(): Promise<string> {
 }
 
 export type HookRuntime = {
+  /** Raw Codex hook JSON stream supplied by the hook process. */
   stdin?: AsyncIterable<Buffer | string>;
+  /** HTTP client used to relay the hook request to the local agent app. */
   fetch?: typeof fetch;
+  /** Error sink for fail-open relay errors. */
   stderr?: Pick<NodeJS.WriteStream, "write">;
 };
 
+/**
+ * Receives a Codex hook payload from stdin and relays it to the local agent app.
+ *
+ * This CLI boundary intentionally fails open: relay failures are written to
+ * stderr, but the returned exit code remains `0` so Codex hook execution is not
+ * blocked by local-agent availability.
+ */
 export async function runHook(config: LocalAgentConfig, runtime: HookRuntime = {}): Promise<number> {
   try {
     const raw = runtime.stdin ? await readInput(runtime.stdin) : await readStdin();

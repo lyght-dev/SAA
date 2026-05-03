@@ -1,8 +1,7 @@
-import test from "node:test";
-import assert from "node:assert/strict";
 import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
+import { expect, test } from "vitest";
 import { CodexHookHandler } from "./codexHookHandler.ts";
 import { type HookRelayRequest } from "../../domain/schemas.ts";
 
@@ -35,10 +34,10 @@ test("extracts transcript events and sends them to the central outbox", async ()
 
   const [line] = readFileSync(outboxPath, "utf8").trim().split("\n");
   const envelope = JSON.parse(line ?? "{}");
-  assert.equal(envelope.type, "assistant.message");
-  assert.equal(envelope.agentId, "local-agent-dev");
-  assert.equal(envelope.payload.text, "hello");
-  assert.match(readFileSync(cursorPath, "utf8"), /transcript\.jsonl/);
+  expect(envelope.type).toBe("assistant.message");
+  expect(envelope.agentId).toBe("local-agent-dev");
+  expect(envelope.payload.text).toBe("hello");
+  expect(readFileSync(cursorPath, "utf8")).toMatch(/transcript\.jsonl/);
 });
 
 test("does nothing when transcript path is null", async () => {

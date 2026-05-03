@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { expect, test } from "vitest";
 import {
   TerminalCommandHandler,
   type TerminalCommandRequest,
@@ -32,8 +31,8 @@ test("ensures a session, creates a pane, and sends the command", async () => {
 
   const result = await handler.handle(request);
 
-  assert.deepEqual(result, { sessionName: "saa-agent", paneId: "terminal_7" });
-  assert.deepEqual(calls, [
+  expect(result).toEqual({ sessionName: "saa-agent", paneId: "terminal_7" });
+  expect(calls).toEqual([
     { name: "ensureSession", input: "saa-agent" },
     {
       name: "createPane",
@@ -70,8 +69,8 @@ test("reuses an existing pane id without creating a new pane", async () => {
     command: "git status",
   });
 
-  assert.deepEqual(result, { sessionName: "saa-agent", paneId: "terminal_9" });
-  assert.deepEqual(calls, [
+  expect(result).toEqual({ sessionName: "saa-agent", paneId: "terminal_9" });
+  expect(calls).toEqual([
     { name: "ensureSession", input: "saa-agent" },
     {
       name: "sendCommand",

@@ -1,5 +1,4 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+import { expect, test } from "vitest";
 import { createLocalAgentHttpApp } from "./localAgentHttpServer.ts";
 import { type HookRelayRequest } from "../../domain/schemas.ts";
 
@@ -29,15 +28,15 @@ test("routes codex hook relay requests to the codex hook handler", async () => {
     headers: { "content-type": "application/json" },
   });
 
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { ok: true });
-  assert.deepEqual(handled, [body]);
+  expect(response.status).toBe(200);
+  expect(await response.json()).toEqual({ ok: true });
+  expect(handled).toEqual([body]);
 });
 
 test("exposes a health check", async () => {
   const app = createLocalAgentHttpApp({ handle: async () => undefined });
   const response = await app.request("/healthz");
 
-  assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { ok: true });
+  expect(response.status).toBe(200);
+  expect(await response.json()).toEqual({ ok: true });
 });

@@ -9,7 +9,7 @@
   "scripts": {
     "hook": "node --experimental-strip-types src/cli/main.ts hook",
     "check": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test \"src/**/*.spec.ts\""
+    "test": "vitest run"
   },
   "dependencies": {
     "@hono/node-server": "^2.0.1",

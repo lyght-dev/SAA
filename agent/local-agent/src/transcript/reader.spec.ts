@@ -1,8 +1,7 @@
 import { mkdtempSync, rmSync, writeFileSync, appendFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import test from "node:test";
-import assert from "node:assert/strict";
+import { expect, test } from "vitest";
 import { TranscriptCursorStore, readTranscriptIncrement } from "./reader.ts";
 
 const withTranscript = (body: string, fn: (path: string) => void) => {
@@ -29,8 +28,8 @@ test("reuses cursor for the same session and transcript path", () => {
   const second = store.get("sess", "/tmp/a.jsonl");
   const third = store.get("sess", "/tmp/b.jsonl");
 
-  assert.equal(first, second);
-  assert.notEqual(first, third);
+  expect(first).toBe(second);
+  expect(first).not.toBe(third);
 });
 
 test("reads complete JSONL rows and advances cursor", () => {
@@ -39,10 +38,10 @@ test("reads complete JSONL rows and advances cursor", () => {
     const firstRead = readTranscriptIncrement(cursor);
     const secondRead = readTranscriptIncrement(cursor);
 
-    assert.equal(firstRead.length, 1);
-    assert.equal(firstRead[0]?.lineNo, 1);
-    assert.equal(firstRead[0]?.row.type, "event_msg");
-    assert.equal(secondRead.length, 0);
+    expect(firstRead).toHaveLength(1);
+    expect(firstRead[0]?.lineNo).toBe(1);
+    expect(firstRead[0]?.row.type).toBe("event_msg");
+    expect(secondRead).toHaveLength(0);
   });
 });
 
@@ -52,13 +51,13 @@ test("ignores partial trailing JSON until newline completes it", () => {
 
   withTranscript(`${complete}${partial}`, (transcriptPath) => {
     const cursor = new TranscriptCursorStore().get("sess", transcriptPath);
-    assert.equal(readTranscriptIncrement(cursor).length, 1);
+    expect(readTranscriptIncrement(cursor)).toHaveLength(1);
 
     appendFileSync(transcriptPath, "\n");
     const secondRead = readTranscriptIncrement(cursor);
 
-    assert.equal(secondRead.length, 1);
-    assert.equal(secondRead[0]?.lineNo, 2);
-    assert.equal(secondRead[0]?.row.type, "response_item");
+    expect(secondRead).toHaveLength(1);
+    expect(secondRead[0]?.lineNo).toBe(2);
+    expect(secondRead[0]?.row.type).toBe("response_item");
   });
 });

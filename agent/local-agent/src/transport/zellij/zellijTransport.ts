@@ -2,14 +2,19 @@ import { spawn } from "node:child_process";
 import { isArray, isNumber, isPlainObject, isString } from "es-toolkit/compat";
 
 export type ZellijCommandResult = {
+  /** Captured stdout from the zellij process. */
   stdout: string;
+  /** Captured stderr from the zellij process. */
   stderr: string;
+  /** Process exit code normalized to `1` when unavailable. */
   exitCode: number;
 };
 
+/** Executes a zellij command and returns its raw process result. */
 export type ZellijRunner = (command: string, args: string[]) => Promise<ZellijCommandResult>;
 
 export type ZellijTransportOptions = {
+  /** zellij executable path used for all external transport calls. */
   binaryPath?: string;
 };
 
@@ -41,6 +46,9 @@ export type ZellijPaneLookupInput = {
 };
 
 export class ZellijTransportError extends Error {
+  /**
+   * Error raised when an external zellij command exits non-zero.
+   */
   constructor(command: string, args: string[], result: ZellijCommandResult) {
     const stderr = result.stderr.trim();
     const details = stderr ? `: ${stderr}` : "";
@@ -58,10 +66,16 @@ export class ZellijTransport {
     this.binaryPath = options.binaryPath ?? "zellij";
   }
 
+  /**
+   * Ensures the named zellij session exists using zellij's background attach API.
+   */
   async ensureSession(sessionName: string): Promise<void> {
     await this.run(["attach", "--create-background", sessionName]);
   }
 
+  /**
+   * Creates a named zellij pane and returns the pane id reported by zellij.
+   */
   async createPane(input: CreateZellijPaneInput): Promise<string> {
     const { sessionName, paneName, cwd } = input;
     const cwdArgs = cwd ? ["--cwd", cwd] : [];
@@ -78,10 +92,16 @@ export class ZellijTransport {
     return result.stdout.trim();
   }
 
+  /**
+   * Sends a shell command to a zellij pane and presses Enter.
+   */
   async sendCommand(input: SendZellijCommandInput): Promise<void> {
     await this.sendText({ sessionName: input.sessionName, paneId: input.paneId, text: input.command });
   }
 
+  /**
+   * Sends arbitrary text to a zellij pane and presses Enter.
+   */
   async sendText(input: SendZellijTextInput): Promise<void> {
     const { sessionName, paneId, text } = input;
     const targetArgs = ["--session", sessionName, "action"];
@@ -90,6 +110,9 @@ export class ZellijTransport {
     await this.run([...targetArgs, "send-keys", "--pane-id", paneId, "Enter"]);
   }
 
+  /**
+   * Lists non-plugin zellij panes visible in the target session.
+   */
   async listPanes(sessionName: string): Promise<ZellijPane[]> {
     const result = await this.run([
       "--session",
@@ -104,6 +127,9 @@ export class ZellijTransport {
     return parsePanes(result.stdout);
   }
 
+  /**
+   * Checks whether a central-managed pane id still exists in zellij.
+   */
   async paneExists(input: ZellijPaneLookupInput): Promise<boolean> {
     const panes = await this.listPanes(input.sessionName);
     return panes.some(({ paneId }) => paneId === input.paneId);
