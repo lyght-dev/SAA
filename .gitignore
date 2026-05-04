@@ -3,3 +3,7 @@
 .codex/
 .cluade/
 .cursor/
+supabase/.env.local
+supabase/.branches/
+supabase/.temp/
+supabase/snippets/

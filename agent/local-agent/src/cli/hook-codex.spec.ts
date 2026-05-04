@@ -10,6 +10,7 @@ const config: LocalAgentConfig = {
   zellijBinaryPath: "zellij",
   hookRelayHost: "127.0.0.1",
   hookRelayPort: 47231,
+  pollIntervalMs: 1000,
 };
 
 test("relays stdin hook payload to the local agent app over HTTP", async () => {

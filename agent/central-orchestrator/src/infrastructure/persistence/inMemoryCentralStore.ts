@@ -38,6 +38,16 @@ export class InMemoryCentralStore implements CentralStore {
     this.commands.set(command.id, clone(command));
   }
 
+  async getCommand(commandId: string): Promise<AgentCommandRecord | null> {
+    return cloneOrNull(this.commands.get(commandId));
+  }
+
+  async listCommandsForAgent(agentId: string): Promise<AgentCommandRecord[]> {
+    return [...this.commands.values()]
+      .filter((command) => command.agentId === agentId)
+      .map(clone);
+  }
+
   async saveEvent(event: DomainEventRecord): Promise<void> {
     this.events.set(event.id, clone(event));
   }

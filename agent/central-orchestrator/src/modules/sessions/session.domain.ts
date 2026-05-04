@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { type AgentSessionRecord, type SessionBinding } from "./session.schemas.ts";
 
 export type CreateSessionInput = {
@@ -26,7 +25,7 @@ export class AgentSession {
     }
 
     return new AgentSession({
-      id: `sess_${randomUUID()}`,
+      id: `sess_${crypto.randomUUID()}`,
       agentId: input.agentId,
       conversationId: input.conversationId,
       status: "active",

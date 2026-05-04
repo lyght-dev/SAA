@@ -6,7 +6,9 @@ export type SupabaseConfig = {
   serviceRoleKey: string;
 };
 
-export function loadSupabaseConfig(env: NodeJS.ProcessEnv): SupabaseConfig | null {
+export type SupabaseEnv = Record<string, string | undefined>;
+
+export function loadSupabaseConfig(env: SupabaseEnv): SupabaseConfig | null {
   const url = env.SUPABASE_URL;
   const serviceRoleKey = env.SUPABASE_SERVICE_ROLE_KEY;
 

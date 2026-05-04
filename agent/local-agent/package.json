@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.0.1",
+    "@supabase/supabase-js": "^2.105.1",
     "es-toolkit": "^1.46.1",
     "hono": "^4.12.16",
     "valibot": "^1.2.0"

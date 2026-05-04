@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.105.1",
+    "es-toolkit/compat": "npm:es-toolkit@1.46.1/compat",
+    "hono": "npm:hono@4.12.16",
+    "valibot": "npm:valibot@1.2.0"
+  }
+}

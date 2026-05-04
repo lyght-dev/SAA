@@ -39,3 +39,41 @@ test("loads the hook relay host and port from environment variables", () => {
     }
   }
 });
+
+test("loads central and Supabase connection settings from environment variables", () => {
+  const previousCentral = process.env.LOCAL_AGENT_CENTRAL_BASE_URL;
+  const previousToken = process.env.LOCAL_AGENT_AUTH_TOKEN;
+  const previousSupabaseUrl = process.env.LOCAL_AGENT_SUPABASE_URL;
+  const previousSupabaseAnonKey = process.env.LOCAL_AGENT_SUPABASE_ANON_KEY;
+  const previousPoll = process.env.LOCAL_AGENT_POLL_INTERVAL_MS;
+
+  process.env.LOCAL_AGENT_CENTRAL_BASE_URL = "http://localhost:54321/functions/v1/orchestrator";
+  process.env.LOCAL_AGENT_AUTH_TOKEN = "shared-token";
+  process.env.LOCAL_AGENT_SUPABASE_URL = "http://localhost:54321";
+  process.env.LOCAL_AGENT_SUPABASE_ANON_KEY = "anon-key";
+  process.env.LOCAL_AGENT_POLL_INTERVAL_MS = "250";
+
+  try {
+    const config = loadConfig();
+    expect(config.centralBaseUrl).toBe("http://localhost:54321/functions/v1/orchestrator");
+    expect(config.authToken).toBe("shared-token");
+    expect(config.supabaseUrl).toBe("http://localhost:54321");
+    expect(config.supabaseAnonKey).toBe("anon-key");
+    expect(config.pollIntervalMs).toBe(250);
+  } finally {
+    restoreEnv("LOCAL_AGENT_CENTRAL_BASE_URL", previousCentral);
+    restoreEnv("LOCAL_AGENT_AUTH_TOKEN", previousToken);
+    restoreEnv("LOCAL_AGENT_SUPABASE_URL", previousSupabaseUrl);
+    restoreEnv("LOCAL_AGENT_SUPABASE_ANON_KEY", previousSupabaseAnonKey);
+    restoreEnv("LOCAL_AGENT_POLL_INTERVAL_MS", previousPoll);
+  }
+});
+
+function restoreEnv(name: string, value: string | undefined): void {
+  if (value === undefined) {
+    delete process.env[name];
+    return;
+  }
+
+  process.env[name] = value;
+}

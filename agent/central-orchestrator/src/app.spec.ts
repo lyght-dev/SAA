@@ -140,3 +140,53 @@ test("records approval events and accepts admin approval responses over HTTP", a
   assert.equal(command.payload.type, "approval.respond");
   assert.equal(command.payload.decision, "deny");
 });
+
+test("lets LocalAgent claim and complete commands over HTTP", async () => {
+  const created = createApp({
+    store: new InMemoryCentralStore(),
+    notifier: new RecordingRealtimeNotifier(),
+    now: () => "2026-05-04T00:00:00.000Z",
+  });
+
+  await created.request("/agents/register", {
+    method: "POST",
+    body: JSON.stringify({
+      type: "agent.register",
+      agentId: "agent-a",
+      nodeName: "macbook",
+      hostname: "macbook",
+      capabilities: { codex: true, zellij: true },
+    }),
+  });
+  const sessionResponse = await created.request("/sessions", {
+    method: "POST",
+    body: JSON.stringify({
+      agentId: "agent-a",
+      sessionName: "saa-agent",
+      paneId: "terminal_1",
+      conversationId: "discord-thread-1",
+    }),
+  });
+  const { session } = await sessionResponse.json();
+  const commandResponse = await created.request(`/sessions/${session.id}/messages`, {
+    method: "POST",
+    body: JSON.stringify({ message: "hello" }),
+  });
+  const { command } = await commandResponse.json();
+
+  const claimResponse = await created.request("/agents/agent-a/commands/claim", {
+    method: "POST",
+    body: JSON.stringify({ leaseMs: 30_000 }),
+  });
+  assert.equal(claimResponse.status, 200);
+  const { command: claimed } = await claimResponse.json();
+  assert.equal(claimed.id, command.id);
+  assert.equal(claimed.status, "leased");
+
+  const completeResponse = await created.request(`/agents/agent-a/commands/${command.id}/complete`, {
+    method: "POST",
+    body: JSON.stringify({ result: { ok: true } }),
+  });
+  assert.equal(completeResponse.status, 200);
+  assert.equal((await completeResponse.json()).command.status, "completed");
+});

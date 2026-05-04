@@ -83,6 +83,11 @@ export type AgentCommandRecord = {
   status: CommandStatus;
   payload: AgentCommandPayload;
   queuedAt: string;
+  leaseOwner?: string;
+  leaseExpiresAt?: string;
+  completedAt?: string;
+  error?: string;
+  result?: Record<string, unknown>;
 };
 
 export type ApprovalRequestRecord = {

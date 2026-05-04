@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import {
   type AgentCommandPayload,
   type AgentCommandRecord,
@@ -42,7 +41,7 @@ export class AgentCommand {
 
   private static queue(session: AgentSessionRecord, payload: AgentCommandPayload, now: string): AgentCommand {
     return new AgentCommand({
-      id: `cmd_${randomUUID()}`,
+      id: `cmd_${crypto.randomUUID()}`,
       agentId: session.agentId,
       sessionId: session.id,
       type: payload.type,

@@ -35,6 +35,52 @@ export class CommandService {
     return command;
   }
 
+  async claimNext(agentId: string, leaseMs: number): Promise<AgentCommandRecord | null> {
+    const now = this.now();
+    const command = (await this.store.listCommandsForAgent(agentId))
+      .filter((candidate) => canClaim(candidate, now))
+      .sort((left, right) => left.queuedAt.localeCompare(right.queuedAt))[0];
+
+    if (!command) {
+      return null;
+    }
+
+    const leased: AgentCommandRecord = {
+      ...command,
+      status: "leased",
+      leaseOwner: agentId,
+      leaseExpiresAt: new Date(new Date(now).getTime() + leaseMs).toISOString(),
+    };
+    await this.store.saveCommand(leased);
+    return leased;
+  }
+
+  async complete(commandId: string, agentId: string, result: Record<string, unknown>): Promise<AgentCommandRecord> {
+    const command = await this.getCommandForOwner(commandId, agentId);
+    const completed: AgentCommandRecord = {
+      ...command,
+      status: "completed",
+      completedAt: this.now(),
+      result,
+    };
+
+    await this.store.saveCommand(completed);
+    return completed;
+  }
+
+  async fail(commandId: string, agentId: string, error: string): Promise<AgentCommandRecord> {
+    const command = await this.getCommandForOwner(commandId, agentId);
+    const failed: AgentCommandRecord = {
+      ...command,
+      status: "failed",
+      completedAt: this.now(),
+      error,
+    };
+
+    await this.store.saveCommand(failed);
+    return failed;
+  }
+
   private async queue(command: AgentCommandRecord): Promise<void> {
     await this.store.saveCommand(command);
     await this.events.record(commandQueuedEvent(command));
@@ -48,4 +94,25 @@ export class CommandService {
 
     return session;
   }
+
+  private async getCommandForOwner(commandId: string, agentId: string): Promise<AgentCommandRecord> {
+    const command = await this.store.getCommand(commandId);
+    if (!command || command.agentId !== agentId || command.leaseOwner !== agentId) {
+      throw new Error(`Command is not leased by agent: ${commandId}`);
+    }
+
+    return command;
+  }
+}
+
+function canClaim(command: AgentCommandRecord, now: string): boolean {
+  if (command.status === "queued") {
+    return true;
+  }
+
+  if (command.status !== "leased" || !command.leaseExpiresAt) {
+    return false;
+  }
+
+  return command.leaseExpiresAt <= now;
 }
