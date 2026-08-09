@@ -1,0 +1,10 @@
+{
+  "questionNumber": 411,
+  "question": "회사에 산발적인 사용 패턴을 가진 웹 애플리케이션이 있습니다. 매달 초에는 사용량이 많고, 매주 초에는 보통 사용량이 있으며, 주중에는 예측할 수 없는 사용량이 있습니다. 이 애플리케이션은 웹 서버와 데이터 센터 내에서 실행되는 MySQL 데이터베이스 서버로 구성됩니다. 이 회사는 애플리케이션을 AWS 클라우드로 이동하려고 하며 데이터베이스 수정이 필요하지 않은 비용 효율적인 데이터베이스 플랫폼을 선택해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon DynamoDB",
+    "B": "MySQL 용 Amazon RDS",
+    "C": "MySQL 호환 Amazon Aurora Serverless",
+    "D": "Auto Scaling 그룹의 Amazon EC2 에 배포된 MySQL"
+  }
+}

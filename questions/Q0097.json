@@ -1,0 +1,10 @@
+{
+  "questionNumber": 97,
+  "question": "회사에는 Microsoft Windows 공유 파일 저장소가 필요한 온프레미스에서 실행되는 대규모 Microsoft SharePoint 배포가 있습니다. 회사는 이 워크로드를 AWS 클라우드로 마이그레이션하기를 원하며 다양한 스토리지 옵션을 고려하고 있습니다. 저장소 솔루션은 액세스 제어를 위해 고가용성 및 Active Directory 와 통합되어야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon EFS 스토리지를 구성하고 인증을 위해 Active Directory 도메인을 설정합니다.",
+    "B": "두 가용 영역의 AWS Storage Gateway 파일 게이트웨이에 SMB 파일 공유를 생성합니다.",
+    "C": "Amazon S3 버킷을 생성하고 볼륨으로 탑재하도록 Microsoft Windows Server 를 구성합니다.",
+    "D": "AWS 에서 Windows 파일 서버용 Amazon FSx 파일 시스템을 생성하고 인증을 위해 Active Directory 도메인을 설정합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 178,
+  "question": "회사의 인프라는 단일 AWS 리전에 있는 Amazon EC2 인스턴스와 Amazon RDS DB 인스턴스로 구성됩니다. 회사는 별도의 리전에 데이터를 백업하려고 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Backup 을 사용하여 EC2 백업과 RDS 백업을 별도의 리전에 복사합니다.",
+    "B": "Amazon Data Lifecycle Manager(Amazon DLM)를 사용하여 EC2 백업 및 RDS 백업을 별도의 리전에 복사합니다.",
+    "C": "EC2 인스턴스의 Amazon 머신 이미지(AMI)를 생성합니다. AMI 를 별도의 리전에 복사합니다. 별도의 리전에서 RDS DB 인스턴스에 대한 읽기 전용 복제본을 생성합니다.",
+    "D": "Amazon Elastic Block Store(Amazon EBS) 스냅샷을 생성합니다. EBS 스냅샷을 별도의 리전에 복사합니다. RDS 스냅샷을 생성합니다. RDS 스냅샷을 Amazon S3 로 내보냅니다. S3 CRR(Cross-Region Replication)을 별도의 리전에 구성합니다."
+  }
+}

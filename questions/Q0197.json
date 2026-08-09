@@ -1,0 +1,11 @@
+{
+  "questionNumber": 197,
+  "question": "회사에는 온프레미스 Windows Server 에서 실행되는 Microsoft .NET 애플리케이션이 있습니다. 애플리케이션은 Oracle Database Standard 를 사용하여 데이터를 저장합니다. 에디션 서버. 이 회사는 AWS 로의 마이그레이션을 계획하고 있으며 애플리케이션을 이동하는 동안 개발 변경을 최소화하려고 합니다. AWS 애플리케이션 환경은 가용성이 높아야 합니다. 이러한 요구 사항을 충족하기 위해 회사는 어떤 조합의 조치를 취해야 합니까? (두 가지를 선택하세요.)",
+  "choices": {
+    "A": ".NET Core 를 실행하는 AWS Lambda 함수를 사용하여 애플리케이션을 서버리스로 리팩터링합니다.",
+    "B": "다중 AZ 배포에서 .NET 플랫폼을 사용하여 AWS Elastic Beanstalk 에서 애플리케이션을 다시 호스팅합니다.",
+    "C": "Amazon Linux Amazon 머신 이미지(AMI)를 사용하여 Amazon EC2 에서 실행되도록 애플리케이션 플랫폼을 변경합니다.",
+    "D": "다중 AZ 배포에서 AWS DMS(AWS Database Migration Service)를 사용하여 Oracle 데이터베이스에서 Amazon DynamoDB 로 마이그레이션합니다.",
+    "E": "다중 AZ 배포에서 AWS Database Migration Service(AWS DMS)를 사용하여 Oracle 데이터베이스에서 Amazon RDS 의 Oracle 로 마이그레이션합니다."
+  }
+}

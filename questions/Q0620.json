@@ -1,0 +1,10 @@
+{
+  "questionNumber": 620,
+  "question": "한 회사가 AWS 클라우드에 비즈니스에 중요한 애플리케이션을 배포할 계획입니다. 애플리케이션에는 일관되고 지연 시간이 짧은 성능을 갖춘 내구성 있는 스토리지가 필요합니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 어떤 유형의 스토리지를 권장해야 합니까?",
+  "choices": {
+    "A": "인스턴스 스토어 볼륨",
+    "B": "Memcached 클러스터용 Amazon ElastiCache",
+    "C": "프로비저닝된 IOPS SSD Amazon Elastic Block Store(Amazon EBS) 볼륨",
+    "D": "처리량 최적화 HDD Amazon Elastic Block Store(Amazon EBS) 볼륨"
+  }
+}

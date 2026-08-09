@@ -1,0 +1,10 @@
+{
+  "questionNumber": 58,
+  "question": "회사는 확장성 및 가용성에 대한 요구 사항을 충족하기 위해 컨테이너에서 중요한 응용 프로그램을 실행하려고 합니다. 회사는 중요한 응용 프로그램의 유지 관리에 집중하는 것을 선호합니다. 회사는 컨테이너화된 워크로드를 실행하는 기본 인프라의 프로비저닝 및 관리에 대한 책임을 원하지 않습니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "Amazon EC2 인스턴스를 사용하고 인스턴스에 Docker 를 설치합니다.",
+    "B": "Amazon EC2 작업자 노드에서 Amazon Elastic Container Service(Amazon ECS)를 사용합니다.",
+    "C": "AWS Fargate 에서 Amazon Elastic Container Service(Amazon ECS)를 사용합니다.",
+    "D": "Amazon Elastic Container Service(Amazon ECS)에 최적화된 Amazon 머신 이미지(AMI)의 Amazon EC2 인스턴스를 사용합니다."
+  }
+}

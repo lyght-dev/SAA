@@ -1,0 +1,10 @@
+{
+  "questionNumber": 533,
+  "question": "회사는 Amazon S3 에 데이터를 저장합니다. 규정에 따르면 데이터에는 개인 식별 정보(PII)가 포함되어서는 안 됩니다. 이 회사는 최근 S3 버킷에 PII 가 포함된 일부 개체가 있음을 발견했습니다. 회사는 S3 버킷에서 PII 를 자동으로 감지하고 회사의 보안 팀에 알려야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Macie 를 사용하십시오. Amazon EventBridge 규칙을 생성하여 Macie 결과에서 SensitiveData 이벤트 유형을 필터링하고 보안 팀에 Amazon Simple Notification Service(Amazon SNS) 알림을 보냅니다.",
+    "B": "Amazon GuardDuty 를 사용합니다. GuardDuty 결과에서 중요한 이벤트 유형을 필터링하고 보안 팀에 Amazon Simple Notification Service(Amazon SNS) 알림을 보내는 Amazon EventBridge 규칙을 생성합니다.",
+    "C": "Amazon Macie 를 사용합니다. Amazon EventBridge 규칙을 생성하여 Macie 결과에서 SensitiveData:S3Object/Personal 이벤트 유형을 필터링하고 보안 팀에 Amazon Simple Queue Service(Amazon SQS) 알림을 보냅니다.",
+    "D": "Amazon GuardDuty 를 사용합니다. GuardDuty 결과에서 중요한 이벤트 유형을 필터링하고 보안 팀에 Amazon Simple Queue Service(Amazon SQS) 알림을 보내는 Amazon EventBridge 규칙을 생성합니다."
+  }
+}

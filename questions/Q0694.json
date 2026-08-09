@@ -1,0 +1,10 @@
+{
+  "questionNumber": 694,
+  "question": "한 회사의 온프레미스 데이터 센터에 소량의 데이터를 Amazon S3 에 정기적으로 백업해야 하는 NFS 서버가 있습니다. 이러한 요구 사항을 충족하고 가장 비용 효율적인 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "온프레미스 서버의 데이터를 Amazon S3 에 복사하도록 AWS Glue 를 설정합니다.",
+    "B": "온프레미스 서버에 AWS DataSync 에이전트를 설정하고 데이터를 Amazon S3 에 동기화합니다.",
+    "C": "AWS Transfer for SFTP 를 사용하여 SFTP 동기화를 설정하여 온프레미스에서 Amazon S3 로 데이터를 동기화합니다.",
+    "D": "온프레미스 데이터 센터와 VPC 간에 AWS Direct Connect 연결을 설정하고 데이터를 Amazon S3 에 복사합니다."
+  }
+}

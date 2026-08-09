@@ -1,0 +1,10 @@
+{
+  "questionNumber": 359,
+  "question": "병원은 환자 기록을 Amazon S3 버킷에 저장해야 합니다. 병원의 컴플라이언스 팀은 모든 보호 건강 정보(PHI)가 전송 및 저장 중에 암호화되도록 해야 합니다. 규정 준수 팀은 미사용 데이터에 대한 암호화 키를 관리해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Certificate Manager(ACM)에서 퍼블릭 SSL/TLS 인증서를 생성합니다. 인증서를 Amazon S3 와 연결합니다. AWS KMS 키(SSE-KMS)로 서버 측 암호화를 사용하도록 각 S3 버킷에 대한 기본 암호화를 구성합니다. KMS 키를 관리할 규정 준수 팀을 할당합니다.",
+    "B": "S3 버킷 정책에서 aws:SecureTransport 조건을 사용하여 HTTPS(TLS)를 통한 암호화된 연결만 허용합니다. S3 관리형 암호화 키(SSE-S3)로 서버 측 암호화를 사용하도록 각 S3 버킷에 대한 기본 암호화를 구성합니다. SSE-S3 키를 관리할 규정 준수 팀을 할당합니다.",
+    "C": "S3 버킷 정책에서 aws:SecureTransport 조건을 사용하여 HTTPS(TLS)를 통한 암호화된 연결만 허용합니다. AWS KMS 키(SSE-KMS)로 서버 측 암호화를 사용하도록 각 S3 버킷에 대한 기본 암호화를 구성합니다. KMS 키를 관리할 규정 준수 팀을 할당합니다.",
+    "D": "S3 버킷 정책에서 aws:SecureTransport 조건을 사용하여 HTTPS(TLS)를 통한 암호화된 연결만 허용합니다. Amazon Macie 를 사용하여 Amazon S3 에 저장된 민감한 데이터를 보호하십시오. Macie 를 관리할 규정 준수 팀을 지정합니다."
+  }
+}

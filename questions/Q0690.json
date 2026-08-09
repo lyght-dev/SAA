@@ -1,0 +1,10 @@
+{
+  "questionNumber": 690,
+  "question": "한 도시에서는 ALB(Application Load Balancer) 뒤에 Amazon EC2 인스턴스에서 실행되는 웹 애플리케이션을 배포했습니다. 애플리케이션 사용자는 산발적인 성능을 보고했는데, 이는 무작위 IP 주소에서 발생하는 DDoS 공격과 관련된 것으로 보입니다. 도시에는 구성 변경을 최소화하고 DDoS 소스에 대한 감사 추적을 제공하는 솔루션이 필요합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "ALB 에서 AWS WAF 웹 ACL 을 활성화하고 알 수 없는 소스의 트래픽을 차단하는 규칙을 구성합니다.",
+    "B": "Amazon Inspector 를 구독하세요. AWS DDoS 대응 팀(DRT)을 참여시켜 완화 제어 기능을 서비스에 통합하십시오.",
+    "C": "AWS Shield Advanced 를 구독하세요. AWS DDoS 대응 팀(DRT)을 참여시켜 완화 제어 기능을 서비스에 통합하십시오.",
+    "D": "애플리케이션에 대한 Amazon CloudFront 배포를 생성하고 ALB 를 오리진으로 설정합니다. 배포에서 AWS WAF 웹 ACL 을 활성화하고 알 수 없는 소스의 트래픽을 차단하는 규칙을 구성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 353,
+  "question": "회사는 단일 가용 영역의 Amazon EC2 인스턴스에서 3 계층 웹 애플리케이션을 호스팅합니다. 웹 애플리케이션은 EC2 인스턴스에서 호스팅되는 자체 관리형 MySQL 데이터베이스를 사용하여 Amazon Elastic Block Store(Amazon EBS) 볼륨에 데이터를 저장합니다. MySQL 데이터베이스는 현재 1TB 프로비저닝된 IOPS SSD(io2) EBS 볼륨을 사용합니다. 이 회사는 피크 트래픽에서 읽기 및 쓰기 모두에 대해 1,000 IOPS 의 트래픽을 예상합니다. 회사는 두 배의 IOPS 용량을 유지하면서 중단을 최소화하고 성능을 안정화하며 비용을 절감하고자 합니다. 이 회사는 데이터베이스 계층을 가용성이 높고 내결함성이 있는 완전 관리형 솔루션으로 이동하려고 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "io2 Block Express EBS 볼륨이 있는 MySQL DB 인스턴스용 Amazon RDS 의 다중 AZ 배포를 사용합니다.",
+    "B": "범용 SSD(gp2) EBS 볼륨이 있는 MySQL DB 인스턴스용 Amazon RDS 의 다중 AZ 배포를 사용합니다.",
+    "C": "Amazon S3 Intelligent-Tiering 액세스 계층을 사용합니다.",
+    "D": "두 개의 큰 EC2 인스턴스를 사용하여 활성-수동 모드에서 데이터베이스를 호스팅합니다."
+  }
+}

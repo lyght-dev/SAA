@@ -1,0 +1,10 @@
+{
+  "questionNumber": 32,
+  "question": "개발 팀은 다른 팀이 액세스할 웹사이트를 호스팅해야 합니다. 웹사이트 콘텐츠는 HTML, CSS, 클라이언트 측 JavaScript 및 이미지로 구성됩니다. 웹 사이트 호스팅에 가장 비용 효율적인 방법은 무엇입니까?",
+  "choices": {
+    "A": "웹 사이트를 컨테이너화하고 AWS Fargate 에서 호스팅합니다.",
+    "B": "Amazon S3 버킷을 생성하고 거기에서 웹 사이트를 호스팅합니다.",
+    "C": "Amazon EC2 인스턴스에 웹 서버를 배포하여 웹 사이트를 호스팅합니다.",
+    "D": "Express.js 프레임워크를 사용하는 AWS Lambda 대상으로 Application Load Balancer 를 구성합니다."
+  }
+}

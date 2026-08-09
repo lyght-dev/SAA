@@ -1,0 +1,10 @@
+{
+  "questionNumber": 165,
+  "question": "솔루션 설계자는 정적 웹 사이트를 저장하기 위해 Amazon S3 오리진과 함께 Amazon CloudFront 를 사용하는 솔루션을 설계해야 합니다. 회사의 보안 정책에 따라 모든 웹 사이트 트래픽은 AWS WAF 에서 검사해야 합니다. 솔루션 설계자는 이러한 요구 사항을 어떻게 준수해야 합니까?",
+  "choices": {
+    "A": "AWS WAF Amazon 리소스 이름(ARN)에서만 오는 요청을 수락하도록 S3 버킷 정책을 구성합니다.",
+    "B": "S3 오리진에서 콘텐츠를 요청하기 전에 모든 수신 요청을 AWS WAF 로 전달하도록 Amazon CloudFront 를 구성합니다.",
+    "C": "Amazon CloudFront IP 주소가 Amazon S3 에만 액세스하도록 허용하는 보안 그룹을 구성합니다. AWS WAF 를 CloudFront 에 연결합니다.",
+    "D": "원본 액세스 ID(OAI)를 사용하여 S3 버킷에 대한 액세스를 제한하도록 Amazon CloudFront 및 Amazon S3 를 구성합니다. 배포에서 AWS WAF 를 활성화합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 589,
+  "question": "한 회사는 고정 세션이 활성화된 Application Load Balancer 뒤에 있는 Auto Scaling 그룹의 Amazon EC2 인스턴스에서 웹 애플리케이션을 실행합니다. 웹 서버는 현재 사용자 세션 상태를 호스팅합니다. 회사는 웹 서버 중단 시 고가용성을 보장하고 사용자 세션 상태 손실을 방지하기를 원합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Memcached 인스턴스용 Amazon ElastiCache 를 사용하여 세션 데이터를 저장합니다. Memcached 용 ElastiCache 를 사용하여 세션 상태를 저장하도록 애플리케이션을 업데이트합니다.",
+    "B": "Redis 용 Amazon ElastiCache 를 사용하여 세션 상태를 저장합니다. Redis 용 ElastiCache 를 사용하여 세션 상태를 저장하도록 애플리케이션을 업데이트합니다.",
+    "C": "AWS Storage Gateway 캐싱 볼륨을 사용하여 세션 데이터를 저장합니다. AWS Storage Gateway 캐싱 볼륨을 사용하여 세션 상태를 저장하도록 애플리케이션을 업데이트합니다.",
+    "D": "Amazon RDS 를 사용하여 세션 상태를 저장합니다. Amazon RDS 를 사용하여 세션 상태를 저장하도록 애플리케이션을 업데이트합니다."
+  }
+}

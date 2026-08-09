@@ -1,0 +1,10 @@
+{
+  "questionNumber": 59,
+  "question": "회사는 300 개 이상의 글로벌 웹사이트 및 애플리케이션을 호스팅합니다. 이 회사는 매일 30TB 이상의 클릭스트림 데이터를 분석할 플랫폼이 필요합니다. 솔루션 설계자는 클릭스트림 데이터를 전송하고 처리하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "AWS Data Pipeline 을 설계하여 데이터를 Amazon S3 버킷에 보관하고 데이터로 Amazon EMR 클러스터를 실행하여 분석을 생성합니다.",
+    "B": "Amazon EC2 인스턴스의 Auto Scaling 그룹을 생성하여 데이터를 처리하고 Amazon Redshift 가 분석에 사용할 수 있도록 Amazon S3 데이터 레이크로 보냅니다.",
+    "C": "데이터를 Amazon CloudFront 에 캐시합니다. Amazon S3 버킷에 데이터를 저장합니다. 객체가 S3 버킷에 추가될 때. AWS Lambda 함수를 실행하여 분석용 데이터를 처리합니다.",
+    "D": "Amazon Kinesis Data Streams 에서 데이터를 수집합니다. Amazon Kinesis Data Firehose 를 사용하여 Amazon S3 데이터 레이크로 데이터를 전송합니다. 분석을 위해 Amazon Redshift 에 데이터를 로드합니다."
+  }
+}

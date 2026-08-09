@@ -1,0 +1,10 @@
+{
+  "questionNumber": 118,
+  "question": "회사는 여러 가용 영역의 Amazon EC2 인스턴스에서 실행되는 웹 기반 애플리케이션을 구축하고 있습니다. 웹 애플리케이션은 약 900TB 크기의 텍스트 문서 저장소에 대한 액세스를 제공합니다. 회사는 웹 응용 프로그램이 수요가 많은 기간을 경험할 것으로 예상합니다. 솔루션 설계자는 텍스트 문서의 스토리지 구성 요소가 애플리케이션의 요구 사항을 항상 충족할 수 있도록 확장할 수 있는지 확인해야 합니다. 회사는 솔루션의 전체 비용에 대해 우려하고 있습니다. 어떤 스토리지 솔루션이 이러한 요구 사항을 가장 비용 효율적으로 충족합니까?",
+  "choices": {
+    "A": "Amazon Elastic Block Store(Amazon EBS)",
+    "B": "Amazon Elastic File System(Amazon EFS)",
+    "C": "Amazon OpenSearch Service(Amazon Elasticsearch Service)",
+    "D": "Amazon S3"
+  }
+}

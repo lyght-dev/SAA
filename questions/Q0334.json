@@ -1,0 +1,10 @@
+{
+  "questionNumber": 334,
+  "question": "회사는 고객이 온프레미스 Microsoft Active Directory 를 사용하여 Amazon S3 에 저장된 파일을 다운로드할 수 있는 기능을 제공하려고 합니다. 고객의 애플리케이션은 SFTP 클라이언트를 사용하여 파일을 다운로드합니다. 운영 오버헤드를 최소화하고 고객의 애플리케이션을 변경하지 않으면서 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon S3 용 SFTP 로 AWS Transfer Family 를 설정합니다. 통합된 Active Directory 인증을 구성합니다.",
+    "B": "온프레미스 클라이언트를 Amazon S3 와 동기화하도록 AWS DMS(AWS Database Migration Service)를 설정합니다. 통합된 Active Directory 인증을 구성합니다.",
+    "C": "AWS IAM Identity Center(AWS Single Sign-On)를 사용하여 온프레미스 위치와 S3 위치 간에 동기화하도록 AWS DataSync 를 설정합니다.",
+    "D": "SFTP 로 Windows Amazon EC2 인스턴스를 설정하여 온프레미스 클라이언트를 Amazon S3 와 연결합니다. AWS Identity and Access Management(IAM)를 통합합니다."
+  }
+}

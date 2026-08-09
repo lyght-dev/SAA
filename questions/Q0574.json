@@ -1,0 +1,10 @@
+{
+  "questionNumber": 574,
+  "question": "금융 서비스 회사는 Amazon RDS for MySQL 데이터베이스를 사용하는 새로운 애플리케이션을 출시했습니다. 회사는 응용 프로그램을 사용하여 주식 시장 추세를 추적합니다. 회사는 매주 말 2 시간 동안만 애플리케이션을 작동하면 됩니다. 회사는 데이터베이스 실행 비용을 최적화해야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "기존 RDS for MySQL 데이터베이스를 Aurora Serverless v2 MySQL 데이터베이스 클러스터로 마이그레이션합니다.",
+    "B": "기존 RDS for MySQL 데이터베이스를 Aurora MySQL 데이터베이스 클러스터로 마이그레이션합니다.",
+    "C": "기존 RDS for MySQL 데이터베이스를 MySQL 을 실행하는 Amazon EC2 인스턴스로 마이그레이션합니다. EC2 인스턴스에 대한 인스턴스 예약을 구매합니다.",
+    "D": "기존 RDS for MySQL 데이터베이스를 MySQL 컨테이너 이미지를 사용하여 작업을 실행하는 Amazon Elastic Container Service(Amazon ECS) 클러스터로 마이그레이션합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 23,
+  "question": "회사에서 Amazon S3 Standard 스토리지를 사용하여 백업 파일을 저장하고 있습니다. 1 개월 동안 파일에 자주 액세스합니다. 단, 1 개월 이후에는 파일에 접근하지 않습니다. 회사는 파일을 무기한 보관해야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 스토리지 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "객체를 자동으로 마이그레이션하도록 S3 Intelligent-Tiering 을 구성합니다.",
+    "B": "S3 수명 주기 구성을 생성하여 1 개월 후에 S3 Standard 에서 S3 Glacier Deep Archive 로 객체를 전환합니다.",
+    "C": "S3 수명 주기 구성을 생성하여 1 개월 후에 객체를 S3 Standard 에서 S3 Standard-Infrequent Access(S3 Standard-IA)로 전환합니다.",
+    "D": "S3 수명 주기 구성을 생성하여 1 개월 후에 객체를 S3 Standard 에서 S3 One Zone-Infrequent Access(S3 One Zone-IA)로 전환합니다."
+  }
+}

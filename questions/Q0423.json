@@ -1,0 +1,11 @@
+{
+  "questionNumber": 423,
+  "question": "솔루션 설계자는 다음 JSON 텍스트를 자격 증명 기반 정책으로 사용하여 특정 권한을 부여하려고 합니다.\n\n정책:\n{\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ssm:ListDocuments\",\n        \"ssm:GetDocument\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\",\n      \"Sid\": \"\"\n    }\n  ],\n  \"Version\": \"2012-10-17\"\n} 솔루션 설계자가 이 정책을 연결할 수 있는 IAM 보안 주체는 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "역할(Role)",
+    "B": "그룹(Group)",
+    "C": "조직(Organization)",
+    "D": "Amazon Elastic Container Service(Amazon ECS) 리소스(resource)",
+    "E": "Amazon EC2 리소스(resource)"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 241,
+  "question": "온라인 학습 회사가 AWS 클라우드로 마이그레이션하고 있습니다. 회사는 PostgreSQL 데이터베이스에 학생 기록을 유지합니다. 회사는 여러 AWS 리전에서 데이터를 항상 온라인으로 사용할 수 있는 솔루션이 필요합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "PostgreSQL 데이터베이스를 Amazon EC2 인스턴스의 PostgreSQL 클러스터로 마이그레이션합니다.",
+    "B": "PostgreSQL 데이터베이스를 다중 AZ 기능이 켜진 PostgreSQL DB 인스턴스용 Amazon RDS 로 마이그레이션합니다.",
+    "C": "PostgreSQL 데이터베이스를 Amazon RDS for PostgreSQL DB 인스턴스로 마이그레이션합니다. 다른 리전에서 읽기 전용 복제본을 생성합니다.",
+    "D": "PostgreSQL 데이터베이스를 Amazon RDS for PostgreSQL DB 인스턴스로 마이그레이션합니다. 다른 리전에 복사할 DB 스냅샷을 설정합니다."
+  }
+}

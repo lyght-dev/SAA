@@ -1,0 +1,10 @@
+{
+  "questionNumber": 75,
+  "question": "한 회사에서 애플리케이션의 성능을 개선하기 위해 다계층 애플리케이션을 온프레미스에서 AWS 클라우드로 이동하려고 합니다. 애플리케이션은 RESTful 서비스를 통해 서로 통신하는 애플리케이션 계층으로 구성됩니다. 한 계층이 오버로드되면 트랜잭션이 삭제됩니다. 솔루션 설계자는 이러한 문제를 해결하고 애플리케이션을 현대화하는 솔루션을 설계해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족하고 운영상 가장 효율적입니까?",
+  "choices": {
+    "A": "Amazon API Gateway 를 사용하고 애플리케이션 계층으로 AWS Lambda 함수에 트랜잭션을 전달합니다. Amazon Simple Queue Service(Amazon SQS)를 애플리케이션 서비스 간의 통신 계층으로 사용합니다.",
+    "B": "Amazon CloudWatch 지표를 사용하여 애플리케이션 성능 기록을 분석하여 성능 장애 동안 서버의 최대 사용률을 결정합니다. 최대 요구 사항을 충족하도록 애플리케이션 서버의 Amazon EC2 인스턴스 크기를 늘립니다.",
+    "C": "Amazon Simple Notification Service(Amazon SNS)를 사용하여 Auto Scaling 그룹의 Amazon EC2 에서 실행되는 애플리케이션 서버 간의 메시징을 처리합니다. Amazon CloudWatch 를 사용하여 SNS 대기열 길이를 모니터링하고 필요에 따라 확장 및 축소합니다.",
+    "D": "Amazon Simple Queue Service(Amazon SQS)를 사용하여 Auto Scaling 그룹의 Amazon EC2 에서 실행되는 애플리케이션 서버 간의 메시징을 처리합니다. Amazon CloudWatch 를 사용하여 SQS 대기열 길이를 모니터링하고 통신 오류가 감지되면 확장합니다."
+  }
+}

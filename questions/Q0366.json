@@ -1,0 +1,10 @@
+{
+  "questionNumber": 366,
+  "question": "회사의 웹 애플리케이션은 AWS Lambda 함수 앞의 Amazon API Gateway API 와 Amazon DynamoDB 데이터베이스로 구성됩니다. Lambda 함수는 비즈니스 로직을 처리하고 DynamoDB 테이블은 데이터를 호스팅합니다. 애플리케이션은 Amazon Cognito 사용자 풀을 사용하여 애플리케이션의 개별 사용자를 식별합니다. 솔루션 설계자는 구독이 있는 사용자만 프리미엄 콘텐츠에 액세스할 수 있도록 애플리케이션을 업데이트해야 합니다. 최소한의 운영 오버헤드로 이 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "API Gateway API 에서 API 캐싱 및 제한을 활성화합니다.",
+    "B": "API Gateway API 에서 AWS WAF 를 설정합니다. 구독이 있는 사용자를 필터링하는 규칙을 만듭니다.",
+    "C": "DynamoDB 테이블의 프리미엄 콘텐츠에 세분화된 IAM 권한을 적용합니다.",
+    "D": "구독하지 않은 사용자의 액세스를 제한하기 위해 API 사용 계획 및 API 키를 구현하십시오."
+  }
+}

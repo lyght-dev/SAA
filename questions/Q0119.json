@@ -1,0 +1,10 @@
+{
+  "questionNumber": 119,
+  "question": "글로벌 회사는 Amazon API Gateway 를 사용하여 us-east-1 리전 및 ap-southeast-2 리전의 로열티 클럽 사용자를 위한 REST API 를 설계하고 있습니다. 솔루션 설계자는 SQL 주입 및 교차 사이트 스크립팅 공격으로부터 여러 계정에서 이러한 API Gateway 관리 REST API 를 보호하는 솔루션을 설계해야 합니다. 최소한의 관리 노력으로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "두 리전에 AWS WAF 를 설정합니다. 리전 웹 ACL 을 API 단계와 연결합니다.",
+    "B": "두 리전에 AWS Firewall Manager 를 설정합니다. AWS WAF 규칙을 중앙에서 구성합니다.",
+    "C": "목욕 리전에서 AWS Shield 를 설정합니다. 리전 웹 ACL 을 API 단계와 연결합니다.",
+    "D": "한 리전에서 AWS Shield 를 설정합니다. 리전 웹 ACL 을 API 단계와 연결합니다."
+  }
+}

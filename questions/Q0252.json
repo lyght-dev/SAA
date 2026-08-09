@@ -1,0 +1,10 @@
+{
+  "questionNumber": 252,
+  "question": "솔루션 설계자는 고객 사례 파일을 저장할 시스템을 설계해야 합니다. 파일은 핵심 회사 자산이며 중요합니다. 파일 수는 시간이 지남에 따라 증가합니다. 파일은 Amazon EC2 인스턴스에서 실행되는 여러 애플리케이션 서버에서 동시에 액세스할 수 있어야 합니다. 솔루션에는 중복성이 내장되어 있어야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Amazon Elastic File System(Amazon EFS)",
+    "B": "Amazon Elastic Block Store(Amazon EBS)",
+    "C": "Amazon S3 Glacier Deep 아카이브(Amazon S3 Glacier Deep Archive)",
+    "D": "AWS 백업(AWS Backup)"
+  }
+}

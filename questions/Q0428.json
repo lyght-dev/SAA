@@ -1,0 +1,10 @@
+{
+  "questionNumber": 428,
+  "question": "서버리스 애플리케이션은 Amazon API Gateway, AWS Lambda 및 Amazon DynamoDB 를 사용합니다. Lambda 함수에는 DynamoDB 테이블을 읽고 쓸 수 있는 권한이 필요합니다. DynamoDB 테이블에 대한 Lambda 함수 액세스를 가장 안전하게 제공하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Lambda 함수에 프로그래밍 방식으로 액세스할 수 있는 IAM 사용자를 생성합니다. DynamoDB 테이블에 대한 읽기 및 쓰기 액세스를 허용하는 정책을 사용자에게 연결합니다. access_key_id 및 secret_access_key 파라미터를 Lambda 환경 변수의 일부로 저장합니다. 다른 AWS 사용자에게 Lambda 함수 구성에 대한 읽기 및 쓰기 액세스 권한이 없는지 확인하십시오.",
+    "B": "Lambda 를 신뢰할 수 있는 서비스로 포함하는 IAM 역할을 생성합니다. DynamoDB 테이블에 대한 읽기 및 쓰기 액세스를 허용하는 역할에 정책을 연결합니다. 새 역할을 실행 역할로 사용하도록 Lambda 함수의 구성을 업데이트합니다.",
+    "C": "Lambda 함수에 프로그래밍 방식으로 액세스할 수 있는 IAM 사용자를 생성합니다. DynamoDB 테이블에 대한 읽기 및 쓰기 액세스를 허용하는 정책을 사용자에게 연결합니다. AWS Systems Manager Parameter Store 에 access_key_id 및 secret_access_key 파라미터를 보안 문자열 파라미터로 저장합니다. DynamoDB 테이블에 연결하기 전에 보안 문자열 파라미터를 검색하도록 Lambda 함수 코드를 업데이트합니다.",
+    "D": "DynamoDB 를 신뢰할 수 있는 서비스로 포함하는 IAM 역할을 생성합니다. Lambda 함수에서 읽기 및 쓰기 액세스를 허용하는 역할에 정책을 연결합니다. 새 역할에 실행 역할로 연결되도록 Lambda 함수의 코드를 업데이트합니다."
+  }
+}

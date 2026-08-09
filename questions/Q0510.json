@@ -1,0 +1,10 @@
+{
+  "questionNumber": 510,
+  "question": "글로벌 마케팅 회사에는 ap-southeast-2 지역 및 eu-west-1 지역에서 실행되는 애플리케이션이 있습니다. eu-west-1 의 VPC 에서 실행되는 애플리케이션은 ap-southeast-2 의 VPC 에서 실행되는 데이터베이스와 안전하게 통신해야 합니다. 이러한 요구 사항을 충족하는 네트워크 설계는 무엇입니까?",
+  "choices": {
+    "A": "eu-west-1 VPC 와 ap-southeast-2 VPC 간에 VPC 피어링 연결을 생성합니다. ap-southeast-2 보안 그룹의 데이터베이스 서버 IP 주소에서 오는 트래픽을 허용하는 인바운드 규칙을 eu-west-1 애플리케이션 보안 그룹에 생성합니다.",
+    "B": "ap-southeast-2 VPC 와 eu-west-1 VPC 간에 VPC 피어링 연결을 구성합니다. 서브넷 경로 테이블을 업데이트합니다. eu-west-1 에 있는 애플리케이션 서버의 보안 그룹 ID 를 참조하는 ap-southeast-2 데이터베이스 보안 그룹에서 인바운드 규칙을 생성합니다.",
+    "C": "ap-southeast-2 VPC 와 eu-west-1 VPUpdate 서브넷 라우팅 테이블 간에 VPC 피어링 연결을 구성합니다. ap-southeast-2 데이터베이스 보안 그룹에서 eu-west-1 애플리케이션 서버 IP 주소의 트래픽을 허용하는 인바운드 규칙을 생성합니다.",
+    "D": "eu-west-1 VPC 와 ap-southeast-2 VPC 간에 피어링 연결이 있는 전송 게이트웨이를 생성합니다. 전송 게이트웨이가 올바르게 피어링되고 라우팅이 구성되면 eu-west-1 에 있는 애플리케이션 서버의 보안 그룹 ID 를 참조하는 데이터베이스 보안 그룹에 인바운드 규칙을 생성합니다."
+  }
+}

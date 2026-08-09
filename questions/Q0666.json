@@ -1,0 +1,10 @@
+{
+  "questionNumber": 666,
+  "question": "회사는 사용자를 비용 센터에 매핑하는 Amazon RDS 데이터베이스를 유지 관리합니다. 회사는 AWS Organizations 의 조직에 계정을 가지고 있습니다. 회사에는 조직의 특정 AWS 계정에서 생성된 모든 리소스에 태그를 지정하는 솔루션이 필요합니다. 솔루션은 리소스를 생성한 사용자의 비용 센터 ID 로 각 리소스에 태그를 지정해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "특정 AWS 계정을 마스터 계정에서 조직의 새로운 조직 단위(OU)로 이동합니다. 리소스가 생성되기 전에 모든 기존 리소스에 올바른 비용 센터 태그가 있어야 하는 서비스 제어 정책(SCP)을 생성합니다. 새 OU 에 SCP 를 적용합니다.",
+    "B": "Lambda 함수가 RDS 데이터베이스에서 적절한 비용 센터를 조회한 후 리소스에 태그를 지정하는 AWS Lambda 함수를 생성합니다. AWS CloudTrail 이벤트에 반응하여 Lambda 함수를 호출하는 Amazon EventBridge 규칙을 구성합니다.",
+    "C": "AWS CloudFormation 스택을 생성하여 AWS Lambda 함수를 배포합니다. RDS 데이터베이스에서 적절한 비용 센터를 조회하고 리소스에 태그를 지정하도록 Lambda 함수를 구성합니다. CloudFormation 스택을 호출하는 Amazon EventBridge 예약 규칙을 생성합니다.",
+    "D": "기본값으로 리소스에 태그를 지정하는 AWS Lambda 함수를 생성합니다. 리소스에 비용 센터 태그가 누락된 경우 AWS CloudTrail 이벤트에 반응하여 Lambda 함수를 호출하는 Amazon EventBridge 규칙을 구성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 22,
+  "question": "솔루션 설계자는 Amazon S3 를 사용하여 새로운 디지털 미디어 애플리케이션의 스토리지 아키텍처를 설계하고 있습니다. 미디어 파일은 가용 영역 손실에 대한 복원력이 있어야 합니다. 일부 파일은 자주 액세스되는 반면 다른 파일은 예측할 수 없는 패턴으로 거의 액세스되지 않습니다. 솔루션 설계자는 미디어 파일을 저장하고 검색하는 비용을 최소화해야 합니다. 이러한 요구 사항을 충족하는 스토리지 옵션은 무엇입니까?",
+  "choices": {
+    "A": "S3 Standard (S3 표준)",
+    "B": "S3 Intelligent-Tiering (S3 지능형 계층화)",
+    "C": "S3 Standard-Infrequent Access(S3 Standard-IA)",
+    "D": "S3 One Zone-Infrequent Access(S3 One Zone-IA)"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 402,
+  "question": "회사는 애플리케이션에서 생성하는 대량의 스트리밍 데이터를 수집하고 처리해야 합니다. 이 애플리케이션은 Amazon EC2 인스턴스에서 실행되며 기본 설정으로 구성된 Amazon Kinesis Data Streams 로 데이터를 전송합니다. 격일로 애플리케이션은 데이터를 소비하고 비즈니스 인텔리전스(BI) 처리를 위해 데이터를 Amazon S3 버킷에 기록합니다. 회사는 Amazon S3 가 애플리케이션이 Kinesis Data Streams 로 보내는 모든 데이터를 수신하지 못하는 것을 관찰합니다. 솔루션 설계자는 이 문제를 해결하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "데이터 보존 기간을 수정하여 Kinesis Data Streams 기본 설정을 업데이트합니다.",
+    "B": "Kinesis Producer Library(KPL)를 사용하여 Kinesis Data Streams 로 데이터를 전송하도록 애플리케이션을 업데이트합니다.",
+    "C": "Kinesis Data Streams 로 전송되는 데이터의 처리량을 처리하도록 Kinesis 샤드 수를 업데이트합니다.",
+    "D": "S3 버킷 내에서 S3 버전 관리를 켜서 S3 버킷에 수집된 모든 객체의 모든 버전을 보존합니다."
+  }
+}

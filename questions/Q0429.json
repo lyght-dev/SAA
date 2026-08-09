@@ -1,0 +1,10 @@
+{
+  "questionNumber": 429,
+  "question": "다음 IAM 정책은 IAM 그룹에 연결됩니다. 이것은 그룹에 적용되는 유일한 정책입니다.\n\n정책:\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"1\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"ec2:*\",\n      \"Resource\": \"*\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"ec2:Region\": \"us-east-1\"\n        }\n      }\n    },\n    {\n      \"Sid\": \"2\",\n      \"Effect\": \"Deny\",\n      \"Action\": [\n        \"ec2:StopInstances\",\n        \"ec2:TerminateInstances\"\n      ],\n      \"Resource\": \"*\",\n      \"Condition\": {\n        \"BoolIfExists\": {\n          \"aws:MultiFactorAuthPresent\": false\n        }\n      }\n    }\n  ]\n} 그룹 구성원에 대한 이 정책의 유효 IAM 권한은 무엇입니까?",
+  "choices": {
+    "A": "그룹 구성원은 us-east-1 지역 내 모든 Amazon EC2 작업이 허용됩니다. 허용 권한 이후의 문은 적용되지 않습니다.",
+    "B": "그룹 구성원은 멀티 팩터 인증(MFA)으로 로그인하지 않는 한 us-east-1 리전에서 모든 Amazon EC2 권한이 거부됩니다.",
+    "C": "그룹 구성원은 멀티 팩터 인증(MFA)으로 로그인할 때 모든 리전에 대한 ec2:StopInstances 및 ec2:TerminateInstances 권한이 허용됩니다. 그룹 구성원은 다른 모든 Amazon EC2 작업이 허용됩니다.",
+    "D": "그룹 구성원은 멀티 팩터 인증(MFA)으로 로그인한 경우에만 us-east-1 리전에 대한 ec2:StopInstances 및 ec2:TerminateInstances 권한이 허용됩니다. 그룹 구성원은 us-east-1 리전 내에서 다른 모든 Amazon EC2 작업이 허용됩니다."
+  }
+}

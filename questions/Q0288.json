@@ -1,0 +1,10 @@
+{
+  "questionNumber": 288,
+  "question": "회사에서 Linux 기반 웹 서버 그룹을 AWS 로 마이그레이션하고 있습니다. 웹 서버는 일부 콘텐츠에 대해 공유 파일 저장소의 파일에 액세스해야 합니다. 회사는 신청서를 변경해서는 안됩니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "웹 서버에 대한 액세스 권한이 있는 Amazon S3 Standard 버킷을 생성합니다.",
+    "B": "Amazon S3 버킷을 원본으로 사용하여 Amazon CloudFront 배포를 구성합니다.",
+    "C": "Amazon Elastic File System(Amazon EFS) 파일 시스템을 생성합니다. 모든 웹 서버에 EFS 파일 시스템을 마운트합니다.",
+    "D": "범용 SSD(gp3) Amazon Elastic Block Store(Amazon EBS) 볼륨을 구성합니다. 모든 웹 서버에 EBS 볼륨을 마운트합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 3,
+  "question": "회사는 AWS Organizations 를 사용하여 여러 부서의 여러 AWS 계정을 관리합니다. 관리 계정에는 프로젝트 보고서가 포함된 Amazon S3 버킷이 있습니다. 회사는 이 S3 버킷에 대한 액세스를 AWS Organizations 의 조직 내 계정 사용자로만 제한하려고 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "조직 ID 에 대한 참조와 함께 aws PrincipalOrgID 전역 조건 키를 S3 버킷 정책에 추가합니다.",
+    "B": "각 부서에 대한 조직 단위(OU)를 만듭니다. aws:PrincipalOrgPaths 전역 조건 키를 S3 버킷 정책에 추가합니다.",
+    "C": "AWS CloudTrail 을 사용하여 CreateAccount, InviteAccountToOrganization, LeaveOrganization 및 RemoveAccountFromOrganization 이벤트를 모니터링합니다. 그에 따라 S3 버킷 정책을 업데이트합니다.",
+    "D": "S3 버킷에 액세스해야 하는 각 사용자에 태그를 지정합니다. aws:PrincipalTag 전역 조건 키를 S3 버킷 정책에 추가합니다."
+  }
+}

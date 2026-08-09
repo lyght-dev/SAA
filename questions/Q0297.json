@@ -1,0 +1,10 @@
+{
+  "questionNumber": 297,
+  "question": "회사에서 5 개의 Amazon EC2 인스턴스에 애플리케이션을 배포합니다. ALB(Application Load Balancer)는 대상 그룹을 사용하여 인스턴스에 트래픽을 분산합니다. 각 인스턴스의 평균 CPU 사용량은 대부분 10% 미만이며 때때로 65%까지 급증합니다. 솔루션 설계자는 애플리케이션의 확장성을 자동화하는 솔루션을 구현해야 합니다. 솔루션은 아키텍처의 비용을 최적화하고 급증이 발생할 때 애플리케이션에 충분한 CPU 리소스가 있는지 확인해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "CPUUtilization 지표가 20% 미만일 때 ALARM 상태로 들어가는 Amazon CloudWatch 경보를 생성합니다. ALB 대상 그룹의 EC2 인스턴스 중 하나를 종료하기 위해 CloudWatch 경보가 호출하는 AWS Lambda 함수를 생성합니다.",
+    "B": "EC2 Auto Scaling 그룹을 생성합니다. 기존 ALB 를 로드 밸런서로 선택하고 기존 대상 그룹을 대상 그룹으로 선택하십시오. ASGAverageCPUUtilization 지표를 기반으로 하는 대상 추적 조정 정책을 설정합니다. 최소 인스턴스를 2 로, 원하는 용량을 3 으로, 최대 인스턴스를 6 으로, 목표 값을 50%로 설정합니다. Auto Scaling 그룹에 EC2 인스턴스를 추가합니다.",
+    "C": "EC2 Auto Scaling 그룹을 생성합니다. 기존 ALB 를 로드 밸런서로 선택하고 기존 대상 그룹을 대상 그룹으로 선택하십시오. 최소 인스턴스를 2 로, 원하는 용량을 3 으로, 최대 인스턴스를 6 으로 설정합니다. Auto Scaling 그룹에 EC2 인스턴스를 추가합니다.",
+    "D": "두 개의 Amazon CloudWatch 경보를 생성합니다. 평균 CPUUtilization 지표가 20% 미만일 때 ALARM 상태로 들어가도록 첫 번째 CloudWatch 경보를 구성합니다. 평균 CPUUtilization 지표가 50%를 초과하면 ALARM 상태로 들어가도록 두 번째 CloudWatch 경보를 구성합니다. 이메일 메시지를 보내기 위해 Amazon Simple Notification Service(Amazon SNS) 주제에 게시하도록 경보를 구성합니다. 메시지를 받은 후 로그인하여 실행 중인 EC2 인스턴스 수를 줄이거나 늘립니다."
+  }
+}

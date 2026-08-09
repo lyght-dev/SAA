@@ -1,0 +1,10 @@
+{
+  "questionNumber": 147,
+  "question": "회사는 중요한 애플리케이션에 대한 애플리케이션 로그 파일을 10 년 동안 보관해야 합니다. 애플리케이션 팀은 문제 해결을 위해 지난 달의 로그에 정기적으로 액세스하지만 1 개월 이상 된 로그는 거의 액세스하지 않습니다. 애플리케이션은 매월 10TB 이상의 로그를 생성합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 스토리지 옵션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon S3 에 로그를 저장합니다. AWS Backup 을 사용하여 1 개월 이상 된 로그를 S3 Glacier Deep Archive 로 이동합니다.",
+    "B": "Amazon S3 에 로그를 저장합니다. S3 수명 주기 정책을 사용하여 1 개월 이상 된 로그를 S3 Glacier Deep Archive 로 이동합니다.",
+    "C": "Amazon CloudWatch Logs 에 로그를 저장합니다. AWS Backup 을 사용하여 1 개월 이상 된 로그를 S3 Glacier Deep Archive 로 이동합니다.",
+    "D": "Amazon CloudWatch Logs 에 로그를 저장합니다. Amazon S3 수명 주기 정책을 사용하여 1 개월 이상 된 로그를 S3 Glacier Deep Archive 로 이동합니다."
+  }
+}

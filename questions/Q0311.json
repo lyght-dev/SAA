@@ -1,0 +1,10 @@
+{
+  "questionNumber": 311,
+  "question": "한 회사에서 AWS 를 사용하여 보험 견적을 처리할 웹 애플리케이션을 설계하고 있습니다. 사용자는 애플리케이션에서 견적을 요청합니다. 견적은 견적 유형별로 구분되어야 하며, 24 시간 이내에 응답해야 하며 분실해서는 안 됩니다. 솔루션은 운영 효율성을 극대화하고 유지 보수를 최소화해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "견적 유형에 따라 여러 Amazon Kinesis 데이터 스트림을 생성합니다. 적절한 데이터 스트림으로 메시지를 보내도록 웹 애플리케이션을 구성합니다. Kinesis Client Library(KCL)를 사용하여 자체 데이터 스트림에서 메시지를 풀링하도록 애플리케이션 서버의 각 백엔드 그룹을 구성합니다.",
+    "B": "각 견적 유형에 대해 AWS Lambda 함수 및 Amazon Simple Notification Service(Amazon SNS) 주제를 생성합니다. 연결된 SNS 주제에 Lambda 함수를 구독합니다. 견적 요청을 적절한 SNS 주제에 게시하도록 애플리케이션을 구성합니다.",
+    "C": "단일 Amazon Simple Notification Service(Amazon SNS) 주제를 생성합니다. SNS 주제에 대한 Amazon Simple Queue Service(Amazon SQS) 대기열을 구독합니다. 견적 유형에 따라 적절한 SQS 대기열에 메시지를 게시하도록 SNS 메시지 필터링을 구성합니다. 자체 SQS 대기열을 사용하도록 각 백엔드 애플리케이션 서버를 구성합니다.",
+    "D": "데이터 스트림을 Amazon OpenSearch Service 클러스터로 전달하기 위해 견적 유형을 기반으로 여러 Amazon Kinesis Data Firehose 전달 스트림을 생성합니다. 적절한 전송 스트림으로 메시지를 보내도록 애플리케이션을 구성합니다. OpenSearch Service 에서 메시지를 검색하고 그에 따라 처리하도록 애플리케이션 서버의 각 백엔드 그룹을 구성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 601,
+  "question": "회사는 PostgreSQL DB 인스턴스용 Amazon RDS 에서 중요 데이터베이스를 실행합니다. 이 회사는 가동 중지 시간과 데이터 손실을 최소화하면서 Amazon Aurora PostgreSQL 로 마이그레이션하려고 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "RDS for PostgreSQL DB 인스턴스의 DB 스냅샷을 생성하여 새로운 Aurora PostgreSQL DB 클러스터를 채웁니다.",
+    "B": "RDS for PostgreSQL DB 인스턴스의 Aurora 읽기 전용 복제본을 생성합니다. Aurora 읽기 복제를 새로운 Aurora PostgreSQL DB 클러스터로 승격합니다.",
+    "C": "Amazon S3 에서 데이터 가져오기를 사용하여 데이터베이스를 Aurora PostgreSQL DB 클러스터로 마이그레이션합니다.",
+    "D": "pg_dump 유틸리티를 사용하여 PostgreSQL 용 RDS 데이터베이스를 백업합니다. 새 Aurora PostgreSQL DB 클러스터로 백업을 복원합니다."
+  }
+}

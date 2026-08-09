@@ -1,0 +1,10 @@
+{
+  "questionNumber": 477,
+  "question": "그룹에는 Amazon S3 버킷을 나열하고 해당 버킷에서 객체를 삭제할 수 있는 권한이 필요합니다. 관리자는 버킷에 대한 액세스 권한을 제공하기 위해 다음 IAM 정책을 생성하고 해당 정책을 그룹에 적용했습니다. 그룹은 버킷의 객체를 삭제할 수 없습니다. 회사는 최소 권한 액세스 규칙을 따릅니다.\n\n현재 정책:\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"s3:ListBucket\",\n        \"s3:DeleteObject\"\n      ],\n      \"Resource\": [\n        \"arn:aws:s3:::bucket-name\"\n      ],\n      \"Effect\": \"Allow\"\n    }\n  ]\n} 버킷 액세스를 수정하기 위해 솔루션 설계자가 정책에 추가해야 하는 설명은 무엇입니까?",
+  "choices": {
+    "A": "{\n  \"Action\": [\n    \"s3:*Object\"\n  ],\n  \"Resource\": [\n    \"arn:aws:s3:::bucket-name/*\"\n  ],\n  \"Effect\": \"Allow\"\n}",
+    "B": "{\n  \"Action\": [\n    \"s3:*\"\n  ],\n  \"Resource\": [\n    \"arn:aws:s3:::bucket-name/*\"\n  ],\n  \"Effect\": \"Allow\"\n}",
+    "C": "{\n  \"Action\": [\n    \"s3:DeleteObject\"\n  ],\n  \"Resource\": [\n    \"arn:aws:s3:::bucket-name*\"\n  ],\n  \"Effect\": \"Allow\"\n}",
+    "D": "{\n  \"Action\": [\n    \"s3:DeleteObject\"\n  ],\n  \"Resource\": [\n    \"arn:aws:s3:::bucket-name/*\"\n  ],\n  \"Effect\": \"Allow\"\n}"
+  }
+}

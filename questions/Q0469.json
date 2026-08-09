@@ -1,0 +1,10 @@
+{
+  "questionNumber": 469,
+  "question": "회사는 수집된 원시 데이터를 Amazon S3 버킷에 저장합니다. 이 데이터는 회사 고객을 대신하여 여러 유형의 분석에 사용됩니다. 요청된 분석 유형에 따라 S3 객체에 대한 액세스 패턴이 결정됩니다. 회사는 접속 패턴을 예측하거나 통제할 수 없습니다. 회사는 S3 비용을 줄이고자 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "S3 복제를 사용하여 자주 액세스하지 않는 개체를 S3 Standard-Infrequent Access(S3 Standard-IA)로 전환합니다.",
+    "B": "S3 수명 주기 규칙을 사용하여 객체를 S3 Standard 에서 Standard-Infrequent Access 로 전환(S3 Standard-IA)",
+    "C": "S3 수명 주기 규칙을 사용하여 객체를 S3 Standard 에서 S3 Intelligent-Tiering 으로 전환",
+    "D": "S3 Inventory 를 사용하여 S3 Standard 에서 S3 Intelligent-Tiering 으로 액세스하지 않은 객체를 식별하고 전환"
+  }
+}

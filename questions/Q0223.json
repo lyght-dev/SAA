@@ -1,0 +1,11 @@
+{
+  "questionNumber": 223,
+  "question": "한 회사에서 Java Spring Boot 애플리케이션을 프라이빗 서브넷의 Amazon Elastic Kubernetes Service(Amazon EKS)에서 실행되는 포드로 배포했습니다. 애플리케이션은 Amazon DynamoDB 테이블에 데이터를 써야 합니다. 솔루션 설계자는 애플리케이션이 인터넷에 트래픽을 노출하지 않고 DynamoDB 테이블과 상호 작용할 수 있는지 확인해야 합니다. 이 목표를 달성하기 위해 솔루션 설계자는 어떤 단계 조합을 수행해야 합니까? (2 개 선택)",
+  "choices": {
+    "A": "EKS 포드에 충분한 권한이 있는 IAM 역할을 연결합니다.",
+    "B": "EKS 포드에 충분한 권한이 있는 IAM 사용자를 연결합니다.",
+    "C": "프라이빗 서브넷의 네트워크 ACL 을 통해 DynamoDB 테이블에 대한 아웃바운드 연결을 허용합니다.",
+    "D": "DynamoDB 용 VPC 엔드포인트를 생성합니다.",
+    "E": "Java Spring Boot 코드에 액세스 키를 삽입합니다."
+  }
+}

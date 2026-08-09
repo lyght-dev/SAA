@@ -1,0 +1,10 @@
+{
+  "questionNumber": 344,
+  "question": "회사에는 Amazon Simple Queue Service(Amazon SQS)를 사용하여 메시지를 구문 분석하는 Java 애플리케이션이 있습니다. 애플리케이션은 크기가 256KB 보다 큰 메시지를 구문 분석할 수 없습니다. 회사는 응용 프로그램이 50MB 만큼 큰 메시지를 구문 분석할 수 있는 기능을 제공하는 솔루션을 구현하려고 합니다. 코드를 가장 적게 변경하여 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Java 용 Amazon SQS 확장 클라이언트 라이브러리를 사용하여 Amazon S3 에서 256KB 보다 큰 메시지를 호스팅합니다.",
+    "B": "Amazon SQS 대신 Amazon EventBridge 를 사용하여 애플리케이션에서 큰 메시지를 게시합니다.",
+    "C": "256KB 보다 큰 메시지를 처리하도록 Amazon SQS 의 제한을 변경합니다.",
+    "D": "Amazon Elastic File System(Amazon EFS)에 256KB 보다 큰 메시지를 저장합니다. 메시지에서 이 위치를 참조하도록 Amazon SQS 를 구성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 706,
+  "question": "한 회사에서 역사적 사건의 이미지를 저장하는 웹사이트를 운영하고 있습니다. 웹사이트 사용자는 이미지 속 사건이 발생한 연도를 기준으로 이미지를 검색하고 볼 수 있는 기능이 필요합니다. 평균적으로 사용자는 각 이미지를 1 년에 한두 번만 요청합니다. 회사는 가용성이 높은 이미지를 원합니다. 이미지를 저장하고 사용자에게 전달하는 솔루션입니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Elastic Block Store(Amazon EBS)에 이미지를 저장합니다. Amazon EC2 에서 실행되는 웹 서버를 사용하십시오.",
+    "B": "Amazon Elastic File System(Amazon EFS)에 이미지를 저장합니다. Amazon EC2 에서 실행되는 웹 서버를 사용하십시오.",
+    "C": "Amazon S3 Standard 에 이미지를 저장합니다. S3 Standard 를 사용하면 정적 웹사이트를 통해 이미지를 직접 전달할 수 있습니다.",
+    "D": "Amazon S3 Standard-InfrequentAccess(S3 Standard-IA)에 이미지를 저장합니다. S3 Standard-IA 를 사용하면 정적 웹 사이트를 통해 이미지를 직접 전달할 수 있습니다."
+  }
+}

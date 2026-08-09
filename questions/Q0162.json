@@ -1,0 +1,10 @@
+{
+  "questionNumber": 162,
+  "question": "회사에서 재무 위험 모델링을 위해 AWS 에서 고성능 컴퓨팅(HPC) 인프라를 사용하려고 합니다. 회사의 HPC 워크로드는 Linux 에서 실행됩니다. 각 HPC 워크플로는 수백 개의 Amazon EC2 스팟 인스턴스에서 실행되고 수명이 짧으며 궁극적으로 분석 및 향후 장기적 사용을 위해 영구 스토리지에 저장되는 수천 개의 출력 파일을 생성합니다. 이 회사는 모든 EC2 인스턴스에서 데이터를 처리할 수 있도록 온프레미스 데이터를 장기 영구 스토리지로 복사할 수 있는 클라우드 스토리지 솔루션을 찾고 있습니다. 솔루션은 또한 데이터 세트와 출력 파일을 읽고 쓰기 위해 영구 스토리지와 통합된 고성능 파일 시스템이어야 합니다. 이러한 요구 사항을 충족하는 AWS 서비스 조합은 무엇입니까?",
+  "choices": {
+    "A": "Amazon S3 와 통합된 Amazon FSx for Lustre",
+    "B": "Amazon S3 와 통합된 Windows 파일 서버용 Amazon FSx",
+    "C": "Amazon Elastic Block Store(Amazon EBS)와 통합된 Amazon S3 Glacier",
+    "D": "Amazon Elastic Block Store(Amazon EBS) 범용 SSD(gp2) 볼륨과 통합된 VPC 엔드포인트가 있는 Amazon S3 버킷"
+  }
+}

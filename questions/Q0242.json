@@ -1,0 +1,10 @@
+{
+  "questionNumber": 242,
+  "question": "회사는 7 개의 Amazon EC2 인스턴스를 사용하여 AWS 에서 웹 애플리케이션을 호스팅합니다. 회사는 DNS 쿼리에 대한 응답으로 모든 정상적인 EC2 인스턴스의 IP 주소가 반환되도록 요구합니다. 이 요구 사항을 충족하려면 어떤 정책을 사용해야 합니까?",
+  "choices": {
+    "A": "단순 라우팅 정책(Simple routing policy)",
+    "B": "레이턴시 라우팅 정책(Latency routing policy)",
+    "C": "다중값 라우팅 정책(Multivalue routing policy)",
+    "D": "지리적 위치 라우팅 정책(Geolocation routing policy)"
+  }
+}

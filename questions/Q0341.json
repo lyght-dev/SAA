@@ -1,0 +1,10 @@
+{
+  "questionNumber": 341,
+  "question": "회사에는 AWS Lake Formation 에서 관리하는 Amazon S3 데이터 레이크가 있습니다. 이 회사는 데이터 레이크의 데이터를 Amazon Aurora MySQL 데이터베이스에 저장된 운영 데이터와 결합하여 Amazon QuickSight 에서 시각화를 생성하려고 합니다. 회사는 회사의 마케팅 팀이 데이터베이스의 열 하위 집합에만 액세스할 수 있도록 열 수준 권한을 적용하려고 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon EMR 을 사용하여 데이터베이스에서 QuickSight SPICE 엔진으로 직접 데이터를 수집하십시오. 필요한 열만 포함합니다.",
+    "B": "AWS Glue Studio 를 사용하여 데이터베이스에서 S3 데이터 레이크로 데이터를 수집합니다. IAM 정책을 QuickSight 사용자에게 연결하여 열 수준 액세스 제어를 적용합니다. QuickSight 에서 Amazon S3 를 데이터 원본으로 사용합니다.",
+    "C": "AWS Glue Elastic Views 를 사용하여 Amazon S3 의 데이터베이스에 대한 구체화된 보기를 생성합니다. QuickSight 사용자에 대한 열 수준 액세스 제어를 적용하려면 S3 버킷 정책을 생성합니다. QuickSight 에서 Amazon S3 를 데이터 원본으로 사용합니다.",
+    "D": "Lake Formation 청사진을 사용하여 데이터베이스에서 S3 데이터 레이크로 데이터를 수집합니다. Lake Formation 을 사용하여 QuickSight 사용자에 대한 열 수준 액세스 제어를 적용합니다. QuickSight 에서 Amazon Athena 를 데이터 원본으로 사용합니다."
+  }
+}

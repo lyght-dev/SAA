@@ -1,0 +1,10 @@
+{
+  "questionNumber": 410,
+  "question": "회사에서 Amazon EC2 인스턴스에 새 애플리케이션을 배포하고 있습니다. 애플리케이션은 Amazon Elastic Block Store(Amazon EBS) 볼륨에 데이터를 씁니다. 회사는 EBS 볼륨에 기록된 모든 데이터가 유휴 상태에서 암호화되도록 해야 합니다. 이 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "EBS 암호화를 지정하는 IAM 역할을 생성합니다. 역할을 EC2 인스턴스에 연결합니다.",
+    "B": "EBS 볼륨을 암호화된 볼륨으로 생성합니다. EBS 볼륨을 EC2 인스턴스에 연결합니다.",
+    "C": "키가 Encrypt 이고 값이 True 인 EC2 인스턴스 태그를 생성합니다. EBS 수준에서 암호화가 필요한 모든 인스턴스에 태그를 지정합니다.",
+    "D": "계정에서 EBS 암호화를 시행하는 AWS Key Management Service(AWS KMS) 키 정책을 생성합니다. 키 정책이 활성 상태인지 확인하십시오."
+  }
+}

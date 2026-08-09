@@ -1,0 +1,10 @@
+{
+  "questionNumber": 363,
+  "question": "회사는 고유한 이벤트를 별도의 리더보드, 매치메이킹 및 인증 서비스로 동시에 전송해야 하는 게임 시스템을 구축하고 있습니다. 회사에는 이벤트 순서를 보장하는 AWS 이벤트 기반 시스템이 필요합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon EventBridge 이벤트 버스",
+    "B": "Amazon Simple Notification Service(Amazon SNS) FIFO 주제",
+    "C": "Amazon Simple Notification Service(Amazon SNS) 표준 주제",
+    "D": "Amazon Simple Queue Service(Amazon SQS) FIFO 대기열"
+  }
+}

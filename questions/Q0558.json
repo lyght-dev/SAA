@@ -1,0 +1,10 @@
+{
+  "questionNumber": 558,
+  "question": "회사에는 동일한 AWS 계정 내의 us-west-2 리전에 위치한 두 개의 VPC 가 있습니다. 회사는 이러한 VPC 간의 네트워크 트래픽을 허용해야 합니다. 매월 VPC 간에 약 500GB 의 데이터 전송이 발생합니다. 이러한 VPC 를 연결하는 가장 비용 효율적인 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Transit Gateway 를 구현하여 VPC 를 연결합니다. VPC 간 통신에 전송 게이트웨이를 사용하도록 각 VPC 의 라우팅 테이블을 업데이트합니다.",
+    "B": "VPC 간에 AWS Site-to-Site VPN 터널을 구현합니다. VPC 간 통신에 VPN 터널을 사용하도록 각 VPC 의 라우팅 테이블을 업데이트합니다.",
+    "C": "VPC 간에 VPC 피어링 연결을 설정합니다. VPC 간 통신에 VPC 피어링 연결을 사용하도록 각 VPC 의 라우팅 테이블을 업데이트합니다.",
+    "D": "VPC 간에 1GB AWS Direct Connect 연결을 설정합니다. VPC 간 통신에 Direct Connect 연결을 사용하도록 각 VPC 의 라우팅 테이블을 업데이트합니다."
+  }
+}

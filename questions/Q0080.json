@@ -1,0 +1,10 @@
+{
+  "questionNumber": 80,
+  "question": "한 회사는 최근 애플리케이션 마이그레이션 이니셔티브에 대한 지원을 위해 AWS 관리형 서비스 공급자(MSP) 파트너와 계약을 체결했습니다. 솔루션 설계자는 기존 AWS 계정의 Amazon 머신 이미지(AMI)를 MSP 파트너의 AWS 계정과 공유해야 합니다. AMI 는 Amazon Elastic Block Store(Amazon EBS)의 지원을 받으며 AWS Key Management Service(AWS KMS) 고객 관리형 키를 사용하여 EBS 볼륨 스냅샷을 암호화합니다. 솔루션 설계자가 MSP 파트너의 AWS 계정과 AMI 를 공유하는 가장 안전한 방법은 무엇입니까?",
+  "choices": {
+    "A": "암호화된 AMI 및 스냅샷을 공개적으로 사용할 수 있도록 합니다. MSP 파트너의 AWS 계정이 키를 사용할 수 있도록 키 정책을 수정합니다.",
+    "B": "AMI 의 launchPermission 속성을 수정합니다. MSP 파트너의 AWS 계정과만 AMI 를 공유하십시오. MSP 파트너의 AWS 계정이 키를 사용할 수 있도록 키 정책을 수정합니다.",
+    "C": "AMI 의 launchPermission 속성을 수정합니다. MSP 파트너의 AWS 계정과만 AMI 를 공유하십시오. 암호화를 위해 MSP 파트너가 소유한 새 KMS 키를 신뢰하도록 키 정책을 수정합니다.",
+    "D": "원본 계정에서 MSP 파트너의 AWS 계정에 있는 Amazon S3 버킷으로 AMI 를 내보내고 MSP 파트너가 소유한 새 KMS 키로 S3 버킷을 암호화합니다. MSP 파트너의 AWS 계정에서 AMI 를 복사하고 시작합니다."
+  }
+}

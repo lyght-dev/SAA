@@ -1,0 +1,10 @@
+{
+  "questionNumber": 625,
+  "question": "한 회사가 여러 Application Load Balancer 뒤에 웹사이트를 호스팅하고 있습니다. 회사는 전 세계적으로 콘텐츠에 대해 다양한 배포 권한을 가지고 있습니다. 솔루션 설계자는 배포 권한을 위반하지 않고 사용자에게 올바른 콘텐츠가 제공되도록 해야 합니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 어떤 구성을 선택해야 합니까?",
+  "choices": {
+    "A": "AWS WAF 로 Amazon CloudFront 를 구성합니다.",
+    "B": "AWS WAF 로 Application Load Balancer 구성",
+    "C": "지리적 위치 정책으로 Amazon Route 53 구성",
+    "D": "지리 근접 라우팅 정책으로 Amazon Route 53 구성"
+  }
+}

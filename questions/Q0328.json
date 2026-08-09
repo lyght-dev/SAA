@@ -1,0 +1,10 @@
+{
+  "questionNumber": 328,
+  "question": "한 회사가 AWS 클라우드에서 3 계층 전자상거래 애플리케이션을 호스팅하고 있습니다. 회사는 Amazon S3 에서 웹사이트를 호스팅하고 웹사이트를 판매 요청을 처리하는 API 와 통합합니다. 이 회사는 ALB(Application Load Balancer) 뒤에 있는 3 개의 Amazon EC2 인스턴스에서 API 를 호스팅합니다. API 는 판매 요청을 비동기식으로 처리하는 백엔드 작업자와 함께 정적 및 동적 프런트 엔드 콘텐츠로 구성됩니다. 회사는 신제품 출시 이벤트 기간 동안 판매 요청 건수가 급격하게 급증할 것으로 예상하고 있다. 모든 요청이 성공적으로 처리되도록 하려면 솔루션 설계자가 무엇을 권장해야 합니까?",
+  "choices": {
+    "A": "동적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. 트래픽 증가를 처리하기 위해 EC2 인스턴스 수를 늘립니다.",
+    "B": "정적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. Auto Scaling 그룹에 EC2 인스턴스를 배치하여 네트워크 트래픽을 기반으로 새 인스턴스를 시작합니다.",
+    "C": "동적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. ALB 앞에 Amazon ElastiCache 인스턴스를 추가하여 API 가 처리할 트래픽을 줄입니다.",
+    "D": "정적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. Amazon Simple Queue Service(Amazon SQS) 대기열을 추가하여 나중에 EC2 인스턴스에서 처리할 수 있도록 웹 사이트에서 요청을 수신합니다."
+  }
+}

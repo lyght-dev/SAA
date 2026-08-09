@@ -1,0 +1,10 @@
+{
+  "questionNumber": 239,
+  "question": "솔루션 설계자는 회사의 애플리케이션을 위한 새로운 마이크로서비스를 설계해야 합니다. 클라이언트는 마이크로 서비스에 도달하기 위해 HTTPS 끝점을 호출할 수 있어야 합니다. 또한 마이크로서비스는 AWS Identity and Access Management(IAM)를 사용하여 호출을 인증해야 합니다. 솔루션 설계자는 Go 1.x 로 작성된 단일 AWS Lambda 함수를 사용하여 이 마이크로서비스에 대한 논리를 작성합니다. 어떤 솔루션이 운영상 가장 효율적인 방식으로 기능을 배포합니까?",
+  "choices": {
+    "A": "Amazon API Gateway REST API 를 생성합니다. Lambda 함수를 사용하도록 메서드를 구성합니다. API 에서 IAM 인증을 활성화합니다.",
+    "B": "함수에 대한 Lambda 함수 URL 을 생성합니다. 인증 유형으로 AWS_IAM 을 지정합니다.",
+    "C": "Amazon CloudFront 배포를 생성합니다. 함수를 Lambda@Edge 에 배포합니다. IAM 인증 로직을 Lambda@Edge 함수에 통합합니다.",
+    "D": "Amazon CloudFront 배포를 생성합니다. CloudFront Functions 에 함수를 배포합니다. 인증 유형으로 AWS_IAM 을 지정합니다."
+  }
+}

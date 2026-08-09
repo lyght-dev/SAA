@@ -1,0 +1,10 @@
+{
+  "questionNumber": 654,
+  "question": "회사의 데이터 플랫폼은 Amazon Aurora MySQL 데이터베이스를 사용합니다. 데이터베이스에는 여러 가용 영역에 걸쳐 여러 읽기 전용 복제본과 여러 DB 인스턴스가 있습니다. 사용자는 최근 데이터베이스에서 너무 많은 연결이 있음을 나타내는 오류를 보고했습니다. 이 회사는 읽기 복제본이 기본 작성자로 승격될 때 장애 조치 시간을 20% 줄이려고 합니다. 이 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "다중 AZ 클러스터 배포를 통해 Aurora 에서 Amazon RDS 로 전환합니다.",
+    "B": "Aurora 데이터베이스 앞에서 Amazon RDS Proxy 를 사용합니다.",
+    "C": "읽기 연결을 위해 DAX(DynamoDB Accelerator)가 있는 Amazon DynamoDB 로 전환합니다.",
+    "D": "재배치 기능이 있는 Amazon Redshift 로 전환합니다."
+  }
+}

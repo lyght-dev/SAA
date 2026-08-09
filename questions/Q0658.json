@@ -1,0 +1,11 @@
+{
+  "questionNumber": 658,
+  "question": "한 회사가 다중 계층 온프레미스 애플리케이션을 AWS 로 마이그레이션하고 있습니다. 애플리케이션은 단일 노드 MySQL 데이터베이스와 다중 노드 웹 계층으로 구성됩니다. 회사는 마이그레이션 중에 애플리케이션 변경을 최소화해야 합니다. 회사는 마이그레이션 후 애플리케이션 복원성을 개선하려고 합니다. 이러한 요구 사항을 충족하는 단계 조합은 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "웹 계층을 Application Load Balancer 뒤에 있는 Auto Scaling 그룹의 Amazon EC2 인스턴스로 마이그레이션합니다.",
+    "B": "데이터베이스를 Network Load Balancer 뒤에 있는 Auto Scaling 그룹의 Amazon EC2 인스턴스로 마이그레이션합니다.",
+    "C": "데이터베이스를 Amazon RDS 다중 AZ 배포로 마이그레이션합니다.",
+    "D": "웹 계층을 AWS Lambda 함수로 마이그레이션합니다.",
+    "E": "데이터베이스를 Amazon DynamoDB 테이블로 마이그레이션합니다."
+  }
+}

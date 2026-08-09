@@ -1,0 +1,10 @@
+{
+  "questionNumber": 432,
+  "question": "한 전자상거래 회사에서 기계 학습(ML) 알고리즘을 사용하여 모델을 구축하고 훈련하려고 합니다. 회사는 모델을 사용하여 복잡한 시나리오를 시각화하고 고객 데이터의 추세를 감지합니다. 아키텍처 팀은 ML 모델을 보고 플랫폼과 통합하여 증강 데이터를 분석하고 비즈니스 인텔리전스 대시보드에서 직접 데이터를 사용하려고 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Glue 를 사용하여 ML 변환을 생성하여 모델을 구축하고 교육합니다. Amazon OpenSearch Service 를 사용하여 데이터를 시각화합니다.",
+    "B": "Amazon SageMaker 를 사용하여 모델을 구축하고 교육합니다. Amazon QuickSight 를 사용하여 데이터를 시각화합니다.",
+    "C": "AWS Marketplace 에서 사전 구축된 ML Amazon 머신 이미지(AMI)를 사용하여 모델을 구축하고 교육합니다. Amazon OpenSearch Service 를 사용하여 데이터를 시각화합니다.",
+    "D": "Amazon QuickSight 를 사용하여 계산된 필드를 사용하여 모델을 구축하고 교육합니다. Amazon QuickSight 를 사용하여 데이터를 시각화합니다."
+  }
+}

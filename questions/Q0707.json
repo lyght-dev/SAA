@@ -1,0 +1,10 @@
+{
+  "questionNumber": 707,
+  "question": "한 회사에서 테스트 환경의 애플리케이션에 AWS CloudFormatlon 스택을 사용하려고 합니다. 회사는 공개 액세스를 차단하는 Amazon S3 버킷에 CloudFormation 템플릿을 저장합니다. 회사는 테스트 환경을 생성하기 위한 특정 사용자 요청을 기반으로 S3 버킷의 템플릿에 CloudFormation 액세스 권한을 부여하려고 합니다. 솔루션은 보안 모범 사례를 따라야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Amazon S3 용 게이트웨이 VPC 엔드포인트를 생성합니다. S3 객체 URL 을 사용하도록 CloudFormation 스택을 구성합니다.",
+    "B": "S3 버킷을 대상으로 하는 Amazon API Gateway REST API 를 생성합니다. API 게이트웨이 URL 을 사용하도록 CloudFormat10n 스택을 구성합니다.",
+    "C": "템플릿 객체에 대해 미리 서명된 URL 을 생성합니다. 미리 서명된 URL 을 사용하도록 CloudFormation 스택을 구성합니다.",
+    "D": "S3 버킷의 템플릿 객체에 대한 공개 액세스를 허용합니다. 테스트 환경이 생성된 후 공개 접근을 차단합니다."
+  }
+}

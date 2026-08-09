@@ -1,0 +1,10 @@
+{
+  "questionNumber": 486,
+  "question": "한 회사가 AWS 에서 3 계층 애플리케이션을 구축하고 있습니다. 프레젠테이션 계층은 정적 웹 사이트를 제공합니다. 논리 계층은 컨테이너화된 애플리케이션입니다. 이 응용 프로그램은 관계형 데이터베이스에 데이터를 저장합니다. 이 회사는 배포를 단순화하고 운영 비용을 절감하기를 원합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon S3 를 사용하여 정적 콘텐츠를 호스팅합니다. 컴퓨팅 성능을 위해 AWS Fargate 와 함께 Amazon Elastic Container Service(Amazon ECS)를 사용합니다. 데이터베이스에 대해 관리형 Amazon RDS 클러스터를 사용합니다.",
+    "B": "Amazon CloudFront 를 사용하여 정적 콘텐츠를 호스팅합니다. 컴퓨팅 성능을 위해 Amazon EC2 와 함께 Amazon Elastic Container Service(Amazon ECS)를 사용합니다. 데이터베이스에 대해 관리형 Amazon RDS 클러스터를 사용합니다.",
+    "C": "Amazon S3 를 사용하여 정적 콘텐츠를 호스팅합니다. 컴퓨팅 성능을 위해 AWS Fargate 와 함께 Amazon Elastic Kubernetes Service(Amazon EKS)를 사용합니다. 데이터베이스에 대해 관리형 Amazon RDS 클러스터를 사용합니다.",
+    "D": "Amazon EC2 예약 인스턴스를 사용하여 정적 콘텐츠를 호스팅합니다. 컴퓨팅 성능을 위해 Amazon EC2 와 함께 Amazon Elastic Kubernetes Service(Amazon EKS)를 사용합니다. 데이터베이스에 대해 관리형 Amazon RDS 클러스터를 사용합니다."
+  }
+}

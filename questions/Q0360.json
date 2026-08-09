@@ -1,0 +1,10 @@
+{
+  "questionNumber": 360,
+  "question": "회사는 Amazon API Gateway 를 사용하여 동일한 VPC 에서 두 개의 REST API 로 프라이빗 게이트웨이를 실행합니다. BuyStock RESTful 웹 서비스는 CheckFunds RESTful 웹 서비스를 호출하여 주식을 구매하기 전에 충분한 자금을 사용할 수 있는지 확인합니다. 회사는 VPC 흐름 로그에서 BuyStock RESTful 웹 서비스가 VPC 대신 인터넷을 통해 CheckFunds RESTful 웹 서비스를 호출한다는 사실을 확인했습니다. 솔루션 설계자는 API 가 VPC 를 통해 통신하도록 솔루션을 구현해야 합니다. 코드를 가장 적게 변경하여 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "인증을 위해 HTTP 헤더에 X-API-Key 헤더를 추가합니다.",
+    "B": "인터페이스 엔드포인트를 사용합니다.",
+    "C": "게이트웨이 엔드포인트를 사용합니다.",
+    "D": "두 REST API 사이에 Amazon Simple Queue Service(Amazon SQS) 대기열을 추가합니다."
+  }
+}

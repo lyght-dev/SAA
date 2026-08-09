@@ -1,0 +1,10 @@
+{
+  "questionNumber": 260,
+  "question": "회사의 규정 준수 팀은 파일 공유를 AWS 로 이동해야 합니다. 공유는 Windows Server SMB 파일 공유에서 실행됩니다. 자체 관리형 온프레미스 Active Directory 는 파일 및 폴더에 대한 액세스를 제어합니다. 이 회사는 Windows File Server 용 Amazon FSx 를 솔루션의 일부로 사용하려고 합니다. 회사는 온프레미스 Active Directory 그룹이 AWS 로 이동한 후 FSx for Windows File Server SMB 규정 준수 공유, 폴더 및 파일에 대한 액세스를 제한하는지 확인해야 합니다. 이 회사는 Windows 파일 서버 파일 시스템용 FSx 를 만들었습니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Active Directory 에 연결할 Active Directory 커넥터를 만듭니다. Active Directory 그룹을 IAM 그룹에 매핑하여 액세스를 제한합니다.",
+    "B": "제한 태그 키와 규정 준수 태그 값을 사용하여 태그를 할당합니다. Active Directory 그룹을 IAM 그룹에 매핑하여 액세스를 제한합니다.",
+    "C": "액세스를 제한하기 위해 FSx for Windows File Server 에 직접 연결된 IAM 서비스 연결 역할을 생성합니다.",
+    "D": "파일 시스템을 Active Directory 에 연결하여 액세스를 제한합니다."
+  }
+}

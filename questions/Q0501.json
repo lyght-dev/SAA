@@ -1,0 +1,10 @@
+{
+  "questionNumber": 501,
+  "question": "회사는 고객 결제 데이터를 Amazon S3 의 회사 데이터 레이크로 수집하려고 합니다. 회사는 평균적으로 1 분마다 결제 데이터를 수신합니다. 회사는 결제 데이터를 실시간으로 분석하기를 원합니다. 그런 다음 회사는 데이터를 데이터 레이크로 수집하려고 합니다. 이러한 요구 사항을 가장 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Kinesis Data Streams 를 사용하여 데이터를 수집하십시오. AWS Lambda 를 사용하여 실시간으로 데이터를 분석합니다.",
+    "B": "AWS Glue 를 사용하여 데이터를 수집합니다. Amazon Kinesis Data Analytics 를 사용하여 데이터를 실시간으로 분석하십시오.",
+    "C": "Amazon Kinesis Data Firehose 를 사용하여 데이터를 수집합니다. Amazon Kinesis Data Analytics 를 사용하여 데이터를 실시간으로 분석하십시오.",
+    "D": "Amazon API Gateway 를 사용하여 데이터를 수집합니다. AWS Lambda 를 사용하여 실시간으로 데이터를 분석합니다."
+  }
+}

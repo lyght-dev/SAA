@@ -1,0 +1,10 @@
+{
+  "questionNumber": 487,
+  "question": "회사에서 해당 애플리케이션을 위한 스토리지 솔루션을 찾고 있습니다. 솔루션은 가용성과 확장성이 높아야 합니다. 또한 솔루션은 기본 프로토콜을 통해 AWS 및 온프레미스의 여러 Linux 인스턴스에 의해 마운트될 수 있고 최소 크기 요구 사항이 없는 파일 시스템으로 작동해야 합니다. 회사는 온프레미스 네트워크에서 VPC 로 액세스하기 위해 사이트 간 VPN 을 설정했습니다. 이러한 요구 사항을 충족하는 스토리지 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon FSx 다중 AZ 배포",
+    "B": "Amazon Elastic Block Store(Amazon EBS) 다중 연결 볼륨",
+    "C": "탑재 대상이 여러 개인 Amazon Elastic File System(Amazon EFS)",
+    "D": "단일 탑재 대상 및 여러 액세스 지점이 있는 Amazon Elastic File System(Amazon EFS)"
+  }
+}

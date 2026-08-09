@@ -1,0 +1,10 @@
+{
+  "questionNumber": 632,
+  "question": "한 회사에서 대량의 데이터를 저장할 새로운 애플리케이션을 만들고 있습니다. 데이터는 매시간 분석되며 여러 가용 영역에 배포된 여러 Amazon EC2 Linux 인스턴스에 의해 수정됩니다. 필요한 저장 공간의 양은 향후 6 개월 동안 계속 증가할 것입니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 어떤 스토리지 솔루션을 권장해야 합니까?",
+  "choices": {
+    "A": "Amazon S3 Glacier 에 데이터를 저장합니다. 애플리케이션 인스턴스에 대한 액세스를 허용하도록 S3 Glacier 볼트 정책을 업데이트합니다.",
+    "B": "Amazon Elastic Block Store(Amazon EBS) 볼륨에 데이터를 저장합니다. 애플리케이션 인스턴스에 EBS 볼륨을 탑재합니다.",
+    "C": "Amazon Elastic File System(Amazon EFS) 파일 시스템에 데이터를 저장합니다. 애플리케이션 인스턴스에 파일 시스템을 마운트합니다.",
+    "D": "애플리케이션 인스턴스 간에 공유되는 Amazon Elastic Block Store(Amazon EBS) 프로비저닝된 IOPS 볼륨에 데이터를 저장합니다."
+  }
+}

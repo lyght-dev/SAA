@@ -1,0 +1,10 @@
+{
+  "questionNumber": 489,
+  "question": "전자상거래 회사는 온프레미스 웨어하우스 솔루션과 통합된 AWS 클라우드에서 애플리케이션을 실행합니다. 이 회사는 Amazon Simple Notification Service(Amazon SNS)를 사용하여 주문 메시지를 온프레미스 HTTPS 엔드포인트로 보내 창고 애플리케이션이 주문을 처리할 수 있도록 합니다. 로컬 데이터 센터 팀에서 일부 주문 메시지가 수신되지 않은 것을 감지했습니다. 솔루션 설계자는 전달되지 않은 메시지를 보관하고 최대 14 일 동안 메시지를 분석해야 합니다. 최소한의 개발 노력으로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "보존 기간이 14 일인 Amazon Kinesis Data Stream 대상이 있는 Amazon SNS 배달 못한 편지 대기열을 구성합니다.",
+    "B": "애플리케이션과 Amazon SNS 사이에 보존 기간이 14 일인 Amazon Simple Queue Service(Amazon SQS) 대기열을 추가합니다.",
+    "C": "보존 기간이 14 일인 Amazon Simple Queue Service(Amazon SQS) 대상이 있는 Amazon SNS 데드 레터 대기열을 구성합니다.",
+    "D": "보존 기간이 14 일로 설정된 TTL 속성이 있는 Amazon DynamoDB 대상이 있는 Amazon SNS 데드 레터 대기열을 구성합니다."
+  }
+}

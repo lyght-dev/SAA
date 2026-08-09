@@ -1,0 +1,10 @@
+{
+  "questionNumber": 499,
+  "question": "회사는 1Gbps AWS Direct Connect 연결 비용을 최소화해야 합니다. 회사의 평균 연결 사용률은 10% 미만입니다. 솔루션 설계자는 보안을 손상시키지 않으면서 비용을 절감할 솔루션을 추천해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "새로운 1Gbps Direct Connect 연결을 설정합니다. 다른 AWS 계정과 연결을 공유합니다.",
+    "B": "AWS Management Console 에서 새로운 200Mbps Direct Connect 연결을 설정합니다.",
+    "C": "1Gbps 연결을 주문하려면 AWS Direct Connect 파트너에게 문의하십시오. 다른 AWS 계정과 연결을 공유합니다.",
+    "D": "기존 AWS 계정에 대한 200Mbps 호스팅 연결을 주문하려면 AWS Direct Connect 파트너에게 문의하십시오."
+  }
+}

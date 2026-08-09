@@ -1,0 +1,10 @@
+{
+  "questionNumber": 320,
+  "question": "회사에서 Amazon EC2 인스턴스 플릿을 사용하여 온프레미스 데이터 소스에서 데이터를 수집하고 있습니다. 데이터는 JSON 형식이며 수집 속도는 최대 1MB/s 입니다. EC2 인스턴스가 재부팅되면 진행 중인 데이터가 손실됩니다. 회사의 데이터 과학 팀은 거의 실시간으로 수집된 데이터를 쿼리하려고 합니다. 데이터 손실을 최소화하면서 확장 가능한 거의 실시간 데이터 쿼리를 제공하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Kinesis Data Streams 에 데이터를 게시하고 Kinesis Data Analytics 를 사용하여 데이터를 쿼리합니다.",
+    "B": "Amazon Redshift 를 대상으로 사용하여 Amazon Kinesis Data Firehose 에 데이터를 게시합니다. Amazon Redshift 를 사용하여 데이터를 쿼리합니다.",
+    "C": "수집된 데이터를 EC2 인스턴스 스토어에 저장합니다. Amazon S3 를 대상으로 Amazon Kinesis Data Firehose 에 데이터를 게시합니다. Amazon Athena 를 사용하여 데이터를 쿼리합니다.",
+    "D": "수집된 데이터를 Amazon Elastic Block Store(Amazon EBS) 볼륨에 저장합니다. Redis 용 Amazon ElastiCache 에 데이터를 게시합니다. Redis 채널을 구독하여 데이터를 쿼리합니다."
+  }
+}

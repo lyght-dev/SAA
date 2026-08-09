@@ -1,0 +1,10 @@
+{
+  "questionNumber": 11,
+  "question": "회사에 Amazon EC2 인스턴스에서 실행되고 Amazon Aurora 데이터베이스를 사용하는 애플리케이션이 있습니다. EC2 인스턴스는 파일에 로컬로 저장된 사용자 이름과 암호를 사용하여 데이터베이스에 연결합니다. 회사는 자격 증명 관리의 운영 오버헤드를 최소화하려고 합니다. 솔루션 설계자는 이 목표를 달성하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "AWS Secrets Manager 를 사용합니다. 자동 회전을 켭니다.",
+    "B": "AWS Systems Manager Parameter Store 를 사용합니다. 자동 회전을 켭니다.",
+    "C": "AWS Key Management Service(AWS KMS) 암호화 키로 암호화된 객체를 저장할 Amazon S3 버킷을 생성합니다. 자격 증명 파일을 S3 버킷으로 마이그레이션합니다. 애플리케이션이 S3 버킷을 가리키도록 합니다.",
+    "D": "각 EC2 인스턴스에 대해 암호화된 Amazon Elastic Block Store(Amazon EBS) 볼륨을 생성합니다. 새 EBS 볼륨을 각 EC2 인스턴스에 연결합니다. 자격 증명 파일을 새 EBS 볼륨으로 마이그레이션합니다. 애플리케이션이 새 EBS 볼륨을 가리키도록 합니다."
+  }
+}

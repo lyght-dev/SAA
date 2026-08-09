@@ -1,0 +1,10 @@
+{
+  "questionNumber": 712,
+  "question": "회사는 AWS 에서 호스팅되는 서비스 솔루션으로 고성능 컴퓨팅(HPC) 워크로드를 구축할 계획입니다. 16 개의 Amazon EC2 Linux 인스턴스 그룹에는 노드 간 통신에 가장 낮은 지연 시간이 필요합니다. 인스턴스에는 고성능 스토리지를 위한 공유 블록 장치 볼륨도 필요합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "클러스터 배치 그룹을 사용합니다. Amazon EBS 다중 연결을 사용하여 단일 프로비저닝된 IOPS SSD Amazon Elastic Block Store(Amazon EBS) 볼륨을 모든 인스턴스에 연결합니다.",
+    "B": "클러스터 배치 그룹을 사용합니다. Amazon Elastic File System(Amazon EFS)을 사용하여 인스턴스 간에 공유 파일 시스템을 생성합니다.",
+    "C": "파티션 배치 그룹을 사용합니다. Amazon Elastic File System(Amazon EFS)을 사용하여 인스턴스 간에 공유 파일 시스템을 생성합니다.",
+    "D": "스프레드 배치 그룹을 사용합니다. Amazon EBS 다중 연결을 사용하여 단일 프로비저닝된 IOPS SSD Amazon Elastic Block Store(Amazon EBS) 볼륨을 모든 인스턴스에 연결합니다."
+  }
+}

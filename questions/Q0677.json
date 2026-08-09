@@ -1,0 +1,10 @@
+{
+  "questionNumber": 677,
+  "question": "회사는 온프레미스 데이터 센터에서 여러 워크로드를 실행합니다. 회사의 데이터 센터는 회사의 확장되는 비즈니스 요구 사항을 충족할 만큼 빠르게 확장할 수 없습니다. 회사는 AWS 로의 마이그레이션을 계획하기 위해 온프레미스 서버 및 워크로드에 대한 사용량 및 구성 데이터를 수집하려고 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "AWS Migration Hub 에서 홈 AWS 리전을 설정합니다. AWS Systems Manager 를 사용하여 온프레미스 서버에 대한 데이터를 수집합니다.",
+    "B": "AWS Migration Hub 에서 홈 AWS 지역을 설정합니다. AWS Application Discovery Service 를 사용하여 온프레미스 서버에 대한 데이터를 수집합니다.",
+    "C": "AWS Schema Conversion Tool(AWS SCT)을 사용하여 관련 템플릿을 생성합니다. AWS Trusted Advisor 를 사용하여 온프레미스 서버에 대한 데이터를 수집합니다.",
+    "D": "AWS SCT(AWS Schema Conversion Tool)를 사용하여 관련 템플릿을 생성합니다. AWS Database Migration Service(AWS DMS)를 사용하여 온프레미스 서버에 대한 데이터를 수집합니다."
+  }
+}

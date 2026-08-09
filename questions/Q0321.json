@@ -1,0 +1,10 @@
+{
+  "questionNumber": 321,
+  "question": "솔루션 설계자는 Amazon S3 버킷에 업로드된 모든 객체가 암호화되도록 하려면 어떻게 해야 합니까?",
+  "choices": {
+    "A": "PutObject 에 s3:x-amz-acl 헤더 세트가 없는 경우 거부하도록 버킷 정책을 업데이트합니다.",
+    "B": "PutObject 에 프라이빗으로 설정된 s3:x-amz-acl 헤더가 없는 경우 거부하도록 버킷 정책을 업데이트합니다.",
+    "C": "PutObject 에 true 로 설정된 aws:SecureTransport 헤더가 없는 경우 거부하도록 버킷 정책을 업데이트합니다.",
+    "D": "PutObject 에 x-amz-server-side-encryption 헤더 세트가 없는 경우 거부하도록 버킷 정책을 업데이트합니다."
+  }
+}

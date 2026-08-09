@@ -1,0 +1,10 @@
+{
+  "questionNumber": 138,
+  "question": "회사는 AWS 에서 전자 상거래 애플리케이션을 실행합니다. 모든 새 주문은 단일 가용 영역의 Amazon EC2 인스턴스에서 실행되는 RabbitMQ 대기열에 마사지로 게시됩니다. 이러한 메시지는 별도의 EC2 인스턴스에서 실행되는 다른 애플리케이션에서 처리됩니다. 이 애플리케이션은 다른 EC2 인스턴스의 PostgreSQL 데이터베이스에 세부 정보를 저장합니다. 모든 EC2 인스턴스는 동일한 가용 영역에 있습니다. 회사는 최소한의 운영 오버헤드로 최고의 가용성을 제공하도록 아키텍처를 재설계해야 합니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "대기열을 Amazon MQ 에서 RabbitMQ 인스턴스의 중복 쌍(활성/대기)으로 마이그레이션합니다. 애플리케이션을 호스팅하는 EC2 인스턴스에 대한 다중 AZ Auto Scaling 그룹을 생성합니다. PostgreSQL 데이터베이스를 호스팅하는 EC2 인스턴스에 대해 다른 다중 AZ Auto Scaling 그룹을 생성합니다.",
+    "B": "대기열을 Amazon MQ 에서 RabbitMQ 인스턴스의 중복 쌍(활성/대기)으로 마이그레이션합니다. 애플리케이션을 호스팅하는 EC2 인스턴스에 대한 다중 AZ Auto Scaling 그룹을 생성합니다. PostgreSQL 용 Amazon RDS 의 다중 AZ 배포에서 실행하도록 데이터베이스를 마이그레이션합니다.",
+    "C": "RabbitMQ 대기열을 호스팅하는 EC2 인스턴스용 다중 AZ Auto Scaling 그룹을 생성합니다. 애플리케이션을 호스팅하는 EC2 인스턴스에 대해 다른 다중 AZ Auto Scaling 그룹을 생성합니다. PostgreSQL 용 Amazon RDS 의 다중 AZ 배포에서 실행하도록 데이터베이스를 마이그레이션합니다.",
+    "D": "RabbitMQ 대기열을 호스팅하는 EC2 인스턴스용 다중 AZ Auto Scaling 그룹을 생성합니다. 애플리케이션을 호스팅하는 EC2 인스턴스에 대해 다른 다중 AZ Auto Scaling 그룹을 생성합니다. PostgreSQL 데이터베이스를 호스팅하는 EC2 인스턴스에 대한 세 번째 다중 AZ Auto Scaling 그룹을 생성합니다."
+  }
+}

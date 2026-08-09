@@ -1,0 +1,10 @@
+{
+  "questionNumber": 475,
+  "question": "회사에서 Amazon Elastic Container Service(Amazon ECS)를 사용할 컨테이너화된 애플리케이션을 설계하고 있습니다. 애플리케이션은 내구성이 뛰어나고 RPO(복구 지점 목표)가 8 시간인 다른 AWS 리전에 데이터를 복구할 수 있는 공유 파일 시스템에 액세스해야 합니다. 파일 시스템은 리전 내의 각 가용 영역에 탑재 대상을 제공해야 합니다. 솔루션 설계자는 AWS Backup 을 사용하여 다른 리전에 대한 복제를 관리하려고 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "다중 AZ 배포가 있는 Windows 파일 서버용 Amazon FSx",
+    "B": "다중 AZ 배포가 있는 NetApp ONTAP 용 Amazon FSx",
+    "C": "표준 스토리지 클래스가 있는 Amazon Elastic File System(Amazon EFS)",
+    "D": "OpenZFS 용 Amazon FSx"
+  }
+}

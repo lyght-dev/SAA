@@ -1,0 +1,10 @@
+{
+  "questionNumber": 528,
+  "question": "데이터 분석 회사에서 일괄 처리 시스템을 AWS 로 마이그레이션하려고 합니다. 회사는 FTP 를 통해 하루 동안 주기적으로 수천 개의 작은 데이터 파일을 받습니다. 온프레미스 배치 작업은 밤새 데이터 파일을 처리합니다. 그러나 배치 작업 실행을 완료하는 데 몇 시간이 걸립니다. 회사는 AWS 솔루션이 파일을 전송하는 FTP 클라이언트에 대한 변경을 최소화하면서 가능한 한 빨리 수신 데이터 파일을 처리하기를 원합니다. 파일이 성공적으로 처리된 후 솔루션은 수신 데이터 파일을 삭제해야 합니다. 각 파일을 처리하는 데 3~8 분이 소요됩니다. 운영상 가장 효율적인 방식으로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "FTP 서버를 실행하는 Amazon EC2 인스턴스를 사용하여 수신 파일을 Amazon S3 Glacier Flexible Retrieval 의 객체로 저장합니다. AWS Batch 에서 작업 대기열을 구성합니다. Amazon EventBridge 규칙을 사용하여 S3 Glacier Flexible Retrieval 에서 야간에 객체를 처리하는 작업을 호출합니다. 작업이 개체를 처리한 후 개체를 삭제합니다.",
+    "B": "FTP 서버를 실행하는 Amazon EC2 인스턴스를 사용하여 수신 파일을 Amazon Elastic Block Store(Amazon EBS) 볼륨에 저장합니다. AWS Batch 에서 작업 대기열을 구성합니다. Amazon EventBridge 규칙을 사용하여 EBS 볼륨에서 야간에 파일을 처리하는 작업을 호출합니다. 작업이 파일을 처리한 후 파일을 삭제합니다.",
+    "C": "AWS Transfer Family 를 사용하여 들어오는 파일을 Amazon Elastic Block Store(Amazon EBS) 볼륨에 저장할 FTP 서버를 생성합니다. AWS Batch 에서 작업 대기열을 구성합니다. 각 파일이 도착하면 Amazon S3 이벤트 알림을 사용하여 AWS Batch 에서 작업을 호출합니다. 작업이 파일을 처리한 후 파일을 삭제합니다.",
+    "D": "AWS Transfer Family 를 사용하여 Amazon S3 Standard 에 수신 파일을 저장할 FTP 서버를 생성합니다. 파일을 처리하고 처리 후 파일을 삭제하는 AWS Lambda 함수를 생성합니다. 파일이 도착하면 S3 이벤트 알림을 사용하여 Lambda 함수를 호출합니다."
+  }
+}

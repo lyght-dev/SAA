@@ -1,0 +1,10 @@
+{
+  "questionNumber": 210,
+  "question": "빠르게 성장하고 있는 음식 배달 서비스를 제공하는 회사가 있습니다. 성장으로 인해 회사의 주문 처리 시스템은 피크 트래픽 시간 동안 확장 문제를 겪고 있습니다. 현재 아키텍처에는 다음이 포함됩니다. • 애플리케이션에서 주문을 수집하기 위해 Amazon EC2 Auto Scaling 그룹에서 실행되는 Amazon EC2 인스턴스 그룹입니다. • 주문을 이행하기 위해 Amazon EC2 Auto Scaling 그룹에서 실행되는 또 다른 EC2 인스턴스 그룹. 주문 수집 프로세스는 빠르게 진행되지만 주문 이행 프로세스는 더 오래 걸릴 수 있습니다. 스케일링 이벤트로 인해 데이터가 손실되어서는 안 됩니다. 솔루션 설계자는 주문 수집 프로세스와 주문 이행 프로세스가 트래픽이 가장 많은 시간에 적절하게 확장될 수 있는지 확인해야 합니다. 솔루션은 회사의 AWS 리소스 활용을 최적화해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Amazon CloudWatch 지표를 사용하여 Auto Scaling 그룹에 있는 각 인스턴스의 CPU 를 모니터링합니다. 최대 워크로드 값에 따라 각 Auto Scaling 그룹의 최소 용량을 구성합니다.",
+    "B": "Amazon CloudWatch 지표를 사용하여 Auto Scaling 그룹에 있는 각 인스턴스의 CPU 를 모니터링합니다. 요청 시 추가 Auto Scaling 그룹을 생성하는 Amazon Simple Notification Service(Amazon SNS) 주제를 호출하도록 CloudWatch 경보를 구성합니다.",
+    "C": "두 개의 Amazon Simple Queue Service(Amazon SQS) 대기열을 프로비저닝합니다. 하나는 주문 수집용이고 다른 하나는 주문 이행용입니다. 각 대기열을 폴링하도록 EC2 인스턴스를 구성합니다. 대기열이 보내는 알림을 기반으로 Auto Scaling 그룹을 조정합니다.",
+    "D": "2 개의 Amazon Simple Queue Service(Amazon SQS) 대기열을 프로비저닝합니다. 하나는 주문 수집용이고 다른 하나는 주문 이행용입니다. 각 대기열을 폴링하도록 EC2 인스턴스를 구성합니다. 인스턴스 계산당 백로그를 기반으로 지표를 만듭니다. 이 지표를 기반으로 Auto Scaling 그룹을 조정합니다."
+  }
+}

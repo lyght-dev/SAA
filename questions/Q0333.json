@@ -1,0 +1,10 @@
+{
+  "questionNumber": 333,
+  "question": "회사의 애플리케이션은 ALB(Application Load Balancer) 뒤의 Amazon EC2 인스턴스에서 실행됩니다. 인스턴스는 여러 가용 영역에 걸쳐 Amazon EC2 Auto Scaling 그룹에서 실행됩니다. 매월 1 일 자정에 월말 재무 계산 일괄 처리가 실행되면 응용 프로그램이 훨씬 느려집니다. 이로 인해 EC2 인스턴스의 CPU 사용률이 즉시 100%에 도달하여 애플리케이션이 중단됩니다. 애플리케이션이 워크로드를 처리하고 다운타임을 방지할 수 있도록 하기 위해 솔루션 설계자는 무엇을 권장해야 합니까?",
+  "choices": {
+    "A": "ALB 앞에 Amazon CloudFront 배포를 구성합니다.",
+    "B": "CPU 사용률을 기반으로 EC2 Auto Scaling 단순 조정 정책을 구성합니다.",
+    "C": "월별 일정을 기반으로 EC2 Auto Scaling 예약 조정 정책을 구성합니다.",
+    "D": "EC2 인스턴스에서 일부 워크로드를 제거하도록 Amazon ElastiCache 를 구성합니다."
+  }
+}

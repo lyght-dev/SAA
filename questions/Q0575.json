@@ -1,0 +1,10 @@
+{
+  "questionNumber": 575,
+  "question": "회사는 AWS 리전의 Application Load Balancer 뒤에 있는 Amazon Elastic Kubernetes Service(Amazon EKS)에 애플리케이션을 배포합니다. 애플리케이션은 PostgreSQL 데이터베이스 엔진에 데이터를 저장해야 합니다. 회사는 데이터베이스의 데이터가 가용성이 높기를 원합니다. 회사는 또한 읽기 워크로드를 위한 증가된 용량이 필요합니다. 이러한 요구 사항을 가장 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "전역 테이블로 구성된 Amazon DynamoDB 데이터베이스 테이블을 생성합니다.",
+    "B": "다중 AZ 배포로 Amazon RDS 데이터베이스를 생성합니다.",
+    "C": "다중 AZ DB 클러스터 배포로 Amazon RDS 데이터베이스를 생성합니다.",
+    "D": "리전 간 읽기 전용 복제본으로 구성된 Amazon RDS 데이터베이스를 생성합니다."
+  }
+}

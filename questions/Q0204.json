@@ -1,0 +1,10 @@
+{
+  "questionNumber": 204,
+  "question": "한 온라인 소매 회사는 5 천만 명 이상의 활성 고객을 보유하고 있으며 매일 25,000 건 이상의 주문을 받습니다. 회사는 고객의 구매 데이터를 수집하고 이 데이터를 Amazon S3 에 저장합니다. 추가 고객 데이터는 Amazon RDS 에 저장됩니다. 회사는 팀이 분석을 수행할 수 있도록 다양한 팀에서 모든 데이터를 사용할 수 있도록 하려고 합니다. 솔루션은 데이터에 대한 세분화된 권한을 관리하는 기능을 제공하고 운영 오버헤드를 최소화해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "구매 데이터를 마이그레이션하여 Amazon RDS 에 직접 씁니다. RDS 액세스 제어를 사용하여 액세스를 제한하십시오.",
+    "B": "Amazon RDS 에서 Amazon S3 로 데이터를 주기적으로 복사하도록 AWS Lambda 함수를 예약합니다. AWS Glue 크롤러를 생성합니다. Amazon Athena 를 사용하여 데이터를 쿼리합니다. S3 정책을 사용하여 액세스를 제한하십시오.",
+    "C": "AWS Lake Formation 을 사용하여 데이터 레이크를 생성합니다. Amazon RDS 에 대한 AWS Glue JDBC 연결을 생성합니다. Lake Formation 에 S3 버킷을 등록합니다. Lake Formation 액세스 제어를 사용하여 액세스를 제한하십시오.",
+    "D": "Amazon Redshift 클러스터를 생성합니다. Amazon S3 및 Amazon RDS 에서 Amazon Redshift 로 데이터를 주기적으로 복사하도록 AWS Lambda 함수를 예약합니다. Amazon Redshift 액세스 제어를 사용하여 액세스를 제한하십시오."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 409,
+  "question": "솔루션 설계자는 Windows 인터넷 정보 서비스(IIS) 웹 애플리케이션을 AWS 로 마이그레이션해야 합니다. 애플리케이션은 현재 사용자의 온프레미스 NAS(Network-Attached Storage)에서 호스팅되는 파일 공유에 의존합니다. 솔루션 설계자는 IIS 웹 서버를 스토리지 솔루션에 연결된 여러 가용 영역의 Amazon EC2 인스턴스로 마이그레이션하고 인스턴스에 연결된 Elastic Load Balancer 를 구성할 것을 제안했습니다. 온프레미스 파일 공유에 대한 어떤 대체가 가장 탄력적이고 내구성이 있습니까?",
+  "choices": {
+    "A": "파일 공유를 Amazon RDS 로 마이그레이션합니다.",
+    "B": "파일 공유를 AWS Storage Gateway 로 마이그레이션합니다.",
+    "C": "파일 공유를 Amazon FSx for Windows File Server 로 마이그레이션합니다.",
+    "D": "파일 공유를 Amazon Elastic File System(Amazon EFS)으로 마이그레이션합니다."
+  }
+}

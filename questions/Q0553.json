@@ -1,0 +1,10 @@
+{
+  "questionNumber": 553,
+  "question": "솔루션 설계자는 회사의 Amazon S3 버킷을 검토하여 개인 식별 정보(PII)를 검색해야 합니다. 회사는 us-east-1 지역 및 us-west-2 지역에 PII 데이터를 저장합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "각 리전에서 Amazon Macie 를 구성합니다. Amazon S3 에 있는 데이터를 분석하는 작업을 생성합니다.",
+    "B": "모든 지역에 대해 AWS Security Hub 를 구성합니다. Amazon S3 에 있는 데이터를 분석하는 AWS Config 규칙을 생성합니다.",
+    "C": "Amazon S3 에 있는 데이터를 분석하도록 Amazon Inspector 를 구성합니다.",
+    "D": "Amazon S3 에 있는 데이터를 분석하도록 Amazon GuardDuty 를 구성합니다."
+  }
+}

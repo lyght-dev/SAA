@@ -1,0 +1,10 @@
+{
+  "questionNumber": 494,
+  "question": "회사는 Amazon EC2 인스턴스를 사용하여 내부 시스템을 호스팅합니다. 배포 작업의 일부로 관리자는 AWS CLI 를 사용하여 EC2 인스턴스를 종료하려고 합니다. 그러나 관리자는 403(액세스 거부) 오류 메시지를 받습니다. 관리자는 다음 IAM 정책이 연결된 IAM 역할을 사용하고 있습니다.\n\n정책:\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"ec2:TerminateInstances\"\n      ],\n      \"Resource\": [\n        \"*\"\n      ]\n    },\n    {\n      \"Effect\": \"Deny\",\n      \"Action\": [\n        \"ec2:TerminateInstances\"\n      ],\n      \"Condition\": {\n        \"NotIpAddress\": {\n          \"aws:SourceIp\": [\n            \"192.0.2.0/24\",\n            \"203.0.113.0/24\"\n          ]\n        }\n      },\n      \"Resource\": [\n        \"*\"\n      ]\n    }\n  ]\n} 실패한 요청의 원인은 무엇입니까?",
+  "choices": {
+    "A": "EC2 인스턴스에는 Deny 문이 포함된 리소스 기반 정책이 있습니다.",
+    "B": "정책 설명에 주체가 지정되지 않았습니다.",
+    "C": "\"Action\" 필드는 EC2 인스턴스를 종료하는 데 필요한 조치를 부여하지 않습니다.",
+    "D": "EC2 인스턴스 종료 요청은 CIDR 블록 192.0.2.0/24 또는 203.0.113.0/24 에서 시작되지 않습니다."
+  }
+}

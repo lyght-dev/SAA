@@ -1,0 +1,10 @@
+{
+  "questionNumber": 63,
+  "question": "회사는 AWS 에서 인프라를 실행하고 문서 관리 애플리케이션에 대해 700,000 명의 등록 기반을 보유하고 있습니다. 회사는 큰 .pdf 파일을 .jpg 이미지 파일로 변환하는 제품을 만들려고 합니다. .pdf 파일의 크기는 평균 5MB 입니다. 회사는 원본 파일과 변환 파일을 보관해야 합니다. 솔루션 설계자는 시간이 지남에 따라 빠르게 증가할 수요를 수용할 수 있는 확장 가능한 솔루션을 설계해야 합니다. 어떤 솔루션이 이러한 요구 사항을 가장 비용 효율적으로 충족합니까?",
+  "choices": {
+    "A": ".pdf 파일을 Amazon S3 에 저장합니다. AWS Lambda 함수를 호출하여 파일을 .jpg 형식으로 변환하고 Amazon S3 에 다시 저장하도록 S3 PUT 이벤트를 구성합니다.",
+    "B": ".pdf 파일을 Amazon DynamoD 에 저장 DynamoDB 스트림 기능을 사용하여 AWS Lambda 함수를 호출하여 파일을 .jpg 형식으로 변환하고 DynamoDB 에 다시 저장합니다.",
+    "C": "Amazon EC2 인스턴스, Amazon Elastic Block Store(Amazon EBS) 스토리지 및 Auto Scaling 그룹이 포함된 AWS Elastic Beanstalk 애플리케이션에 .pdf 파일을 업로드합니다. EC2 인스턴스의 프로그램을 사용하여 파일을 .jpg 형식으로 변환합니다. .pdf 파일과 .jpg 파일을 EBS 스토어에 저장합니다.",
+    "D": ".pdf 파일을 Amazon EC2 인스턴스, Amazon Elastic File System(Amazon EFS) 스토리지 및 Auto Scaling 그룹이 포함된 AWS Elastic Beanstalk 애플리케이션에 업로드합니다. EC2 인스턴스의 프로그램을 사용하여 파일을 .jpg 형식으로 변환합니다. .pdf 파일과 .jpg 파일을 EBS 스토어에 저장합니다."
+  }
+}

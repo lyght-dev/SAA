@@ -1,0 +1,10 @@
+{
+  "questionNumber": 524,
+  "question": "회사에서 IAM 권한과 관련된 액세스 거부 오류 및 무단 오류를 분석하고 문제를 해결하려고 합니다. 회사에서 AWS CloudTrail 을 켰습니다. 최소한의 노력으로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Glue 를 사용하고 사용자 지정 스크립트를 작성하여 오류에 대한 CloudTrail 로그를 쿼리합니다.",
+    "B": "AWS Batch 를 사용하고 사용자 지정 스크립트를 작성하여 오류에 대한 CloudTrail 로그를 쿼리합니다.",
+    "C": "Amazon Athena 쿼리로 CloudTrail 로그를 검색하여 오류를 식별합니다.",
+    "D": "Amazon QuickSight 로 CloudTrail 로그를 검색합니다. 오류를 식별하는 대시보드를 만듭니다."
+  }
+}

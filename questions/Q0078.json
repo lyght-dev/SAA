@@ -1,0 +1,10 @@
+{
+  "questionNumber": 78,
+  "question": "회사는 사용자 트랜잭션 데이터를 Amazon DynamoDB 테이블에 보관해야 합니다. 회사는 데이터를 7 년간 보관해야 합니다. 이러한 요구 사항을 충족하는 가장 운영 효율성이 높은 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "DynamoDB 지정 시간 복구를 사용하여 테이블을 지속적으로 백업합니다.",
+    "B": "AWS Backup 을 사용하여 테이블에 대한 백업 일정 및 보존 정책을 생성합니다.",
+    "C": "DynamoDB 콘솔을 사용하여 테이블의 주문형 백업을 생성합니다. 백업을 Amazon S3 버킷에 저장합니다. S3 버킷에 대한 S3 수명 주기 구성을 설정합니다.",
+    "D": "AWS Lambda 함수를 호출하는 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성합니다. 테이블을 백업하고 Amazon S3 버킷에 백업을 저장하도록 Lambda 함수를 구성합니다. S3 버킷에 대한 S3 수명 주기 구성을 설정합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 671,
+  "question": "한 회사에서 컨테이너화된 애플리케이션 워크로드를 3 개의 가용 영역에 걸쳐 VPC 에 배포하려고 합니다. 회사에는 가용 영역 전반에 걸쳐 가용성이 높은 솔루션이 필요합니다. 솔루션을 사용하려면 애플리케이션을 최소한으로 변경해야 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Elastic Container Service(Amazon ECS)를 사용하세요. 대상 추적 조정을 사용하도록 Amazon ECS 서비스 Auto Scaling 을 구성합니다. 최소 용량을 3 으로 설정합니다. 가용 영역 속성을 사용하여 분산되도록 작업 배치 전략 유형을 설정합니다.",
+    "B": "Amazon Elastic Kubernetes Service(Amazon EKS) 자체 관리형 노드를 사용합니다. 대상 추적 조정을 사용하도록 Application Auto Scaling 을 구성합니다. 최소 용량을 3 으로 설정하세요.",
+    "C": "Amazon EC2 예약 인스턴스를 사용하십시오. 분산 배치 그룹에서 3 개의 EC2 인스턴스를 시작합니다. 대상 추적 조정을 사용하도록 Auto Scaling 그룹을 구성합니다. 최소 용량을 3 으로 설정하세요.",
+    "D": "AWS Lambda 함수를 사용하십시오. VPC 에 연결하도록 Lambda 함수를 구성합니다. Lambda 를 확장 가능한 대상으로 사용하도록 Application Auto Scaling 을 구성합니다. 최소 용량을 3 으로 설정하세요."
+  }
+}

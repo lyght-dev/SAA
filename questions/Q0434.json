@@ -1,0 +1,10 @@
+{
+  "questionNumber": 434,
+  "question": "회사는 AWS 클라우드에서 애플리케이션을 호스팅합니다. 이 애플리케이션은 Amazon DynamoDB 테이블과 함께 Auto Scaling 그룹의 Elastic Load Balancer 뒤에 있는 Amazon EC2 인스턴스에서 실행됩니다. 회사는 다운타임을 최소화하면서 다른 AWS 리전에서 애플리케이션을 사용할 수 있기를 원합니다. 가동 중지 시간을 최소화하면서 이러한 요구 사항을 충족하려면 솔루션 설계자가 무엇을 해야 합니까?",
+  "choices": {
+    "A": "재해 복구 지역에 Auto Scaling 그룹과 로드 밸런서를 생성합니다. DynamoDB 테이블을 전역 테이블로 구성합니다. 새 재해 복구 리전의 로드 밸런서를 가리키도록 DNS 장애 조치를 구성합니다.",
+    "B": "필요할 때 시작할 EC2 인스턴스, 로드 밸런서 및 DynamoDB 테이블을 생성하기 위해 AWS CloudFormation 템플릿을 생성합니다. 새 재해 복구 리전의 로드 밸런서를 가리키도록 DNS 장애 조치를 구성합니다.",
+    "C": "AWS CloudFormation 템플릿을 생성하여 EC2 인스턴스와 필요할 때 실행할 로드 밸런서를 생성합니다. DynamoDB 테이블을 전역 테이블로 구성합니다. 새 재해 복구 리전의 로드 밸런서를 가리키도록 DNS 장애 조치를 구성합니다.",
+    "D": "재해 복구 지역에서 Auto Scaling 그룹 및 로드 밸런서를 생성합니다. DynamoDB 테이블을 전역 테이블로 구성합니다. 재해 복구 로드 밸런서를 가리키는 Amazon Route 53 을 업데이트하는 AWS Lambda 함수를 트리거하는 Amazon CloudWatch 경보를 생성합니다."
+  }
+}

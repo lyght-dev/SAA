@@ -1,0 +1,10 @@
+{
+  "questionNumber": 657,
+  "question": "회사는 Amazon Elastic Kubernetes Service(Amazon EKS)를 사용하여 컨테이너 애플리케이션을 실행합니다. 이 애플리케이션에는 고객을 관리하고 주문하는 마이크로서비스가 포함되어 있습니다. 회사는 들어오는 요청을 적절한 마이크로 서비스로 라우팅해야 합니다. 이 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Load Balancer Controller 를 사용하여 Network Load Balancer 를 프로비저닝하십시오.",
+    "B": "AWS Load Balancer Controller 를 사용하여 Application Load Balancer 를 프로비저닝합니다.",
+    "C": "AWS Lambda 함수를 사용하여 요청을 Amazon EKS 에 연결합니다.",
+    "D": "Amazon API Gateway 를 사용하여 요청을 Amazon EKS 에 연결합니다."
+  }
+}

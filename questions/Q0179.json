@@ -1,0 +1,10 @@
+{
+  "questionNumber": 179,
+  "question": "솔루션 설계자는 애플리케이션이 Amazon RDS DB 인스턴스에 액세스하는 데 사용하는 데이터베이스 사용자 이름과 암호를 안전하게 저장해야 합니다. 데이터베이스에 액세스하는 애플리케이션은 Amazon EC2 인스턴스에서 실행됩니다. 솔루션 설계자는 AWS Systems Manager Parameter Store 에서 보안 매개변수를 생성하려고 합니다. 솔루션 설계자는 이 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "Parameter Store 파라미터에 대한 읽기 액세스 권한이 있는 IAM 역할을 생성합니다. 파라미터를 암호화하는 데 사용되는 AWS Key Management Service(AWS KMS) 키에 대한 Decrypt 액세스를 허용합니다. 이 IAM 역할을 EC2 인스턴스에 할당합니다.",
+    "B": "Parameter Store 파라미터에 대한 읽기 액세스를 허용하는 IAM 정책을 생성합니다. 파라미터를 암호화하는 데 사용되는 AWS Key Management Service(AWS KMS) 키에 대한 Decrypt 액세스를 허용합니다. 이 IAM 정책을 EC2 인스턴스에 할당합니다.",
+    "C": "Parameter Store 파라미터와 EC2 인스턴스 간에 IAM 신뢰 관계를 생성합니다. 신뢰 정책에서 Amazon RDS 를 보안 주체로 지정합니다.",
+    "D": "DB 인스턴스와 EC2 인스턴스 간에 IAM 신뢰 관계를 생성합니다. 신뢰 정책에서 Systems Manager 를 보안 주체로 지정합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 38,
+  "question": "회사는 Amazon S3 에서 정적 웹 사이트를 호스팅하고 DNS 에 Amazon Route 53 을 사용하고 있습니다. 웹 사이트는 전 세계적으로 수요가 증가하고 있습니다. 회사는 웹 사이트에 액세스하는 사용자의 대기 시간을 줄여야 합니다. 어떤 솔루션이 이러한 요구 사항을 가장 비용 효율적으로 충족합니까?",
+  "choices": {
+    "A": "웹 사이트가 포함된 S3 버킷을 모든 AWS 리전에 복제합니다. Route 53 지리적 위치 라우팅 항목을 추가합니다.",
+    "B": "AWS Global Accelerator 에서 액셀러레이터를 프로비저닝합니다. 제공된 IP 주소를 S3 버킷과 연결합니다. 액셀러레이터의 IP 주소를 가리키도록 Route 53 항목을 편집합니다.",
+    "C": "S3 버킷 앞에 Amazon CloudFront 배포를 추가합니다. CloudFront 배포를 가리키도록 Route 53 항목을 편집합니다.",
+    "D": "버킷에서 S3 Transfer Acceleration 을 활성화합니다. 새 엔드포인트를 가리키도록 Route 53 항목을 편집합니다."
+  }
+}

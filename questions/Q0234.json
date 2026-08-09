@@ -1,0 +1,10 @@
+{
+  "questionNumber": 234,
+  "question": "회사에서 새로운 웹 기반 고객 관계 관리 애플리케이션을 구축하고 있습니다. 애플리케이션은 Application Load Balancer(ALB) 뒤에 있는 Amazon Elastic Block Store(Amazon EBS) 볼륨이 지원하는 여러 Amazon EC2 인스턴스를 사용합니다. 이 애플리케이션은 Amazon Aurora 데이터베이스도 사용합니다. 애플리케이션의 모든 데이터는 유휴 및 전송 중에 암호화되어야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "ALB 에서 AWS Key Management Service(AWS KMS) 인증서를 사용하여 전송 중인 데이터를 암호화합니다. AWS Certificate Manager(ACM)를 사용하여 유휴 상태의 EBS 볼륨 및 Aurora 데이터베이스 스토리지를 암호화합니다.",
+    "B": "AWS 루트 계정을 사용하여 AWS Management Console 에 로그인합니다. 회사의 암호화 인증서를 업로드합니다. 루트 계정에 있는 동안 계정의 저장 및 전송 중인 모든 데이터에 대해 암호화를 켜는 옵션을 선택합니다.",
+    "C": "AWS Key Management Service(AWS KMS)를 사용하여 유휴 상태의 EBS 볼륨 및 Aurora 데이터베이스 스토리지를 암호화합니다. ALB 에 AWS Certificate Manager(ACM) 인증서를 연결하여 전송 중인 데이터를 암호화합니다.",
+    "D": "BitLocker 를 사용하여 유휴 상태의 모든 데이터를 암호화합니다. 회사의 TLS 인증서 키를 AWS Key Management Service(AWS KMS)로 가져옵니다. KMS 키를 ALB 에 연결하여 전송 중인 데이터를 암호화합니다."
+  }
+}

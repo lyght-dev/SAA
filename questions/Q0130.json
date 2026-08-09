@@ -1,0 +1,10 @@
+{
+  "questionNumber": 130,
+  "question": "애플리케이션은 여러 가용 영역의 Amazon EC2 인스턴스에서 실행됩니다. 인스턴스는 Application Load Balancer 뒤의 Amazon EC2 Auto Scaling 그룹에서 실행됩니다. 애플리케이션은 EC2 인스턴스의 CPU 사용률이 40% 또는 거의 40%일 때 가장 잘 수행됩니다. 솔루션 설계자는 그룹의 모든 인스턴스에서 원하는 성능을 유지하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "Auto Scaling 그룹을 동적으로 확장하려면 간단한 확장 정책을 사용합니다.",
+    "B": "대상 추적 정책을 사용하여 Auto Scaling 그룹을 동적으로 확장합니다.",
+    "C": "AWS Lambda 함수를 사용하여 원하는 Auto Scaling 그룹 용량을 업데이트합니다.",
+    "D": "예약된 조정 작업을 사용하여 Auto Scaling 그룹을 확장 및 축소합니다."
+  }
+}

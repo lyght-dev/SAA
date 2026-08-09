@@ -1,0 +1,10 @@
+{
+  "questionNumber": 460,
+  "question": "회사는 SaaS(Software as a Service) 애플리케이션 Salesforce 계정과 Amazon S3 간에 데이터를 안전하게 교환하려고 합니다. 회사는 AWS Key Management Service(AWS KMS) 고객 관리형 키(CMK)를 사용하여 저장된 데이터를 암호화해야 합니다. 또한 회사는 전송 중인 데이터를 암호화해야 합니다. 회사에서 Salesforce 계정에 대한 API 액세스를 활성화했습니다.",
+  "choices": {
+    "A": "Salesforce 에서 Amazon S3 로 안전하게 데이터를 전송하는 AWS Lambda 함수를 생성합니다.",
+    "B": "AWS Step Functions 워크플로를 생성합니다. Salesforce 에서 Amazon S3 로 안전하게 데이터를 전송하는 작업을 정의합니다.",
+    "C": "Amazon AppFlow 흐름을 생성하여 Salesforce 에서 Amazon S3 로 데이터를 안전하게 전송합니다.",
+    "D": "Salesforce 용 사용자 지정 커넥터를 만들어 Salesforce 에서 Amazon S3 로 데이터를 안전하게 전송합니다."
+  }
+}

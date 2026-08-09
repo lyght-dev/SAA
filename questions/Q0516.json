@@ -1,0 +1,10 @@
+{
+  "questionNumber": 516,
+  "question": "회사는 고객이 재무 정보를 검색할 수 있도록 고객에게 API 인터페이스를 제공합니다. 회사는 연중 최대 사용 시간에 더 많은 수의 요청을 예상합니다. 회사는 API 가 고객 만족을 보장하기 위해 낮은 대기 시간으로 일관되게 응답하도록 요구합니다. 회사는 API 에 컴퓨팅 호스트를 제공해야 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Application Load Balancer 및 Amazon Elastic Container Service(Amazon ECS)를 사용합니다.",
+    "B": "프로비저닝된 동시성과 함께 Amazon API Gateway 및 AWS Lambda 함수를 사용합니다.",
+    "C": "Application Load Balancer 및 Amazon Elastic Kubernetes Service(Amazon EKS) 클러스터를 사용합니다.",
+    "D": "예약된 동시성과 함께 Amazon API Gateway 및 AWS Lambda 함수를 사용합니다."
+  }
+}

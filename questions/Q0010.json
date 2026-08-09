@@ -1,0 +1,10 @@
+{
+  "questionNumber": 10,
+  "question": "회사는 AWS 에서 전자 상거래 웹 애플리케이션을 구축하고 있습니다. 애플리케이션은 처리할 Amazon API Gateway REST API 에 새 주문에 대한 정보를 보냅니다. 회사는 주문이 접수된 순서대로 처리되기를 원합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "API Gateway 통합을 사용하여 애플리케이션이 주문을 수신할 때 Amazon Simple Notification Service(Amazon SNS) 주제에 메시지를 게시합니다. AWS Lambda 함수를 주제에 구독하여 처리를 수행합니다.",
+    "B": "API Gateway 통합을 사용하여 애플리케이션이 주문을 수신할 때 Amazon Simple Queue Service(Amazon SQS) FIFO 대기열에 메시지를 보냅니다. 처리를 위해 AWS Lambda 함수를 호출하도록 SQS FIFO 대기열을 구성합니다.",
+    "C": "API Gateway 권한 부여자를 사용하여 애플리케이션이 주문을 처리하는 동안 모든 요청을 차단합니다.",
+    "D": "API Gateway 통합을 사용하여 애플리케이션이 주문을 수신할 때 Amazon Simple Queue Service(Amazon SQS) 표준 대기열에 메시지를 보냅니다. 처리를 위해 AWS Lambda 함수를 호출하도록 SQS 표준 대기열을 구성합니다."
+  }
+}

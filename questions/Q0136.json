@@ -1,0 +1,11 @@
+{
+  "questionNumber": 136,
+  "question": "회사는 온프레미스 PostgreSQL 데이터베이스를 Amazon Aurora PostgreSQL 로 마이그레이션하고 있습니다. 온-프레미스 데이터베이스는 온라인 상태를 유지하고 마이그레이션 중에 액세스할 수 있어야 합니다. Aurora 데이터베이스는 온프레미스 데이터베이스와 동기화된 상태를 유지해야 합니다. 이러한 요구 사항을 충족하기 위해 솔루션 설계자가 취해야 하는 조치의 조합은 무엇입니까? (2 개를 선택하세요.)",
+  "choices": {
+    "A": "지속적인 복제 작업을 만듭니다.",
+    "B": "온프레미스 데이터베이스의 데이터베이스 백업을 생성합니다.",
+    "C": "AWS Database Migration Service(AWS DMS) 복제 서버를 생성합니다.",
+    "D": "AWS Schema Conversion Tool(AWS SCT)을 사용하여 데이터베이스 스키마를 변환합니다.",
+    "E": "데이터베이스 동기화를 모니터링하는 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 722,
+  "question": "회사에서 SSL/TLS 인증서를 사용하도록 Amazon CloudFront 배포를 구성하려고 합니다. 회사는 배포에 기본 도메인 이름을 사용하기를 원하지 않습니다. 대신 회사는 배포에 다른 도메인 이름을 사용하려고 합니다. 추가 비용을 발생시키면서 인증서를 배포하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "useast-1 지역의 AWS Certificate Manager(ACM)에서 Amazon 에서 발급한 사설 인증서를 요청합니다.",
+    "B": "uswest-1 리전의 AWS Certificate Manager(ACM)에서 Amazon 발급 사설 인증서를 요청합니다.",
+    "C": "us-east-1 지역의 AWS Certificate Manager(ACU)에서 Amazon 발급 공인 인증서를 요청합니다.",
+    "D": "us-west-1 지역의 AWS Certificate Manager(ACU)에서 Amazon 발급 공인 인증서를 요청합니다."
+  }
+}

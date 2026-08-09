@@ -1,0 +1,10 @@
+{
+  "questionNumber": 588,
+  "question": "한 전자 상거래 회사는 Microsoft SQL Server Enterprise Edition 을 실행하는 Amazon RDS DB 인스턴스에 대한 재해 복구 솔루션을 원합니다. 회사의 현재 복구 지점 목표(RPO)와 복구 시간 목표(RTO)는 24 시간입니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "지역 간 읽기 전용 복제본을 생성하고 읽기 전용 복제본을 기본 인스턴스로 승격합니다.",
+    "B": "AWS Database Migration Service(AWS DMS)를 사용하여 RDS 교차 지역 복제를 생성합니다.",
+    "C": "24 시간마다 교차 리전 복제를 사용하여 기본 백업을 Amazon S3 버킷에 복사합니다.",
+    "D": "24 시간마다 자동 스냅샷을 다른 리전으로 복사합니다."
+  }
+}

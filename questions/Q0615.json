@@ -1,0 +1,10 @@
+{
+  "questionNumber": 615,
+  "question": "한 회사가 Amazon Elastic Kubernetes Service(Amazon EKS)에서 고객을 대상으로 하는 중요한 애플리케이션을 실행하고 있습니다. 애플리케이션에는 마이크로서비스 아키텍처가 있습니다. 회사는 중앙 위치에서 애플리케이션의 측정항목과 로그를 수집, 집계, 요약하는 솔루션을 구현해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "기존 EKS 클러스터에서 Amazon CloudWatch 에이전트를 실행합니다. CloudWatch 콘솔에서 지표와 로그를 봅니다.",
+    "B": "기존 EKS 클러스터에서 AWS App Mesh 를 실행합니다. App Mesh 콘솔에서 지표와 로그를 확인하세요.",
+    "C": "데이터 이벤트를 캡처하도록 AWS CloudTrail 을 구성합니다. Amazon OpenSearch Service 를 사용하여 CloudTrail 을 쿼리합니다.",
+    "D": "기존 EKS 클러스터에 Amazon CloudWatch Container Insights 를 구성합니다. CloudWatch 콘솔에서 지표와 로그를 봅니다."
+  }
+}

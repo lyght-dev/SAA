@@ -1,0 +1,10 @@
+{
+  "questionNumber": 568,
+  "question": "솔루션 설계자는 엔지니어링 도면을 저장하고 보는 데 사용되는 새 웹 애플리케이션의 스토리지 아키텍처를 설계하고 있습니다. 모든 애플리케이션 구성 요소는 AWS 인프라에 배포됩니다. 응용 프로그램 디자인은 사용자가 엔지니어링 도면이 로드될 때까지 기다리는 시간을 최소화하기 위해 캐싱을 지원해야 합니다. 애플리케이션은 페타바이트의 데이터를 저장할 수 있어야 합니다. 솔루션 설계자는 어떤 스토리지 및 캐싱 조합을 사용해야 합니까?",
+  "choices": {
+    "A": "Amazon CloudFront 를 사용하는 Amazon S3",
+    "B": "Amazon ElastiCache 를 사용하는 Amazon S3 Glacier",
+    "C": "Amazon CloudFront 를 사용하는 Amazon Elastic Block Store(Amazon EBS) 볼륨",
+    "D": "Amazon ElastiCache 를 사용하는 AWS Storage Gateway"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 412,
+  "question": "이미지 호스팅 회사는 객체를 Amazon S3 버킷에 저장합니다. 회사는 S3 버킷의 개체가 대중에게 우발적으로 노출되는 것을 방지하려고 합니다. 전체 AWS 계정의 모든 S3 객체는 비공개로 유지되어야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon GuardDuty 를 사용하여 S3 버킷 정책을 모니터링합니다. AWS Lambda 함수를 사용하여 객체를 공개하는 변경 사항을 수정하는 자동 수정 작업 규칙을 생성합니다.",
+    "B": "AWS Trusted Advisor 를 사용하여 공개적으로 액세스 가능한 S3 버킷을 찾습니다. 변경 사항이 감지되면 Trusted Advisor 에서 이메일 알림을 구성합니다. 퍼블릭 액세스를 허용하는 경우 S3 버킷 정책을 수동으로 변경합니다.",
+    "C": "AWS Resource Access Manager 를 사용하여 공개적으로 액세스 가능한 S3 버킷을 찾습니다. 변경이 감지되면 Amazon Simple Notification Service(Amazon SNS)를 사용하여 AWS Lambda 함수를 호출합니다. 프로그래밍 방식으로 변경 사항을 수정하는 Lambda 함수를 배포합니다.",
+    "D": "계정 수준에서 S3 퍼블릭 액세스 차단 기능을 사용합니다. AWS Organizations 를 사용하여 IAM 사용자가 설정을 변경하지 못하도록 하는 서비스 제어 정책(SCP)을 생성합니다. 계정에 SCP 를 적용합니다."
+  }
+}

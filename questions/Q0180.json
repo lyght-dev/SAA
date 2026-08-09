@@ -1,0 +1,11 @@
+{
+  "questionNumber": 180,
+  "question": "회사에서 API 로 구동되는 클라우드 통신 플랫폼을 설계하고 있습니다. 애플리케이션은 NLB(Network Load Balancer) 뒤의 Amazon EC2 인스턴스에서 호스팅됩니다. 이 회사는 Amazon API Gateway 를 사용하여 외부 사용자에게 API 를 통해 애플리케이션에 대한 액세스 권한을 제공합니다. 이 회사는 SQL 인젝션과 같은 웹 익스플로잇으로부터 플랫폼을 보호하고 대규모의 정교한 DDoS 공격을 감지하고 완화하기를 원합니다. 어떤 솔루션 조합이 MOST 보호를 제공합니까? (두 가지를 선택하세요.)",
+  "choices": {
+    "A": "AWS WAF 를 사용하여 NLB 를 보호하십시오.",
+    "B": "NLB 와 함께 AWS Shield Advanced 를 사용합니다.",
+    "C": "AWS WAF 를 사용하여 Amazon API Gateway 를 보호합니다.",
+    "D": "AWS Shield Standard 와 함께 Amazon GuardDuty 사용",
+    "E": "Amazon API Gateway 와 함께 AWS Shield Standard 를 사용합니다."
+  }
+}

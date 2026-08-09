@@ -1,0 +1,10 @@
+{
+  "questionNumber": 309,
+  "question": "솔루션 설계자는 스토리지 비용을 최적화해야 합니다. 솔루션 설계자는 더 이상 액세스하지 않거나 거의 액세스하지 않는 Amazon S3 버킷을 식별해야 합니다. 최소한의 운영 오버헤드로 이 목표를 달성할 수 있는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "고급 활동 메트릭에 대한 S3 Storage Lens 대시보드를 사용하여 버킷 액세스 패턴을 분석합니다.",
+    "B": "AWS Management Console 에서 S3 대시보드를 사용하여 버킷 액세스 패턴을 분석합니다.",
+    "C": "버킷에 대한 Amazon CloudWatch BucketSizeBytes 지표를 켭니다. Amazon Athena 에서 메트릭 데이터를 사용하여 버킷 액세스 패턴을 분석합니다.",
+    "D": "S3 객체 모니터링을 위해 AWS CloudTrail 을 켭니다. Amazon CloudWatch Logs 와 통합된 CloudTrail 로그를 사용하여 버킷 액세스 패턴을 분석합니다."
+  }
+}

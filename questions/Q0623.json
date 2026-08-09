@@ -1,0 +1,10 @@
+{
+  "questionNumber": 623,
+  "question": "회사는 Amazon API Gateway 를 사용하여 타사 서비스 공급자가 액세스하는 REST API 를 관리합니다. 회사는 SQL 주입 및 크로스 사이트 스크립팅 공격으로부터 REST API 를 보호해야 합니다. 이러한 요구 사항을 충족하는 가장 운영 효율적인 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Shield 를 구성합니다.",
+    "B": "AWS WAF 를 구성합니다.",
+    "C": "Amazon CloudFront 배포를 사용하여 API 게이트웨이를 설정합니다. CloudFront 에서 AWS Shield 를 구성합니다.",
+    "D": "Amazon CloudFront 배포로 API 게이트웨이를 설정합니다. CloudFront 에서 AWS WAF 를 구성합니다."
+  }
+}

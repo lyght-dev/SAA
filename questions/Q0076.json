@@ -1,0 +1,10 @@
+{
+  "questionNumber": 76,
+  "question": "회사는 단일 공장에 있는 여러 기계에서 매일 10TB 의 계측 데이터를 수신합니다. 데이터는 공장 내에 위치한 온프레미스 데이터 센터의 SAN(Storage Area Network)에 저장된 JSON 파일로 구성됩니다. 회사는 이 데이터를 Amazon S3 로 전송하여 중요한 실시간에 가까운 분석을 제공하는 여러 추가 시스템에서 액세스할 수 있기를 원합니다. 데이터가 민감한 것으로 간주되기 때문에 안전한 전송이 중요합니다. 가장 안정적인 데이터 전송을 제공하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "공용 인터넷을 통한 AWS DataSync",
+    "B": "AWS Direct Connect 를 통한 AWS DataSync",
+    "C": "공용 인터넷을 통한 AWS Database Migration Service(AWS DMS)",
+    "D": "AWS Direct Connect 를 통한 AWS Database Migration Service(AWS DMS)"
+  }
+}

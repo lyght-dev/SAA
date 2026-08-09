@@ -1,0 +1,10 @@
+{
+  "questionNumber": 483,
+  "question": "회사에서 Windows 컨테이너 아래의 .NET 6 Framework 에서 실행되는 Windows 작업을 컨테이너화했습니다. 회사는 AWS 클라우드에서 이 작업을 실행하려고 합니다. 작업은 10 분마다 실행됩니다. 작업의 실행 시간은 1 분에서 3 분 사이입니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "작업의 컨테이너 이미지를 기반으로 AWS Lambda 함수를 생성합니다. 10 분마다 함수를 호출하도록 Amazon EventBridge 를 구성합니다.",
+    "B": "AWS Batch 를 사용하여 AWS Fargate 리소스를 사용하는 작업을 생성합니다. 10 분마다 실행되도록 작업 일정을 구성합니다.",
+    "C": "AWS Fargate 에서 Amazon Elastic Container Service(Amazon ECS)를 사용하여 작업을 실행합니다. 10 분마다 실행할 작업의 컨테이너 이미지를 기반으로 예약된 작업을 만듭니다.",
+    "D": "AWS Fargate 에서 Amazon Elastic Container Service(Amazon ECS)를 사용하여 작업을 실행합니다. 작업의 컨테이너 이미지를 기반으로 독립 실행형 작업을 생성합니다. Windows 작업 스케줄러를 사용하여 10 분마다 작업을 실행합니다."
+  }
+}

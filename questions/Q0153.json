@@ -1,0 +1,10 @@
+{
+  "questionNumber": 153,
+  "question": "회사에서 인기 있는 노래 클립으로 만든 벨소리를 판매합니다. 벨소리가 포함된 파일은 Amazon S3 Standard 에 저장되며 크기는 최소 128KB 입니다. 이 회사에는 수백만 개의 파일이 있지만 90 일보다 오래된 벨소리의 경우 다운로드가 드뭅니다. 회사는 가장 많이 액세스하는 파일을 사용자가 쉽게 사용할 수 있도록 유지하면서 스토리지 비용을 절약해야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하기 위해 회사는 어떤 조치를 취해야 합니까?",
+  "choices": {
+    "A": "객체의 초기 스토리지 계층에 대해 S3 Standard-Infrequent Access(S3 Standard-IA) 스토리지를 구성합니다.",
+    "B": "파일을 S3 Intelligent-Tiering 으로 이동하고 90 일 후에 객체를 더 저렴한 스토리지 계층으로 이동하도록 구성합니다.",
+    "C": "객체를 관리하도록 S3 인벤토리를 구성하고 90 일 후에 객체를 S3 Standard-Infrequent Access(S3 Standard-1A)로 이동합니다.",
+    "D": "90 일 후에 객체를 S3 Standard 에서 S3 Standard-Infrequent Access(S3 Standard-1A)로 이동하는 S3 수명 주기 정책을 구현합니다."
+  }
+}

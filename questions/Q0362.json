@@ -1,0 +1,11 @@
+{
+  "questionNumber": 362,
+  "question": "회사는 특정 지불 ID 에 대한 메시지가 전송된 순서대로 수신되어야 하는 지불 처리 시스템을 사용합니다. 그렇지 않으면 결제가 잘못 처리될 수 있습니다. 솔루션 설계자는 이 요구 사항을 충족하기 위해 어떤 조치를 취해야 합니까? (2 개 선택)",
+  "choices": {
+    "A": "결제 ID 를 파티션 키로 사용하여 Amazon DynamoDB 테이블에 메시지를 씁니다.",
+    "B": "결제 ID 를 파티션 키로 사용하여 Amazon Kinesis 데이터 스트림에 메시지를 씁니다.",
+    "C": "결제 ID 를 키로 사용하여 Amazon ElastiCache for Memcached 클러스터에 메시지를 씁니다.",
+    "D": "Amazon Simple Queue Service(Amazon SQS) 대기열에 메시지를 씁니다. 결제 ID 를 사용하도록 메시지 속성을 설정합니다.",
+    "E": "Amazon Simple Queue Service(Amazon SQS) FIFO 대기열에 메시지를 씁니다. 결제 ID 를 사용할 메시지 그룹을 설정합니다."
+  }
+}

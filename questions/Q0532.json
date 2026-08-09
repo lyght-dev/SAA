@@ -1,0 +1,12 @@
+{
+  "questionNumber": 532,
+  "question": "회사는 AWS 리전에 워크로드가 있습니다. 고객은 Amazon API Gateway REST API 를 사용하여 워크로드에 연결하고 액세스합니다. 이 회사는 Amazon Route 53 을 DNS 공급자로 사용합니다. 회사는 모든 고객에게 개별적이고 안전한 URL 을 제공하고자 합니다. 가장 높은 운영 효율성으로 이러한 요구 사항을 충족하는 단계 조합은 무엇입니까? (3 개 선택)",
+  "choices": {
+    "A": "등록기관에 필요한 도메인을 등록합니다. Route 53 호스팅 영역에서 와일드카드 사용자 지정 도메인 이름을 생성하고 API 게이트웨이 엔드포인트를 가리키는 영역에 기록합니다.",
+    "B": "다른 리전에 있는 AWS Certificate Manager(ACM)의 도메인과 일치하는 와일드카드 인증서를 요청합니다.",
+    "C": "Route 53 에서 필요에 따라 각 고객에 대한 호스팅 영역을 생성합니다. API 게이트웨이 엔드포인트를 가리키는 영역 레코드를 생성합니다.",
+    "D": "동일한 리전의 AWS Certificate Manager(ACM)에서 사용자 지정 도메인 이름과 일치하는 와일드카드 인증서를 요청합니다.",
+    "E": "API Gateway 에서 각 고객에 대해 여러 API 끝점을 만듭니다.",
+    "F": "API Gateway 에서 REST API 용 사용자 정의 도메인 이름을 생성합니다. AWS Certificate Manager(ACM)에서 인증서를 가져옵니다."
+  }
+}

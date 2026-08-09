@@ -1,0 +1,10 @@
+{
+  "questionNumber": 303,
+  "question": "회사에서 Amazon Elastic Container Service(Amazon ECS) 클러스터에 배포된 새 애플리케이션을 시작하고 ECS 작업에 Fargate 시작 유형을 사용하고 있습니다. 회사는 실행 시 애플리케이션에 대한 높은 트래픽이 예상되기 때문에 CPU 및 메모리 사용량을 모니터링하고 있습니다. 그러나 회사는 활용도가 감소할 때 비용을 절감하기를 원합니다. 솔루션 설계자는 무엇을 추천해야 합니까?",
+  "choices": {
+    "A": "Amazon EC2 Auto Scaling 을 사용하여 이전 트래픽 패턴을 기반으로 특정 기간에 조정합니다.",
+    "B": "AWS Lambda 함수를 사용하여 Amazon CloudWatch 경보를 트리거하는 메트릭 위반을 기반으로 Amazon ECS 를 확장합니다.",
+    "C": "간단한 조정 정책과 함께 Amazon EC2 Auto Scaling 을 사용하여 ECS 메트릭 위반이 Amazon CloudWatch 경보를 트리거할 때 조정합니다.",
+    "D": "대상 추적 정책과 함께 AWS Application Auto Scaling 을 사용하여 ECS 메트릭 위반이 Amazon CloudWatch 경보를 트리거할 때 조정합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 561,
+  "question": "회사의 웹 사이트는 매일 수백만 건의 요청을 처리하며 요청 수는 계속 증가하고 있습니다. 솔루션 설계자는 웹 애플리케이션의 응답 시간을 개선해야 합니다. 솔루션 설계자는 애플리케이션이 Amazon DynamoDB 테이블에서 제품 세부 정보를 검색할 때 지연 시간을 줄여야 한다고 결정합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "DynamoDB Accelerator(DAX) 클러스터를 설정합니다. DAX 를 통해 모든 읽기 요청을 라우팅합니다.",
+    "B": "DynamoDB 테이블과 웹 애플리케이션 사이에 Redis 용 Amazon ElastiCache 를 설정합니다. Redis 를 통해 모든 읽기 요청을 라우팅합니다.",
+    "C": "DynamoDB 테이블과 웹 애플리케이션 사이에 Amazon ElastiCache for Memcached 를 설정합니다. Memcached 를 통해 모든 읽기 요청을 라우팅합니다.",
+    "D": "테이블에 Amazon DynamoDB 스트림을 설정하고 AWS Lambda 가 테이블에서 읽고 Amazon ElastiCache 를 채우도록 합니다. ElastiCache 를 통해 모든 읽기 요청을 라우팅합니다."
+  }
+}

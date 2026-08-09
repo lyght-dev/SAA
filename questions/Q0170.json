@@ -1,0 +1,10 @@
+{
+  "questionNumber": 170,
+  "question": "회사의 웹 애플리케이션이 Application Load Balancer 뒤의 Amazon EC2 인스턴스에서 실행되고 있습니다. 이 회사는 최근 정책을 변경하여 이제 특정 국가에서만 애플리케이션에 액세스하도록 요구합니다. 이 요구 사항을 충족하는 구성은 무엇입니까?",
+  "choices": {
+    "A": "EC2 인스턴스에 대한 보안 그룹을 구성합니다.",
+    "B": "Application Load Balancer 에서 보안 그룹을 구성합니다.",
+    "C": "VPC 의 Application Load Balancer 에서 AWS WAF 를 구성합니다.",
+    "D": "EC2 인스턴스를 포함하는 서브넷에 대한 네트워크 ACL 을 구성합니다."
+  }
+}

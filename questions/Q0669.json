@@ -1,0 +1,10 @@
+{
+  "questionNumber": 669,
+  "question": "회사의 웹사이트는 대중에게 제품을 판매하는 데 사용됩니다. 이 사이트는 ALB(Application Load Balancer) 뒤에 있는 Auto Scaling 그룹의 Amazon EC2 인스턴스에서 실행됩니다. Amazon CloudFront 배포판도 있으며 AWS WAF 는 SQL 주입 공격으로부터 보호하는 데 사용되고 있습니다. ALB 는 CloudFront 배포의 오리진입니다. 최근 보안 로그를 검토한 결과, 해당 웹사이트에 대한 접근을 차단해야 할 외부 악성 IP 가 발견되었습니다. 솔루션 설계자는 애플리케이션을 보호하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "CloudFront 배포의 네트워크 ACL 을 수정하여 악성 IP 주소에 대한 거부 규칙을 추가합니다.",
+    "B": "AWS WAF 구성을 수정하여 악성 IP 주소를 차단하는 IP 일치 조건을 추가합니다.",
+    "C": "ALB 뒤의 대상 그룹에 있는 EC2 인스턴스에 대한 네트워크 ACL 을 수정하여 악성 IP 주소를 거부합니다.",
+    "D": "악성 IP 주소를 거부하도록 ALB 뒤의 대상 그룹에 있는 EC2 인스턴스에 대한 보안 그룹을 수정합니다."
+  }
+}

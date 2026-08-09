@@ -1,0 +1,10 @@
+{
+  "questionNumber": 534,
+  "question": "회사에서 여러 AWS 계정에 대한 로깅 솔루션을 구축하려고 합니다. 회사는 현재 모든 계정의 로그를 중앙 집중식 계정에 저장합니다. 회사는 VPC 흐름 로그와 AWS CloudTrail 로그를 저장하기 위해 중앙 집중식 계정에 Amazon S3 버킷을 생성했습니다. 모든 로그는 빈번한 분석을 위해 30 일 동안 가용성이 높아야 하며, 백업 목적으로 추가 60 일 동안 유지되고 생성 후 90 일 후에 삭제되어야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "생성 후 30 일이 지나면 객체를 S3 Standard 스토리지 클래스로 전환합니다. 90 일 후에 객체를 삭제하도록 Amazon S3 에 지시하는 만료 작업을 작성합니다.",
+    "B": "생성 후 30 일이 지나면 객체를 S3 Standard-Infrequent Access(S3 Standard-IA) 스토리지 클래스로 전환합니다. 90 일 후에 모든 객체를 S3 Glacier Flexible Retrieval 스토리지 클래스로 이동합니다. 90 일 후에 객체를 삭제하도록 Amazon S3 에 지시하는 만료 작업을 작성합니다.",
+    "C": "생성 후 30 일이 지나면 객체를 S3 Glacier Flexible Retrieval 스토리지 클래스로 전환합니다. 90 일 후에 객체를 삭제하도록 Amazon S3 에 지시하는 만료 작업을 작성합니다.",
+    "D": "생성 후 30 일이 지나면 객체를 S3 One Zone-Infrequent Access(S3 One Zone-IA) 스토리지 클래스로 전환합니다. 90 일 후에 모든 객체를 S3 Glacier Flexible Retrieval 스토리지 클래스로 이동합니다. 90 일 후에 객체를 삭제하도록 Amazon S3 에 지시하는 만료 작업을 작성합니다."
+  }
+}

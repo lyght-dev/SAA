@@ -1,0 +1,10 @@
+{
+  "questionNumber": 435,
+  "question": "회사는 2 주 이내에 온프레미스 데이터 센터에서 AWS 로 MySQL 데이터베이스를 마이그레이션해야 합니다. 데이터베이스 크기는 20TB 입니다. 회사는 다운타임을 최소화하면서 마이그레이션을 완료하기를 원합니다. 데이터베이스를 가장 비용 효율적으로 마이그레이션하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Snowball Edge Storage Optimized 디바이스를 주문합니다. AWS Schema Conversion Tool(AWS SCT)과 함께 AWS Database Migration Service(AWS DMS)를 사용하여 진행 중인 변경 사항을 복제하여 데이터베이스를 마이그레이션합니다. Snowball Edge 디바이스를 AWS 로 보내 마이그레이션을 완료하고 진행 중인 복제를 계속합니다.",
+    "B": "AWS Snowmobile 차량을 주문합니다. AWS Schema Conversion Tool(AWS SCT)과 함께 AWS Database Migration Service(AWS DMS)를 사용하여 지속적인 변경 사항이 있는 데이터베이스를 마이그레이션합니다. Snowmobile 차량을 다시 AWS 로 보내 마이그레이션을 완료하고 진행 중인 복제를 계속합니다.",
+    "C": "GPU 장치로 AWS Snowball Edge Compute Optimized 를 주문합니다. AWS Schema Conversion Tool(AWS SCT)과 함께 AWS Database Migration Service(AWS DMS)를 사용하여 지속적인 변경 사항이 있는 데이터베이스를 마이그레이션합니다. Snowball 디바이스를 AWS 로 보내 마이그레이션을 완료하고 진행 중인 복제를 계속합니다.",
+    "D": "1GB 전용 AWS Direct Connect 연결을 주문하여 데이터 센터와의 연결을 설정합니다. AWS Schema Conversion Tool(AWS SCT)과 함께 AWS Database Migration Service(AWS DMS)를 사용하여 진행 중인 변경 사항을 복제하여 데이터베이스를 마이그레이션합니다."
+  }
+}

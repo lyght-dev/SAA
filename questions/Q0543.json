@@ -1,0 +1,11 @@
+{
+  "questionNumber": 543,
+  "question": "회사는 개별적으로 블리딩된 여러 AWS 계정에서 Amazon EC2 인스턴스를 실행합니다. 이 회사는 최근 저축 피안을 구입했습니다. 회사의 비즈니스 요구 사항 변경으로 인해 회사는 많은 수의 EC2 인스턴스를 폐기했습니다. 회사는 다른 AWS 계정에서 Savings Plan 할인을 사용하려고 합니다. 이러한 요구 사항을 충족하는 단계 조합은 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "마스터 계정의 AWS 계정 관리 콘솔에서 결제 기본 설정 섹션의 할인 공유를 켭니다.",
+    "B": "기존 Savings Plan 을 구매한 계정의 AWS 계정 관리 콘솔에서 결제 기본 설정 섹션의 할인 공유를 켭니다. 모든 계정을 포함합니다.",
+    "C": "AWS Organizations 마스터 계정에서 AWS Resource Access Manager(AWS RAM)를 사용하여 다른 계정과 Savings Plan 을 공유합니다.",
+    "D": "새 지급인 계정의 AWS Organizations 에서 조직을 생성합니다. 다른 AWS 계정을 초대하여 마스터 계정에서 조직에 가입합니다.",
+    "E": "기존 EC2 인스턴스 및 Savings Plan 을 사용하여 기존 AWS 계정의 AWS Organizations 에 조직을 생성합니다. 다른 AWS 계정을 초대하여 마스터 계정에서 조직에 가입합니다."
+  }
+}

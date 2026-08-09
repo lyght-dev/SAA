@@ -1,0 +1,10 @@
+{
+  "questionNumber": 535,
+  "question": "회사에서 워크로드를 위해 Amazon Elastic Kubernetes Service(Amazon EKS) 클러스터를 구축하고 있습니다. Amazon EKS 에 저장되는 모든 암호는 Kubernetes etcd 키-값 저장소에서 암호화되어야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "새 AWS Key Management Service(AWS KMS) 키를 생성합니다. AWS Secrets Manager 를 사용하여 Amazon EKS 에서 모든 비밀을 관리, 교체 및 저장하십시오.",
+    "B": "새 AWS Key Management Service(AWS KMS) 키를 생성합니다. Amazon EKS 클러스터에서 Amazon EKS KMS 비밀 암호화를 활성화합니다.",
+    "C": "기본 옵션으로 Amazon EKS 클러스터를 생성합니다. Amazon Elastic Block Store(Amazon EBS) CSI(Container Storage Interface) 드라이버를 추가 기능으로 사용합니다.",
+    "D": "alias/aws/ebs 별칭으로 새 AWS Key Management Service(AWS KMS) 키를 생성합니다. 계정에 대해 기본 Amazon Elastic Block Store(Amazon EBS) 볼륨 암호화를 활성화합니다."
+  }
+}

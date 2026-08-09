@@ -1,0 +1,10 @@
+{
+  "questionNumber": 616,
+  "question": "한 회사가 AWS 에 최신 제품을 배포했습니다. 제품은 Network Load Balancer 뒤의 Auto Scaling 그룹에서 실행됩니다. 회사는 제품의 객체를 Amazon S3 버킷에 저장합니다. 이 회사는 최근 자사 시스템에 대한 악의적인 공격을 경험했습니다. 회사에는 AWS 계정의 악의적인 활동, 워크로드 및 S3 버킷에 대한 액세스 패턴을 지속적으로 모니터링하는 솔루션이 필요합니다. 또한 솔루션은 의심스러운 활동을 보고하고 대시보드에 정보를 표시해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "결과를 모니터링하고 AWS Config 에 보고하도록 Amazon Macie 를 구성합니다.",
+    "B": "결과를 모니터링하고 AWS CloudTrail 에 보고하도록 Amazon Inspector 를 구성합니다.",
+    "C": "결과를 모니터링하고 AWS Security Hub 에 보고하도록 Amazon GuardDuty 를 구성합니다.",
+    "D": "결과를 모니터링하고 Amazon EventBridge 에 보고하도록 AWS Config 를 구성합니다."
+  }
+}

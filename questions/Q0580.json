@@ -1,0 +1,10 @@
+{
+  "questionNumber": 580,
+  "question": "회사는 로컬로 연결된 스토리지를 사용하여 온프레미스에서 대기 시간에 민감한 애플리케이션을 실행합니다. 이 회사는 애플리케이션을 AWS 클라우드로 옮기기 위해 리프트 앤 시프트 방식을 사용하고 있습니다. 회사는 애플리케이션 아키텍처를 변경하기를 원하지 않습니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon EC2 인스턴스로 Auto Scaling 그룹을 구성합니다. Amazon FSx for Lustre 파일 시스템을 사용하여 애플리케이션을 실행합니다.",
+    "B": "Amazon EC2 인스턴스에서 애플리케이션을 호스팅합니다. Amazon Elastic Block Store(Amazon EBS) GP2 볼륨을 사용하여 애플리케이션을 실행합니다.",
+    "C": "Amazon EC2 인스턴스로 Auto Scaling 그룹을 구성합니다. OpenZFS 파일 시스템용 Amazon FSx 를 사용하여 애플리케이션을 실행합니다.",
+    "D": "Amazon EC2 인스턴스에서 애플리케이션을 호스팅합니다. Amazon Elastic Block Store(Amazon EBS) GP3 볼륨을 사용하여 애플리케이션을 실행합니다."
+  }
+}

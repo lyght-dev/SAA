@@ -1,0 +1,10 @@
+{
+  "questionNumber": 383,
+  "question": "한 회사가 온프레미스 데이터 센터에서 AWS 로 상용 기성 애플리케이션을 마이그레이션할 계획입니다. 이 소프트웨어에는 용량 및 가동 시간 요구 사항을 예측할 수 있는 소켓과 코어를 사용하는 소프트웨어 라이센스 모델이 있습니다. 회사는 올해 초에 구입한 기존 라이센스를 사용하려고 합니다. 가장 비용 효율적인 Amazon EC2 요금 옵션은 무엇입니까?",
+  "choices": {
+    "A": "전용 예약 호스트(Dedicated Reserved Hosts)",
+    "B": "전용 온디맨드 호스트(Dedicated On-Demand Hosts)",
+    "C": "전용 예약 인스턴스(Dedicated Reserved Instances)",
+    "D": "전용 온디맨드 인스턴스(Dedicated On-Demand Instances)"
+  }
+}

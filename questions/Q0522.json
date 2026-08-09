@@ -1,0 +1,11 @@
+{
+  "questionNumber": 522,
+  "question": "회사는 Amazon Elastic Kubernetes Service(Amazon EKS)를 사용하여 컨테이너 애플리케이션을 실행합니다. 회사의 작업량은 하루 종일 일정하지 않습니다. 회사는 Amazon EKS 가 워크로드에 따라 확장 및 축소되기를 원합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 단계 조합은 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "AWS Lambda 함수를 사용하여 EKS 클러스터의 크기를 조정합니다.",
+    "B": "Kubernetes Metrics Server 를 사용하여 수평적 포드 자동 확장을 활성화합니다.",
+    "C": "Kubernetes Cluster Autoscaler 를 사용하여 클러스터의 노드 수를 관리합니다.",
+    "D": "Amazon API Gateway 를 사용하여 Amazon EKS 에 연결합니다.",
+    "E": "AWS App Mesh 를 사용하여 네트워크 활동을 관찰합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 336,
+  "question": "회사는 Amazon Aurora MySQL DB 클러스터를 스토리지로 사용하는 다중 계층 웹 애플리케이션을 호스팅합니다. 애플리케이션 계층은 Amazon EC2 인스턴스에서 호스팅됩니다. 회사의 IT 보안 지침에 따라 데이터베이스 자격 증명을 암호화하고 14 일마다 교체해야 합니다. 최소한의 운영 노력으로 이 요구 사항을 충족하려면 솔루션 설계자가 무엇을 해야 합니까?",
+  "choices": {
+    "A": "새 AWS Key Management Service(AWS KMS) 암호화 키를 생성합니다. AWS Secrets Manager 를 사용하여 적절한 자격 증명과 함께 KMS 키를 사용하는 새 암호를 생성합니다. 암호를 Aurora DB 클러스터와 연결합니다. 14 일의 사용자 지정 순환 기간을 구성합니다.",
+    "B": "AWS Systems Manager Parameter Store 에서 두 개의 매개변수를 생성합니다. 하나는 사용자 이름을 문자열 매개변수로 사용하고 다른 하나는 SecureString 유형을 암호로 사용합니다. 암호 매개변수에 대해 AWS Key Management Service(AWS KMS) 암호화를 선택하고 애플리케이션 계층에서 이러한 매개변수를 로드합니다. 14 일마다 암호를 교체하는 AWS Lambda 함수를 구현합니다.",
+    "C": "자격 증명이 포함된 파일을 AWS KMS(AWS Key Management Service) 암호화 Amazon Elastic File System(Amazon EFS) 파일 시스템에 저장합니다. 애플리케이션 계층의 모든 EC2 인스턴스에 EFS 파일 시스템을 탑재합니다. 응용 프로그램이 파일을 읽을 수 있고 슈퍼 사용자만 파일을 수정할 수 있도록 파일 시스템의 파일에 대한 액세스를 제한합니다. 14 일마다 Aurora 에서 키를 교체하고 새 자격 증명을 파일에 쓰는 AWS Lambda 함수를 구현합니다.",
+    "D": "애플리케이션이 자격 증명을 로드하는 데 사용하는 AWS KMS(AWS Key Management Service) 암호화 Amazon S3 버킷에 자격 증명이 포함된 파일을 저장합니다. 올바른 자격 증명이 사용되도록 정기적으로 파일을 응용 프로그램에 다운로드하십시오. 14 일마다 Aurora 자격 증명을 교체하고 이 자격 증명을 S3 버킷의 파일에 업로드하는 AWS Lambda 함수를 구현합니다."
+  }
+}

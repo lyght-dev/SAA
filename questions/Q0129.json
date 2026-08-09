@@ -1,0 +1,11 @@
+{
+  "questionNumber": 129,
+  "question": "회사에서 온프레미스에서 다중 계층 웹 애플리케이션을 실행하고 있습니다. 웹 애플리케이션은 컨테이너화되어 있으며 사용자 레코드가 포함된 PostgreSQL 데이터베이스에 연결된 여러 Linux 호스트에서 실행됩니다. 인프라 및 용량 계획을 유지 관리하는 운영 오버헤드가 회사의 성장을 제한하고 있습니다. 솔루션 설계자는 애플리케이션의 인프라를 개선해야 합니다. 솔루션 설계자는 이를 달성하기 위해 어떤 조합의 조치를 취해야 합니까? (2 개 선택)",
+  "choices": {
+    "A": "PostgreSQL 데이터베이스를 Amazon Aurora 로 마이그레이션합니다.",
+    "B": "Amazon EC2 인스턴스에서 호스팅할 웹 애플리케이션을 마이그레이션합니다.",
+    "C": "웹 애플리케이션 콘텐츠에 대한 Amazon CloudFront 배포를 설정합니다.",
+    "D": "웹 애플리케이션과 PostgreSQL 데이터베이스 간에 Amazon ElastiCache 를 설정합니다.",
+    "E": "Amazon Elastic Container Service(Amazon ECS)를 사용하여 AWS Fargate 에서 호스팅할 웹 애플리케이션을 마이그레이션합니다."
+  }
+}

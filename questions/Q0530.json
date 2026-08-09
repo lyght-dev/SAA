@@ -1,0 +1,10 @@
+{
+  "questionNumber": 530,
+  "question": "회사에 TCP 및 UDP 멀티플레이어 게임 기능이 있는 온라인 게임 응용 프로그램이 있습니다. 이 회사는 Amazon Route 53 을 사용하여 애플리케이션 트래픽이 서로 다른 AWS 리전에 있는 여러 NLB(Network Load Balancer)를 가리키도록 합니다. 회사는 사용자 증가에 대비하여 애플리케이션 성능을 개선하고 온라인 게임의 지연 시간을 줄여야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "NLB 앞에 Amazon CloudFront 배포를 추가합니다. Cache-Control max-age 매개변수를 늘리십시오.",
+    "B": "NLB 를 ALB(Application Load Balancer)로 교체합니다. 지연 시간 기반 라우팅을 사용하도록 Route 53 을 구성합니다.",
+    "C": "NLB 앞에 AWS Global Accelerator 를 추가합니다. 올바른 수신기 포트를 사용하도록 Global Accelerator 끝점을 구성합니다.",
+    "D": "NLB 뒤에 Amazon API Gateway 엔드포인트를 추가합니다. API 캐싱을 활성화합니다. 다른 단계에 대한 메서드 캐싱을 재정의합니다."
+  }
+}

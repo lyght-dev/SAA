@@ -1,0 +1,10 @@
+{
+  "questionNumber": 485,
+  "question": "회사는 오래된 뉴스 영상에서 AWS 에 비디오 아카이브를 저장할 수 있는 솔루션을 찾고 있습니다. 회사는 비용을 최소화해야 하며 이러한 파일을 복원할 필요가 거의 없습니다. 파일이 필요할 때 최대 5 분 내에 사용할 수 있어야 합니다. 가장 비용 효율적인 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "비디오 아카이브를 Amazon S3 Glacier 에 저장하고 긴급 검색을 사용합니다.",
+    "B": "비디오 아카이브를 Amazon S3 Glacier 에 저장하고 표준 검색을 사용합니다.",
+    "C": "비디오 아카이브를 Amazon S3 Standard-Infrequent Access(S3 Standard-IA)에 저장합니다.",
+    "D": "비디오 아카이브를 Amazon S3 One Zone-Infrequent Access(S3 One Zone-IA)에 저장합니다."
+  }
+}

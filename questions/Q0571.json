@@ -1,0 +1,10 @@
+{
+  "questionNumber": 571,
+  "question": "회사에서 REST API 를 만들고 있습니다. 회사에는 TLS 사용에 대한 엄격한 요구 사항이 있습니다. 회사는 API 엔드포인트에 TLSv1.3 을 요구합니다. 또한 회사는 TLS 인증서에 서명하기 위해 특정 공개 타사 인증 기관(CA)을 요구합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "로컬 시스템을 사용하여 타사 CI 가 서명한 인증서를 생성하고 인증서를 AWS Certificate Manager(ACM)로 가져옵니다. 사용자 지정 도메인을 사용하여 Amazon API Gateway 에서 HTTP API 를 생성합니다. 인증서를 사용하도록 사용자 지정 도메인을 구성합니다.",
+    "B": "타사 CA 가 서명한 AWS Certificate Manager(ACM)에서 인증서를 생성합니다. 사용자 지정 도메인을 사용하여 Amazon API Gateway 에서 HTTP API 를 생성합니다. 인증서를 사용하도록 사용자 지정 도메인을 구성합니다.",
+    "C": "AWS Certificate Manager(ACM)를 사용하여 타사 CA 에서 서명한 인증서를 생성합니다. 인증서를 AWS Certificate Manager(ACM)로 가져옵니다. Lambda 함수 URL 을 사용하여 AWS Lambda 함수를 생성합니다. 인증서를 사용하도록 Lambda 함수 URL 을 구성합니다.",
+    "D": "타사 CA 에서 서명한 AWS Certificate Manager(ACM)에서 인증서를 생성합니다. Lambda 함수 URL 을 사용하여 AWS Lambda 함수를 생성합니다. 인증서를 사용하도록 Lambda 함수 URL 을 구성합니다."
+  }
+}

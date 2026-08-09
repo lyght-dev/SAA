@@ -1,0 +1,10 @@
+{
+  "questionNumber": 67,
+  "question": "회사는 여러 Amazon EC2 인스턴스에서 애플리케이션을 호스팅합니다. 애플리케이션은 Amazon SQS 대기열의 메시지를 처리하고 Amazon RDS 테이블에 쓰고 대기열에서 메시지를 삭제합니다. RDS 테이블에서 가끔 중복 레코드가 발견됩니다. SQS 대기열에는 중복 메시지가 없습니다. 메시지가 한 번만 처리되도록 솔루션 설계자는 무엇을 해야 합니까?",
+  "choices": {
+    "A": "CreateQueue API 호출을 사용하여 새 대기열을 만듭니다.",
+    "B": "AddPermission API 호출을 사용하여 적절한 권한을 추가합니다.",
+    "C": "ReceiveMessage API 호출을 사용하여 적절한 대기 시간을 설정합니다.",
+    "D": "ChangeMessageVisibility API 호출을 사용하여 가시성 시간 초과를 늘립니다."
+  }
+}

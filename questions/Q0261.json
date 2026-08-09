@@ -1,0 +1,11 @@
+{
+  "questionNumber": 261,
+  "question": "한 회사가 최근 전 세계 고객을 대상으로 소매 웹 사이트를 배포한다고 발표했습니다. 웹 사이트는 Elastic Load Balancer 뒤에 있는 여러 Amazon EC2 인스턴스에서 실행됩니다. 인스턴스는 여러 가용 영역의 Auto Scaling 그룹에서 실행됩니다. 회사는 고객이 웹 사이트에 액세스하는 데 사용하는 장치에 따라 다양한 버전의 콘텐츠를 고객에게 제공하려고 합니다. 이러한 요구 사항을 충족하기 위해 솔루션 설계자는 어떤 작업 조합을 수행해야 합니까? (2 개 선택)",
+  "choices": {
+    "A": "여러 버전의 콘텐츠를 캐시하도록 Amazon CloudFront 를 구성합니다.",
+    "B": "트래픽을 다른 인스턴스로 전달하도록 Network Load Balancer 에서 호스트 헤더를 구성합니다.",
+    "C": "User-Agent 헤더를 기반으로 사용자에게 특정 객체를 보내도록 Lambda@Edge 함수를 구성합니다.",
+    "D": "AWS Global Accelerator 를 구성합니다. NLB(Network Load Balancer)에 요청을 전달합니다. 다른 EC2 인스턴스에 대한 호스트 기반 라우팅을 설정하도록 NLB 를 구성합니다.",
+    "E": "AWS Global Accelerator 를 구성합니다. NLB(Network Load Balancer)에 요청을 전달합니다. 다른 EC2 인스턴스에 대한 경로 기반 라우팅을 설정하도록 NLB 를 구성합니다."
+  }
+}

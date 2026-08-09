@@ -1,0 +1,10 @@
+{
+  "questionNumber": 105,
+  "question": "회사에서 새로운 서버리스 워크로드를 배포할 준비를 하고 있습니다. 솔루션 설계자는 최소 권한 원칙을 사용하여 AWS Lambda 함수를 실행하는 데 사용할 권한을 구성해야 합니다. Amazon EventBridge(Amazon CloudWatch Events) 규칙이 함수를 호출합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "lambda:InvokeFunction 을 작업으로, *를 보안 주체로 사용하여 함수에 실행 역할을 추가합니다.",
+    "B": "작업으로 lambda:InvokeFunction 을 사용하고 보안 주체로 Service: lambda.amazonaws.com 을 사용하여 함수에 실행 역할을 추가합니다.",
+    "C": "작업으로 lambda:*를 사용하고 보안 주체로 Service: events.amazonaws.com 을 사용하여 리소스 기반 정책을 함수에 추가합니다.",
+    "D": "lambda:InvokeFunction 을 작업으로, Service: events.amazonaws.com 을 보안 주체로 사용하여 리소스 기반 정책을 함수에 추가합니다."
+  }
+}

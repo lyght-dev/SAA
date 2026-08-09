@@ -1,0 +1,10 @@
+{
+  "questionNumber": 340,
+  "question": "미디어 회사는 AWS 에서 웹 사이트를 호스팅합니다. 웹 사이트 애플리케이션의 아키텍처에는 Application Load Balancer(ALB) 뒤에 있는 Amazon EC2 인스턴스 플릿과 Amazon Aurora 에서 호스팅되는 데이터베이스가 포함됩니다. 회사의 사이버 보안 팀은 애플리케이션이 SQL 주입에 취약하다고 보고합니다. 회사는 이 문제를 어떻게 해결해야 할까요?",
+  "choices": {
+    "A": "ALB 앞에서 AWS WAF 를 사용합니다. 적절한 웹 ACL 을 AWS WAF 와 연결합니다.",
+    "B": "고정 응답으로 SQL 주입에 응답하는 ALB 수신기 규칙을 생성합니다.",
+    "C": "모든 SQL 삽입 시도를 자동으로 차단하려면 AWS Shield Advanced 에 가입하십시오.",
+    "D": "모든 SQL 주입 시도를 자동으로 차단하도록 Amazon Inspector 를 설정합니다."
+  }
+}

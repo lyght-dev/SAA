@@ -1,0 +1,10 @@
+{
+  "questionNumber": 686,
+  "question": "회사에는 원치 않는 콘텐츠가 포함된 사진이 회사의 웹 애플리케이션에 업로드되는 것을 방지하는 솔루션이 필요합니다. 솔루션에는 기계 학습(ML) 모델 교육이 포함되어서는 안 됩니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Amazon SageMaker Autopilot 을 사용하여 모델을 생성하고 배포합니다. 새 사진이 업로드될 때 웹 애플리케이션이 호출하는 실시간 엔드포인트를 만듭니다.",
+    "B": "Amazon Rekognition 을 사용하여 원치 않는 콘텐츠를 감지하는 AWS Lambda 함수를 생성합니다. 새 사진이 업로드될 때 웹 애플리케이션이 호출하는 Lambda 함수 URL 을 생성합니다.",
+    "C": "Amazon Comprehend 를 사용하여 원치 않는 콘텐츠를 감지하는 Amazon CloudFront 함수를 생성합니다. 기능을 웹 애플리케이션과 연결합니다.",
+    "D": "Amazon Rekognition Video 를 사용하여 원치 않는 콘텐츠를 감지하는 AWS Lambda 함수를 생성합니다. 새 사진이 업로드될 때 웹 애플리케이션이 호출하는 Lambda 함수 URL 을 생성합니다."
+  }
+}

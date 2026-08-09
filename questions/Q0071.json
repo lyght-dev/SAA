@@ -1,0 +1,10 @@
+{
+  "questionNumber": 71,
+  "question": "한 회사는 Amazon DynamoDB 를 사용하여 고객 정보를 저장하는 쇼핑 애플리케이션을 실행합니다. 데이터 손상의 경우 솔루션 설계자는 15 분의 RPO(복구 시점 목표)와 1 시간의 RTO(복구 시간 목표)를 충족하는 솔루션을 설계해야 합니다. 이러한 요구 사항을 충족하기 위해 솔루션 설계자는 무엇을 권장해야 합니까?",
+  "choices": {
+    "A": "DynamoDB 전역 테이블을 구성합니다. RPO 복구의 경우 애플리케이션이 다른 AWS 리전을 가리키도록 합니다.",
+    "B": "DynamoDB 지정 시간 복구를 구성합니다. RPO 복구의 경우 원하는 시점으로 복원합니다.",
+    "C": "DynamoDB 데이터를 매일 Amazon S3 Glacier 로 내보냅니다. RPO 복구의 경우 S3 Glacier 에서 DynamoDB 로 데이터를 가져옵니다.",
+    "D": "DynamoDB 테이블에 대한 Amazon Elastic Block Store(Amazon EBS) 스냅샷을 15 분마다 예약합니다. RPO 복구의 경우 EBS 스냅샷을 사용하여 DynamoDB 테이블을 복원합니다."
+  }
+}

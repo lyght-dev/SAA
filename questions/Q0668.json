@@ -1,0 +1,10 @@
+{
+  "questionNumber": 668,
+  "question": "회사는 온프레미스 LDAP 디렉터리 서비스를 사용하여 AWS Management Console 에 사용자를 인증해야 합니다. 디렉터리 서비스는 SAML(Security Assertion Markup Language)과 호환되지 않습니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS 와 온프레미스 LDAP 간에 AWS IAM Identity Center(AWS Single Sign-On)를 활성화합니다.",
+    "B": "AWS 자격 증명을 사용하는 IAM 정책을 생성하고 정책을 LDAP 에 통합합니다.",
+    "C": "LDAP 자격 증명이 업데이트될 때마다 IAM 자격 증명을 교체하는 프로세스를 설정합니다.",
+    "D": "AWS Security Token Service(AWS STS)를 사용하여 단기 자격 증명을 얻는 온프레미스 사용자 지정 자격 증명 브로커 애플리케이션 또는 프로세스를 개발합니다."
+  }
+}

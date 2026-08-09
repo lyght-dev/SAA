@@ -1,0 +1,10 @@
+{
+  "questionNumber": 117,
+  "question": "회사는 Amazon CloudWatch Logs 로그 그룹에 애플리케이션 로그를 저장합니다. 새로운 정책에 따라 회사는 거의 실시간으로 Amazon OpenSearch Service(Amazon Elasticsearch Service)에 모든 애플리케이션 로그를 저장해야 합니다. 최소한의 운영 오버헤드로 이 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "로그를 Amazon OpenSearch Service(Amazon Elasticsearch Service)로 스트리밍하도록 CloudWatch Logs 구독을 구성합니다.",
+    "B": "AWS Lambda 함수를 생성합니다. 로그 그룹을 사용하여 함수를 호출하여 Amazon OpenSearch Service(Amazon Elasticsearch Service)에 로그를 기록합니다.",
+    "C": "Amazon Kinesis Data Firehose 전송 스트림을 생성합니다. 전송 스트림 소스로 로그 그룹을 구성합니다. Amazon OpenSearch Service(Amazon Elasticsearch Service)를 전송 스트림의 대상으로 구성합니다.",
+    "D": "각 애플리케이션 서버에 Amazon Kinesis Agent 를 설치하고 구성하여 Amazon Kinesis Data Streams 에 로그를 전달합니다. Amazon OpenSearch Service(Amazon Elasticsearch Service)에 로그를 전달하도록 Kinesis Data Streams 를 구성합니다."
+  }
+}

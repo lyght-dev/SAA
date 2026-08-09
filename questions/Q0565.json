@@ -1,0 +1,10 @@
+{
+  "questionNumber": 565,
+  "question": "회사에는 트랜잭션 데이터를 처리하는 온프레미스 MySQL 데이터베이스가 있습니다. 회사는 데이터베이스를 AWS 클라우드로 마이그레이션하고 있습니다. 마이그레이션된 데이터베이스는 데이터베이스를 사용하는 회사의 애플리케이션과 호환성을 유지해야 합니다. 마이그레이션된 데이터베이스는 또한 수요가 증가하는 기간 동안 자동으로 확장되어야 합니다. 이러한 요구 사항을 충족하는 마이그레이션 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "기본 MySQL 도구를 사용하여 데이터베이스를 MySQL 용 Amazon RDS 로 마이그레이션합니다. 탄력적 스토리지 확장을 구성합니다.",
+    "B": "mysqldump 유틸리티를 사용하여 데이터베이스를 Amazon Redshift 로 마이그레이션합니다. Amazon Redshift 클러스터에 대해 Auto Scaling 을 켭니다.",
+    "C": "AWS Database Migration Service(AWS DMS)를 사용하여 데이터베이스를 Amazon Aurora 로 마이그레이션합니다. Aurora Auto Scaling 을 켭니다.",
+    "D": "AWS Database Migration Service(AWS DMS)를 사용하여 데이터베이스를 Amazon DynamoDB 로 마이그레이션합니다. Auto Scaling 정책을 구성합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 347,
+  "question": "회사에는 Amazon EC2 인스턴스에서 실행 중인 애플리케이션이 있습니다. 솔루션 설계자는 회사의 현재 요구 사항을 기반으로 특정 인스턴스 제품군 및 다양한 인스턴스 크기로 회사를 표준화했습니다. 회사는 향후 3 년 동안 애플리케이션의 비용 절감을 극대화하고자 합니다. 회사는 애플리케이션 인기도 및 사용량에 따라 향후 6 개월 내에 인스턴스 패밀리 및 크기를 변경할 수 있어야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "컴퓨팅 절감 플랜(Compute Savings Plan)",
+    "B": "EC2 인스턴스 절감 계획(EC2 Instance Savings Plan)",
+    "C": "영역 예약 인스턴스(Zonal Reserved Instances)",
+    "D": "표준 예약 인스턴스(Standard Reserved Instances)"
+  }
+}

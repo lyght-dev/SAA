@@ -1,0 +1,10 @@
+{
+  "questionNumber": 232,
+  "question": "회사는 Amazon EC2 인스턴스에서 고객을 위한 데모 환경을 실행합니다. 각 환경은 자체 VPC 에서 격리됩니다. 환경에 대한 RDP 또는 SSH 액세스가 설정되면 회사의 운영 팀에 알려야 합니다.",
+  "choices": {
+    "A": "RDP 또는 SSH 액세스가 감지되면 AWS Systems Manager OpsItems 를 생성하도록 Amazon CloudWatch Application Insights 를 구성합니다.",
+    "B": "AmazonSSMManagedInstanceCore 정책이 연결된 IAM 역할이 있는 IAM 인스턴스 프로필로 EC2 인스턴스를 구성합니다.",
+    "C": "Amazon CloudWatch Logs 에 VPC 흐름 로그를 게시합니다. 필요한 메트릭 필터를 만듭니다. 경보가 ALARM 상태일 때 알림 작업이 포함된 Amazon CloudWatch 지표 경보를 생성합니다.",
+    "D": "EC2 인스턴스 상태 변경 알림 유형의 이벤트를 수신하도록 Amazon EventBridge 규칙을 구성합니다. Amazon Simple Notification Service(Amazon SNS) 주제를 대상으로 구성합니다. 주제에 대한 운영 팀을 구독하십시오."
+  }
+}

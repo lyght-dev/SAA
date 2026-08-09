@@ -1,0 +1,10 @@
+{
+  "questionNumber": 551,
+  "question": "회사에 보고서를 생성하는 재무 응용 프로그램이 있습니다. 보고서 크기는 평균 50KB 이며 Amazon S3 에 저장됩니다. 보고서는 생산 후 첫 주 동안 자주 액세스되며 몇 년 동안 저장해야 합니다. 보고서는 6 시간 이내에 검색할 수 있어야 합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "S3 Standard 를 사용합니다. S3 수명 주기 규칙을 사용하여 7 일 후에 보고서를 S3 Glacier 로 전환합니다.",
+    "B": "S3 Standard 를 사용합니다. S3 수명 주기 규칙을 사용하여 7 일 후에 보고서를 S3 Standard-Infrequent Access(S3 Standard-IA)로 전환합니다.",
+    "C": "S3 Intelligent-Tiering 을 사용합니다. 보고서를 S3 Standard-Infrequent Access(S3 Standard-IA) 및 S3 Glacier 로 전환하도록 S3 Intelligent-Tiering 을 구성합니다.",
+    "D": "S3 Standard 를 사용합니다. S3 수명 주기 규칙을 사용하여 7 일 후에 보고서를 S3 Glacier Deep Archive 로 전환합니다."
+  }
+}

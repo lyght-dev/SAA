@@ -1,0 +1,11 @@
+{
+  "questionNumber": 458,
+  "question": "솔루션 설계자는 현금 회수 서비스를 위해 Amazon API Gateway 에서 RESTAPI 를 설계하고 있습니다. 응용 프로그램에는 컴퓨팅 리소스를 위해 1GB 의 메모리와 2GB 의 스토리지가 필요합니다. 애플리케이션은 데이터가 관계형 형식이어야 합니다. 최소한의 관리 노력으로 이러한 요구 사항을 충족하는 추가 AWS 서비스 조합은 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "Amazon EC2",
+    "B": "AWS Lambda",
+    "C": "Amazon RDS",
+    "D": "Amazon DynamoDB",
+    "E": "Amazon Elastic Kubernetes Services (Amazon EKS)"
+  }
+}

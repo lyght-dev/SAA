@@ -1,0 +1,11 @@
+{
+  "questionNumber": 550,
+  "question": "회사에서 AWS Key Management Service(AWS KMS) 키를 사용하여 AWS Lambda 환경 변수를 암호화하고 있습니다. 솔루션 설계자는 환경 변수를 해독하고 사용하는 데 필요한 권한이 있는지 확인해야 합니다. 올바른 권한을 구현하기 위해 솔루션 설계자가 수행해야 하는 단계는 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "Lambda 리소스 정책에 AWS KMS 권한을 추가합니다.",
+    "B": "Lambda 실행 역할에 AWS KMS 권한을 추가합니다.",
+    "C": "Lambda 함수 정책에 AWS KMS 권한을 추가합니다.",
+    "D": "AWS KMS 키 정책에서 Lambda 실행 역할을 허용합니다.",
+    "E": "AWS KMS 키 정책에서 Lambda 리소스 정책을 허용합니다."
+  }
+}

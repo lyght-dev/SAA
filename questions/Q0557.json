@@ -1,0 +1,10 @@
+{
+  "questionNumber": 557,
+  "question": "솔루션 설계자는 분석 애플리케이션을 관리합니다. 애플리케이션은 Amazon S3 버킷에 대량의 반구조화된 데이터를 저장합니다. 솔루션 설계자는 병렬 데이터 처리를 사용하여 데이터를 더 빠르게 처리하려고 합니다. 또한 솔루션 설계자는 Amazon Redshift 데이터베이스에 저장된 정보를 사용하여 데이터를 보강하려고 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Athena 를 사용하여 S3 데이터를 처리합니다. Amazon Redshift 데이터와 함께 AWS Glue 를 사용하여 S3 데이터를 보강합니다.",
+    "B": "Amazon EMR 을 사용하여 S3 데이터를 처리합니다. Amazon Redshift 데이터와 함께 Amazon EMR 을 사용하여 S3 데이터를 보강합니다.",
+    "C": "Amazon EMR 을 사용하여 S3 데이터를 처리합니다. 데이터를 보강할 수 있도록 Amazon Kinesis Data Streams 를 사용하여 S3 데이터를 Amazon Redshift 로 이동합니다.",
+    "D": "AWS Glue 를 사용하여 S3 데이터를 처리합니다. Amazon Redshift 데이터와 함께 AWS Lake Formation 을 사용하여 S3 데이터를 보강합니다."
+  }
+}

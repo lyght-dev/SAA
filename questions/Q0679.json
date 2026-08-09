@@ -1,0 +1,10 @@
+{
+  "questionNumber": 679,
+  "question": "회사에 스토리지 용량이 부족한 온프레미스 데이터 센터가 있습니다. 회사는 대역폭 비용을 최소화하면서 스토리지 인프라를 AWS 로 마이그레이션하려고 합니다. 솔루션은 추가 비용 없이 데이터를 즉시 검색할 수 있어야 합니다. 이러한 요구 사항을 어떻게 충족할 수 있습니까?",
+  "choices": {
+    "A": "Amazon S3 Glacier Vault 를 배포하고 빠른 검색을 활성화합니다. 워크로드에 대해 프로비저닝된 검색 용량을 활성화합니다.",
+    "B": "캐시된 볼륨을 사용하여 AWS Storage Gateway 를 배포합니다. Storage Gateway 를 사용하면 자주 액세스하는 데이터 하위 집합의 복사본을 로컬에 보관하면서 Amazon S3 에 데이터를 저장할 수 있습니다.",
+    "C": "저장된 볼륨을 사용하여 AWS Storage Gateway 를 배포하여 데이터를 로컬에 저장합니다. Storage Gateway 를 사용하여 데이터의 특정 시점 스냅샷을 Amazon S3 에 비동기식으로 백업합니다.",
+    "D": "AWS Direct Connect 를 배포하여 온프레미스 데이터 센터에 연결합니다. 데이터를 로컬에 저장하도록 AWS Storage Gateway 를 구성합니다. Storage Gateway 를 사용하여 데이터의 특정 시점 스냅샷을 Amazon S3 에 비동기식으로 백업합니다."
+  }
+}

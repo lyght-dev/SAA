@@ -1,0 +1,12 @@
+{
+  "questionNumber": 451,
+  "question": "회사에서 애플리케이션과 데이터베이스를 AWS 클라우드로 마이그레이션하고 있습니다. 이 회사는 Amazon Elastic Container Service(Amazon ECS), AWS Direct Connect 및 Amazon RDS 를 사용합니다. 회사의 운영 팀에서 어떤 활동을 관리합니까? (3 개 선택)",
+  "choices": {
+    "A": "Amazon RDS 인프라 계층, 운영 체제 및 플랫폼 관리",
+    "B": "Amazon RDS DB 인스턴스 생성 및 예약된 유지 관리 기간 구성",
+    "C": "모니터링, 패치 관리, 로그 관리 및 호스트 침입 탐지를 위한 Amazon ECS 의 추가 소프트웨어 구성 요소 구성",
+    "D": "Amazon RDS 의 모든 마이너 및 메이저 데이터베이스 버전에 대한 패치 설치",
+    "E": "데이터 센터에서 Amazon RDS 인프라의 물리적 보안 보장",
+    "F": "Direct Connect 를 통해 이동하는 데이터의 암호화"
+  }
+}

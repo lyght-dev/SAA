@@ -1,0 +1,10 @@
+{
+  "questionNumber": 467,
+  "question": "회사에서 AWS Organizations 를 사용합니다. 멤버 계정이 Compute Savings Plan 을 구입했습니다. 멤버 계정 내부의 워크로드 변경으로 인해 해당 계정은 더 이상 Compute Savings Plan 약정의 전체 혜택을 받지 못합니다. 이 회사는 구매한 컴퓨팅 성능의 50% 미만을 사용합니다.",
+  "choices": {
+    "A": "Compute Savings Plan 을 구매한 멤버 계정의 계정 콘솔에 있는 청구 기본 설정 섹션에서 할인 공유를 켭니다.",
+    "B": "회사의 조직 관리 계정에 있는 계정 콘솔의 청구 기본 설정 섹션에서 할인 공유를 켭니다.",
+    "C": "다른 AWS 계정에서 Compute Savings Plan 이 있는 계정으로 추가 컴퓨팅 워크로드를 마이그레이션합니다.",
+    "D": "예약 인스턴스 마켓플레이스에서 초과된 Savings Plan 약정을 판매합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 563,
+  "question": "회사는 Amazon Elastic Kubernetes Service(Amazon EKS) 클러스터와 온프레미스 Kubernetes 클러스터 모두에서 애플리케이션을 실행합니다. 회사는 중앙 위치에서 모든 클러스터와 워크로드를 보기를 원합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon CloudWatch Container Insights 를 사용하여 클러스터 정보를 수집하고 그룹화합니다.",
+    "B": "Amazon EKS 커넥터를 사용하여 모든 Kubernetes 클러스터를 등록하고 연결합니다.",
+    "C": "AWS Systems Manager 를 사용하여 클러스터 정보를 수집하고 봅니다.",
+    "D": "Amazon EKS Anywhere 를 기본 클러스터로 사용하여 기본 Kubernetes 명령으로 다른 클러스터를 봅니다."
+  }
+}

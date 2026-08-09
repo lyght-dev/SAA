@@ -1,0 +1,10 @@
+{
+  "questionNumber": 82,
+  "question": "회사는 AWS 클라우드에서 웹 애플리케이션을 호스팅합니다. 회사는 AWS Certificate Manager(ACM)로 가져온 인증서를 사용하도록 Elastic Load Balancer 를 구성합니다. 각 인증서가 만료되기 30 일 전에 회사 보안팀에 알려야 합니다. 솔루션 설계자는 이 요구 사항을 충족하기 위해 무엇을 권장해야 합니까?",
+  "choices": {
+    "A": "ACM 에 규칙을 추가하여 인증서가 만료되기 30 일 전부터 매일 Amazon Simple Notification Service(Amazon SNS) 주제에 사용자 지정 메시지를 게시합니다.",
+    "B": "30 일 이내에 만료되는 인증서를 확인하는 AWS Config 규칙을 생성합니다. AWS Config 가 비준수 리소스를 보고할 때 Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 호출하도록 Amazon EventBridge(Amazon CloudWatch Events)를 구성합니다.",
+    "C": "AWS Trusted Advisor 를 사용하여 30 일 이내에 만료되는 인증서를 확인합니다. 상태 변경 확인에 대한 Trusted Advisor 지표를 기반으로 하는 Amazon CloudWatch 경보를 생성합니다. Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 보내도록 경보를 구성합니다.",
+    "D": "30 일 이내에 만료되는 모든 인증서를 감지하는 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성합니다. AWS Lambda 함수를 호출하도록 규칙을 구성합니다. Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 보내도록 Lambda 함수를 구성합니다."
+  }
+}

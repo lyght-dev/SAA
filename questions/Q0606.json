@@ -1,0 +1,10 @@
+{
+  "questionNumber": 606,
+  "question": "솔루션 아키텍트는 비즈니스 사용자가 Amazon S3 에 객체를 업로드할 수 있는 애플리케이션을 설계하고 있습니다. 솔루션은 객체 내구성을 극대화해야 합니다. 또한 객체는 언제든지 언제든지 쉽게 사용할 수 있어야 합니다. 사용자는 객체가 업로드된 후 처음 30 일 이내에 객체에 자주 액세스하지만 30 일보다 오래된 객체에는 사용자가 액세스할 가능성이 훨씬 적습니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "S3 수명 주기 규칙을 사용하여 모든 객체를 S3 Standard 에 저장하여 30 일 후에 객체를 S3 Glacier 로 전환합니다.",
+    "B": "30 일 후에 객체를 S3 Standard-Infrequent Access(S3 Standard-IA)로 전환하려면 S3 수명 주기 규칙을 사용하여 모든 객체를 S3 Standard 에 저장합니다.",
+    "C": "30 일 후에 객체를 S3 One Zone-Infrequent Access(S3 One Zone-IA)로 전환하는 S3 수명 주기 규칙을 사용하여 모든 객체를 S3 Standard 에 저장합니다.",
+    "D": "S3 수명 주기 규칙을 사용하여 모든 객체를 S3 Intelligent-Tiering 에 저장하여 30 일 후에 객체를 S3 Standard-Infrequent Access(S3 Standard-IA)로 전환합니다."
+  }
+}

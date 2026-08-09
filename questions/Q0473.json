@@ -1,0 +1,10 @@
+{
+  "questionNumber": 473,
+  "question": "회사는 Application Load Balancer(ALB) 뒤에 있는 Amazon EC2 인스턴스에서 웹 사이트를 호스팅합니다. 웹 사이트는 정적 콘텐츠를 제공합니다. 웹 사이트 트래픽이 증가하고 있으며 회사는 잠재적인 비용 증가에 대해 우려하고 있습니다.",
+  "choices": {
+    "A": "Amazon CloudFront 배포를 생성하여 엣지 로케이션에서 상태 파일을 캐싱합니다.",
+    "B": "Amazon ElastiCache 클러스터를 생성합니다. ALB 를 ElastiCache 클러스터에 연결하여 캐싱된 파일을 제공합니다.",
+    "C": "AWS WAF 웹 ACL 을 생성하고 ALB 와 연결합니다. 웹 ACL 에 규칙을 추가하여 정적 파일을 캐시합니다.",
+    "D": "대체 AWS 리전에서 두 번째 ALB 를 생성합니다. 사용자 트래픽을 가장 가까운 리전으로 라우팅하여 데이터 전송 비용을 최소화합니다."
+  }
+}

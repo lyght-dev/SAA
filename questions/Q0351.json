@@ -1,0 +1,10 @@
+{
+  "questionNumber": 351,
+  "question": "회사에서 데이터 관리 애플리케이션을 AWS 로 이전하고 있습니다. 회사는 이벤트 기반 아키텍처로 전환하려고 합니다. 아키텍처는 워크플로의 다양한 측면을 수행하면서 더 많이 분산되고 서버리스 개념을 사용해야 합니다. 회사는 또한 운영 오버헤드를 최소화하기를 원합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS Glue 에서 워크플로를 구축합니다. AWS Glue 를 사용하여 AWS Lambda 함수를 호출하여 워크플로 단계를 처리합니다.",
+    "B": "AWS Step Functions 에서 워크플로를 구축합니다. Amazon EC2 인스턴스에 애플리케이션을 배포합니다. Step Functions 를 사용하여 EC2 인스턴스에서 워크플로 단계를 호출합니다.",
+    "C": "Amazon EventBridge 에서 워크플로를 구축합니다. EventBridge 를 사용하여 일정에 따라 AWS Lambda 함수를 호출하여 워크플로 단계를 처리합니다.",
+    "D": "AWS Step Functions 에서 워크플로를 구축합니다. Step Functions 를 사용하여 상태 머신을 생성합니다. 상태 시스템을 사용하여 AWS Lambda 함수를 호출하여 워크플로 단계를 처리합니다."
+  }
+}

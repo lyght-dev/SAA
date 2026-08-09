@@ -1,0 +1,10 @@
+{
+  "questionNumber": 630,
+  "question": "솔루션 설계자가 매일 한 번 실행되고 완료하는 데 최대 2 시간이 걸리는 데이터 처리 작업을 만들고 있습니다. 작업이 중단되면 처음부터 다시 시작해야 합니다. 솔루션 설계자가 가장 비용 효율적인 방식으로 이 문제를 해결하려면 어떻게 해야 하나요?",
+  "choices": {
+    "A": "크론 작업에 의해 트리거되는 Amazon EC2 예약 인스턴스에서 로컬로 실행되는 스크립트를 만듭니다.",
+    "B": "Amazon EventBridge 예약 이벤트에 의해 트리거되는 AWS Lambda 함수를 생성합니다.",
+    "C": "Amazon EventBridge 예약 이벤트에 의해 트리거되는 Amazon ECS(Amazon Elastic Container Service) Fargate 작업을 사용합니다.",
+    "D": "Amazon EventBridge 예약 이벤트에 의해 트리거된 Amazon EC2 에서 실행되는 Amazon ECS(Amazon Elastic Container Service) 작업을 사용합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 206,
+  "question": "회사에서 Amazon 머신 이미지(AMI)를 관리하려고 합니다. 회사는 현재 AMI 가 생성된 동일한 AWS 리전에 AMI 를 복사합니다. 회사는 AWS API 호출을 캡처하고 회사 계정 내에서 Amazon EC2 CreateImage API 작업이 호출될 때마다 알림을 보내는 애플리케이션을 설계해야 합니다. 최소한의 운영 오버헤드로 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "AWS CloudTrail 로그를 쿼리하고 CreateImage API 호출이 감지되면 알림을 보내는 AWS Lambda 함수를 생성합니다.",
+    "B": "업데이트된 로그가 Amazon S3 로 전송될 때 발생하는 Amazon Simple Notification Service(Amazon SNS) 알림으로 AWS CloudTrail 을 구성합니다. Amazon Athena 를 사용하여 새 테이블을 생성하고 API 호출이 감지되면 CreateImage 에서 쿼리합니다.",
+    "C": "CreateImage API 호출에 대한 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성합니다. CreateImage API 호출이 감지되면 알림을 보내도록 대상을 Amazon Simple Notification Service(Amazon SNS) 주제로 구성합니다.",
+    "D": "Amazon Simple Queue Service(Amazon SQS) FIFO 대기열을 AWS CloudTrail 로그의 대상으로 구성합니다. CreateImage API 호출이 감지되면 Amazon Simple Notification Service(Amazon SNS) 주제에 알림을 보내는 AWS Lambda 함수를 생성합니다."
+  }
+}

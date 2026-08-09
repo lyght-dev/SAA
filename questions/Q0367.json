@@ -1,0 +1,10 @@
+{
+  "questionNumber": 367,
+  "question": "한 회사에서 Amazon Route 53 지연 시간 기반 라우팅을 사용하여 전 세계 사용자를 위해 UDP 기반 애플리케이션으로 요청을 라우팅하고 있습니다. 이 애플리케이션은 미국, 아시아 및 유럽에 있는 회사의 온프레미스 데이터 센터에 있는 중복 서버에서 호스팅됩니다. 회사의 규정 준수 요구 사항에 따르면 애플리케이션은 온프레미스에서 호스팅되어야 합니다. 회사는 애플리케이션의 성능과 가용성을 개선하고자 합니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "3 개의 AWS 리전에서 3 개의 NLB(Network Load Balancer)를 구성하여 온프레미스 엔드포인트를 처리합니다. AWS Global Accelerator 를 사용하여 가속기를 생성하고 NLB 를 엔드포인트로 등록합니다. 가속기 DNS 를 가리키는 CNAME 을 사용하여 애플리케이션에 대한 액세스를 제공합니다.",
+    "B": "3 개의 AWS 리전에서 3 개의 Application Load Balancer(ALB)를 구성하여 온프레미스 엔드포인트를 처리합니다. AWS Global Accelerator 를 사용하여 가속기를 생성하고 ALB 를 엔드포인트로 등록합니다. 가속기 DNS 를 가리키는 CNAME 을 사용하여 애플리케이션에 대한 액세스를 제공합니다.",
+    "C": "3 개의 AWS 리전에서 3 개의 NLB(Network Load Balancer)를 구성하여 온프레미스 엔드포인트를 처리합니다. Route 53 에서 3 개의 NLB 를 가리키는 지연 시간 기반 레코드를 생성하고 이를 Amazon CloudFront 배포의 오리진으로 사용합니다. CloudFront DNS 를 가리키는 CNAME 을 사용하여 애플리케이션에 대한 액세스를 제공합니다.",
+    "D": "온프레미스 엔드포인트를 처리하기 위해 3 개의 AWS 리전에서 3 개의 ALB(Application Load Balancer)를 구성합니다. Route 53 에서 3 개의 ALB 를 가리키는 지연 시간 기반 레코드를 생성하고 이를 Amazon CloudFront 배포의 오리진으로 사용합니다. CloudFront DNS 를 가리키는 CNAME 을 사용하여 애플리케이션에 대한 액세스를 제공합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 674,
+  "question": "한 회사에는 여러 AWS 지역의 Amazon EC2 인스턴스에 배포된 HTTP 기반 애플리케이션에 액세스하는 전 세계 사용자가 있습니다. 회사는 애플리케이션의 가용성과 성능을 개선하려고 합니다. 또한 회사는 가용성에 영향을 미치거나, 보안을 손상시키거나, 과도한 리소스를 소비할 수 있는 일반적인 웹 공격으로부터 애플리케이션을 보호하려고 합니다. 고정 IP 주소가 필요합니다. 이를 달성하기 위해 솔루션 설계자는 무엇을 권장해야 합니까?",
+  "choices": {
+    "A": "각 지역의 NLB(Network Load Balancer) 뒤에 EC2 인스턴스를 배치합니다. NLB 에 AWS WAF 를 배포합니다. AWS Global Accelerator 를 사용하여 액셀러레이터를 생성하고 NLB 를 엔드포인트로 등록합니다.",
+    "B": "각 지역의 ALB(Application Load Balancer) 뒤에 EC2 인스턴스를 배치합니다. ALB 에 AWS WAF 를 배포합니다. AWS Global Accelerator 를 사용하여 액셀러레이터를 생성하고 ALB 를 엔드포인트로 등록합니다.",
+    "C": "각 지역의 NLB(Network Load Balancer) 뒤에 EC2 인스턴스를 배치합니다. NLB 에 AWS WAF 를 배포합니다. Amazon Route 53 지연 시간 기반 라우팅을 사용하여 요청을 NLB 로 라우팅하는 오리진으로 Amazon CloudFront 배포를 생성합니다.",
+    "D": "각 지역의 ALB(Application Load Balancer) 뒤에 EC2 인스턴스를 배치합니다. Amazon Route 53 지연 시간 기반 라우팅을 사용하여 요청을 ALB 로 라우팅하는 오리진으로 Amazon CloudFront 배포를 생성합니다. CloudFront 배포에 AWS WAF 를 배포합니다."
+  }
+}

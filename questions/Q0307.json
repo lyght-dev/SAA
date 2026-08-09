@@ -1,0 +1,10 @@
+{
+  "questionNumber": 307,
+  "question": "주로 온프레미스에서 애플리케이션 서버를 실행하는 회사가 AWS 로 마이그레이션하기로 결정했습니다. 회사는 온프레미스에서 iSCSI(Internet Small Computer Systems Interface) 스토리지를 확장해야 할 필요성을 최소화하려고 합니다. 회사는 최근에 액세스한 데이터만 로컬에 저장하기를 원합니다. 회사는 이러한 요구 사항을 충족하기 위해 어떤 AWS 솔루션을 사용해야 합니까?",
+  "choices": {
+    "A": "Amazon S3 파일 게이트웨이",
+    "B": "AWS Storage Gateway 테이프 게이트웨이",
+    "C": "AWS Storage Gateway 볼륨 게이트웨이 저장 볼륨",
+    "D": "AWS Storage Gateway 볼륨 게이트웨이 캐시 볼륨"
+  }
+}

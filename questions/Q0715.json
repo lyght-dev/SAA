@@ -1,0 +1,10 @@
+{
+  "questionNumber": 715,
+  "question": "회사의 애플리케이션이 AWS 에서 실행됩니다. 애플리케이션은 S3 Standard-infrequent Access(S3 Standard-IA) 스토리지 클래스를 사용하는 Amazon S3 버킷에 대용량 문서를 저장합니다. 회사는 데이터 저장 비용을 계속 지불하지만 총 S3 비용을 절감하고자 합니다. 회사는 승인된 외부 사용자가 밀리초 단위로 문서에 액세스할 수 있기를 원합니다. 이러한 요구 사항을 가장 비용 효율적으로 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "요청자 지불 버킷이 되도록 S3 버킷을 구성합니다.",
+    "B": "모든 기존 객체와 향후 객체에 대해 스토리지 계층을 S3 Standard 로 변경합니다.",
+    "C": "S3 Docket 에서 S3 Transfer Acceleration 을 켭니다.",
+    "D": "Amazon CloudFront 를 사용하여 S3 버킷에 대한 모든 요청을 처리합니다."
+  }
+}

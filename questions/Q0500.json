@@ -1,0 +1,11 @@
+{
+  "questionNumber": 500,
+  "question": "회사에는 온프레미스에 여러 Windows 파일 서버가 있습니다. 이 회사는 파일을 Windows File Server 파일 시스템용 Amazon FSx 로 마이그레이션하고 통합하려고 합니다. 액세스 권한이 변경되지 않도록 하려면 파일 권한을 보존해야 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까? (2 개 선택)",
+  "choices": {
+    "A": "온프레미스에 AWS DataSync 에이전트를 배포합니다. 데이터를 FSx for Windows 파일 서버 파일 시스템으로 전송하도록 DataSync 작업을 예약합니다.",
+    "B": "AWS CLI 를 사용하여 각 파일 서버의 공유를 Amazon S3 버킷에 복사합니다. 데이터를 FSx for Windows File Server 파일 시스템으로 전송하도록 AWS DataSync 작업을 예약합니다.",
+    "C": "각 파일 서버에서 드라이브를 제거합니다. Amazon S3 로 가져오기 위해 드라이브를 AWS 로 배송합니다. 데이터를 FSx for Windows File Server 파일 시스템으로 전송하도록 AWS DataSync 작업을 예약합니다.",
+    "D": "AWS Snowcone 디바이스를 주문합니다. 장치를 온프레미스 네트워크에 연결합니다. 디바이스에서 AWS DataSync 에이전트를 시작합니다. 데이터를 FSx for Windows 파일 서버 파일 시스템으로 전송하도록 DataSync 작업을 예약합니다.",
+    "E": "AWS Snowball Edge Storage Optimized 디바이스를 주문합니다. 장치를 온프레미스 네트워크에 연결합니다. AWS CLI 를 사용하여 디바이스에 데이터를 복사합니다. Amazon S3 로 가져오기 위해 디바이스를 AWS 로 반송합니다. 데이터를 FSx for Windows File Server 파일 시스템으로 전송하도록 AWS DataSync 작업을 예약합니다."
+  }
+}

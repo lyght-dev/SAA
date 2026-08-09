@@ -1,0 +1,10 @@
+{
+  "questionNumber": 564,
+  "question": "회사에서 전자상거래 애플리케이션을 구축 중이며 중요한 고객 정보를 저장해야 합니다. 회사는 고객이 웹사이트에서 구매 거래를 완료할 수 있는 기능을 제공해야 합니다. 회사는 또한 민감한 고객 데이터를 데이터베이스 관리자로부터 보호해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
+  "choices": {
+    "A": "Amazon Elastic Block Store(Amazon EBS) 볼륨에 민감한 데이터를 저장합니다. EBS 암호화를 사용하여 데이터를 암호화합니다. IAM 인스턴스 역할을 사용하여 액세스를 제한합니다.",
+    "B": "MySQL 용 Amazon RDS 에 민감한 데이터를 저장합니다. AWS Key Management Service(AWS KMS) 클라이언트 측 암호화를 사용하여 데이터를 암호화합니다.",
+    "C": "민감한 데이터를 Amazon S3 에 저장합니다. AWS Key Management Service(AWS KMS) 서버 측 암호화를 사용하여 데이터를 암호화합니다. S3 버킷 정책을 사용하여 액세스를 제한하십시오.",
+    "D": "민감한 데이터를 Windows Server 용 Amazon FSx 에 저장합니다. 응용 프로그램 서버에 파일 공유를 탑재합니다. Windows 파일 권한을 사용하여 액세스를 제한하십시오."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 656,
+  "question": "회사에서 고성능 컴퓨팅 및 인공 지능을 사용하여 사기 방지 및 감지 기술을 개선하려고 합니다. 회사는 가능한 한 빨리 단일 워크로드를 완료하기 위해 분산 처리가 필요합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Elastic Kubernetes Service(Amazon EKS) 및 여러 컨테이너를 사용합니다.",
+    "B": "AWS ParallelCluster 및 MPI(Message Passing Interface) 라이브러리를 사용합니다.",
+    "C": "Application Load Balancer 및 Amazon EC2 인스턴스를 사용합니다.",
+    "D": "AWS Lambda 함수를 사용합니다."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "questionNumber": 465,
+  "question": "회사에서 고객 요구를 지원하기 위해 애플리케이션을 개발하고 있습니다. 회사는 동일한 가용 영역 내의 여러 Amazon EC2 Nitro 기반 인스턴스에 애플리케이션을 배포하려고 합니다. 또한 이 회사는 더 높은 애플리케이션 가용성을 달성하기 위해 여러 EC2 Nitro 기반 인스턴스의 여러 블록 스토리지 볼륨에 동시에 쓸 수 있는 기능을 애플리케이션에 제공하고자 합니다. 이러한 요구 사항을 충족하는 솔루션은 무엇입니까?",
+  "choices": {
+    "A": "Amazon Elastic Block Store(Amazon EBS) 다중 연결에 범용 SSD(gp3) EBS 볼륨 사용",
+    "B": "Amazon Elastic Block Store(Amazon EBS) 다중 연결과 함께 처리량 최적화 HDD(st1) EBS 볼륨 사용",
+    "C": "Amazon Elastic Block Store(Amazon EBS) 다중 연결과 함께 프로비저닝된 IOPS SSD(io2) EBS 볼륨 사용",
+    "D": "Amazon Elastic Block Store(Amazon EBS) 다중 연결에 범용 SSD(gp2) EBS 볼륨 사용"
+  }
+}

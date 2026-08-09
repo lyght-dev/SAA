@@ -1,0 +1,10 @@
+{
+  "questionNumber": 169,
+  "question": "회사는 최근 웹 공격으로 인해 공용 웹 애플리케이션의 보안에 대해 우려하고 있습니다. 애플리케이션은 Application Load Balancer(ALB)를 사용합니다. 솔루션 설계자는 애플리케이션에 대한 DDoS 공격의 위험을 줄여야 합니다. 솔루션 설계자는 이 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
+  "choices": {
+    "A": "ALB 에 Amazon Inspector 에이전트를 추가합니다.",
+    "B": "공격을 방지하도록 Amazon Macie 를 구성합니다.",
+    "C": "공격을 방지하려면 AWS Shield Advanced 를 활성화하십시오.",
+    "D": "ALB 를 모니터링하도록 Amazon GuardDuty 를 구성합니다."
+  }
+}

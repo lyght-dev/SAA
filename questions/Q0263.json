@@ -1,0 +1,11 @@
+{
+  "questionNumber": 263,
+  "question": "회사에서 여러 마이크로서비스로 구성된 애플리케이션을 구축하고 있습니다. 이 회사는 컨테이너 기술을 사용하여 AWS 에 소프트웨어를 배포하기로 결정했습니다. 회사는 유지 관리 및 확장을 위한 지속적인 노력을 최소화하는 솔루션이 필요합니다. 회사는 추가 인프라를 관리할 수 없습니다. 이러한 요구 사항을 충족하기 위해 솔루션 설계자는 어떤 작업 조합을 수행해야 합니까? (2 개 선택)",
+  "choices": {
+    "A": "Amazon Elastic Container Service(Amazon ECS) 클러스터를 배포합니다.",
+    "B": "여러 가용 영역에 걸쳐 있는 Amazon EC2 인스턴스에 Kubernetes 제어 평면을 배포합니다.",
+    "C": "Amazon EC2 시작 유형으로 Amazon Elastic Container Service(Amazon ECS) 서비스를 배포합니다. 2 보다 크거나 같은 원하는 태스크 번호 레벨을 지정하십시오.",
+    "D": "Fargate 시작 유형으로 Amazon Elastic Container Service(Amazon ECS) 서비스를 배포합니다. 2 보다 크거나 같은 원하는 태스크 번호 레벨을 지정하십시오.",
+    "E": "여러 가용 영역에 걸쳐 있는 Amazon EC2 인스턴스에 Kubernetes 작업자 노드를 배포합니다. 각 마이크로 서비스에 대해 두 개 이상의 복제본을 지정하는 배포를 만듭니다."
+  }
+}
