@@ -7,5 +7,16 @@
     "C": "새 업로드에 대해 S3 버킷을 모니터링하도록 Lambda 함수를 구성합니다. 업로드된 이미지가 감지되면 메모리의 텍스트 파일에 파일 이름을 쓰고 텍스트 파일을 사용하여 처리된 이미지를 추적합니다.",
     "D": "Amazon EC2 인스턴스를 시작하여 Amazon Simple Queue Service(Amazon SQS) 대기열을 모니터링합니다. 항목이 대기열에 추가되면 EC2 인스턴스의 텍스트 파일에 파일 이름을 기록하고 Lambda 함수를 호출합니다.",
     "E": "Amazon EventBridge(Amazon CloudWatch Events) 이벤트를 구성하여 S3 버킷을 모니터링합니다. 이미지가 업로드되면 추가 처리를 위해 애플리케이션 소유자의 이메일 주소와 함께 Amazon ample Notification Service(Amazon SNS) 주제에 알림을 보냅니다."
-  }
+  },
+  "answer": [
+    "A",
+    "B"
+  ],
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon S3",
+    "Amazon SQS",
+    "AWS Lambda"
+  ]
 }

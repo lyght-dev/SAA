@@ -6,5 +6,13 @@
     "B": "Amazon Elastic Kubernetes Service(Amazon EKS)에서 컨테이너로 실행되도록 애플리케이션을 마이그레이션합니다. 스토리지에 Amazon Elastic Block Store(Amazon EBS)를 사용합니다.",
     "C": "다중 AZ Auto Scaling 그룹의 Amazon EC2 인스턴스로 애플리케이션을 마이그레이션합니다. 스토리지에 Amazon Elastic File System(Amazon EFS)을 사용합니다.",
     "D": "다중 AZ Auto Scaling 그룹의 Amazon EC2 인스턴스로 애플리케이션을 마이그레이션합니다. 스토리지에 Amazon Elastic Block Store(Amazon EBS)를 사용합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
+  "awsServices": [
+    "Amazon EC2",
+    "Amazon EC2 Auto Scaling",
+    "Amazon EFS"
+  ]
 }

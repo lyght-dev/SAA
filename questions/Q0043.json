@@ -6,5 +6,12 @@
     "B": "새 AWS Direct Connect 연결을 설정하고 이 새 연결을 통해 백업 트래픽을 직접 연결합니다.",
     "C": "매일 AWS Snowball 디바이스를 주문합니다. Snowball 디바이스에 데이터를 로드하고 디바이스를 매일 AWS 로 반환합니다.",
     "D": "AWS Management 콘솔을 통해 지원 티켓을 제출합니다. 계정에서 S3 서비스 제한 제거를 요청합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 및/또는 확장 가능한 네트워크 아키텍처 결정",
+  "awsServices": [
+    "AWS Direct Connect",
+    "Amazon S3"
+  ]
 }

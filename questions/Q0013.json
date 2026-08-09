@@ -6,5 +6,12 @@
     "B": "보안 문자열 파라미터를 생성하여 AWS Systems Manager 에 자격 증명을 보안 암호로 저장합니다. 필요한 리전에 대해 다중 리전 비밀 복제를 사용합니다. 일정에 따라 암호를 교체하도록 Systems Manager 를 구성합니다.",
     "C": "서버 측 암호화(SSE)가 활성화된 Amazon S3 버킷에 자격 증명을 저장합니다. Amazon EventBridge(Amazon CloudWatch Events)를 사용하여 AWS Lambda 함수를 호출하여 자격 증명을 교체합니다.",
     "D": "AWS Key Management Service(AWS KMS) 다중 리전 고객 관리형 키를 사용하여 자격 증명을 비밀로 암호화합니다. Amazon DynamoDB 전역 테이블에 암호를 저장합니다. AWS Lambda 함수를 사용하여 DynamoDB 에서 암호를 검색합니다. RDS API 를 사용하여 비밀을 교체합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Secrets Manager",
+    "Amazon RDS"
+  ]
 }

@@ -6,5 +6,11 @@
     "B": "Amazon Rekognition 을 사용하여 부적절한 콘텐츠를 감지합니다. 신뢰도가 낮은 예측에는 인적 검토를 사용합니다.",
     "C": "Amazon SageMaker 를 사용하여 부적절한 콘텐츠를 감지합니다. 신뢰도가 낮은 예측에 레이블을 지정하려면 정답을 사용합니다.",
     "D": "AWS Fargate 를 사용하여 사용자 지정 기계 학습 모델을 배포하여 부적절한 콘텐츠를 감지합니다. 신뢰도가 낮은 예측에 레이블을 지정하려면 정답을 사용합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "Amazon Rekognition"
+  ]
 }

@@ -6,5 +6,13 @@
     "B": "트랜잭션 데이터를 Amazon Kinesis Data Firehose 로 스트리밍하여 Amazon DynamoDB 및 Amazon S3 에 데이터를 저장합니다. Kinesis Data Firehose 와 AWS Lambda 통합을 사용하여 민감한 데이터를 제거하십시오. 다른 애플리케이션은 Amazon S3 에 저장된 데이터를 사용할 수 있습니다.",
     "C": "트랜잭션 데이터를 Amazon Kinesis Data Streams 로 스트리밍합니다. AWS Lambda 통합을 사용하여 모든 트랜잭션에서 민감한 데이터를 제거한 다음 Amazon DynamoDB 에 트랜잭션 데이터를 저장합니다. 다른 애플리케이션은 Kinesis 데이터 스트림의 트랜잭션 데이터를 사용할 수 있습니다.",
     "D": "일괄 처리된 트랜잭션 데이터를 Amazon S3 에 파일로 저장합니다. Amazon S3 에서 파일을 업데이트하기 전에 AWS Lambda 를 사용하여 모든 파일을 처리하고 민감한 데이터를 제거하십시오. 그러면 Lambda 함수가 Amazon DynamoDB 에 데이터를 저장합니다. 다른 애플리케이션은 Amazon S3 에 저장된 트랜잭션 파일을 사용할 수 있습니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon Kinesis",
+    "AWS Lambda",
+    "Amazon DynamoDB"
+  ]
 }

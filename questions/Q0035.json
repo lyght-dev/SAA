@@ -6,5 +6,12 @@
     "B": "EC2 인스턴스에서 Amazon Inspector 를 활성화합니다.",
     "C": "AWS Shield 를 활성화하고 여기에 Amazon Route 53 을 할당합니다.",
     "D": "AWS Shield Advanced 를 활성화하고 ELB 를 할당합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Shield",
+    "Elastic Load Balancing(ELB)"
+  ]
 }

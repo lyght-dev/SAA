@@ -6,5 +6,13 @@
     "B": "AWS Global Accelerator 에서 액셀러레이터를 프로비저닝합니다. 제공된 IP 주소를 S3 버킷과 연결합니다. 액셀러레이터의 IP 주소를 가리키도록 Route 53 항목을 편집합니다.",
     "C": "S3 버킷 앞에 Amazon CloudFront 배포를 추가합니다. CloudFront 배포를 가리키도록 Route 53 항목을 편집합니다.",
     "D": "버킷에서 S3 Transfer Acceleration 을 활성화합니다. 새 엔드포인트를 가리키도록 Route 53 항목을 편집합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 및/또는 확장 가능한 네트워크 아키텍처 결정",
+  "awsServices": [
+    "Amazon CloudFront",
+    "Amazon Route 53",
+    "Amazon S3"
+  ]
 }

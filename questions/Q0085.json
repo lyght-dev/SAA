@@ -6,5 +6,11 @@
     "B": "업로드된 문서를 Amazon S3 버킷에 저장합니다. 문서를 주기적으로 보관하도록 S3 수명 주기 정책을 구성합니다.",
     "C": "업로드된 문서를 S3 버전 관리가 활성화된 Amazon S3 버킷에 저장합니다. 모든 액세스를 읽기 전용으로 제한하도록 ACL 을 구성합니다.",
     "D": "업로드된 문서를 Amazon Elastic File System(Amazon EFS) 볼륨에 저장합니다. 읽기 전용 모드에서 볼륨을 마운트하여 데이터에 액세스합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "Amazon S3"
+  ]
 }

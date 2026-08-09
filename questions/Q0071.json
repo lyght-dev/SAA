@@ -6,5 +6,11 @@
     "B": "DynamoDB 지정 시간 복구를 구성합니다. RPO 복구의 경우 원하는 시점으로 복원합니다.",
     "C": "DynamoDB 데이터를 매일 Amazon S3 Glacier 로 내보냅니다. RPO 복구의 경우 S3 Glacier 에서 DynamoDB 로 데이터를 가져옵니다.",
     "D": "DynamoDB 테이블에 대한 Amazon Elastic Block Store(Amazon EBS) 스냅샷을 15 분마다 예약합니다. RPO 복구의 경우 EBS 스냅샷을 사용하여 DynamoDB 테이블을 복원합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
+  "awsServices": [
+    "Amazon DynamoDB"
+  ]
 }

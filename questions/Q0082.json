@@ -6,5 +6,14 @@
     "B": "30 일 이내에 만료되는 인증서를 확인하는 AWS Config 규칙을 생성합니다. AWS Config 가 비준수 리소스를 보고할 때 Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 호출하도록 Amazon EventBridge(Amazon CloudWatch Events)를 구성합니다.",
     "C": "AWS Trusted Advisor 를 사용하여 30 일 이내에 만료되는 인증서를 확인합니다. 상태 변경 확인에 대한 Trusted Advisor 지표를 기반으로 하는 Amazon CloudWatch 경보를 생성합니다. Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 보내도록 경보를 구성합니다.",
     "D": "30 일 이내에 만료되는 모든 인증서를 감지하는 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성합니다. AWS Lambda 함수를 호출하도록 규칙을 구성합니다. Amazon Simple Notification Service(Amazon SNS)를 통해 사용자 지정 알림을 보내도록 Lambda 함수를 구성합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "AWS Certificate Manager(ACM)",
+    "AWS Config",
+    "Amazon EventBridge",
+    "Amazon SNS"
+  ]
 }

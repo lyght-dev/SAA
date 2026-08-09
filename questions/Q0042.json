@@ -6,5 +6,12 @@
     "B": "NAT 게이트웨이를 NAT 인스턴스로 교체합니다.",
     "C": "Amazon S3 용 게이트웨이 VPC 엔드포인트를 배포합니다.",
     "D": "EC2 인스턴스를 실행할 EC2 전용 호스트를 프로비저닝합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "비용에 최적화된 아키텍처 설계",
+  "contentTask": "비용에 최적화된 네트워크 아키텍처 설계",
+  "awsServices": [
+    "Amazon VPC",
+    "Amazon S3"
+  ]
 }

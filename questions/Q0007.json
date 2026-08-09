@@ -6,5 +6,12 @@
     "B": "Auto Scaling 그룹의 Amazon EC2 인스턴스에 수집 애플리케이션을 배포하여 CPU 지표를 기반으로 EC2 인스턴스 수를 확장합니다.",
     "C": "단일 샤드를 사용하여 Amazon Kinesis Data Streams 에 메시지를 씁니다. AWS Lambda 함수를 사용하여 메시지를 사전 처리하고 Amazon DynamoDB 에 저장합니다. 메시지를 처리하기 위해 DynamoDB 에서 읽도록 소비자 애플리케이션을 구성합니다.",
     "D": "여러 Amazon Simple Queue Service(Amazon SOS) 구독이 있는 Amazon Simple Notification Service(Amazon SNS) 주제에 메시지를 게시합니다. 대기열의 메시지를 처리하도록 소비자 애플리케이션을 구성합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon SNS",
+    "Amazon SQS"
+  ]
 }

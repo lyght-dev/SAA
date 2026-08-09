@@ -6,5 +6,13 @@
     "B": "Amazon AppFlow 흐름을 생성하여 각 SaaS 소스와 S3 버킷 간에 데이터를 전송합니다. S3 버킷에 업로드가 완료되면 Amazon Simple Notification Service(Amazon SNS) 주제에 이벤트를 보내도록 S3 이벤트 알림을 구성합니다.",
     "C": "각 SaaS 소스에 대해 Amazon EventBridge(Amazon CloudWatch Events) 규칙을 생성하여 출력 데이터를 보냅니다. S3 버킷을 규칙의 대상으로 구성합니다. S3 버킷에 업로드가 완료되면 이벤트를 전송하는 두 번째 EventBridge(Cloud Watch Events) 규칙을 생성합니다. Amazon Simple Notification Service(Amazon SNS) 주제를 두 번째 규칙의 대상으로 구성합니다.",
     "D": "EC2 인스턴스 대신 사용할 Docker 컨테이너를 생성합니다. Amazon Elastic Container Service(Amazon ECS)에서 컨테이너화된 애플리케이션을 호스팅합니다. S3 버킷에 업로드가 완료되면 Amazon Simple Notification Service(Amazon SNS) 주제에 이벤트를 보내도록 Amazon CloudWatch Container Insights 를 구성합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon AppFlow",
+    "Amazon S3",
+    "Amazon SNS"
+  ]
 }

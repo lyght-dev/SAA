@@ -6,5 +6,14 @@
     "B": "ALB(Application Load Balancer) 및 연결된 대상 그룹을 배포합니다. 대상 그룹을 Auto Scaling 그룹과 연결합니다. 각 리전에서 ALB 를 AWS Global Accelerator 엔드포인트로 사용합니다.",
     "C": "NLB(Network Load Balancer) 및 연결된 대상 그룹을 배포합니다. 대상 그룹을 Auto Scaling 그룹과 연결합니다. 각 NLB 의 별칭을 가리키는 Amazon Route 53 지연 시간 레코드를 생성합니다. 지연 시간 레코드를 오리진으로 사용하는 Amazon CloudFront 배포를 생성합니다.",
     "D": "ALB(Application Load Balancer) 및 연결된 대상 그룹을 배포합니다. 대상 그룹을 Auto Scaling 그룹과 연결합니다. 각 ALB 의 별칭을 가리키는 Amazon Route 53 가중치 레코드를 생성합니다. 가중 레코드를 오리진으로 사용하는 Amazon CloudFront 배포를 배포합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 및/또는 확장 가능한 네트워크 아키텍처 결정",
+  "awsServices": [
+    "Amazon EC2",
+    "Amazon EC2 Auto Scaling",
+    "Elastic Load Balancing(ELB)",
+    "AWS Global Accelerator"
+  ]
 }

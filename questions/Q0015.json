@@ -6,5 +6,11 @@
     "B": "트래픽 미러링을 사용하여 트래픽 검사 및 필터링을 위해 프로덕션 VPC 의 트래픽을 미러링합니다.",
     "C": "AWS 네트워크 방화벽을 사용하여 프로덕션 VPC 에 대한 트래픽 검사 및 트래픽 필터링에 필요한 규칙을 생성합니다.",
     "D": "AWS Firewall Manager 를 사용하여 프로덕션 VPC 에 대한 트래픽 검사 및 트래픽 필터링에 필요한 규칙을 생성합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Network Firewall"
+  ]
 }

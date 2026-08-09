@@ -6,5 +6,15 @@
     "B": "Amazon EC2 인스턴스를 배포하여 AWS Glue 에 데이터를 전송하는 API 를 호스팅합니다. EC2 인스턴스에서 소스/대상 확인을 중지합니다. AWS Glue 를 사용하여 데이터를 변환하고 데이터를 Amazon S3 로 보냅니다.",
     "C": "Amazon Kinesis 데이터 스트림으로 데이터를 보내도록 Amazon API Gateway API 를 구성합니다. Kinesis 데이터 스트림을 데이터 원본으로 사용하는 Amazon Kinesis Data Firehose 전송 스트림을 생성합니다. AWS Lambda 함수를 사용하여 데이터를 변환합니다. Kinesis Data Firehose 전송 스트림을 사용하여 데이터를 Amazon S3 로 보냅니다.",
     "D": "데이터를 AWS Glue 로 보내도록 Amazon API Gateway API 를 구성합니다. AWS Lambda 함수를 사용하여 데이터를 변환합니다. AWS Glue 를 사용하여 데이터를 Amazon S3 로 보냅니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon API Gateway",
+    "Amazon Kinesis",
+    "Amazon Data Firehose",
+    "AWS Lambda",
+    "Amazon S3"
+  ]
 }

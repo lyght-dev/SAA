@@ -6,5 +6,11 @@
     "B": "URL 의 HTTP 를 HTTPS 로 바꾸는 규칙을 만듭니다.",
     "C": "ALB 에서 리스너 규칙을 생성하여 HTTP 트래픽을 HTTPS 로 리디렉션합니다.",
     "D": "ALB 를 SNI(서버 이름 표시)를 사용하도록 구성된 Network Load Balancer 로 교체합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "Elastic Load Balancing(ELB)"
+  ]
 }

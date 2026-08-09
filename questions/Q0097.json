@@ -6,5 +6,11 @@
     "B": "두 가용 영역의 AWS Storage Gateway 파일 게이트웨이에 SMB 파일 공유를 생성합니다.",
     "C": "Amazon S3 버킷을 생성하고 볼륨으로 탑재하도록 Microsoft Windows Server 를 구성합니다.",
     "D": "AWS 에서 Windows 파일 서버용 Amazon FSx 파일 시스템을 생성하고 인증을 위해 Active Directory 도메인을 설정합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
+  "awsServices": [
+    "Amazon FSx(모든 유형)"
+  ]
 }

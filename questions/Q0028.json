@@ -6,5 +6,13 @@
     "B": "AWS SSO 콘솔에서 AWS Single Sign-On(AWS SSO)을 활성화합니다. Microsoft Active Directory 용 AWS Directory Service 를 사용하여 회사의 자체 관리형 Microsoft Active Directory 를 AWS SSO 와 연결하는 양방향 포리스트 트러스트를 생성합니다.",
     "C": "AWS 디렉터리 서비스를 사용합니다. 회사의 자체 관리 Microsoft Active Directory 와 양방향 신뢰 관계를 만드십시오.",
     "D": "온프레미스에 ID 공급자(IdP)를 배포합니다. AWS SSO 콘솔에서 AWS Single Sign-On(AWS SSO)을 활성화합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "AWS 리소스에 대한 보안 액세스 설계",
+  "awsServices": [
+    "AWS Organizations",
+    "AWS IAM Identity Center",
+    "AWS Directory Service"
+  ]
 }

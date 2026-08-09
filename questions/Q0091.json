@@ -6,5 +6,12 @@
     "B": "프라이빗 서브넷에 S3 버킷을 생성합니다.",
     "C": "EC2 인스턴스와 동일한 AWS 리전에 S3 버킷을 생성합니다.",
     "D": "EC2 인스턴스와 동일한 서브넷에 NAT 게이트웨이를 구성합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "Amazon VPC",
+    "Amazon S3"
+  ]
 }

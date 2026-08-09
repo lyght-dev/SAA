@@ -6,5 +6,15 @@
     "B": "여러 가용 영역의 Auto Scaling 그룹에서 실행되는 Amazon EC2 인스턴스에 전체 웹 사이트를 배포합니다. ALB(Application Load Balancer)를 추가하여 웹 사이트 트래픽을 분산합니다. 백엔드 API 에 대해 다른 ALB 를 추가하십시오. MySQL 용 Amazon RDS 에 데이터를 저장합니다.",
     "C": "컨테이너에서 실행되도록 전체 애플리케이션을 마이그레이션합니다. Amazon Elastic Kubernetes Service(Amazon EKS)에서 컨테이너를 호스팅합니다. Kubernetes 클러스터 자동 확장 처리를 사용하여 트래픽 버스트를 처리할 포드 수를 늘리거나 줄입니다. MySQL 용 Amazon RDS 에 데이터를 저장합니다.",
     "D": "Amazon S3 버킷을 사용하여 웹 사이트의 정적 콘텐츠를 호스팅합니다. Amazon CloudFront 배포를 배포합니다. S3 버킷을 오리진으로 설정합니다. 백엔드 API 에 Amazon API Gateway 및 AWS Lambda 함수를 사용합니다. Amazon DynamoDB 에 데이터를 저장합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능의 탄력적인 컴퓨팅 솔루션 설계",
+  "awsServices": [
+    "Amazon S3",
+    "Amazon CloudFront",
+    "Amazon API Gateway",
+    "AWS Lambda",
+    "Amazon DynamoDB"
+  ]
 }

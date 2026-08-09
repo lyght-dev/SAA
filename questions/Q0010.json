@@ -6,5 +6,13 @@
     "B": "API Gateway 통합을 사용하여 애플리케이션이 주문을 수신할 때 Amazon Simple Queue Service(Amazon SQS) FIFO 대기열에 메시지를 보냅니다. 처리를 위해 AWS Lambda 함수를 호출하도록 SQS FIFO 대기열을 구성합니다.",
     "C": "API Gateway 권한 부여자를 사용하여 애플리케이션이 주문을 처리하는 동안 모든 요청을 차단합니다.",
     "D": "API Gateway 통합을 사용하여 애플리케이션이 주문을 수신할 때 Amazon Simple Queue Service(Amazon SQS) 표준 대기열에 메시지를 보냅니다. 처리를 위해 AWS Lambda 함수를 호출하도록 SQS 표준 대기열을 구성합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon API Gateway",
+    "Amazon SQS",
+    "AWS Lambda"
+  ]
 }

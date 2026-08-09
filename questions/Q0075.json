@@ -6,5 +6,13 @@
     "B": "Amazon CloudWatch 지표를 사용하여 애플리케이션 성능 기록을 분석하여 성능 장애 동안 서버의 최대 사용률을 결정합니다. 최대 요구 사항을 충족하도록 애플리케이션 서버의 Amazon EC2 인스턴스 크기를 늘립니다.",
     "C": "Amazon Simple Notification Service(Amazon SNS)를 사용하여 Auto Scaling 그룹의 Amazon EC2 에서 실행되는 애플리케이션 서버 간의 메시징을 처리합니다. Amazon CloudWatch 를 사용하여 SNS 대기열 길이를 모니터링하고 필요에 따라 확장 및 축소합니다.",
     "D": "Amazon Simple Queue Service(Amazon SQS)를 사용하여 Auto Scaling 그룹의 Amazon EC2 에서 실행되는 애플리케이션 서버 간의 메시징을 처리합니다. Amazon CloudWatch 를 사용하여 SQS 대기열 길이를 모니터링하고 통신 오류가 감지되면 확장합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon API Gateway",
+    "AWS Lambda",
+    "Amazon SQS"
+  ]
 }

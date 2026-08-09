@@ -6,5 +6,12 @@
     "B": "Amazon CloudWatch Logs 를 사용하여 로그를 저장합니다. Amazon CloudWatch 콘솔에서 필요에 따라 SQL 쿼리를 실행합니다.",
     "C": "Amazon S3 와 함께 Amazon Athena 를 직접 사용하여 필요에 따라 쿼리를 실행합니다.",
     "D": "AWS Glue 를 사용하여 로그를 분류합니다. Amazon EMR 에서 임시 Apache Spark 클러스터를 사용하여 필요에 따라 SQL 쿼리를 실행합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon Athena",
+    "Amazon S3"
+  ]
 }

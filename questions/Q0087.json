@@ -6,5 +6,14 @@
     "B": "Lambda 함수의 실행 시간을 최대로 늘립니다. 데이터베이스에 고객 데이터를 저장하는 코드에서 재시도 메커니즘을 만듭니다.",
     "C": "고객 데이터를 Lambda 로컬 스토리지에 유지합니다. 고객 데이터를 데이터베이스에 저장하기 위해 로컬 스토리지를 스캔하도록 새로운 Lambda 함수를 구성합니다.",
     "D": "Amazon Simple Queue Service(Amazon SQS) FIFO 대기열에 고객 데이터를 저장합니다. 대기열을 폴링하고 고객 데이터를 데이터베이스에 저장하는 새 Lambda 함수를 생성합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon API Gateway",
+    "AWS Lambda",
+    "Amazon Aurora",
+    "Amazon SQS"
+  ]
 }

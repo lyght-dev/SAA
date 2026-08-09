@@ -6,5 +6,11 @@
     "B": "프로덕션용 다중 AZ Aurora 복제본과 함께 Amazon Aurora MySQL 을 사용합니다. 데이터베이스 복제를 사용하여 요청 시 스테이징 데이터베이스를 생성합니다.",
     "C": "다중 AZ 배포 및 프로덕션용 읽기 전용 복제본과 함께 MySQL 용 Amazon RDS 를 사용합니다. 스테이징 데이터베이스에 대해 대기 인스턴스를 사용합니다.",
     "D": "다중 AZ 배포 및 프로덕션용 읽기 전용 복제본과 함께 MySQL 용 Amazon RDS 를 사용합니다. mysqldump 유틸리티를 사용하는 백업 및 복원 프로세스를 구현하여 스테이징 데이터베이스를 채웁니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터베이스 솔루션 결정",
+  "awsServices": [
+    "Amazon Aurora"
+  ]
 }

@@ -6,5 +6,12 @@
     "B": "적절한 검사를 통해 AWS Trusted Advisor 를 켭니다.",
     "C": "적절한 평가 템플릿으로 Amazon Inspector 를 켭니다.",
     "D": "Amazon S3 서버 액세스 로깅을 켭니다. Amazon EventBridge(Amazon Cloud Watch Events)를 구성합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Config",
+    "Amazon S3"
+  ]
 }

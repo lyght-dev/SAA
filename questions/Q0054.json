@@ -6,5 +6,11 @@
     "B": "Amazon S3 파일 게이트웨이를 설정합니다. 기존 EC2 인스턴스에 S3 파일 게이트웨이를 탑재합니다.",
     "C": "다중 AZ 구성을 사용하여 파일 공유 환경을 Windows 파일 서버용 Amazon FSx 로 확장합니다. 모든 데이터를 Windows 파일 서버용 FSx 로 마이그레이션합니다.",
     "D": "다중 AZ 구성을 사용하여 파일 공유 환경을 Amazon Elastic File System(Amazon EFS)으로 확장합니다. 모든 데이터를 Amazon EFS 로 마이그레이션합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
+  "awsServices": [
+    "Amazon FSx(모든 유형)"
+  ]
 }

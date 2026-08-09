@@ -6,5 +6,13 @@
     "B": "처리해야 하는 작업을 보관할 Amazon SQS 대기열을 생성합니다. 프로세서 애플리케이션으로 구성된 Amazon 머신 이미지(AMI)를 생성합니다. AMI 를 사용하는 시작 구성을 생성합니다. 시작 구성을 사용하여 Auto Scaling 그룹을 생성합니다. Auto Scaling 그룹의 조정 정책을 설정하여 네트워크 사용량에 따라 노드를 추가 및 제거합니다.",
     "C": "처리해야 하는 작업을 보관할 Amazon SQS 대기열을 생성합니다. 프로세서 애플리케이션으로 구성된 Amazon 머신 이미지(AMI)를 생성합니다. AMI 를 사용하는 시작 템플릿을 생성합니다. 시작 템플릿을 사용하여 Auto Scaling 그룹을 생성합니다. SQS 대기열의 항목 수에 따라 노드를 추가 및 제거하도록 Auto Scaling 그룹에 대한 조정 정책을 설정합니다.",
     "D": "처리해야 하는 작업을 보낼 Amazon SNS 주제를 생성합니다. 프로세서 애플리케이션으로 구성된 Amazon 머신 이미지(AMI)를 생성합니다. AMI 를 사용하는 시작 템플릿을 생성합니다. 시작 템플릿을 사용하여 Auto Scaling 그룹을 생성합니다. SNS 주제에 게시된 메시지 수에 따라 노드를 추가 및 제거하도록 Auto Scaling 그룹에 대한 조정 정책을 설정합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "복원력을 갖춘 아키텍처 설계",
+  "contentTask": "확장 가능하고 느슨하게 결합된 아키텍처 설계",
+  "awsServices": [
+    "Amazon SQS",
+    "Amazon EC2",
+    "Amazon EC2 Auto Scaling"
+  ]
 }

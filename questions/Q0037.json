@@ -6,5 +6,12 @@
     "B": "각 기존 인스턴스와 새 인스턴스에 적절한 IAM 역할을 연결합니다. AWS Systems Manager Session Manager 를 사용하여 원격 SSH 세션을 설정합니다.",
     "C": "관리 SSH 키 쌍을 만듭니다. 공개 키를 각 EC2 인스턴스에 로드합니다. 퍼블릭 서브넷에 배스천 호스트를 배포하여 각 인스턴스의 관리를 위한 터널을 제공합니다.",
     "D": "AWS Site-to-Site VPN 연결을 설정합니다. 관리자에게 로컬 온프레미스 머신을 사용하여 VPN 터널에서 SSH 키를 사용하여 인스턴스에 직접 연결하도록 지시합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "AWS 리소스에 대한 보안 액세스 설계",
+  "awsServices": [
+    "IAM",
+    "AWS Systems Manager"
+  ]
 }

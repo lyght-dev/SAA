@@ -7,5 +7,15 @@
     "C": "AWS Glue 작업을 호출하여 데이터에 대한 애플리케이션의 API 를 쿼리하는 Amazon EventBridge(Amazon CloudWatch Events) 예약 이벤트를 생성합니다.",
     "D": "AWS Lambda 함수를 호출하여 데이터에 대한 애플리케이션의 API 를 쿼리하는 Amazon EventBridge(Amazon CloudWatch Events) 예약 이벤트를 생성합니다.",
     "E": "Amazon S3 에 애플리케이션 데이터를 저장합니다. 보고서를 이메일로 보낼 S3 이벤트 대상으로 Amazon Simple Notification Service(Amazon SNS) 주제를 생성합니다."
-  }
+  },
+  "answer": [
+    "B",
+    "D"
+  ],
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon EventBridge",
+    "AWS Lambda"
+  ]
 }

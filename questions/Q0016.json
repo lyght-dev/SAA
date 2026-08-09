@@ -6,5 +6,13 @@
     "B": "Amazon QuickSight 에서 분석을 생성합니다. 모든 데이터 소스를 연결하고 새 데이터 세트를 만듭니다. 대시보드를 게시하여 데이터를 시각화합니다. 적절한 사용자 및 그룹과 대시보드를 공유합니다.",
     "C": "Amazon S3 의 데이터에 대한 AWS Glue 테이블 및 크롤러를 생성합니다. AWS Glue 추출, 변환 및 로드(ETL) 작업을 생성하여 보고서를 생성합니다. 보고서를 Amazon S3 에 게시합니다. S3 버킷 정책을 사용하여 보고서에 대한 액세스를 제한합니다.",
     "D": "Amazon S3 의 데이터에 대한 AWS Glue 테이블과 크롤러를 생성합니다. Amazon Athena 연합 쿼리를 사용하여 PostgreSQL 용 Amazon RDS 내의 데이터에 액세스합니다. Amazon Athena 를 사용하여 보고서를 생성합니다. 보고서를 Amazon S3 에 게시합니다. S3 버킷 정책을 사용하여 보고서에 대한 액세스를 제한합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 데이터 수집 및 변환 솔루션 결정",
+  "awsServices": [
+    "Amazon Quick",
+    "Amazon S3",
+    "Amazon RDS"
+  ]
 }

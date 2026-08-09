@@ -6,5 +6,13 @@
     "B": "AWS Certificate Manager(ACM)를 사용하여 SSL/TLS 인증서를 발급합니다. 인증서에서 키 자료를 가져옵니다. AL 에 인증서 적용 관리되는 갱신 기능을 사용하여 인증서를 자동으로 교체합니다.",
     "C": "AWS Certificate Manager(ACM) 사설 인증 기관을 사용하여 루트 CA 에서 SSL/TLS 인증서를 발급합니다. 인증서를 ALB 에 적용합니다. 관리형 갱신 기능을 사용하여 인증서를 자동으로 교체합니다.",
     "D": "AWS Certificate Manager(ACM)를 사용하여 SSL/TLS 인증서를 가져옵니다. 인증서를 ALB 에 적용합니다. Amazon EventBridge(Amazon CloudWatch Events)를 사용하여 인증서가 만료될 때 알림을 보냅니다. 인증서를 수동으로 교체합니다."
-  }
+  },
+  "answer": "D",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "AWS Certificate Manager(ACM)",
+    "Elastic Load Balancing(ELB)",
+    "Amazon EventBridge"
+  ]
 }

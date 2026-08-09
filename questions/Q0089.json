@@ -6,5 +6,11 @@
     "B": "각 감사 팀 IAM 사용자 계정의 IAM 사용자 자격 증명에 대해 다단계 인증(MFA)을 활성화합니다.",
     "C": "감사 날짜 동안 s3:DeleteObject 작업을 거부하도록 감사 팀의 IAM 사용자 계정에 S3 수명 주기 정책을 추가합니다.",
     "D": "AWS Key Management Service(AWS KMS)를 사용하여 S3 버킷을 암호화하고 감사 팀 IAM 사용자 계정이 KMS 키에 액세스하지 못하도록 제한합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "Amazon S3"
+  ]
 }

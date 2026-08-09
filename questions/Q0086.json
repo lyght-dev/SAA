@@ -6,5 +6,13 @@
     "B": "AWS Systems Manager OpsCenter 에 데이터베이스 사용자 자격 증명을 저장합니다. 웹 서버가 OpsCenter 에 액세스할 수 있도록 필요한 IAM 권한을 부여합니다.",
     "C": "안전한 Amazon S3 버킷에 데이터베이스 사용자 자격 증명을 저장합니다. 웹 서버가 자격 증명을 검색하고 데이터베이스에 액세스할 수 있도록 필요한 IAM 권한을 부여합니다.",
     "D": "웹 서버 파일 시스템의 AWS Key Management Service(AWS KMS)로 암호화된 파일에 데이터베이스 사용자 자격 증명을 저장합니다. 웹 서버는 파일을 해독하고 데이터베이스에 액세스할 수 있어야 합니다."
-  }
+  },
+  "answer": "A",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Secrets Manager",
+    "IAM",
+    "Amazon RDS"
+  ]
 }

@@ -6,5 +6,13 @@
     "B": "회사의 도메인 이름으로 Route 53 DNS 레코드를 생성합니다. 별칭 레코드가 리전 API 게이트웨이 단계 엔드포인트를 가리키도록 합니다. 회사의 도메인 이름과 연결된 공인 인증서를 us-east-1 리전의 AWS Certificate Manager(ACM)로 가져옵니다.",
     "C": "리전 API 게이트웨이 엔드포인트를 생성합니다. API Gateway 엔드포인트를 회사의 도메인 이름과 연결합니다. 회사의 도메인 이름과 연결된 공인 인증서를 동일한 리전의 AWS Certificate Manager(ACM)로 가져옵니다. API Gateway 엔드포인트에 인증서를 연결합니다. API Gateway 엔드포인트로 트래픽을 라우팅하도록 Route 53 을 구성합니다.",
     "D": "리전 API 게이트웨이 엔드포인트를 생성합니다. API Gateway 엔드포인트를 회사의 도메인 이름과 연결합니다. 회사의 도메인 이름과 연결된 공인 인증서를 us-east-1 리전의 AWS Certificate Manager(ACM)로 가져옵니다. API Gateway API 에 인증서를 연결합니다. 회사의 도메인 이름으로 Route 53 DNS 레코드를 생성합니다. A 레코드가 회사의 도메인 이름을 가리키도록 합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "Amazon API Gateway",
+    "AWS Certificate Manager(ACM)",
+    "Amazon Route 53"
+  ]
 }

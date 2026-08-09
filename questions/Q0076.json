@@ -6,5 +6,13 @@
     "B": "AWS Direct Connect 를 통한 AWS DataSync",
     "C": "공용 인터넷을 통한 AWS Database Migration Service(AWS DMS)",
     "D": "AWS Direct Connect 를 통한 AWS Database Migration Service(AWS DMS)"
-  }
+  },
+  "answer": "B",
+  "contentDomain": "고성능 아키텍처 설계",
+  "contentTask": "고성능 및/또는 확장 가능한 네트워크 아키텍처 결정",
+  "awsServices": [
+    "AWS DataSync",
+    "AWS Direct Connect",
+    "Amazon S3"
+  ]
 }

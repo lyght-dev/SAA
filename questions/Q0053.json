@@ -6,5 +6,12 @@
     "B": "S3 Intelligent-Tiering 을 사용하여 레코드를 저장합니다. IAM 정책을 사용하여 레코드 삭제를 거부합니다. 10 년 후 삭제를 허용하도록 IAM 정책을 변경합니다.",
     "C": "S3 수명 주기 정책을 사용하여 1 년 후에 S3 Standard 에서 S3 Glacier Deep Archive 로 레코드를 전환합니다. 10 년 동안 규정 준수 모드에서 S3 Object Lock 을 사용합니다.",
     "D": "S3 수명 주기 정책을 사용하여 1 년 후 레코드를 S3 Standard 에서 S3 One Zone-Infrequent Access(S3 One Zone-IA)로 전환합니다. 10 년 동안 거버넌스 모드에서 S3 Object Lock 을 사용합니다."
-  }
+  },
+  "answer": "C",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "적합한 데이터 보안 제어 결정",
+  "awsServices": [
+    "Amazon S3",
+    "Amazon S3 Glacier"
+  ]
 }

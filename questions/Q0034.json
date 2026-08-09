@@ -6,5 +6,12 @@
     "B": "AWS Config 를 사용하여 구성 변경을 추적하고 AWS CloudTrail 을 사용하여 API 호출을 기록합니다.",
     "C": "AWS Config 를 사용하여 구성 변경을 추적하고 Amazon CloudWatch 를 사용하여 API 호출을 기록합니다.",
     "D": "AWS CloudTrail 을 사용하여 구성 변경을 추적하고 Amazon CloudWatch 를 사용하여 API 호출을 기록합니다."
-  }
+  },
+  "answer": "B",
+  "contentDomain": "보안 아키텍처 설계",
+  "contentTask": "안전한 워크로드 및 애플리케이션 설계",
+  "awsServices": [
+    "AWS Config",
+    "AWS CloudTrail"
+  ]
 }
