@@ -7,13 +7,26 @@ export const CONTENT_DOMAINS = [
 
 export type ContentDomain = (typeof CONTENT_DOMAINS)[number];
 
+export type QuestionExplanation = {
+  requirementsAnalysis: string;
+  awsServicesAnalysis: string;
+  choicesAnalysis: string;
+};
+
+export type ChoiceEvaluation = {
+  isCorrect: boolean;
+  explanation: string;
+};
+
 export type Question = {
   id: string;
   questionNumber: number;
   question: string;
   choices: Array<{ key: string; text: string }>;
-  answer: string;
+  answer: string[];
   contentDomain: ContentDomain;
   contentTask: string;
   awsServices: string[];
+  explanation: QuestionExplanation;
+  choiceEvaluations: Record<string, ChoiceEvaluation>;
 };

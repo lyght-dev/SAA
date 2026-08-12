@@ -28,7 +28,7 @@ type Screen =
   | { name: "list"; domain: ContentDomain }
   | { name: "wrong-list" }
   | { name: "question"; questionId: string }
-  | { name: "explanation"; questionId: string; selectedAnswer: string };
+  | { name: "explanation"; questionId: string; selectedAnswers: string[] };
 
 const domainMeta = [
   { eyebrow: "Content domain 1", short: "Security", accent: "mint" },
@@ -90,7 +90,7 @@ function EmptyWrongList({ onGoBack }: { onGoBack: () => void }) {
 export function SaaApp({ questions }: { questions: Question[] }) {
   const [screen, setScreen] = useState<Screen>({ name: "intro" });
   const [statuses, setStatuses] = useState<StatusMap>({});
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [showClassification, setShowClassification] = useState(true);
   const [questionQueue, setQuestionQueue] = useState<string[]>([]);
   const [queueOrigin, setQueueOrigin] = useState<ContentDomain | "wrong" | null>(null);
@@ -138,16 +138,19 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   const openQuestion = (question: Question, queue: Question[], origin: ContentDomain | "wrong") => {
     setQuestionQueue(queue.map((item) => item.id));
     setQueueOrigin(origin);
-    setSelectedAnswer(null);
+    setSelectedAnswers([]);
     setScreen({ name: "question", questionId: question.id });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const submitAnswer = (question: Question) => {
-    if (!selectedAnswer) return;
-    const result: QuestionStatus = selectedAnswer === question.answer ? "correct" : "incorrect";
+    if (selectedAnswers.length !== question.answer.length) return;
+    const normalizedSelection = [...selectedAnswers].sort();
+    const normalizedAnswer = [...question.answer].sort();
+    const isCorrect = normalizedSelection.every((answer, index) => answer === normalizedAnswer[index]);
+    const result: QuestionStatus = isCorrect ? "correct" : "incorrect";
     setStatuses((current) => ({ ...current, [question.id]: result }));
-    setScreen({ name: "explanation", questionId: question.id, selectedAnswer });
+    setScreen({ name: "explanation", questionId: question.id, selectedAnswers });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -375,17 +378,35 @@ export function SaaApp({ questions }: { questions: Question[] }) {
           </section>
 
           <fieldset className="choice-list">
-            <legend>정답을 선택하세요</legend>
+            <legend>
+              {activeQuestion.answer.length > 1
+                ? `정답을 ${activeQuestion.answer.length}개 선택하세요`
+                : "정답을 선택하세요"}
+            </legend>
             {activeQuestion.choices.map((choice) => {
-              const selected = selectedAnswer === choice.key;
+              const selected = selectedAnswers.includes(choice.key);
+              const isMultipleChoice = activeQuestion.answer.length > 1;
               return (
                 <label className={`choice-card ${selected ? "choice-card-selected" : ""}`} key={choice.key}>
                   <input
-                    type="radio"
+                    type={isMultipleChoice ? "checkbox" : "radio"}
                     name="answer"
                     value={choice.key}
                     checked={selected}
-                    onChange={() => setSelectedAnswer(choice.key)}
+                    onChange={() => {
+                      if (!isMultipleChoice) {
+                        setSelectedAnswers([choice.key]);
+                        return;
+                      }
+
+                      setSelectedAnswers((current) =>
+                        current.includes(choice.key)
+                          ? current.filter((answer) => answer !== choice.key)
+                          : current.length < activeQuestion.answer.length
+                            ? [...current, choice.key]
+                            : current,
+                      );
+                    }}
                   />
                   <span className="choice-key">{choice.key}</span>
                   <span className="choice-text">{choice.text}</span>
@@ -396,7 +417,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
           </fieldset>
         </div>
         <div className="sticky-submit">
-          <button className="button button-primary button-large" type="button" disabled={!selectedAnswer} onClick={() => submitAnswer(activeQuestion)}>
+          <button className="button button-primary button-large" type="button" disabled={selectedAnswers.length !== activeQuestion.answer.length} onClick={() => submitAnswer(activeQuestion)}>
             Submit
             <ArrowRight size={18} strokeWidth={1.8} />
           </button>
@@ -405,12 +426,14 @@ export function SaaApp({ questions }: { questions: Question[] }) {
     );
   }
 
-  const isCorrect = screen.selectedAnswer === activeQuestion.answer;
+  const isCorrect =
+    screen.selectedAnswers.length === activeQuestion.answer.length &&
+    [...screen.selectedAnswers].sort().every((answer, index) => answer === [...activeQuestion.answer].sort()[index]);
   const nextQuestionId = queueIndex >= 0 ? questionQueue[queueIndex + 1] : undefined;
 
   const moveToNext = () => {
     if (nextQuestionId) {
-      setSelectedAnswer(null);
+      setSelectedAnswers([]);
       setScreen({ name: "question", questionId: nextQuestionId });
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -424,9 +447,9 @@ export function SaaApp({ questions }: { questions: Question[] }) {
       <div className="screen-content explanation-content">
         <section className={`result-card ${isCorrect ? "result-correct" : "result-incorrect"}`}>
           <div className="result-icon">{isCorrect ? <Check size={24} /> : <X size={24} />}</div>
-          <p className="eyebrow">Your answer · {screen.selectedAnswer}</p>
+          <p className="eyebrow">Your answer · {screen.selectedAnswers.join(", ")}</p>
           <h1>{isCorrect ? "Correct" : "Incorrect"}</h1>
-          <p>{isCorrect ? "좋아요. 핵심 요구사항을 정확히 짚었어요." : `정답은 ${activeQuestion.answer}입니다. 분석 순서대로 다시 확인해 보세요.`}</p>
+          <p>{isCorrect ? "좋아요. 핵심 요구사항을 정확히 짚었어요." : `정답은 ${activeQuestion.answer.join(", ")}입니다. 분석 순서대로 다시 확인해 보세요.`}</p>
         </section>
 
         <section className="analysis-section">
@@ -438,7 +461,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
             <Target size={21} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <strong>{activeQuestion.contentTask}</strong>
-              <p>문제에서 제시한 조건을 모두 만족하면서 운영 복잡성을 최소화하는 아키텍처를 찾아야 합니다.</p>
+              <p>{activeQuestion.explanation.requirementsAnalysis}</p>
             </div>
           </div>
         </section>
@@ -455,6 +478,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
               <div className="service-tags">
                 {activeQuestion.awsServices.map((service) => <span key={service}>{service}</span>)}
               </div>
+              <p className="service-analysis-copy">{activeQuestion.explanation.awsServicesAnalysis}</p>
             </div>
           </div>
         </section>
@@ -462,12 +486,16 @@ export function SaaApp({ questions }: { questions: Question[] }) {
         <section className="analysis-section">
           <div className="analysis-heading">
             <span>03</span>
-            <div><p className="section-label">Options</p><h2>보기 분석</h2></div>
+            <div><p className="section-label">Options</p><h2>선택지 분석</h2></div>
+          </div>
+          <div className="choices-analysis-summary">
+            <p>{activeQuestion.explanation.choicesAnalysis}</p>
           </div>
           <div className="option-analysis-list">
             {activeQuestion.choices.map((choice) => {
-              const correctChoice = choice.key === activeQuestion.answer;
-              const selectedWrong = choice.key === screen.selectedAnswer && !correctChoice;
+              const evaluation = activeQuestion.choiceEvaluations[choice.key];
+              const correctChoice = evaluation.isCorrect;
+              const selectedWrong = screen.selectedAnswers.includes(choice.key) && !correctChoice;
               return (
                 <article className={`option-analysis ${correctChoice ? "option-analysis-correct" : ""} ${selectedWrong ? "option-analysis-wrong" : ""}`} key={choice.key}>
                   <span className="option-key">{choice.key}</span>
@@ -477,7 +505,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
                       {selectedWrong ? <span className="mini-label mini-label-wrong">내 선택</span> : null}
                     </div>
                     <p>{choice.text}</p>
-                    <small>{correctChoice ? "제시된 요구사항과 문제 분류에 가장 적합한 선택지입니다." : "정답이 요구하는 조건과 비교해 우선순위 또는 운영 효율성이 부족한 선택지입니다."}</small>
+                    <small>{evaluation.explanation}</small>
                   </div>
                 </article>
               );
@@ -488,7 +516,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
         <section className="explanation-actions">
           <p className="section-label">What’s next?</p>
           <button className="button button-outline button-large" type="button" onClick={() => {
-            setSelectedAnswer(null);
+            setSelectedAnswers([]);
             setScreen({ name: "question", questionId: activeQuestion.id });
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}>
