@@ -2,7 +2,7 @@
 ---
 version: alpha
 name: ElevenLabs-design-analysis
-description: A voice-AI brand whose marketing surfaces read like a quietly editorial print magazine. The base canvas is off-white (`#f5f5f5`) holding warm near-black ink (`#292524`); the brand voltage is photographic, not chromatic — soft pastel atmospheric gradient orbs (mint → peach → lavender → sky) drift through the page as the only "color" moments. Display runs Waldenburg Light at weight 300 — the editorial signature. Inter carries body, navigation, captions. CTAs are subtle: a near-black ink pill is the primary, a transparent outline is the secondary. The brand trusts atmospheric photography and modest type weights to do all of the brand work; there is no neon accent, no saturated CTA color, no developer-tools dark canvas.
+description: A quietly editorial study product on an off-white canvas (`#f5f5f5`) with warm near-black ink (`#292524`). Soft pastel atmospheric gradient orbs (mint → peach → lavender → sky) provide the only color moments. Display uses Bookk Myungjo at weight 400; Bookk Gothic carries body, navigation, captions. CTAs are subtle: a near-black ink pill is the primary, a transparent outline is the secondary.
 
 colors:
   primary: "#292524"
@@ -35,88 +35,88 @@ colors:
 
 typography:
   display-mega:
-    fontFamily: "'Waldenburg', 'Times New Roman', serif"
+    fontFamily: "'BookkMyungjo', 'Batang', 'Times New Roman', serif"
     fontSize: 64px
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.05
     letterSpacing: -1.92px
   display-xl:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'BookkMyungjo', 'Batang', serif"
     fontSize: 48px
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.08
     letterSpacing: -0.96px
   display-lg:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'BookkMyungjo', 'Batang', serif"
     fontSize: 36px
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.17
     letterSpacing: -0.36px
   display-md:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'BookkMyungjo', 'Batang', serif"
     fontSize: 32px
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.13
     letterSpacing: -0.32px
   display-sm:
-    fontFamily: "'Waldenburg', serif"
+    fontFamily: "'BookkMyungjo', 'Batang', serif"
     fontSize: 24px
-    fontWeight: 300
+    fontWeight: 400
     lineHeight: 1.2
     letterSpacing: 0
   title-md:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 20px
-    fontWeight: 500
+    fontWeight: 700
     lineHeight: 1.35
     letterSpacing: 0
   title-sm:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 18px
-    fontWeight: 500
+    fontWeight: 700
     lineHeight: 1.44
     letterSpacing: 0.18px
   body-md:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 16px
-    fontWeight: 400
+    fontWeight: 300
     lineHeight: 1.5
     letterSpacing: 0.16px
   body-strong:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 16px
-    fontWeight: 500
+    fontWeight: 700
     lineHeight: 1.5
     letterSpacing: 0.16px
   body-sm:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 15px
-    fontWeight: 400
+    fontWeight: 300
     lineHeight: 1.47
     letterSpacing: 0.15px
   caption:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 14px
-    fontWeight: 400
+    fontWeight: 300
     lineHeight: 1.5
     letterSpacing: 0
   caption-uppercase:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 12px
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0.96px
     textTransform: uppercase
   button:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 15px
-    fontWeight: 500
+    fontWeight: 700
     lineHeight: 1.0
     letterSpacing: 0
   nav-link:
-    fontFamily: "'Inter', sans-serif"
+    fontFamily: "'BookkGothic', 'Apple SD Gothic Neo', sans-serif"
     fontSize: 15px
-    fontWeight: 500
+    fontWeight: 700
     lineHeight: 1.4
     letterSpacing: 0
 
@@ -257,15 +257,15 @@ components:
 
 ElevenLabs reads like a quietly editorial print magazine that happens to be a voice-AI product. The base canvas is off-white `{colors.canvas}` (#f5f5f5) holding warm near-black ink `{colors.ink}` (#0c0a09). The brand voltage is **photographic, not chromatic**: soft pastel atmospheric gradient orbs (mint, peach, lavender, sky, rose) drift through the page as the only "color" moments. There is no neon accent, no saturated CTA color, no dark-canvas dev-tools atmosphere.
 
-Type pairs **Waldenburg Light** (custom serif at weight 300) for display with **Inter** for body, navigation, captions. The display weight at 300 is the editorial signature — never bold, never heavy.
+Type pairs **부크크 명조(Bookk Myungjo)** at weight 400 for display with **부크크 고딕(Bookk Gothic)** for body, navigation, captions. The Korean serif display face is the editorial signature; normal display copy remains at 400.
 
 CTAs are subtle: a near-black ink pill (`{component.button-primary}`) is the primary, a transparent outline (`{component.button-outline}`) is the secondary. The brand trusts atmospheric photography and modest type weights to carry brand work.
 
 **Key Characteristics:**
 - Off-white canvas, warm near-black ink. No saturated CTA color.
 - Single primary action: ink pill at `{rounded.pill}`. Atmospheric gradients carry visual brand voltage.
-- Display runs Waldenburg Light at weight 300 — editorial magazine voice.
-- Body runs Inter at 400 with subtle letter-spacing (+0.15-0.18px).
+- Display runs 부크크 명조 at weight 400 — editorial magazine voice.
+- Body runs 부크크 고딕 Light at 300 with subtle letter-spacing (+0.15-0.18px).
 - Pastel gradient orbs (5 tokens: mint, peach, lavender, sky, rose) used as atmospheric brand decoration only.
 - Soft pill geometry (`{rounded.pill}` for CTAs, `{rounded.xl}` for cards).
 - 96px section rhythm.
@@ -316,34 +316,34 @@ These appear ONLY as soft radial-gradient atmospheric orbs inside `{component.gr
 ## Typography
 
 ### Font Family
-**Waldenburg Light** is the licensed display serif at weight 300. **Inter** carries body, navigation, captions, and buttons. Fallback: `'Times New Roman', serif` for Waldenburg, `sans-serif` for Inter.
+**부크크 명조(Bookk Myungjo)** carries display typography at weight 400. **부크크 고딕(Bookk Gothic)** carries body, navigation, captions, and buttons at weights 300 and 700. Fallback: `'Batang', 'Times New Roman', serif` for Bookk Myungjo and `'Apple SD Gothic Neo', sans-serif` for Bookk Gothic.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-mega}` | 64px | 300 | 1.05 | -1.92px | Homepage hero h1 |
-| `{typography.display-xl}` | 48px | 300 | 1.08 | -0.96px | Subsidiary heroes |
-| `{typography.display-lg}` | 36px | 300 | 1.17 | -0.36px | Section heads |
-| `{typography.display-md}` | 32px | 300 | 1.13 | -0.32px | Sub-section heads |
-| `{typography.display-sm}` | 24px | 300 | 1.2 | 0 | Card group titles |
-| `{typography.title-md}` | 20px | 500 | 1.35 | 0 | Component titles — Inter |
-| `{typography.title-sm}` | 18px | 500 | 1.44 | 0.18px | List labels |
-| `{typography.body-md}` | 16px | 400 | 1.5 | 0.16px | Default body — Inter |
-| `{typography.body-strong}` | 16px | 500 | 1.5 | 0.16px | Emphasized body |
-| `{typography.body-sm}` | 15px | 400 | 1.47 | 0.15px | Footer body |
-| `{typography.caption}` | 14px | 400 | 1.5 | 0 | Photo captions |
-| `{typography.caption-uppercase}` | 12px | 600 | 1.4 | 0.96px | Section labels, badges |
-| `{typography.button}` | 15px | 500 | 1.0 | 0 | CTA pill |
-| `{typography.nav-link}` | 15px | 500 | 1.4 | 0 | Top-nav menu |
+| `{typography.display-mega}` | 64px | 400 | 1.05 | -1.92px | Homepage hero h1 |
+| `{typography.display-xl}` | 48px | 400 | 1.08 | -0.96px | Subsidiary heroes |
+| `{typography.display-lg}` | 36px | 400 | 1.17 | -0.36px | Section heads |
+| `{typography.display-md}` | 32px | 400 | 1.13 | -0.32px | Sub-section heads |
+| `{typography.display-sm}` | 24px | 400 | 1.2 | 0 | Card group titles |
+| `{typography.title-md}` | 20px | 700 | 1.35 | 0 | Component titles — Bookk Gothic |
+| `{typography.title-sm}` | 18px | 700 | 1.44 | 0.18px | List labels |
+| `{typography.body-md}` | 16px | 300 | 1.5 | 0.16px | Default body — Bookk Gothic |
+| `{typography.body-strong}` | 16px | 700 | 1.5 | 0.16px | Emphasized body |
+| `{typography.body-sm}` | 15px | 300 | 1.47 | 0.15px | Footer body |
+| `{typography.caption}` | 14px | 300 | 1.5 | 0 | Photo captions |
+| `{typography.caption-uppercase}` | 12px | 700 | 1.4 | 0.96px | Section labels, badges |
+| `{typography.button}` | 15px | 700 | 1.0 | 0 | CTA pill |
+| `{typography.nav-link}` | 15px | 700 | 1.4 | 0 | Top-nav menu |
 
 ### Principles
-- **Display weight stays at 300.** Waldenburg Light is the editorial signature. Never bold display copy.
-- **Subtle letter-spacing on body.** Inter at +0.15-0.18px tracking — slightly looser than default Inter for a more editorial feel.
-- **Negative letter-spacing on display.** Waldenburg pulls -0.32px to -1.92px tighter on display sizes.
+- **Display weight stays at 400.** 부크크 명조의 가는 굵기가 editorial signature이며 일반 제목에는 볼드체를 사용하지 않는다.
+- **Subtle letter-spacing on body.** Bookk Gothic at +0.15-0.18px tracking supports the editorial feel.
+- **Negative letter-spacing on display.** Bookk Myungjo pulls -0.32px to -1.92px tighter on display sizes.
 
-### Note on Font Substitutes
-Waldenburg is licensed. Open-source substitute: **EB Garamond** at weight 300 (slightly more humanist) or **GT Sectra** (closer to Waldenburg's modernity). Use Inter directly for body — it's the same family ElevenLabs uses.
+### Webfont Source
+부크크 명조와 부크크 고딕은 `(주)부크크`가 제공하는 서체를 수정 없이 사용한다. 명조 웹폰트 선언과 라이선스는 [눈누 부크크 명조 페이지](https://noonnu.cc/font_page/1084), 고딕은 [눈누 부크크 고딕 페이지](https://noonnu.cc/font_page/1082)를 기준으로 한다. 고딕의 300은 `BookkGothic-Lt.woff2`, 700은 `BookkGothic-Bd.woff2`를 사용한다.
 
 ## Layout
 
@@ -454,8 +454,8 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 
 ### Do
 - Reserve `{colors.primary}` (ink pill) for primary CTAs.
-- Use Waldenburg Light at weight 300 for every display headline. Never bold.
-- Use Inter at +0.15-0.18px tracking for body — the editorial dialect.
+- Use 부크크 명조 at weight 400 for every display headline. Never bold ordinary display copy.
+- Use Bookk Gothic at +0.15-0.18px tracking for body — the editorial dialect.
 - Use atmospheric gradient orbs (mint/peach/lavender/sky/rose) as decoration only.
 - Use the pill shape for every CTA and badge.
 
@@ -464,7 +464,7 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 - Don't bold display copy. Display sits at weight 300 — bolding shifts the brand voice from editorial to consumer-marketing.
 - Don't use gradient orbs as button fills, text colors, or component backgrounds. They are pure atmosphere.
 - Don't use sharp `{rounded.none}` (0px) on CTAs. Pill geometry is the brand button.
-- Don't drop body Inter to weight 300 to match Waldenburg — body stays at 400/500 for legibility.
+- Don't replace body Bookk Gothic with Bookk Myungjo — body stays Gothic 300/700 for legibility.
 - Don't extract a CTA color from a third-party widget (cookie consent, OneTrust). The brand's CTA color is what appears on actual product CTAs.
 
 ## Responsive Behavior
@@ -494,12 +494,12 @@ The system uses **hairline + soft drop**. Cards float above the off-white canvas
 3. Variants live as separate entries.
 4. Use `{token.refs}` everywhere — never inline hex.
 5. Hover state never documented.
-6. Waldenburg 300 for display, Inter 400/500 for body.
+6. Bookk Myungjo 400 for display, Bookk Gothic 300/700 for body.
 7. Gradient orbs scoped to atmospheric decoration.
 
 ## Known Gaps
 
-- Waldenburg is a licensed typeface; EB Garamond / GT Sectra are documented substitutes.
+- 부크크 명조 웹폰트는 외부 CDN에서 로드되므로 오프라인 웹뷰에서는 명조 계열 fallback이 사용된다.
 - Animation timings (orb drift, waveform pulse, hero entrance) out of scope.
 - In-product surfaces (voice library editor, agent playground) only partially captured via marketing mockups.
 - Form validation states beyond focus not visible on captured surfaces.

@@ -9,8 +9,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fontsource/eb-garamond": "latest",
-    "@fontsource/inter": "latest",
     "lucide-react": "latest",
     "next": "latest",
     "react": "latest",

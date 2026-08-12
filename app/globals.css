@@ -1,3 +1,37 @@
+/* 부크크 명조 · (주)부크크 · https://noonnu.cc/font_page/1084 */
+@font-face {
+  font-family: "BookkMyungjo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Lt.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BookkMyungjo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 부크크 고딕 · (주)부크크 · https://noonnu.cc/font_page/1082 */
+@font-face {
+  font-family: "BookkGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkGothic-Lt.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BookkGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkGothic-Bd.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #292524;
   --primary-active: #0c0a09;
@@ -19,8 +53,8 @@
   --lavender: #c8b8e0;
   --sky: #a8c8e8;
   --rose: #e8b8c4;
-  --display: "EB Garamond", "Times New Roman", serif;
-  --sans: "Inter", sans-serif;
+  --display: "BookkMyungjo", "Batang", "Times New Roman", serif;
+  --sans: "BookkGothic", "Apple SD Gothic Neo", sans-serif;
 }
 
 * {
@@ -38,7 +72,7 @@ body {
   color: var(--ink);
   font-family: var(--sans);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.16px;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-y: none;
@@ -101,7 +135,7 @@ input:focus-visible + span {
   overflow: hidden;
   margin: 0;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.4;
   text-align: center;
   text-overflow: ellipsis;
@@ -144,7 +178,7 @@ input:focus-visible + span {
   margin: 0;
   color: var(--muted);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
   letter-spacing: 1.05px;
   text-transform: uppercase;
@@ -182,7 +216,7 @@ input:focus-visible + span {
   border: 1px solid transparent;
   border-radius: 9999px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
 }
@@ -392,7 +426,7 @@ input:focus-visible + span {
 .progress-ring span {
   position: absolute;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .progress-track {
@@ -492,7 +526,7 @@ input:focus-visible + span {
 
 .action-copy strong {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .action-copy small {
@@ -568,7 +602,7 @@ input:focus-visible + span {
   margin: 1px 0 8px;
   color: var(--muted);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.75px;
   text-transform: uppercase;
 }
@@ -763,7 +797,7 @@ input:focus-visible + span {
 
 .classification-detail strong {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .classification-detail span {
@@ -828,7 +862,7 @@ input:focus-visible + span {
 .question-prompt h1 {
   margin: 0;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.68;
   letter-spacing: 0.05px;
   word-break: keep-all;
@@ -847,7 +881,7 @@ input:focus-visible + span {
   margin-bottom: 12px;
   color: var(--muted);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.7px;
   text-transform: uppercase;
 }
@@ -1037,7 +1071,7 @@ input:focus-visible + span {
 
 .analysis-card strong {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.45;
 }
 
@@ -1072,7 +1106,7 @@ input:focus-visible + span {
   border-radius: 9999px;
   background: var(--surface-strong);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .option-analysis-list {
