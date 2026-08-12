@@ -12,5 +12,28 @@
   "contentTask": "비용에 최적화된 스토리지 솔루션 설계",
   "awsServices": [
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "웹사이트는 HTML, CSS, 클라이언트 측 JavaScript 및 이미지로만 구성된 정적 콘텐츠입니다. 다른 팀이 웹사이트에 접속할 수 있도록 호스팅해야 하며, 서버 측 애플리케이션 처리 요구사항은 제시되지 않았습니다. 따라서 필요한 기능을 제공하면서 컴퓨팅 리소스 비용과 관리 부담을 최소화하는 호스팅 방식이 필요합니다.",
+    "awsServicesAnalysis": "Amazon S3는 객체를 저장하고 정적 웹사이트 호스팅을 제공할 수 있습니다. AWS Fargate는 컨테이너화된 애플리케이션을 실행하는 서버리스 컴퓨팅 엔진입니다. Amazon EC2는 가상 서버에서 웹 서버 소프트웨어를 실행할 수 있습니다. Application Load Balancer는 HTTP 요청을 Lambda 대상으로 라우팅할 수 있고, Lambda는 요청 처리 코드를 실행합니다.",
+    "choicesAnalysis": "정적 파일만 제공하는 웹사이트에는 웹 서버 프로세스나 애플리케이션 실행 환경이 필요하지 않습니다. 객체 스토리지 기반 정적 호스팅은 이러한 컴퓨팅 계층을 제거하므로 비용과 운영 부담을 낮춥니다. 컨테이너, EC2 또는 Lambda와 로드 밸런서는 동적 처리 계층을 추가합니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 정적 파일을 제공하기 위해 컨테이너 실행 환경을 구성해야 하므로 필요한 기능보다 많은 컴퓨팅 비용과 운영 구성이 발생합니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 Amazon S3의 정적 웹사이트 호스팅으로 HTML, CSS, JavaScript 및 이미지를 직접 제공할 수 있으므로 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 웹 서버가 설치된 EC2 인스턴스를 운영해야 하므로 정적 콘텐츠 호스팅에 비해 비용과 관리 부담이 증가합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 Application Load Balancer, Lambda 및 Express.js 요청 처리 계층을 구성하므로 서버 측 처리가 없는 정적 웹사이트에 적합하지 않습니다."
+    }
+  }
 }

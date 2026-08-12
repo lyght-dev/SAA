@@ -15,5 +15,28 @@
     "Amazon Data Firehose",
     "Amazon S3",
     "Amazon Redshift"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 300개가 넘는 글로벌 웹사이트와 애플리케이션에서 매일 30TB 이상의 클릭스트림 데이터를 분석해야 합니다. 데이터는 대규모로 지속 유입되므로 수집 계층은 높은 처리량으로 스트림을 받아야 하며, 장기 분석을 위한 데이터 레이크와 분석 저장소로 전달할 수 있어야 합니다. 따라서 확장 가능한 스트리밍 수집, 관리형 전송 및 분석 적재 흐름이 필요합니다.",
+    "awsServicesAnalysis": "Amazon Kinesis Data Streams는 대량의 실시간 데이터 레코드를 수집하고 처리하는 스트리밍 서비스입니다. Amazon Data Firehose는 스트리밍 데이터를 Amazon S3, Amazon Redshift 등을 비롯한 대상으로 전송하는 완전관리형 전송 서비스입니다. Amazon S3는 데이터 레이크에 사용할 수 있는 내구성 있는 객체 스토리지입니다. Amazon Redshift는 대규모 분석 쿼리를 위한 데이터 웨어하우스 서비스입니다. AWS Lambda는 이벤트 기반 코드를 실행하며, Amazon EC2 Auto Scaling은 EC2 용량을 조정합니다.",
+    "choicesAnalysis": "대규모 클릭스트림은 스트리밍 방식으로 수집한 뒤 관리형 전송 서비스를 통해 S3 데이터 레이크에 저장하고 분석용 데이터 웨어하우스로 적재하는 흐름이 필요합니다. Kinesis Data Streams, Data Firehose, S3 및 Redshift를 연결하면 이 단계를 확장 가능하게 구현할 수 있습니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 Amazon EMR 클러스터를 실행하여 분석할 수 있지만, 대규모 클릭스트림의 지속 수집을 위한 스트리밍 수집 계층이 없습니다. AWS Data Pipeline과 EMR 운영도 관리 부담을 늘리므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 EC2 Auto Scaling 그룹으로 데이터 처리를 직접 구현해야 합니다. 스트림 수집과 전송을 위한 관리형 서비스를 사용하지 않으며, 대규모 처리 인프라 운영 부담이 있으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C의 Amazon CloudFront 캐시는 클릭스트림 수집 서비스가 아니며, S3 객체 생성마다 Lambda로 분석을 수행하는 방식은 일일 30TB 이상의 지속적인 데이터 처리 흐름에 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "D는 Amazon Kinesis Data Streams로 클릭스트림을 수집하고, Amazon Data Firehose로 S3 데이터 레이크에 전송한 뒤 Amazon Redshift에 적재하여 분석할 수 있으므로 적합합니다."
+    }
+  }
 }

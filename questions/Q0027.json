@@ -12,5 +12,28 @@
   "contentTask": "AWS 리소스에 대한 보안 액세스 설계",
   "awsServices": [
     "Amazon CloudWatch"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "제품 관리자는 AWS 계정이 없지만 Amazon CloudWatch 대시보드를 주기적으로 확인해야 합니다. 필요한 권한은 특정 대시보드의 조회에 한정되어야 하므로, AWS 콘솔 전체에 대한 로그인 자격 증명이나 광범위한 읽기 권한을 부여하지 않아야 합니다. 따라서 AWS 계정 없이도 필요한 대시보드만 볼 수 있도록 최소한의 접근 범위를 제공해야 합니다.",
+    "awsServicesAnalysis": "Amazon CloudWatch는 대시보드를 공개 공유 링크로 제공할 수 있으며, 링크를 받은 사용자는 AWS 자격 증명 없이 대시보드를 볼 수 있습니다. 공개 공유 링크는 링크를 가진 모든 사람이 인증 없이 접근할 수 있으므로 민감한 정보가 없는 대시보드에 사용해야 합니다. IAM 사용자는 AWS 계정 내 콘솔 로그인 자격 증명을 제공하며 CloudWatchReadOnlyAccess 또는 ViewOnlyAccess 정책은 여러 AWS 리소스에 대한 읽기 권한을 포함합니다. 배스천 호스트는 원격 접속 환경을 운영해야 하는 컴퓨팅 인프라입니다.",
+    "choicesAnalysis": "요구사항은 AWS 계정이 없는 외부 사용자에게 특정 대시보드의 보기 권한만 제공하는 것입니다. 대시보드 공유 링크는 별도 계정을 만들지 않고 해당 대시보드에 접근하도록 하므로 권한 범위가 가장 작습니다. IAM 사용자와 관리형 읽기 정책은 콘솔 및 더 넓은 AWS 리소스 접근을 제공하며, 배스천 호스트는 불필요한 운영 복잡성을 도입합니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "적합합니다. CloudWatch 대시보드의 공유 가능한 링크를 제공하면 제품 관리자는 AWS 계정이나 콘솔 자격 증명 없이 해당 대시보드를 볼 수 있습니다. 공개 공유 전에 대시보드에 민감한 정보가 없는지 확인해야 합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. IAM 사용자와 CloudWatchReadOnlyAccess는 제품 관리자에게 AWS 콘솔 로그인과 CloudWatch 전반의 읽기 권한을 부여합니다. 특정 대시보드만 공유하는 것보다 권한 범위가 넓습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. ViewOnlyAccess는 CloudWatch에만 한정되지 않은 광범위한 읽기 권한을 포함하고, IAM 사용자 계정도 새로 관리해야 합니다. 최소 권한 원칙에 맞지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. 배스천 서버와 RDP 자격 증명을 운영하는 방식은 대시보드 조회에 불필요한 컴퓨팅 및 보안 관리 부담을 추가합니다. 또한 공유된 자격 증명은 최소 권한 접근 방식이 아닙니다."
+    }
+  }
 }

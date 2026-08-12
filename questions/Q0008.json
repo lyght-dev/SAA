@@ -14,5 +14,28 @@
     "Amazon SQS",
     "Amazon EC2",
     "Amazon EC2 Auto Scaling"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 여러 컴퓨팅 노드에서 작업을 조정하는 기본 서버 기반의 분산 애플리케이션을 현대화해야 합니다. 탄력성과 확장성을 높이려면 작업 생성과 처리를 분리하고, 처리 용량이 실제 대기 작업량에 따라 변해야 합니다. 따라서 작업을 버퍼링할 수 있는 내구성 있는 큐와 큐 부하에 맞춰 조정되는 컴퓨팅 계층이 필요합니다.",
+    "awsServicesAnalysis": "Amazon SQS는 생산자와 소비자 사이에 메시지를 보관하는 관리형 큐 서비스로 비동기 작업 처리를 분리할 수 있습니다. Amazon EC2 Auto Scaling은 Auto Scaling 그룹의 EC2 용량을 지표 기반 정책으로 조정합니다. SQS 기반 처리 시스템에서는 메시지 백로그와 인스턴스 수를 결합한 지표를 사용하여 처리 용량을 조정할 수 있습니다. AWS CloudTrail은 AWS API 활동을 기록하는 감사 서비스입니다. Amazon EventBridge는 이벤트를 규칙에 따라 대상에 전달하는 서버리스 이벤트 버스입니다.",
+    "choicesAnalysis": "작업 큐는 기본 서버가 작업을 직접 조정하는 결합을 줄이고, 처리 노드는 큐의 백로그에 맞춰 독립적으로 확장할 수 있어야 합니다. 예약된 확장은 실제 작업량의 급격한 변화에 즉시 대응하지 못합니다. CloudTrail이나 EventBridge를 작업 저장소로 사용하면 내구성 있는 작업 큐와 큐 기반 처리량 조정이라는 목표와 맞지 않습니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 SQS와 Auto Scaling 그룹을 사용하지만 예약된 조정은 실제 큐 백로그의 변동에 따라 용량을 자동으로 조절하지 못합니다. 탄력성 및 확장성 극대화 요구사항에 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 SQS가 작업을 버퍼링하고 Auto Scaling 그룹의 EC2 노드가 이를 처리하게 합니다. 큐 백로그에 맞춰 용량을 조정할 수 있으므로 작업과 처리 노드를 분리하면서 탄력적으로 확장할 수 있어 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 AWS CloudTrail을 작업 대상으로 사용하지만 CloudTrail은 API 활동 기록 서비스입니다. 작업 큐를 제공하지 않으며 기본 서버의 부하 기준 확장도 대기 작업량을 직접 반영하지 않으므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 EventBridge가 이벤트를 대상에 전달할 수 있으나, 보기의 구성은 기본 서버를 계속 중심에 두고 컴퓨팅 노드 부하만 기준으로 확장합니다. SQS 백로그 기반 작업 분리 및 확장 방식보다 요구사항에 적합하지 않습니다."
+    }
+  }
 }

@@ -12,5 +12,28 @@
   "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
   "awsServices": [
     "Amazon FSx(모든 유형)"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 두 EC2 인스턴스에서 제공하던 Windows 파일 공유의 동기화와 중복 복사본 운영을 대체해야 합니다. 사용자가 현재와 같은 방식으로 파일에 액세스하면서도, 파일 공유 스토리지는 고가용성과 내구성을 제공해야 합니다. 따라서 Windows 파일 공유 프로토콜을 지원하는 관리형 다중 가용 영역 파일 시스템이 필요합니다.",
+    "awsServicesAnalysis": "Amazon FSx for Windows File Server는 Windows 파일 공유에 사용하는 SMB 프로토콜과 Windows ACL, Microsoft Active Directory 통합을 지원하는 완전관리형 파일 시스템입니다. Multi-AZ 배포는 가용 영역 간 파일 서버와 스토리지 복제를 사용하고 장애 시 자동 장애 조치를 제공합니다. Amazon EFS는 NFS 파일 시스템입니다. Amazon S3는 객체 스토리지이고, S3 File Gateway는 SMB 또는 NFS 인터페이스로 S3 객체에 액세스할 수 있는 하이브리드 스토리지 게이트웨이입니다.",
+    "choicesAnalysis": "Windows 파일 공유 접근 방식을 유지하면서 기존 인스턴스 간 동기화와 중복 복사본을 관리형 스토리지로 대체하려면 SMB 기반의 고가용성 파일 시스템이 필요합니다. FSx for Windows File Server의 Multi-AZ 구성이 이 프로토콜 호환성과 장애 조치 기능을 제공합니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 Amazon S3는 객체 스토리지이며 사용자가 기존 Windows 파일 공유 방식으로 접근하는 SMB 파일 시스템을 제공하지 않습니다. IAM 인증만으로는 해당 접근 방식이 보존되지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B의 S3 File Gateway는 S3 객체를 SMB 또는 NFS로 노출할 수 있지만, 기존 EC2 파일 서버의 공유 스토리지를 고가용성 Windows 파일 시스템으로 대체하는 구성은 아닙니다. 게이트웨이와 백엔드 S3를 별도로 운영해야 하므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 데이터를 Multi-AZ Amazon FSx for Windows File Server로 이전합니다. FSx는 Windows SMB 파일 공유를 지원하고 다중 가용 영역 장애 조치를 제공하므로 기존 사용자 접근 방식과 고가용성 요구에 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D의 Amazon EFS는 NFS 파일 시스템입니다. Windows 파일 공유에서 사용하는 SMB 접근 방식을 그대로 제공하지 않으므로 적합하지 않습니다."
+    }
+  }
 }

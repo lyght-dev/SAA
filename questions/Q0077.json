@@ -16,5 +16,28 @@
     "Amazon Data Firehose",
     "AWS Lambda",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 실시간으로 수집되는 데이터를 받아 변환한 뒤 저장해야 합니다. 수집용 API, 스트리밍 변환, 저장소가 모두 필요하며 운영 오버헤드는 최소화해야 합니다. 따라서 서버를 직접 운영하지 않고 관리형 API·스트리밍·전달 서비스를 조합하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "Amazon API Gateway는 관리형 API 엔드포인트를 제공하고 Amazon Kinesis Data Streams와 통합할 수 있습니다. Kinesis Data Streams는 실시간 스트리밍 데이터를 수집합니다. Amazon Data Firehose는 스트림 데이터를 대상 저장소로 전달하며 AWS Lambda를 호출해 전달 전에 데이터를 변환할 수 있습니다. Amazon S3는 대용량 데이터를 내구성 있게 저장합니다. AWS Glue는 주로 ETL 및 데이터 카탈로그 작업에 사용되며 API 기반 실시간 수집 흐름의 대체 수단이 아닙니다.",
+    "choicesAnalysis": "API Gateway에서 Kinesis Data Streams로 데이터를 수집하고, Data Firehose와 Lambda로 변환 후 S3로 전달하면 모든 구성 요소가 관리형 서비스입니다. EC2에서 API를 호스팅하면 서버 운영 부담이 추가되며, Glue 중심 선택지는 실시간 스트리밍 API 수집 구조에 맞지 않습니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 Kinesis, Data Firehose, Lambda, S3를 적절히 사용하지만 API를 EC2 인스턴스에서 직접 호스팅합니다. 관리형 API Gateway를 사용하는 구성보다 운영 오버헤드가 크므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 API를 EC2에서 호스팅하고 AWS Glue로 데이터를 보내며, EC2의 소스/대상 확인 해제도 이 흐름에 필요하지 않습니다. 실시간 스트리밍 수집과 최소 운영 요구 사항에 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 API Gateway로 수집 API를 제공하고 Kinesis Data Streams, Data Firehose, Lambda로 실시간 데이터 수집·변환·전달을 수행한 뒤 S3에 저장합니다. 서버 관리가 필요하지 않으므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 API Gateway와 Lambda를 사용하지만 AWS Glue는 이 실시간 스트리밍 수집 및 전달 흐름의 적절한 대상 서비스가 아닙니다. Kinesis와 Data Firehose 기반 구성보다 요구 사항에 적합하지 않습니다."
+    }
+  }
 }

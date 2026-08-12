@@ -14,5 +14,28 @@
     "Amazon S3",
     "Amazon S3 Glacier",
     "AWS Storage Gateway"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 온프레미스 SMB 파일 서버의 저장 공간을 확장해야 합니다. 새 파일은 처음 며칠 동안 자주 사용하므로 낮은 지연 시간으로 접근할 수 있어야 하고, 7일 이후에는 거의 접근하지 않아 저비용 장기 저장소로 전환할 수 있어야 합니다. 온프레미스 파일 인터페이스를 유지하면서 로컬 캐시와 S3 수명 주기 관리를 함께 제공하는 솔루션이 필요합니다.",
+    "awsServicesAnalysis": "Amazon S3 File Gateway는 온프레미스 애플리케이션에 SMB 및 NFS 파일 공유를 제공하고, 파일을 S3 객체로 저장하며 자주 액세스하는 데이터를 로컬에 캐시할 수 있습니다. Amazon S3 Lifecycle은 객체를 정의한 기간 후 다른 S3 스토리지 클래스로 전환할 수 있습니다. S3 Glacier Deep Archive는 장기 보관에 적합한 저비용 아카이브 스토리지 클래스입니다. AWS DataSync는 온프레미스와 AWS 스토리지 서비스 간 데이터 전송을 자동화합니다. Amazon FSx for Windows File Server는 관리형 Windows 파일 시스템입니다.",
+    "choicesAnalysis": "활성 파일에 대한 SMB 기반 저지연 접근을 유지하면서 온프레미스 용량을 확장하려면 S3를 백엔드로 사용하고 로컬 캐시를 제공하는 파일 게이트웨이가 필요합니다. 이후 파일을 S3 수명 주기 정책으로 아카이브 계층으로 이동하면 접근 빈도 감소에 맞춰 저장 비용을 줄일 수 있습니다. 단순 일회성 복사나 별도 파일 시스템 추가는 두 요구사항을 함께 해결하지 못합니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 7일이 지난 데이터를 AWS로 한 번 복사할 수 있지만, 온프레미스 SMB 접근을 확장하는 파일 인터페이스와 지속적인 수명 주기 관리를 제공하지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 S3 File Gateway로 SMB 파일 서버의 저장 공간을 S3로 확장하고 자주 쓰는 데이터를 로컬 캐시에서 제공할 수 있습니다. S3 Lifecycle로 7일 후 Glacier Deep Archive로 전환할 수 있으므로 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 Amazon FSx for Windows File Server로 파일 시스템을 제공할 수 있지만, 제시된 구성에는 온프레미스 용량 확장용 캐시 계층과 7일 기준 아카이브 수명 주기 관리가 없습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 각 사용자 컴퓨터에 별도 유틸리티를 배포해야 하며 기존 SMB 파일 서버 인터페이스를 유지하지 못합니다. 중앙 캐시 및 파일 공유 방식도 제공하지 않으므로 적합하지 않습니다."
+    }
+  }
 }

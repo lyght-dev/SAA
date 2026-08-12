@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon S3",
     "Amazon S3 Glacier"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 백업 파일을 처음 1개월 동안에는 자주 읽고, 그 이후에는 접근하지 않지만 무기한 보존해야 합니다. 따라서 최초 1개월에는 즉시 접근 가능한 스토리지에서 파일을 유지하고, 이후에는 장기 보관 비용을 가장 낮출 수 있는 계층으로 자동 전환해야 합니다. 삭제가 아니라 보존이 요구되므로 수명 주기 규칙은 만료가 아닌 스토리지 클래스 전환을 수행해야 합니다. 알려진 접근 시점 이후의 장기 아카이브 비용이 핵심 판단 기준입니다.",
+    "awsServicesAnalysis": "S3 수명 주기 구성은 객체의 생성 후 경과 일수에 따라 스토리지 클래스를 전환할 수 있습니다. S3 Glacier Deep Archive는 장기간 거의 접근하지 않는 데이터를 위한 가장 저렴한 S3 아카이브 계층 중 하나이며, 객체를 읽으려면 복원 요청과 긴 검색 시간이 필요합니다. S3 Intelligent-Tiering은 변하는 접근 패턴을 자동으로 계층화하지만 객체 모니터링/자동화 요금이 있습니다. S3 Standard-IA와 S3 One Zone-IA는 밀리초 검색이 가능한 드문 액세스용 클래스이며, One Zone-IA는 단일 가용 영역에 데이터를 저장합니다.",
+    "choicesAnalysis": "접근 패턴과 전환 시점이 명확하므로 자동 패턴 분석보다 1개월 후의 명시적 수명 주기 전환이 적합합니다. 파일을 무기한 보관하면서 이후 접근하지 않는 조건에서는 즉시 검색 가능한 IA 계층보다 장기 아카이브 계층이 더 비용 효율적입니다. 또한 백업 파일은 내구성 있게 보존되어야 하므로 단일 가용 영역 저장소를 선택할 이유가 없습니다. 따라서 S3 Glacier Deep Archive로 전환하는 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. S3 Intelligent-Tiering은 액세스 패턴을 알 수 없을 때 유용하지만, 이 경우에는 1개월 후 접근하지 않는다는 정책이 명확합니다. 장기 보관만을 위해서는 명시적으로 Deep Archive로 전환하는 방식이 더 비용 효율적입니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "적합합니다. S3 수명 주기 규칙으로 처음 1개월은 S3 Standard에서 자주 접근하고, 이후에는 S3 Glacier Deep Archive에 무기한 보관할 수 있습니다. 알려진 장기 미접근 기간의 스토리지 비용을 최소화하는 구성입니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. S3 Standard-IA는 드물지만 즉시 접근해야 하는 데이터를 위한 계층입니다. 1개월 이후 접근하지 않는 파일을 무기한 보관하는 요구사항에는 S3 Glacier Deep Archive보다 스토리지 비용이 높습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. S3 One Zone-IA는 단일 가용 영역에 데이터를 저장하므로 장기 백업 보존에 적절하지 않습니다. 또한 장기 미접근 데이터의 비용 측면에서도 S3 Glacier Deep Archive보다 유리하지 않습니다."
+    }
+  }
 }

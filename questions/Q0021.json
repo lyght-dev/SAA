@@ -16,5 +16,28 @@
     "Amazon API Gateway",
     "AWS Lambda",
     "Amazon DynamoDB"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 하루에 하나의 제품을 24시간 동안 판매하는 웹 사이트를 운영하면서 피크 시간에는 시간당 수백만 건의 요청을 밀리초 지연 시간으로 처리해야 합니다. 정적 웹 콘텐츠는 전 세계 사용자에게 빠르게 제공되어야 하며, 주문 처리와 데이터 저장은 급격한 트래픽 증가에 맞춰 확장되어야 합니다. 또한 매일 반복되는 대규모 트래픽을 위해 서버와 데이터베이스 용량을 직접 계획하거나 운영하는 부담을 최소화해야 합니다. 따라서 정적 콘텐츠의 엣지 전송, 서버리스 요청 처리, 고확장성 데이터 저장을 함께 제공하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "Amazon S3는 정적 웹 사이트 콘텐츠를 저장할 수 있고, Amazon CloudFront는 엣지 로케이션에서 콘텐츠를 캐시하여 사용자에게 낮은 지연 시간으로 제공합니다. Amazon API Gateway는 HTTP API의 수신과 관리 기능을 제공하며 AWS Lambda는 요청에 따라 코드를 실행하고 동시 실행 수요에 맞춰 확장됩니다. Amazon DynamoDB는 서버리스 NoSQL 데이터베이스로 짧은 지연 시간의 대규모 워크로드에 맞게 처리 용량을 확장할 수 있습니다. Amazon EC2 Auto Scaling, Application Load Balancer, Amazon EKS 및 Amazon RDS도 확장 가능한 웹 애플리케이션에 사용할 수 있지만, 인스턴스/클러스터 또는 관계형 데이터베이스 용량에 관한 운영 결정을 요구합니다.",
+    "choicesAnalysis": "대량의 전 세계 웹 요청을 처리하면서 운영 부담을 최소화하려면 정적 콘텐츠와 동적 주문 처리를 분리하고 각 계층이 독립적으로 확장되어야 합니다. CDN을 통한 정적 콘텐츠 제공만으로는 주문을 처리하고 저장할 수 없으며, EC2나 Kubernetes 기반 구성은 필요한 기능을 제공할 수 있어도 관리 대상이 늘어납니다. 서버리스 API와 컴퓨팅, 자동 확장되는 데이터 저장소를 조합하면 짧은 지연 시간과 탄력성을 함께 달성할 수 있습니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. S3와 CloudFront는 정적 콘텐츠를 빠르게 제공할 수 있지만, 주문을 처리할 동적 백엔드가 없습니다. 또한 S3 객체 저장소를 주문 데이터의 트랜잭션 처리 저장소로 사용하는 구성은 요구사항에 맞지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. 다중 AZ의 EC2 Auto Scaling 그룹과 ALB는 확장할 수 있지만, 인스턴스와 RDS 용량을 운영해야 합니다. 최소 운영 오버헤드 조건에서는 서버리스 구성보다 부담이 큽니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. EKS의 오토스케일링은 트래픽을 처리할 수 있지만 Kubernetes 클러스터와 컨테이너 워크로드를 관리해야 합니다. 이 운영 부담은 요구사항의 최소화 조건에 부합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "적합합니다. S3와 CloudFront가 정적 콘텐츠를 전 세계에 낮은 지연 시간으로 제공하고, API Gateway와 Lambda가 주문 요청을 서버리스 방식으로 처리합니다. DynamoDB는 대규모 요청에 맞춰 확장할 수 있으므로 성능과 운영 단순성 요구사항을 충족합니다."
+    }
+  }
 }

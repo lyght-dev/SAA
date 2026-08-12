@@ -14,5 +14,28 @@
     "Amazon CloudFront",
     "Amazon Route 53",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 Amazon S3에서 정적 웹사이트를 제공하고 Amazon Route 53으로 DNS를 관리하고 있습니다. 전 세계 사용자가 증가하므로 각 사용자가 콘텐츠를 받는 대기 시간을 낮춰야 합니다. 솔루션은 정적 콘텐츠를 효율적으로 전 세계에 배포하면서 비용을 합리적으로 유지해야 합니다.",
+    "awsServicesAnalysis": "Amazon CloudFront는 콘텐츠를 전 세계 엣지 로케이션에서 캐시하고 제공하는 콘텐츠 전송 네트워크입니다. Amazon S3 버킷은 CloudFront 배포의 오리진으로 사용할 수 있습니다. Amazon Route 53은 CloudFront 배포를 가리키는 DNS 레코드를 구성할 수 있습니다. AWS Global Accelerator는 정적 Anycast IP 주소를 제공하고 지원되는 엔드포인트로 트래픽을 라우팅합니다. S3 Transfer Acceleration은 S3 버킷으로 또는 버킷에서 장거리 객체 전송을 가속하는 기능입니다.",
+    "choicesAnalysis": "전 세계 정적 웹사이트의 읽기 지연 시간을 줄이려면 사용자와 가까운 위치에서 콘텐츠를 캐시해 제공하는 CDN이 필요합니다. CloudFront는 기존 S3 오리진을 유지한 채 이 기능을 제공하므로 리전별 버킷 복제보다 구성과 비용 측면에서 효율적입니다. 전송 가속은 웹 콘텐츠 캐싱 기능이 아니며, Global Accelerator는 S3 정적 웹사이트의 적절한 엔드포인트 방식이 아닙니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 모든 리전에 S3 버킷을 복제하고 라우팅 정책을 운영해야 하므로 CloudFront 캐시 배포보다 비용과 관리 부담이 큽니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 AWS Global Accelerator의 IP 주소를 S3 버킷에 직접 연결할 수 없으므로 정적 웹사이트의 대기 시간 개선 방식으로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 CloudFront가 S3 콘텐츠를 전 세계 엣지 로케이션에 캐시하고 Route 53이 배포를 가리키도록 구성하므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D의 S3 Transfer Acceleration은 S3 객체 전송 경로를 가속할 수 있지만 정적 웹사이트 콘텐츠를 엣지에서 캐시하여 제공하지 않으므로 적합하지 않습니다."
+    }
+  }
 }

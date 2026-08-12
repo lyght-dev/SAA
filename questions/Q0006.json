@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Snow Family",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 온프레미스 NFS 스토리지의 70TB 비디오 파일을 Amazon S3로 이전해야 합니다. 파일은 최대 500GB이고, 가능한 한 적은 네트워크 대역폭을 사용하면서 신속한 마이그레이션이 요구됩니다. 따라서 대용량 데이터를 WAN으로 전송하지 않고 반입할 수 있으며 해당 파일 크기를 처리하는 전송 방식이 필요합니다.",
+    "awsServicesAnalysis": "AWS Snowball Edge는 물리적 디바이스에 대용량 데이터를 적재한 뒤 AWS로 반송하여 S3로 가져오는 오프라인 전송 서비스입니다. 다만 2025년 11월 7일부터 신규 고객은 Snowball Edge 디바이스를 주문할 수 없고, 기존 고객만 계속 사용할 수 있습니다. 현재 신규 고객은 온라인 전송에는 AWS DataSync, 물리적 전송에는 AWS Data Transfer Terminal 또는 AWS 파트너 솔루션을 검토해야 합니다. AWS CLI, S3 File Gateway 및 AWS Direct Connect를 통한 전송은 모두 네트워크 대역폭을 사용합니다.",
+    "choicesAnalysis": "이 문항의 출제 시점에는 70TB를 WAN으로 전송하지 않는 Snowball Edge가 네트워크 대역폭 최소화와 대규모 초기 이전에 가장 직접적으로 부합했습니다. AWS CLI, File Gateway 및 Direct Connect 선택지는 모두 데이터 본문을 네트워크로 전송합니다. 따라서 출제 맥락에서는 B가 정답입니다. 현재 신규 고객에게는 Snowball Edge 주문이 제공되지 않으므로 실제 신규 설계에서는 Data Transfer Terminal이나 파트너의 오프라인 전송 서비스를 별도로 검토해야 합니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "AWS CLI로 70TB 데이터를 인터넷 또는 네트워크 연결을 통해 업로드해야 하므로 네트워크 대역폭 사용을 최소화하는 요구사항에 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "출제 당시에는 Snowball Edge에 데이터를 적재하고 디바이스를 반환하여 S3로 가져오는 방식이 WAN 대역폭을 최소화하므로 가장 적합했습니다. 다만 현재는 신규 고객이 Snowball Edge를 주문할 수 없으며 기존 고객에게만 적용 가능한 선택지입니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "S3 File Gateway를 통해 기존 데이터를 S3로 이동할 수 있지만 데이터가 온프레미스 네트워크를 거쳐 AWS로 전송됩니다. 네트워크 사용 최소화 요구사항에 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "Direct Connect로 더 예측 가능한 전송 경로를 제공할 수 있지만 70TB 데이터를 네트워크로 전송해야 합니다. 네트워크 대역폭 사용을 최소화하는 조건에는 적합하지 않습니다."
+    }
+  }
 }

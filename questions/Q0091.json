@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon VPC",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "애플리케이션은 VPC의 Amazon EC2 인스턴스에서 Amazon S3 API를 호출해 객체를 읽고 저장해야 합니다. 보안 규정상 이 트래픽은 인터넷을 경유할 수 없습니다. 따라서 S3에 대한 사설 네트워크 경로를 제공하면서 애플리케이션의 기존 API 호출을 유지하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "Amazon VPC 게이트웨이 엔드포인트는 Amazon S3 및 Amazon DynamoDB에 VPC 내부의 비공개 연결 경로를 제공합니다. 게이트웨이 엔드포인트에는 비용이 없으며 라우팅 테이블을 통해 트래픽을 해당 엔드포인트로 보냅니다. Amazon S3 버킷은 서브넷 안에 배치되는 리소스가 아니며, NAT 게이트웨이는 프라이빗 서브넷의 인터넷 아웃바운드 연결에 사용됩니다.",
+    "choicesAnalysis": "S3 게이트웨이 엔드포인트를 구성하면 EC2 인스턴스의 S3 요청이 인터넷 게이트웨이나 NAT 디바이스를 통과하지 않고 AWS 네트워크 내에서 처리됩니다. 버킷의 리전 또는 NAT 게이트웨이 구성만으로는 인터넷 미경유 요구사항을 보장하지 못합니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 S3 게이트웨이 엔드포인트를 통해 VPC와 Amazon S3 사이에 비공개 연결 경로를 제공하므로, 인터넷을 거치지 않는 S3 API 액세스 요구사항에 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 S3 버킷을 프라이빗 서브넷에 생성할 수 있다는 전제부터 성립하지 않습니다. S3 버킷은 VPC 서브넷에 배치되지 않으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 네트워크 지연을 줄일 수는 있지만 S3 트래픽의 인터넷 경유 여부를 제어하지는 않습니다. 비공개 연결을 위해서는 VPC 엔드포인트가 필요하므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D의 NAT 게이트웨이는 프라이빗 서브넷에서 인터넷으로 나가는 연결에 사용됩니다. 인터넷을 통과하지 않아야 하는 요구사항과 맞지 않으므로 적합하지 않습니다."
+    }
+  }
 }

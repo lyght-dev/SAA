@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon VPC",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "애플리케이션은 VPC 내부의 Amazon EC2 인스턴스에서 실행되며 Amazon S3 버킷의 로그를 처리해야 합니다. 인스턴스에는 인터넷 연결이 없으므로 S3 API 호출이 인터넷 게이트웨이 또는 NAT 디바이스를 통과하지 않는 사설 네트워크 경로가 필요합니다. 따라서 VPC에서 S3 서비스로 직접 라우팅할 수 있는 연결 방식을 선택해야 합니다.",
+    "awsServicesAnalysis": "Amazon S3용 게이트웨이 VPC 엔드포인트는 VPC 라우팅 테이블의 대상으로 추가되어 VPC와 S3 간 트래픽을 AWS 네트워크로 전달합니다. 이 방식에는 인터넷 게이트웨이나 NAT 디바이스가 필요하지 않습니다. Amazon EC2 인스턴스 프로파일은 인스턴스에 IAM 권한을 제공하지만 네트워크 경로를 만들지는 않습니다. Amazon CloudWatch Logs는 로그 수집 및 분석 서비스입니다. Amazon API Gateway는 API를 게시하고 백엔드 서비스와 통합하는 관리형 서비스입니다.",
+    "choicesAnalysis": "핵심 제약은 S3 권한이 아니라 인터넷 연결 없이 S3에 도달하는 네트워크 경로입니다. S3용 게이트웨이 엔드포인트는 해당 VPC 트래픽을 라우팅 테이블 수준에서 사설 경로로 처리합니다. 로그 전달, IAM 권한 설정 또는 API 프록시 구성은 이 연결 요구사항을 직접 충족하지 않습니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 VPC의 라우팅 테이블을 통해 Amazon S3로 향하는 트래픽을 게이트웨이 엔드포인트로 보낼 수 있습니다. 인터넷 게이트웨이 또는 NAT 없이 S3에 접근할 수 있으므로 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 로그 처리 경로를 CloudWatch Logs로 바꾸며 EC2에서 S3로 가는 사설 네트워크 연결을 제공하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 인스턴스에 S3 API 호출 권한을 부여할 수 있지만, 인터넷 연결 없이 S3에 도달하는 네트워크 경로를 구성하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 API Gateway와 PrivateLink 관련 구성을 추가하지만, EC2 인스턴스의 S3 접근에는 S3 VPC 엔드포인트가 직접적인 해결책입니다. 불필요한 구성 요소가 추가되므로 적합하지 않습니다."
+    }
+  }
 }

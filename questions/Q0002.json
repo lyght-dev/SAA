@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon Athena",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 Amazon S3에 이미 저장된 JSON 로그를 간단한 주문형 쿼리로 분석해야 합니다. JSON은 반정형 데이터이므로 이를 조회할 수 있어야 합니다. 기존 아키텍처의 변경과 운영 오버헤드를 최소화하려면 데이터를 다른 분석 저장소로 적재하거나 별도 클러스터를 운영하지 않는 방식이 필요합니다. 따라서 기존 S3 데이터를 직접 대상으로 서버리스 분석을 수행하는지가 핵심입니다.",
+    "awsServicesAnalysis": "Amazon Athena는 Amazon S3의 데이터를 대상으로 서버리스 대화형 SQL 쿼리를 실행하며 JSON 같은 반정형 데이터를 조회할 수 있습니다. 쿼리를 위해서는 테이블 메타데이터가 필요하고, AWS Glue Data Catalog 또는 Athena 데이터 카탈로그로 이를 관리할 수 있습니다. Amazon Redshift는 데이터 웨어하우스 서비스이며, 적재된 데이터에 SQL을 실행할 수 있습니다. Amazon CloudWatch Logs Insights는 여러 쿼리 언어를 지원하지만 S3의 기존 로그를 분석 대상으로 사용하려면 CloudWatch Logs로 수집하는 흐름이 필요합니다. AWS Glue는 데이터 카탈로그 및 ETL 작업에, Amazon EMR은 Spark 같은 분산 처리 프레임워크 실행에 사용됩니다.",
+    "choicesAnalysis": "요구사항은 기존 S3 로그를 별도 적재 없이 필요할 때 분석하는 것입니다. S3 직접 쿼리 방식은 클러스터 관리와 데이터 복제 단계를 없애므로 변경 범위와 운영 부담을 낮춥니다. 반면 다른 로그 저장소, 데이터 웨어하우스 또는 분산 처리 클러스터를 추가하면 불필요한 구성 요소가 생깁니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 모든 콘텐츠를 Amazon Redshift로 적재하는 과정을 추가해야 합니다. 기존 S3 로그를 직접 활용하는 방식보다 아키텍처 변경과 운영 오버헤드가 크므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 CloudWatch Logs Insights가 SQL 쿼리를 지원하지만, S3에 이미 저장된 로그를 CloudWatch Logs로 수집하도록 흐름을 추가해야 합니다. 따라서 요구된 최소 변경에 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 Amazon Athena로 S3의 JSON 로그를 직접 대상으로 주문형 SQL 쿼리를 실행할 수 있습니다. 별도 데이터 적재나 분석 클러스터 운영이 필요하지 않으므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 AWS Glue 작업과 임시 Amazon EMR Spark 클러스터를 추가로 구성하고 운영해야 합니다. 간단한 주문형 분석에는 Athena 직접 쿼리보다 복잡하므로 적합하지 않습니다."
+    }
+  }
 }

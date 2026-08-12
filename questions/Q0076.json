@@ -14,5 +14,28 @@
     "AWS DataSync",
     "AWS Direct Connect",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 단일 공장에서 매일 10TB의 JSON 파일을 온프레미스 SAN에서 Amazon S3로 전송하고, 여러 시스템이 실시간에 가깝게 이를 분석할 수 있어야 합니다. 데이터가 민감하므로 보안 전송이 필요하며, 대규모 정기 전송을 안정적으로 제공하는 네트워크 경로가 핵심입니다.",
+    "awsServicesAnalysis": "AWS DataSync는 NFS, SMB 등 온프레미스 스토리지 시스템과 AWS 스토리지 서비스 사이에서 대용량 파일 데이터를 전송하는 관리형 서비스입니다. AWS Direct Connect는 온프레미스와 AWS 사이에 전용 네트워크 연결을 제공하여 공용 인터넷보다 일관되고 예측 가능한 연결을 지원합니다. AWS Database Migration Service는 데이터베이스를 마이그레이션하고 복제하는 서비스로 SAN의 JSON 파일 전송용 서비스가 아닙니다.",
+    "choicesAnalysis": "소스 데이터는 데이터베이스가 아니라 SAN에 저장된 파일이므로 DataSync가 적합합니다. 매일 10TB의 민감한 데이터를 안정적으로 전송하려면 공용 인터넷보다 전용 연결인 Direct Connect를 DataSync 전송 경로로 사용하는 것이 적절합니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 DataSync로 파일 전송을 수행할 수 있지만 공용 인터넷 경로를 사용합니다. 대용량의 민감한 데이터를 가장 안정적으로 전송해야 하는 요구 사항에는 Direct Connect 방식보다 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 DataSync로 SAN의 JSON 파일을 Amazon S3로 전송하고 Direct Connect로 일관된 전용 네트워크 연결을 사용합니다. 대규모 민감 데이터의 안정적 전송 요구 사항에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C의 AWS DMS는 데이터베이스 마이그레이션과 복제를 위한 서비스입니다. SAN에 저장된 JSON 파일을 Amazon S3로 전송하는 요구 사항에 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 Direct Connect를 사용하더라도 AWS DMS가 파일 기반 SAN 데이터를 전송하는 서비스가 아닙니다. 따라서 구현 목적에 적합하지 않습니다."
+    }
+  }
 }

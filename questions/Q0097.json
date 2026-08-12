@@ -12,5 +12,28 @@
   "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
   "awsServices": [
     "Amazon FSx(모든 유형)"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "온프레미스의 대규모 Microsoft SharePoint 배포를 AWS로 마이그레이션하면서 Microsoft Windows 공유 파일 저장소가 필요합니다. 스토리지는 고가용성이어야 하고 액세스 제어를 위해 Microsoft Active Directory와 통합되어야 합니다. 따라서 Windows의 SMB 파일 공유 요구사항과 관리형 고가용성, Active Directory 인증을 함께 충족하는 서비스가 필요합니다.",
+    "awsServicesAnalysis": "Amazon FSx for Windows File Server는 완전관리형 Windows 파일 시스템으로 SMB 프로토콜, Windows NTFS 권한 및 Microsoft Active Directory 통합을 지원합니다. Multi-AZ 배포를 선택하면 여러 가용 영역에 걸쳐 고가용성을 제공할 수 있습니다. Amazon EFS는 NFS 기반 파일 시스템이며 Windows SMB 공유용 서비스가 아닙니다. AWS Storage Gateway File Gateway는 온프레미스 파일 액세스를 S3 객체 스토리지와 연결하는 하이브리드 서비스입니다.",
+    "choicesAnalysis": "FSx for Windows File Server는 SharePoint가 요구하는 Windows 파일 공유와 Active Directory 기반 인증/권한 제어를 지원하고 Multi-AZ 배포로 고가용성을 제공할 수 있습니다. EFS, S3 볼륨 탑재, File Gateway는 이 요구사항 조합에 직접 부합하지 않습니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 Amazon EFS는 NFS 파일 시스템이며 Windows SMB 공유 및 Windows NTFS 권한 요구사항을 직접 충족하지 못합니다. 따라서 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B의 File Gateway는 S3 기반 하이브리드 파일 액세스에 적합하지만, AWS에서 Windows 파일 서버용 관리형 고가용성 파일 시스템을 제공하는 해법은 아닙니다. 따라서 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 S3 버킷을 Windows 파일 공유처럼 탑재하는 방식이며, SharePoint용 SMB 파일 시스템과 Active Directory 통합 요구사항을 충족하지 못합니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "D는 Amazon FSx for Windows File Server에 Active Directory를 연결하여 Windows 공유 파일 저장소와 액세스 제어를 제공할 수 있습니다. Multi-AZ 배포를 사용하면 고가용성도 충족하므로 적합합니다."
+    }
+  }
 }

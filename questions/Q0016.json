@@ -14,5 +14,28 @@
     "Amazon Quick",
     "Amazon S3",
     "Amazon RDS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "데이터 레이크는 Amazon S3와 PostgreSQL용 Amazon RDS의 데이터를 포함하며, 회사는 두 데이터 원본을 아우르는 시각화와 보고 기능이 필요합니다. 관리 팀은 모든 시각화에 완전한 액세스 권한을 가져야 하고, 다른 직원은 제한된 범위만 볼 수 있어야 합니다. 따라서 여러 데이터 원본을 연결해 대시보드를 만들고, 사용자와 그룹 단위로 대시보드 접근을 세분화할 수 있는 관리형 BI 서비스가 필요합니다.",
+    "awsServicesAnalysis": "Amazon QuickSight는 여러 데이터 원본을 연결해 데이터 세트, 분석 및 대시보드를 만드는 서버리스 BI 서비스입니다. QuickSight 대시보드는 사용자 및 그룹과 공유할 수 있으며, 사용자 또는 그룹에 따라 접근 권한을 관리할 수 있습니다. IAM 역할은 AWS 서비스가 AWS 리소스에 접근할 때 사용하는 권한 위임 방식으로, QuickSight 최종 사용자에게 대시보드를 공유하는 주체가 아닙니다. AWS Glue는 데이터 카탈로그와 ETL 작업을 제공하고, Amazon Athena는 S3 데이터를 SQL로 분석하거나 연합 쿼리를 통해 지원되는 외부 데이터 원본을 조회할 수 있습니다. Amazon S3 버킷 정책은 S3 객체에 대한 접근을 제어합니다.",
+    "choicesAnalysis": "이 문제는 여러 데이터 원본의 보고서를 생성하는 기능뿐 아니라, 관리 팀과 일반 직원에게 서로 다른 대시보드 접근 권한을 제공해야 합니다. Amazon QuickSight는 데이터 원본 연결, 시각화, 대시보드 게시, 사용자 및 그룹별 공유를 하나의 서비스에서 지원합니다. S3에 정적 보고서를 게시하는 방식은 대화형 시각화와 세분화된 BI 사용자 공유 요구사항을 직접 충족하지 못합니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Amazon QuickSight로 분석과 대시보드를 만들 수는 있지만, 대시보드 공유는 적절한 QuickSight 사용자 및 그룹을 대상으로 수행합니다. IAM 역할은 최종 사용자에게 대시보드 접근을 부여하는 공유 방식이 아닙니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "적합합니다. Amazon QuickSight는 Amazon S3와 Amazon RDS를 데이터 원본으로 연결하여 대시보드를 만들 수 있습니다. 관리 팀과 일반 직원을 서로 다른 사용자 및 그룹으로 구성해 대시보드 접근 권한을 구분할 수 있습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Glue ETL 작업과 Amazon S3 보고서는 데이터 처리와 파일 배포에는 사용할 수 있지만, 여러 사용자와 그룹에 대화형 시각화를 세분화해 제공하는 관리형 BI 기능을 제공하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Glue와 Amazon Athena 연합 쿼리로 데이터를 조회하고 보고서 파일을 만들 수는 있지만, Amazon S3 버킷 정책만으로는 관리 팀과 다른 직원에게 대화형 시각화의 전체 및 제한된 접근을 효과적으로 제공할 수 없습니다."
+    }
+  }
 }

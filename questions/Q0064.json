@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon FSx(모든 유형)",
     "AWS Storage Gateway"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 온프레미스 Windows 파일 서버의 5TB 이상 데이터를 AWS로 이전하면서 온프레미스와 AWS 워크로드가 낮은 지연 시간으로 파일에 접근할 수 있어야 합니다. 기존 SMB 기반 Windows 파일 액세스 패턴을 크게 바꾸지 않고 Site-to-Site VPN을 사용하며 운영 부담도 낮춰야 합니다. 출제 시점에는 AWS의 관리형 Windows 파일 시스템과 온프레미스 로컬 캐시를 결합하는 하이브리드 구성이 이 요구에 부합했습니다.",
+    "awsServicesAnalysis": "Amazon FSx for Windows File Server는 SMB 액세스와 Active Directory 통합을 제공하는 완전관리형 Windows 파일 시스템입니다. FSx File Gateway는 온프레미스에서 FSx for Windows File Server 데이터에 로컬 캐시와 SMB 인터페이스를 제공했습니다. 그러나 2024년 10월 28일부터 신규 고객은 FSx File Gateway를 생성할 수 없으며 기존 고객만 계속 사용할 수 있습니다. 현재 신규 고객은 네트워크 여건이 허용되면 온프레미스 클라이언트에서 FSx for Windows File Server에 직접 연결하고, 로컬 캐시가 필수이면 Amazon FSx for NetApp ONTAP의 캐시 기능 같은 대안을 검토해야 합니다. S3 File Gateway는 S3 객체를 파일 인터페이스로 제공하며 FSx 파일 시스템용 캐시 게이트웨이가 아닙니다.",
+    "choicesAnalysis": "출제 당시에는 클라우드 워크로드가 FSx for Windows File Server에 직접 연결하고 온프레미스 워크로드가 FSx File Gateway의 로컬 캐시를 통해 같은 파일에 접근하는 D가 지연 시간과 기존 SMB 접근 방식을 가장 잘 충족했습니다. 따라서 출제 맥락에서는 D가 정답입니다. 현재 신규 고객은 FSx File Gateway를 생성할 수 없으므로 직접 FSx 접속 또는 FSx for NetApp ONTAP 기반 캐시 같은 현행 대안으로 다시 설계해야 합니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "AWS 워크로드를 FSx for Windows File Server로 옮길 수 있지만 온프레미스 사용자를 위한 로컬 캐시가 없어 출제 당시의 최소 지연 시간 요구를 충분히 충족하지 못합니다. 다만 현재 신규 고객에게는 네트워크 성능이 충분한 경우 온프레미스에서 FSx에 직접 연결하는 방식이 권장될 수 있습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "S3 File Gateway는 S3 객체를 SMB 또는 NFS로 제공하며 FSx for Windows File Server 데이터를 캐시하는 서비스가 아닙니다. 클라우드와 온프레미스 Windows 워크로드가 같은 FSx 파일 시스템을 사용하는 요구에 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "S3 중심으로 워크로드를 재구성해야 하므로 기존 Windows 파일 액세스 패턴이 크게 바뀝니다. 온프레미스와 클라우드가 같은 관리형 Windows 파일 시스템을 사용하는 구성도 아니므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "출제 당시에는 FSx for Windows File Server와 온프레미스 FSx File Gateway를 결합해 클라우드의 직접 접근과 온프레미스의 로컬 캐시 접근을 제공하므로 가장 적합했습니다. 현재는 신규 고객이 FSx File Gateway를 생성할 수 없고 기존 고객에게만 적용 가능합니다."
+    }
+  }
 }

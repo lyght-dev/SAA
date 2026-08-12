@@ -12,5 +12,28 @@
   "contentTask": "안전한 워크로드 및 애플리케이션 설계",
   "awsServices": [
     "Elastic Load Balancing(ELB)"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "웹사이트는 HTTP와 HTTPS를 각각 처리하는 Application Load Balancer 뒤에 있으며, 모든 웹 요청이 HTTPS를 사용하도록 강제해야 합니다. 따라서 HTTP 요청을 차단하는 것만이 아니라 클라이언트가 HTTPS 주소로 다시 요청할 수 있도록 리디렉션 응답을 제공해야 합니다.",
+    "awsServicesAnalysis": "Application Load Balancer의 리스너 규칙은 요청 조건에 따라 전달, 리디렉션 및 고정 응답 등의 작업을 수행할 수 있습니다. HTTP 리스너의 리디렉션 작업은 프로토콜을 HTTPS로 바꾸고 적절한 리디렉션 응답을 클라이언트에 반환할 수 있습니다. 네트워크 ACL은 서브넷 수준에서 트래픽을 허용하거나 거부하는 상태 비저장 제어입니다. Network Load Balancer는 전송 계층 로드 밸런서이며 SNI를 사용해 TLS 리스너에서 여러 인증서를 선택할 수 있습니다.",
+    "choicesAnalysis": "HTTP를 HTTPS로 전환하려면 HTTP 리스너가 요청을 HTTPS URL로 리디렉션해야 합니다. ALB 리스너 규칙은 이 동작을 기본 기능으로 제공하며, 단순 차단이나 로드 밸런서 교체는 클라이언트를 HTTPS로 안내하지 않습니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 네트워크 ACL로 HTTPS 외 트래픽을 차단하려는 방식입니다. HTTP 요청에 HTTPS 위치를 알려 주는 리디렉션 응답을 제공하지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 URL을 바꾸는 규칙을 언급하지만, 웹사이트 외부에서 URL을 변환하는 일반 규칙만으로는 ALB의 HTTP 요청을 HTTPS로 리디렉션하는 구성이 명확하지 않습니다. ALB 리스너 리디렉션을 지정한 C가 요구를 직접 충족합니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 ALB의 HTTP 리스너 규칙에서 HTTPS URL로 리디렉션을 반환합니다. 따라서 HTTP로 시작한 요청도 클라이언트가 HTTPS로 다시 연결하게 하므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 Application Load Balancer를 Network Load Balancer로 교체합니다. SNI는 TLS 인증서 선택 기능이며 HTTP에서 HTTPS로의 리디렉션을 제공하지 않으므로 적합하지 않습니다."
+    }
+  }
 }

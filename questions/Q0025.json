@@ -15,5 +15,28 @@
     "AWS Lambda",
     "Amazon Aurora",
     "Amazon SQS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "애플리케이션은 API Gateway와 Lambda를 통해 정보를 수신한 뒤 Aurora PostgreSQL에 저장합니다. 대용량 데이터를 처리할 때 데이터베이스로의 동시 요청이 Lambda 할당량 증가를 요구할 만큼 급증하므로, 수신과 데이터베이스 쓰기를 분리하여 부하를 흡수하고 처리량에 맞춰 확장해야 합니다. 새 설계는 확장성을 높이되 애플리케이션과 인프라의 재구성 노력을 최소화해야 합니다. 따라서 내구성 있는 버퍼를 두고 비동기적으로 데이터베이스 적재를 수행하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "Amazon SQS는 메시지를 내구성 있게 보관하는 관리형 대기열로 생산자와 소비자를 분리합니다. Lambda는 SQS 이벤트 소스 매핑을 통해 대기열을 폴링하고 메시지 배치로 함수를 호출하며, 메시지량에 따라 처리 작업을 확장합니다. Amazon SNS는 메시지를 구독자에게 푸시하는 게시/구독 서비스입니다. Amazon EC2에서 Tomcat을 실행하면 서버와 확장 구성을 직접 관리해야 합니다. Amazon DynamoDB Accelerator는 DynamoDB 읽기 성능을 위한 캐시이므로 Aurora PostgreSQL의 쓰기 부하를 처리하는 대체 수단이 아닙니다.",
+    "choicesAnalysis": "수신 단계와 데이터베이스 적재 단계를 비동기로 분리하면 요청 급증이 데이터베이스 쓰기 동시성으로 바로 전파되는 것을 막을 수 있습니다. 대기열 기반 소비자는 백로그를 흡수하고 Lambda가 배치 단위로 확장해 처리할 수 있습니다. 동기식 푸시 방식이나 EC2 리팩터링은 이 완충과 최소 구성 변경이라는 목표를 달성하지 못합니다. 따라서 SQS로 두 Lambda 함수를 연결하는 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Lambda 코드를 EC2의 Tomcat으로 리팩터링하면 서버, 확장 및 JDBC 연결 관리를 새로 수행해야 합니다. 이는 구성 노력을 최소화하는 요구사항과 맞지 않으며 부하 완충도 제공하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. DAX는 DynamoDB용 읽기 캐시이고, 현재 데이터베이스는 Aurora PostgreSQL입니다. Aurora 쓰기 부하와 Lambda 동시 실행 급증을 완화하는 구성도 아닙니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. SNS는 구독 Lambda에 메시지를 즉시 푸시하므로 데이터베이스 적재 속도를 조절할 내구성 있는 대기열 완충 계층을 제공하지 않습니다. 대용량 입력의 백프레셔 처리에는 SQS가 더 적합합니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "적합합니다. 수신 Lambda가 SQS에 메시지를 넣고 적재 Lambda가 이벤트 소스 매핑으로 배치 처리하면 수신과 데이터베이스 쓰기가 느슨하게 결합됩니다. SQS가 급증한 데이터를 보관하고 Lambda가 처리량에 맞춰 확장하므로 확장성과 구성 단순성을 함께 충족합니다."
+    }
+  }
 }

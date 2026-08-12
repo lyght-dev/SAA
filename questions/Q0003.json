@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Organizations",
     "Amazon S3"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 AWS Organizations로 여러 AWS 계정을 관리하며, 관리 계정의 Amazon S3 버킷 접근을 조직에 속한 계정의 사용자로 제한해야 합니다. 계정이 추가되거나 제거될 때마다 버킷 정책을 수동으로 갱신하지 않아야 운영 오버헤드를 줄일 수 있습니다. 따라서 요청 주체의 조직 소속 여부를 정책에서 직접 확인하고 조직 변경에 자동으로 대응하는 방식이 필요합니다.",
+    "awsServicesAnalysis": "aws:PrincipalOrgID는 요청 주체가 속한 AWS Organizations의 조직 ID를 조건으로 비교하는 전역 조건 키입니다. 리소스 기반 정책에서 사용하면 개별 계정 ID를 나열하지 않고 조직 구성원을 조건으로 지정할 수 있습니다. aws:PrincipalOrgPaths는 요청 주체의 조직 루트 및 OU 경로를 비교하는 다중 값 조건 키로, 특정 OU 범위를 지정할 때 사용할 수 있습니다. AWS CloudTrail은 AWS API 활동을 기록합니다. aws:PrincipalTag는 IAM 사용자, 역할 또는 세션에 연결된 보안 주체 태그를 정책 조건으로 비교합니다.",
+    "choicesAnalysis": "접근 대상은 조직 전체의 모든 계정 사용자이므로 OU별 경로 또는 사용자별 태그를 별도로 관리할 필요가 없습니다. 조직 ID 조건을 사용하면 계정 변동 시에도 정책에서 해당 조직의 구성원을 자동으로 포함할 수 있습니다. 이벤트 감시 후 정책을 수정하는 방식은 동일한 목표를 더 복잡하게 구현합니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 버킷 정책에서 aws:PrincipalOrgID와 조직 ID를 비교하여 조직 구성원의 요청을 제어할 수 있습니다. 계정 추가 및 제거에 따라 수동으로 계정 목록을 갱신할 필요가 없으므로 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 aws:PrincipalOrgPaths로 특정 OU 또는 경로를 지정할 수 있습니다. 그러나 모든 조직 계정이 대상인 요구사항에는 OU 구조를 별도로 만들고 유지할 필요가 있어 최소 운영 오버헤드에 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 계정 관련 CloudTrail 이벤트를 감시한 뒤 버킷 정책을 수정해야 합니다. 정책 갱신 자동화를 별도로 구현하고 운영해야 하므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 사용자 또는 역할마다 태그를 부여하고 일관되게 관리해야 합니다. 조직 소속 여부를 직접 확인하는 조건보다 관리 부담이 크므로 적합하지 않습니다."
+    }
+  }
 }

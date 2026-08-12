@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Backup",
     "Amazon DynamoDB"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 DynamoDB 사용자 트랜잭션 데이터를 7년 동안 보관해야 하며, 운영 효율성이 가장 높은 백업 및 보존 방식을 원합니다. 그러므로 장기 보존 기간을 적용하는 일정 기반 백업을 관리형으로 구성할 수 있어야 합니다.",
+    "awsServicesAnalysis": "AWS Backup은 DynamoDB를 포함한 AWS 리소스의 백업 계획, 일정 및 보존 수명 주기를 중앙에서 관리합니다. DynamoDB 지정 시간 복구는 연속 백업으로 임의 시점 복원을 제공하지만 보존 기간은 최대 35일입니다. DynamoDB의 주문형 백업은 관리형 DynamoDB 백업으로 유지되며 콘솔에서 백업을 S3 버킷에 직접 저장하는 기능은 제공하지 않습니다. Lambda와 EventBridge로 백업을 직접 자동화하면 코드와 운영 작업이 추가됩니다.",
+    "choicesAnalysis": "7년 보관은 지정 시간 복구의 최대 보존 기간을 초과합니다. AWS Backup으로 DynamoDB 백업 일정과 7년 보존 정책을 정의하면 맞춤 코드 없이 장기 보존을 관리할 수 있습니다. S3로 직접 저장하거나 Lambda로 자동화하는 방식은 지원되지 않거나 불필요한 운영 복잡성을 만듭니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 DynamoDB 지정 시간 복구 보존 기간은 최대 35일입니다. 7년 보관 요구 사항을 충족하지 못하므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 AWS Backup에서 DynamoDB 테이블의 백업 일정과 7년 보존 정책을 관리형으로 설정할 수 있습니다. 장기 보관과 운영 효율성 요구 사항에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 DynamoDB 주문형 백업을 Amazon S3 버킷에 직접 저장할 수 없으며, 수동 백업 생성도 운영 효율성이 낮습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 사용자 지정 Lambda 코드와 EventBridge 규칙을 개발·운영해야 합니다. AWS Backup의 기본 일정 및 보존 정책보다 복잡하므로 가장 운영 효율적인 해법이 아닙니다."
+    }
+  }
 }

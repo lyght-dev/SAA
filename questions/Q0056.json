@@ -14,5 +14,28 @@
     "Amazon API Gateway",
     "AWS Certificate Manager(ACM)",
     "Amazon Route 53"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 ca-central-1 리전의 API Gateway를 백엔드 마이크로서비스 API의 공용 인터페이스로 사용합니다. 타사 서비스가 회사 도메인 이름으로 HTTPS를 통해 안전하게 API를 호출할 수 있어야 합니다. 따라서 리전 API에 사용자 지정 도메인과 유효한 TLS 인증서를 연결하고, 해당 도메인으로의 DNS 요청을 API Gateway에 라우팅해야 합니다.",
+    "awsServicesAnalysis": "API Gateway의 리전 사용자 지정 도메인 이름은 API와 같은 리전에 있는 AWS Certificate Manager(ACM) 인증서를 사용해야 합니다. 사용자 지정 도메인에 API 매핑을 구성하면 도메인의 경로를 API 스테이지에 연결할 수 있습니다. Amazon Route 53은 리전 API Gateway 사용자 지정 도메인 이름을 대상으로 하는 별칭 A 레코드를 생성할 수 있습니다. us-east-1의 ACM 인증서는 엣지 최적화 API Gateway 사용자 지정 도메인에 필요합니다.",
+    "choicesAnalysis": "리전 엔드포인트에는 ca-central-1에서 발급하거나 가져온 ACM 인증서를 사용자 지정 도메인에 연결해야 합니다. 이어서 API 매핑과 Route 53 별칭 레코드로 회사 도메인의 HTTPS 요청을 리전 API Gateway로 보낼 수 있습니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 API Gateway 단계 변수는 기본 API URL을 사용자 지정 도메인으로 대체하지 않습니다. 또한 ACM 인증서를 가져오는 것만으로 사용자 지정 도메인, API 매핑 및 DNS 라우팅이 구성되지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 리전 API Gateway에 사용할 인증서를 us-east-1에 가져옵니다. 리전 사용자 지정 도메인의 ACM 인증서는 API와 같은 ca-central-1 리전에 있어야 하므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 리전 API Gateway에 사용자 지정 도메인을 연결하고 같은 리전의 ACM 인증서를 사용합니다. 이후 Route 53을 API Gateway 엔드포인트로 라우팅하도록 구성하므로 HTTPS와 사용자 지정 도메인 요구에 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 리전 API Gateway에 필요한 인증서를 us-east-1에 가져오므로 리전 요구와 맞지 않습니다. 또한 Route 53 레코드는 사용자 지정 도메인을 API Gateway의 사용자 지정 도메인 대상으로 해석해야 하므로 적합하지 않습니다."
+    }
+  }
 }

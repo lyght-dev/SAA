@@ -14,5 +14,28 @@
     "Amazon API Gateway",
     "Amazon SQS",
     "AWS Lambda"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "웹 애플리케이션은 Amazon API Gateway REST API로 새 주문 정보를 전송하며, 주문은 접수된 순서대로 처리되어야 합니다. 따라서 API 수신과 비동기 처리를 분리하면서 메시지 순서를 보장하는 내구성 있는 대기열과 소비자 통합이 필요합니다. 단순한 비동기 전송만으로는 순서 보장 요구사항을 충족할 수 없습니다.",
+    "awsServicesAnalysis": "Amazon API Gateway는 REST API 요청을 AWS 서비스 또는 백엔드와 통합할 수 있습니다. Amazon SQS FIFO 큐는 메시지 그룹 ID와 중복 제거를 사용하여 순서 있는 메시지 처리를 지원합니다. FIFO 큐를 Lambda 이벤트 소스로 구성하면 Lambda는 동일한 메시지 그룹의 메시지를 동시에 처리하지 않아 순서 보장을 유지합니다. Amazon SQS 표준 큐는 높은 처리량의 최소 1회 전달을 제공하지만 메시지 순서를 보장하지 않습니다. Amazon SNS는 게시/구독 메시징 서비스이며, Lambda 함수는 이벤트에 따라 코드를 실행합니다.",
+    "choicesAnalysis": "주문 처리에는 내구성 있는 버퍼와 수신 순서 보장이 모두 필요합니다. API Gateway에서 FIFO 큐로 주문을 전달하고 Lambda가 큐를 소비하게 하면 요청 수신과 처리를 분리하면서 동일한 메시지 그룹의 순서를 유지할 수 있습니다. 표준 큐나 일반 알림 주제 기반 구성은 이 순서 제약을 충족하지 않습니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 SNS 주제와 Lambda 구독으로 비동기 처리를 구성할 수 있지만, 제시된 일반 SNS 주제는 주문 메시지의 처리 순서를 보장하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 API Gateway가 주문을 SQS FIFO 큐에 보내고 Lambda가 이를 처리하게 합니다. FIFO 큐의 메시지 그룹을 사용하면 주문 접수 순서를 유지할 수 있으므로 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 요청을 차단하여 순차성을 구현하는 방식이 아니며, 주문을 내구성 있게 저장하고 비동기로 처리하는 경로를 제공하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 SQS 표준 큐가 메시지를 비동기로 버퍼링할 수 있지만, 표준 큐는 메시지 순서를 보장하지 않습니다. 따라서 적합하지 않습니다."
+    }
+  }
 }

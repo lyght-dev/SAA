@@ -14,5 +14,28 @@
     "Amazon S3",
     "Amazon S3 Glacier",
     "Amazon Athena"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 통화 기록 파일을 1년 동안 무작위로 접근하며 이 기간에는 빠르게 쿼리하고 검색해야 합니다. 1년 이후에는 접근 빈도가 낮고 검색 지연을 허용하므로 더 저렴한 아카이브 계층으로 전환할 수 있습니다. 따라서 최근 파일의 빠른 분석과 오래된 파일의 저비용 보관을 결합해야 합니다.",
+    "awsServicesAnalysis": "Amazon S3 Intelligent-Tiering은 객체의 접근 패턴에 따라 액세스 계층을 자동 조정합니다. S3 Glacier Flexible Retrieval은 저비용 아카이브 스토리지 클래스로, 일반적으로 객체를 복원한 뒤 접근해야 합니다. Amazon Athena는 접근 가능한 S3 객체에 서버리스 SQL 쿼리를 실행할 수 있습니다. 선택지에 언급된 Glacier Select 계열 기능은 출제 당시 아카이브 일부를 선택적으로 검색하는 방식이었지만, 현재 Amazon S3 Select는 신규 고객에게 제공되지 않으며 S3 Glacier Flexible Retrieval 객체를 직접 쿼리할 수도 없습니다. 현재는 아카이브 객체를 복원한 뒤 Athena 등으로 조회하는 흐름이 필요합니다.",
+    "choicesAnalysis": "출제 당시 서비스 기능을 기준으로 하면 최근 1년 파일은 Intelligent-Tiering과 Athena로 빠르게 분석하고, 이후에는 Flexible Retrieval로 전환해 장기 비용을 줄이는 B의 계층화가 가장 적합합니다. 다른 선택지는 최근 데이터의 내용 쿼리 기능이 부족하거나 더 비싼 계층과 별도 데이터베이스를 사용합니다. 따라서 출제 맥락에서는 B가 정답입니다. 현재 신규 설계에서는 B의 Glacier Select 단계를 그대로 구현할 수 없으므로 아카이브를 복원한 뒤 조회하도록 변경해야 합니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "Glacier Instant Retrieval은 즉시 객체 검색을 지원하지만 태그만으로 파일 내용에 대한 쿼리를 제공하지 않으며, 1년 이후 지연을 허용하는 데이터에 더 저렴한 아카이브 계층을 적용하지도 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "출제 맥락에서는 최근 파일을 Intelligent-Tiering에 두고 Athena로 조회한 뒤 1년 후 Flexible Retrieval로 전환하는 구성이 비용과 접근 요구를 가장 잘 충족합니다. 다만 현재 신규 고객은 선택지의 Glacier Select 단계를 사용할 수 없으므로 복원 후 조회 방식으로 대체해야 합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "최근 1년 동안 모든 파일을 S3 Standard에 저장하므로 접근 패턴 기반 비용 최적화가 제한됩니다. 1년 후의 Instant Retrieval도 검색 지연을 허용하는 데이터에는 Flexible Retrieval보다 비용 효율성이 낮을 수 있으므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "S3 Standard와 Amazon RDS를 함께 운영해야 하므로 비용과 관리 대상이 늘어납니다. 최근 파일의 서버리스 직접 분석과 접근 패턴 기반 자동 계층화가 없어 적합하지 않습니다."
+    }
+  }
 }

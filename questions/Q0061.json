@@ -15,5 +15,28 @@
     "IAM",
     "Amazon EC2",
     "Amazon RDS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "애플리케이션은 Amazon EC2에서 Amazon RDS에 연결하지만 데이터베이스 자격 증명을 코드에 포함해서는 안 됩니다. 또한 자격 증명은 정기적으로 자동 교체되어야 하며, 애플리케이션에는 필요한 권한만 부여해야 합니다. 직접 교체 로직과 자격 증명 배포 과정을 운영하면 부담이 커지므로, RDS 자격 증명 관리와 자동 교체를 관리형으로 제공하는 서비스가 필요합니다.",
+    "awsServicesAnalysis": "AWS Secrets Manager는 데이터베이스 자격 증명과 같은 보안 비밀을 암호화하여 저장하고, Amazon RDS용 관리형 교체 기능을 제공할 수 있습니다. EC2 인스턴스 프로파일의 IAM 역할에는 해당 보안 비밀을 읽는 최소 권한을 부여할 수 있습니다. AWS Systems Manager Parameter Store의 SecureString은 값을 암호화해 저장하지만 RDS 자격 증명의 관리형 자동 교체 기능을 제공하지 않습니다. 인스턴스 메타데이터와 Amazon S3는 애플리케이션 비밀을 저장하고 순환하기 위한 전용 관리형 솔루션이 아닙니다.",
+    "choicesAnalysis": "요구사항의 핵심은 코드에서 분리한 보안 비밀 저장, RDS 자격 증명의 자동 순환, IAM 기반 접근 제어와 낮은 운영 부담입니다. Secrets Manager를 사용하면 애플리케이션이 실행 시점에 자격 증명을 조회하고 서비스가 교체 과정을 관리할 수 있습니다. 다른 선택지는 직접 Lambda 교체 워크플로를 개발하거나 관리형 순환 기능이 없는 저장소를 사용하므로 요구사항을 덜 충족합니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 자격 증명을 인스턴스 메타데이터에 두고 Lambda로 RDS와 값을 함께 갱신해야 합니다. 비밀 관리와 교체 로직을 직접 구현하고 운영해야 하므로 최소 운영 오버헤드 요구사항에 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 암호화와 버전 관리를 제공할 수 있지만, S3 구성 파일과 Lambda를 사용해 교체 절차를 직접 구현해야 합니다. RDS 자격 증명의 관리형 자동 순환을 제공하지 않으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 AWS Secrets Manager에 RDS 자격 증명을 저장하고 관리형 자동 순환을 사용할 수 있습니다. EC2 IAM 역할로 보안 비밀 조회 권한을 부여하면 하드코딩 없이 최소 권한 접근을 구현할 수 있으므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D의 SecureString 파라미터는 암호화 저장에 사용할 수 있지만, Parameter Store는 RDS 자격 증명의 관리형 자동 순환을 제공하지 않습니다. 별도 자동화가 필요하므로 적합하지 않습니다."
+    }
+  }
 }

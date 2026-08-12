@@ -12,5 +12,28 @@
   "contentTask": "고성능 및/또는 확장 가능한 스토리지 솔루션 결정",
   "awsServices": [
     "Amazon FSx(모든 유형)"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "온프레미스 데이터 센터에서 호스팅되는 게임 애플리케이션에는 공유 스토리지가 필요하며, 애플리케이션이 Lustre 클라이언트로 데이터에 액세스할 수 있어야 합니다. 사용자는 스토리지 인프라를 직접 운영하지 않는 완전관리형 솔루션을 요구합니다. 따라서 Lustre 네이티브 파일 시스템을 관리형으로 제공하고 하이브리드 네트워크에서 연결할 수 있는 서비스가 필요합니다.",
+    "awsServicesAnalysis": "Amazon FSx for Lustre는 Lustre 파일 시스템을 완전관리형으로 제공하며, 표준 Lustre 클라이언트를 사용해 액세스할 수 있습니다. 온프레미스 클라이언트는 AWS Direct Connect 또는 Site-to-Site VPN 등으로 VPC에 연결한 뒤 FSx for Lustre 파일 시스템을 마운트할 수 있습니다. Amazon EFS는 NFS를 지원하며 Lustre 파일 시스템으로 구성할 수 없습니다. File Gateway는 SMB 또는 NFS 파일 공유를 S3에 연결합니다.",
+    "choicesAnalysis": "FSx for Lustre는 요구된 Lustre 프로토콜을 직접 지원하면서 관리형 파일 시스템을 제공합니다. 온프레미스 애플리케이션 서버도 사설 네트워크 연결을 통해 해당 파일 시스템에 접근할 수 있습니다. File Gateway, 자체 구축 Windows 파일 서버, EFS는 Lustre 클라이언트 요구사항을 충족하지 못합니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 File Gateway는 SMB 또는 NFS 기반 파일 공유를 제공하지만 Lustre 클라이언트용 파일 시스템은 제공하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 EC2에서 Windows 파일 서버를 직접 설치하고 운영해야 하며 Lustre 파일 시스템도 아닙니다. 완전관리형 및 프로토콜 요구사항에 맞지 않으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C의 Amazon EFS는 NFS 파일 시스템이며 Lustre 지원으로 구성할 수 없습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "D는 Amazon FSx for Lustre를 사용하여 표준 Lustre 클라이언트가 액세스할 수 있는 완전관리형 공유 파일 시스템을 제공합니다. 온프레미스 서버도 사설 연결을 통해 마운트할 수 있으므로 적합합니다."
+    }
+  }
 }

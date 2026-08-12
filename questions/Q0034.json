@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Config",
     "AWS CloudTrail"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 규정 준수, 거버넌스, 감사 및 보안을 위해 AWS 리소스 구성의 변경 이력을 추적해야 합니다. 또한 이러한 리소스에 대해 수행된 API 호출의 기록도 보존해야 합니다. 두 종류의 감사 정보를 각각 지속적으로 수집할 수 있는 구성이 필요합니다.",
+    "awsServicesAnalysis": "AWS Config는 지원되는 AWS 리소스의 구성, 구성 변경 및 구성 이력을 기록합니다. AWS CloudTrail은 AWS 계정에서 이루어진 관리 이벤트와 데이터 이벤트 등 API 활동을 이벤트로 기록할 수 있습니다. Amazon CloudWatch는 지표, 로그 및 경보를 수집하고 모니터링하는 서비스입니다.",
+    "choicesAnalysis": "리소스 자체의 구성 변경과 AWS API 호출은 서로 다른 감사 데이터입니다. 구성 변경 기록에는 AWS Config를 사용하고, 누가 언제 어떤 API를 호출했는지 추적하려면 AWS CloudTrail을 사용해야 합니다. CloudWatch는 이 요구사항의 API 호출 감사 기록을 대체하지 않습니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 구성 변경 추적과 API 호출 기록에 사용하는 서비스를 서로 바꾸어 적용하므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 AWS Config로 리소스 구성 변경을 추적하고 AWS CloudTrail로 API 호출을 기록하므로 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 AWS Config로 구성 변경을 추적할 수 있지만, Amazon CloudWatch는 AWS API 호출 감사 기록을 위한 서비스가 아니므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 AWS CloudTrail로 API 활동을 기록할 수 있지만, 구성 변경 추적에는 AWS Config가 필요하므로 적합하지 않습니다."
+    }
+  }
 }

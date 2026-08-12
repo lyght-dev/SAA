@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Secrets Manager",
     "Amazon RDS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 여러 AWS 리전의 MySQL용 Amazon RDS 데이터베이스 자격 증명을 월별 유지 관리 중 교체해야 합니다. 같은 자격 증명 관리 방식을 필요한 리전에 일관되게 제공하고, 암호 교체를 수작업이나 자체 구현으로 운영하지 않아야 합니다. 따라서 다중 리전 배포와 일정 기반 데이터베이스 자격 증명 회전을 관리형으로 지원하는 서비스가 필요합니다.",
+    "awsServicesAnalysis": "AWS Secrets Manager는 비밀을 저장하고 Amazon RDS 데이터베이스 자격 증명을 일정에 따라 자동 회전할 수 있습니다. 다중 리전 비밀 복제를 사용하면 원본 비밀을 다른 리전에 복제하여 리전별 워크로드가 가까운 복제본을 사용할 수 있습니다. AWS Systems Manager Parameter Store는 보안 문자열을 저장하지만, 다중 리전 비밀 복제와 관리형 데이터베이스 자격 증명 회전 기능을 제공하지 않습니다. Amazon S3, Amazon DynamoDB 및 AWS Lambda를 조합하면 값을 저장하고 사용자 지정 회전 로직을 구현할 수 있으나, 운영해야 할 구성 요소와 코드가 늘어납니다. AWS KMS 다중 리전 키는 암호화 키를 리전 간에 복제하는 기능입니다.",
+    "choicesAnalysis": "여러 리전에서 데이터베이스 자격 증명을 사용하고 정기 교체를 최소 운영 오버헤드로 수행해야 하므로, 비밀 복제와 RDS용 자동 회전을 함께 제공하는 관리형 기능이 필요합니다. 저장소와 Lambda를 조합한 방식은 회전과 동기화를 직접 구현해야 합니다. 따라서 AWS Secrets Manager의 다중 리전 비밀 복제 및 일정 기반 회전을 사용하는 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "적합합니다. AWS Secrets Manager는 MySQL용 Amazon RDS 자격 증명을 저장하고 일정에 따라 자동으로 회전할 수 있습니다. 필요한 리전에 비밀을 복제하면 각 리전의 데이터베이스와 애플리케이션에 맞게 비밀을 제공할 수 있어 운영 오버헤드를 최소화합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Systems Manager Parameter Store는 보안 문자열 파라미터를 저장하지만, 다중 리전 비밀 복제와 Amazon RDS 자격 증명의 관리형 자동 회전을 제공하지 않습니다. 제시된 기능을 그대로 구성할 수 없습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Amazon S3와 EventBridge 및 Lambda를 사용하면 회전 자동화를 직접 만들 수 있지만, 자격 증명 저장, 권한, 회전 로직 및 오류 처리를 운영해야 합니다. 관리형 Secrets Manager 방식보다 운영 부담이 큽니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. DynamoDB 전역 테이블과 Lambda, RDS API를 조합하면 사용자 지정 자격 증명 관리 체계를 만들 수 있지만, 비밀 회전 로직과 운영을 직접 책임져야 합니다. 최소 운영 오버헤드 요구사항에 맞지 않습니다."
+    }
+  }
 }

@@ -12,5 +12,28 @@
   "contentTask": "고가용성 및/또는 내결함성 아키텍처 설계",
   "awsServices": [
     "Amazon DynamoDB"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 고객 데이터 손상 발생 시 데이터 손실을 최대 15분으로 제한하고 1시간 안에 서비스를 복구해야 합니다. 따라서 최근 시점의 테이블 상태로 복원할 수 있어야 하며, 수동 백업 작업이나 장기 보관 계층의 검색 시간을 복구 절차에 의존하지 않아야 합니다.",
+    "awsServicesAnalysis": "Amazon DynamoDB 지정 시간 복구는 테이블 데이터를 연속적으로 백업하고 보존 기간 내 임의의 초 단위 시점으로 새 테이블을 복원할 수 있게 합니다. DynamoDB 전역 테이블은 여러 리전에 복제본을 유지하지만 논리적 데이터 손상도 복제될 수 있습니다. Amazon S3 Glacier는 장기 아카이브 스토리지이며, DynamoDB 테이블의 빠른 복구를 위한 백업 메커니즘이 아닙니다. Amazon EBS 스냅샷은 EBS 볼륨용 기능으로 DynamoDB 테이블에는 적용되지 않습니다.",
+    "choicesAnalysis": "15분 RPO를 만족하려면 백업 간격이 하루인 방식보다 연속 백업과 세밀한 복구 시점이 필요합니다. 지정 시간 복구는 별도 백업 스케줄 관리 없이 원하는 손상 이전 시점으로 테이블을 복원할 수 있으므로 1시간 RTO 목표에도 가장 적합합니다. 전역 복제는 가용성에는 도움이 되지만 데이터 손상 복구 대책으로는 충분하지 않습니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 리전 장애에 대한 가용성을 높일 수 있지만, 데이터 손상이 다른 리전 복제본에도 전파될 수 있습니다. 손상 이전 시점으로 복원하는 방법을 제공하지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 DynamoDB 지정 시간 복구를 사용하여 보존 기간 내 원하는 손상 이전 시점으로 테이블을 복원할 수 있습니다. 연속 백업을 기반으로 하므로 15분 RPO와 1시간 RTO 요구 사항에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 데이터를 하루에 한 번만 내보내므로 15분 RPO를 충족하지 못합니다. 또한 S3 Glacier의 아카이브 복원과 DynamoDB 가져오기 절차는 신속한 복구에 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 DynamoDB 테이블에 Amazon EBS 스냅샷을 생성할 수 없으므로 구현할 수 없습니다. DynamoDB는 EBS 볼륨을 직접 관리하는 서비스가 아닙니다."
+    }
+  }
 }

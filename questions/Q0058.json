@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon ECS",
     "AWS Fargate"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 중요한 컨테이너 애플리케이션의 확장성과 가용성을 확보해야 하지만, 워크로드를 실행하는 기본 인프라의 프로비저닝과 관리는 담당하지 않으려 합니다. 따라서 컨테이너 오케스트레이션과 서버리스 컴퓨팅을 결합하여 애플리케이션 운영에 집중할 수 있는 방식이 필요합니다.",
+    "awsServicesAnalysis": "Amazon ECS는 컨테이너를 배포하고 관리하는 완전관리형 컨테이너 오케스트레이션 서비스입니다. AWS Fargate는 ECS 태스크와 EKS 포드를 위한 서버리스 컴퓨팅 엔진으로, 고객이 EC2 인스턴스를 프로비저닝하거나 패치하고 관리할 필요가 없습니다. ECS의 EC2 시작 유형과 Docker를 설치한 EC2 인스턴스는 고객이 인스턴스 용량과 운영 체제를 관리해야 합니다. ECS 최적화 AMI는 ECS 컨테이너 인스턴스를 실행하기 위한 Amazon EC2 이미지입니다.",
+    "choicesAnalysis": "기본 인프라를 관리하지 않으면서 컨테이너 워크로드를 실행하려면 서버리스 컴퓨팅 엔진을 사용해야 합니다. ECS와 Fargate를 함께 사용하면 태스크 실행을 위해 EC2 인스턴스를 직접 관리하지 않아도 됩니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 EC2 인스턴스를 프로비저닝하고 Docker를 설치 및 관리해야 합니다. 기본 인프라 관리 책임을 원하지 않는 요구에 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B의 ECS EC2 작업자 노드는 컨테이너 인스턴스의 용량, 패치 및 운영을 관리해야 합니다. 따라서 기본 인프라 관리가 불필요한 서버리스 방식이 아니므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 Amazon ECS에서 AWS Fargate를 사용합니다. Fargate는 태스크 실행 인프라를 서버리스로 제공하므로 EC2 인스턴스의 프로비저닝 및 관리를 수행하지 않아도 되어 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 ECS 최적화 AMI가 설치된 EC2 인스턴스를 사용합니다. 인스턴스의 용량과 수명 주기를 관리해야 하므로 적합하지 않습니다."
+    }
+  }
 }

@@ -17,5 +17,32 @@
   "awsServices": [
     "Amazon EventBridge",
     "AWS Lambda"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 REST API에서 배송 통계를 매일 아침 가져와 읽기 쉬운 HTML 보고서로 구성하고 여러 수신자에게 이메일로 전송해야 합니다. 따라서 정해진 시각에 작업을 시작하고, API 응답을 보고서 본문으로 변환하며, HTML 형식의 이메일을 발송하는 자동화 흐름이 필요합니다.",
+    "awsServicesAnalysis": "Amazon EventBridge는 예약 규칙을 통해 지정된 시각에 대상 서비스를 호출할 수 있습니다. AWS Lambda는 REST API를 호출하고 응답 데이터를 변환하는 코드를 서버 관리 없이 실행할 수 있습니다. Amazon Simple Email Service(Amazon SES)는 여러 수신자에게 HTML 본문을 포함한 이메일을 보낼 수 있습니다. Amazon Kinesis Data Firehose는 스트리밍 데이터를 대상으로 전송하는 서비스이며, AWS Glue는 데이터 통합 및 ETL 작업에 사용됩니다. Amazon S3 이벤트 알림은 객체 생성과 같은 S3 이벤트를 대상으로 Amazon SNS 등의 대상으로 전달할 수 있습니다.",
+    "choicesAnalysis": "매일 정해진 시각에 API를 호출하고 보고서를 생성하려면 EventBridge 예약 규칙과 Lambda 실행을 연결해야 합니다. Lambda가 생성한 HTML 보고서는 SES로 여러 이메일 주소에 발송할 수 있습니다. 이 조합은 필요한 조회, 변환 및 전송 단계를 모두 자동화하므로 B와 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A의 Amazon Kinesis Data Firehose는 스트리밍 레코드를 전송하는 용도입니다. 예약된 REST API 조회, HTML 보고서 생성 및 이메일 발송을 수행하지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B의 Amazon SES는 HTML 형식의 보고서를 여러 수신자에게 이메일로 발송할 수 있으므로 요구된 전송 기능에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 예약 이벤트로 AWS Glue 작업을 호출할 수 있지만, Glue는 단순한 일일 REST API 호출과 보고서 발송에 비해 과도한 ETL 서비스입니다. 또한 이메일 발송을 위한 구성 요소가 없으므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "D는 EventBridge 예약 규칙으로 Lambda를 호출하여 매일 API를 조회하고 응답을 HTML 보고서로 변환할 수 있으므로 적합합니다."
+    },
+    "E": {
+      "isCorrect": false,
+      "explanation": "E는 S3 객체 생성에 반응하여 SNS 알림을 보내는 구성입니다. 일일 REST API 조회와 HTML 보고서 생성이 포함되지 않으므로 적합하지 않습니다."
+    }
+  }
 }

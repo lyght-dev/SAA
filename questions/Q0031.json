@@ -12,5 +12,28 @@
   "contentTask": "안전한 워크로드 및 애플리케이션 설계",
   "awsServices": [
     "AWS Config"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 모든 Amazon EC2 인스턴스, Amazon RDS DB 인스턴스 및 Amazon Redshift 클러스터에 필요한 태그가 구성되었는지 지속적으로 확인해야 합니다. 확인 대상은 여러 AWS 리소스 유형이며, 미준수 리소스를 식별할 수 있어야 합니다. 또한 검사 로직을 직접 작성하거나 실행 인프라를 운영하는 부담을 최소화해야 합니다.",
+    "awsServicesAnalysis": "AWS Config는 AWS 리소스 구성의 변경 사항과 구성 이력을 기록하고, Config 규칙으로 리소스 구성의 준수 여부를 평가합니다. 태그 키와 값을 기준으로 구성 항목을 평가하는 관리형 규칙 및 사용자 지정 규칙을 사용할 수 있습니다. AWS Cost Explorer는 비용과 사용량을 분석하는 서비스입니다. Amazon EC2에서 실행하는 스크립트와 AWS Lambda 함수는 API를 호출하는 사용자 지정 검사 로직을 실행할 수 있으며, Lambda는 예약 실행을 지원합니다.",
+    "choicesAnalysis": "태그 정책의 준수 여부를 여러 리소스 유형에서 계속 평가하면서 운영 부담을 낮추려면 구성 추적 및 규칙 평가 기능을 사용하는 방식이 적합합니다. 별도 API 검사 코드를 작성하면 구현과 유지 관리가 필요하고, 비용 분석 도구는 구성 준수 검사의 중심 기능이 아닙니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 AWS Config 규칙으로 필요한 태그 조건을 정의하고, 구성된 리소스의 미준수 상태를 식별할 수 있으므로 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 비용 분석 도구에서 확인한 뒤 수동으로 태그를 지정해야 하므로 지속적인 구성 검사와 운영 노력 최소화 요구사항에 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 API 검사 코드와 이를 실행할 EC2 인스턴스를 직접 관리해야 하므로 AWS Config 규칙보다 운영 오버헤드가 큽니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 EC2를 관리하지는 않지만 태그 검사 API 코드와 예약 실행을 구현하고 유지해야 하므로 관리형 Config 규칙보다 적합하지 않습니다."
+    }
+  }
 }

@@ -14,5 +14,28 @@
     "Amazon EC2",
     "Amazon EC2 Auto Scaling",
     "Amazon EFS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "애플리케이션은 수십 기가바이트부터 수백 테라바이트까지의 출력 파일을 표준 파일 시스템 구조로 저장해야 합니다. 스토리지는 용량 요구에 맞춰 자동으로 확장되고, 고가용성을 제공하면서 운영 관리 부담이 낮아야 합니다. 따라서 여러 컴퓨팅 인스턴스가 공유할 수 있는 관리형 파일 스토리지가 필요합니다.",
+    "awsServicesAnalysis": "Amazon EFS는 여러 가용 영역에 걸쳐 데이터를 저장하는 완전관리형 탄력적 파일 시스템이며, 파일 시스템 용량을 자동으로 확장 및 축소합니다. Amazon EBS는 특정 가용 영역에 연결하는 블록 스토리지입니다. Amazon S3는 객체 스토리지이며 일반 파일 시스템 인터페이스를 직접 제공하지 않습니다. Amazon EC2 Auto Scaling은 수요에 따라 EC2 인스턴스 수를 조정하고, Amazon ECS 및 Amazon EKS는 컨테이너화된 워크로드를 오케스트레이션합니다.",
+    "choicesAnalysis": "표준 파일 시스템 구조와 자동 용량 확장, 다중 가용 영역 고가용성을 함께 충족하려면 공유 파일 시스템을 사용해야 합니다. EFS는 해당 스토리지를 관리형으로 제공하며 EC2 Auto Scaling 그룹의 인스턴스가 같은 파일 시스템을 사용할 수 있습니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 Amazon S3를 스토리지로 사용합니다. S3는 객체 스토리지이므로 애플리케이션이 요구하는 표준 파일 시스템 구조를 직접 제공하지 않아 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B의 Amazon EBS는 특정 가용 영역의 블록 스토리지이며, 다수 노드가 공유하는 자동 확장 파일 시스템을 제공하지 않습니다. EKS 및 EBS 운영도 최소 운영 오버헤드 요구에 부합하지 않으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 다중 AZ Auto Scaling 그룹과 Amazon EFS를 사용합니다. EFS는 자동 확장되는 관리형 공유 파일 시스템이며 다중 가용 영역에 데이터를 저장하므로 고가용성과 낮은 운영 부담 요구에 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D의 Amazon EBS는 가용 영역 단위의 블록 스토리지입니다. Auto Scaling 그룹의 여러 인스턴스가 공유하는 탄력적 파일 시스템을 구성하려면 추가 설계와 관리가 필요하므로 적합하지 않습니다."
+    }
+  }
 }

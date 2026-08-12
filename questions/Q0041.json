@@ -14,5 +14,28 @@
     "Amazon AppFlow",
     "Amazon S3",
     "Amazon SNS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 여러 SaaS 소스에서 데이터를 수신하여 Amazon S3에 저장하고, 업로드 완료 시 사용자에게 알려야 합니다. 현재 EC2 인스턴스가 수신, 업로드, 알림까지 함께 처리하므로 애플리케이션 성능 저하를 줄여야 합니다. 따라서 SaaS 데이터 전송과 완료 알림을 관리형 서비스로 분리하여 컴퓨팅 부담과 운영 작업을 최소화하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "Amazon AppFlow는 지원되는 SaaS 애플리케이션과 AWS 서비스 간 데이터를 관리형으로 전송하는 통합 서비스이며 Amazon S3를 대상으로 흐름을 구성할 수 있습니다. Amazon S3 이벤트 알림은 객체 생성 같은 이벤트를 Amazon SNS 주제로 게시할 수 있습니다. Amazon SNS는 주제 구독자에게 알림을 팬아웃합니다. Auto Scaling은 EC2 용량을 조정하며, Amazon EventBridge는 이벤트를 규칙과 대상으로 라우팅합니다. Amazon ECS는 컨테이너를 실행하고 CloudWatch Container Insights는 컨테이너 환경의 모니터링 데이터를 수집합니다.",
+    "choicesAnalysis": "핵심은 기존 EC2에서 수행하던 SaaS 통합과 파일 전송 작업을 제거하면서, S3 업로드 완료를 기준으로 알림을 계속 제공하는 것입니다. SaaS별 연결과 S3 전송을 관리형 흐름으로 처리하면 인스턴스의 처리 부담과 통합 코드의 운영 부담을 함께 줄일 수 있습니다. S3 이벤트 알림과 SNS를 결합하면 업로드 완료 후 알림 경로도 분리됩니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 EC2 용량을 확장하고 S3 완료 알림을 분리할 수 있습니다. 그러나 SaaS 데이터 수신과 S3 업로드는 계속 EC2에서 처리하므로 애플리케이션의 처리 부담과 통합 운영을 근본적으로 줄이지 못합니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 Amazon AppFlow가 지원 SaaS 소스에서 S3로의 데이터 전송을 관리형으로 수행하고, S3 이벤트 알림과 SNS로 완료 알림을 분리합니다. EC2에서 데이터 수신과 업로드를 제거하여 성능과 운영 오버헤드 요구사항에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 이벤트를 대상으로 라우팅하는 구조를 만들 수 있지만, 모든 SaaS 소스의 대용량 데이터 전송을 일반 EventBridge 규칙으로 처리하는 방식은 지원되는 SaaS 데이터 통합을 관리형으로 제공하는 AppFlow보다 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 EC2 대신 컨테이너를 사용하지만 SaaS 수신과 S3 업로드 로직을 계속 운영해야 합니다. 또한 Container Insights는 관찰성 기능이지 S3 객체 업로드 완료 알림을 SNS로 보내는 기능이 아니므로 적합하지 않습니다."
+    }
+  }
 }

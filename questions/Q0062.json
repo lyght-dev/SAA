@@ -14,5 +14,28 @@
     "AWS Certificate Manager(ACM)",
     "Elastic Load Balancing(ELB)",
     "Amazon EventBridge"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "공개 웹 애플리케이션은 ALB에서 외부 인증 기관이 발급한 SSL/TLS 인증서로 TLS를 종료해야 합니다. 인증서가 만료되기 전에 매년 교체해야 하므로 외부 인증서의 갱신 주기를 관리하고 ALB에 새 인증서를 적용하는 절차가 필요합니다. 외부 CA가 발급한 인증서라는 조건 때문에 ACM이 발급하고 자동 갱신하는 퍼블릭 인증서와는 구분해야 합니다.",
+    "awsServicesAnalysis": "AWS Certificate Manager는 ACM이 발급한 퍼블릭 인증서를 관리형으로 갱신할 수 있고, 사설 CA 인증서 발급도 지원합니다. 그러나 외부 CA에서 발급한 인증서를 ACM으로 가져온 경우 ACM은 인증서의 갱신이나 교체를 자동으로 수행하지 않습니다. 가져온 인증서는 ALB 리스너에 연결할 수 있으며, Amazon EventBridge는 ACM 인증서 만료 이벤트에 대응하는 알림 또는 자동화에 사용할 수 있습니다.",
+    "choicesAnalysis": "외부 CA 인증서는 갱신 시 새 인증서를 외부 CA에서 받아 ACM으로 다시 가져와야 합니다. 만료 알림을 받아 수동 교체하는 방식은 이 조건을 직접 충족합니다. ACM 발급 또는 ACM Private CA 발급을 전제한 선택지는 외부 CA 인증서 요구사항과 맞지 않으며, 가져온 인증서에 관리형 갱신을 적용하는 것도 불가능합니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 ACM이 발급한 퍼블릭 인증서를 전제로 하므로 외부 CA가 발급한 인증서 요구사항을 충족하지 않습니다. ACM 발급 인증서의 관리형 갱신은 가능하지만 이 사례의 인증서에는 적용되지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 ACM에서 발급한 인증서와 키 자료 추출을 전제하며, 외부 CA 인증서 사용 요구사항에 맞지 않습니다. 또한 ACM 발급 퍼블릭 인증서의 프라이빗 키는 내보낼 수 없으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 ACM Private CA가 발급한 사설 인증서를 사용하므로 외부 CA 인증서 조건과 맞지 않습니다. 공개 인터넷 클라이언트가 신뢰할 수 있는 외부 CA 인증서의 교체 방식으로도 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "D는 외부 CA 인증서를 ACM으로 가져와 ALB에 적용하고, 만료 알림에 따라 갱신된 인증서를 수동으로 교체합니다. 가져온 인증서는 ACM이 자동 갱신하지 않으므로 이 방식이 요구사항에 적합합니다."
+    }
+  }
 }

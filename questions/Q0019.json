@@ -13,5 +13,28 @@
   "awsServices": [
     "Elastic Load Balancing(ELB)",
     "Amazon VPC"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "웹 서버가 있는 애플리케이션 VPC로 들어오는 모든 트래픽은 웹 서버에 도달하기 전에 별도의 검사 VPC에 배포된 타사 가상 방화벽 어플라이언스를 통과해야 합니다. 어플라이언스는 IP 패킷을 처리하는 인터페이스를 제공하므로, 트래픽을 투명하게 가로채 여러 어플라이언스로 분산하고 흐름 대칭성을 유지할 수 있어야 합니다. 또한 별도의 프록시나 자체 라우팅 관리 부담을 최소화하는 것이 필요합니다.",
+    "awsServicesAnalysis": "Gateway Load Balancer는 타사 가상 어플라이언스를 배포, 확장 및 관리하기 위한 로드 밸런서입니다. GENEVE 프로토콜을 사용해 IP 트래픽을 어플라이언스에 투명하게 전달하며, Gateway Load Balancer 엔드포인트를 VPC 라우팅 테이블의 다음 홉으로 사용할 수 있습니다. Network Load Balancer는 L4 연결을 대상으로 하고, Application Load Balancer는 HTTP 및 HTTPS 요청을 대상으로 합니다. 두 서비스는 인라인 네트워크 보안 어플라이언스에 대한 투명한 패킷 서비스 체이닝을 제공하는 Gateway Load Balancer의 역할을 대체하지 않습니다. AWS Transit Gateway는 VPC와 온프레미스 네트워크를 연결하는 라우팅 허브이지만, 자체적으로 어플라이언스 트래픽을 로드 밸런싱하거나 검사하지 않습니다.",
+    "choicesAnalysis": "이 환경에는 웹 트래픽이 방화벽 어플라이언스를 우회하지 않도록 라우팅 경로에 투명하게 삽입하고, IP 패킷을 여러 어플라이언스에 전달하는 기능이 필요합니다. Gateway Load Balancer와 그 엔드포인트는 이러한 서비스 삽입을 위해 설계된 관리형 구성입니다. 일반 L4/L7 로드 밸런서나 Transit Gateway만으로는 어플라이언스 검사 경로를 동일하게 구현할 수 없습니다. 따라서 D가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Network Load Balancer는 L4 연결을 로드 밸런싱하지만, 애플리케이션 VPC 트래픽을 검사 VPC의 가상 방화벽 어플라이언스로 투명하게 서비스 체이닝하는 Gateway Load Balancer 기능을 제공하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Application Load Balancer는 HTTP 및 HTTPS 애플리케이션 요청을 처리하는 L7 로드 밸런서입니다. 모든 IP 패킷을 가상 방화벽 어플라이언스에 투명하게 전달하는 용도에는 맞지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Transit Gateway는 네트워크 간 연결과 라우팅을 제공하지만, 패킷을 가상 방화벽 어플라이언스에 로드 밸런싱하고 서비스 체이닝하는 기능은 제공하지 않습니다."
+    },
+    "D": {
+      "isCorrect": true,
+      "explanation": "적합합니다. 검사 VPC의 Gateway Load Balancer와 애플리케이션 VPC의 Gateway Load Balancer 엔드포인트를 사용하면 수신 트래픽을 방화벽 어플라이언스로 투명하게 전달할 수 있습니다. 라우팅을 통해 검사 경로를 강제하면서 어플라이언스의 확장과 가용성도 관리형으로 처리할 수 있습니다."
+    }
+  }
 }

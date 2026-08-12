@@ -15,5 +15,28 @@
     "Amazon S3",
     "Elastic Load Balancing(ELB)",
     "Amazon Route 53"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 Amazon S3에 저장된 정적 콘텐츠와 Application Load Balancer 뒤에서 제공되는 동적 콘텐츠의 성능을 함께 개선하고 지연 시간을 줄여야 합니다. 자체 도메인은 Amazon Route 53에서 관리하고 있으므로, 사용자가 하나의 도메인으로 두 유형의 콘텐츠에 효율적으로 접근할 수 있어야 합니다. 따라서 전 세계 엣지에서 정적 콘텐츠를 캐시하고 동적 요청도 적절한 원본으로 전달하면서, DNS 구성을 단순하게 유지하는 것이 핵심입니다.",
+    "awsServicesAnalysis": "Amazon CloudFront는 전 세계 엣지 로케이션에서 콘텐츠를 전송하는 CDN이며, 배포 하나에 여러 원본과 경로별 캐시 동작을 구성할 수 있습니다. Amazon S3 버킷은 정적 콘텐츠의 원본으로 사용할 수 있고, Application Load Balancer는 동적 HTTP 및 HTTPS 콘텐츠의 원본으로 사용할 수 있습니다. Amazon Route 53은 별칭 레코드를 통해 사용자 지정 도메인을 CloudFront 배포에 연결할 수 있습니다. AWS Global Accelerator는 고정 IP 주소와 AWS 글로벌 네트워크를 사용해 지원되는 엔드포인트로 트래픽을 전달하지만, S3 버킷과 CloudFront 배포를 표준 액셀러레이터의 엔드포인트로 사용하는 구성은 제공되지 않습니다.",
+    "choicesAnalysis": "정적 콘텐츠와 동적 콘텐츠를 모두 전 세계 사용자에게 낮은 지연 시간으로 제공하려면, 두 원본을 하나의 CloudFront 배포에 연결하고 경로에 따라 원본을 선택하는 구성이 적합합니다. Route 53은 사용자 지정 도메인의 트래픽을 해당 배포로 직접 라우팅할 수 있습니다. Global Accelerator를 포함한 다른 구성은 제시된 엔드포인트 조합을 지원하지 않거나 도메인과 전송 경로를 불필요하게 분리합니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "적합합니다. 하나의 CloudFront 배포에 S3 버킷과 ALB를 원본으로 구성하면 정적 콘텐츠는 엣지에서 캐시하고 동적 요청은 ALB로 전달할 수 있습니다. Route 53 별칭 레코드로 자체 도메인을 배포에 연결하므로 성능과 지연 시간 요구사항을 단순하게 충족합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Global Accelerator 표준 액셀러레이터는 Amazon S3 버킷을 엔드포인트로 포함할 수 없습니다. 또한 CloudFront 배포와 S3 원본을 한 배포에서 처리할 수 있으므로 이 구성은 요구사항에 필요한 방식이 아닙니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Global Accelerator 표준 액셀러레이터는 S3 버킷이나 CloudFront 배포를 엔드포인트로 지원하지 않습니다. 따라서 제시된 가속기 구성 자체가 성립하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Global Accelerator 표준 액셀러레이터에 S3 버킷을 엔드포인트로 추가할 수 없습니다. 또한 정적 및 동적 콘텐츠를 별도 도메인으로 나누는 방식은 하나의 CloudFront 배포에서 여러 원본을 사용하는 구성보다 복잡합니다."
+    }
+  }
 }

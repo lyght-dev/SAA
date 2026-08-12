@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon EC2",
     "AWS Systems Manager"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 1,000개의 Linux EC2 인스턴스에서 실행되는 타사 소프트웨어의 중요 보안 취약성을 가능한 한 빨리 패치해야 합니다. 대규모 인스턴스 집합에 일관된 패치 정책을 적용하고 실행 결과를 추적할 수 있어야 합니다. 따라서 사용자 지정 원격 실행 코드를 만들기보다 관리형 패치 오케스트레이션 기능을 사용해야 합니다.",
+    "awsServicesAnalysis": "AWS Systems Manager Patch Manager는 관리형 노드에 패치 기준선을 적용하고 인스턴스 전체의 패치 작업 및 준수 상태를 관리하는 기능입니다. 패치 작업을 수행하려면 대상 EC2 인스턴스가 Systems Manager 관리형 노드로 등록되어 있고 필요한 IAM 권한과 SSM Agent 구성이 필요합니다. Patch Manager는 운영 체제 패키지 관리자와 지원되는 패치 저장소를 사용합니다. Systems Manager 유지 관리 기간은 작업 실행 시간을 예약하는 기능이고, Run Command는 여러 관리형 노드에서 명령 또는 문서를 실행하는 기능입니다. AWS Lambda는 이벤트 기반 코드를 실행하는 서버리스 컴퓨팅 서비스입니다.",
+    "choicesAnalysis": "요구사항은 대규모 인스턴스에 대해 긴급 패치를 일관되게 배포하고 관리하는 것입니다. Patch Manager는 패치 기준선, 대상 지정, 실행 및 준수 확인을 제공하므로 이 목적에 맞는 관리형 기능입니다. 유지 관리 기간은 향후 예약에 유용하지만 긴급 패치의 핵심 기능이 아니며, Run Command나 Lambda로 별도 패치 로직을 구성하면 관리 부담이 커집니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 Lambda 함수에 원격 패치 배포 로직, 권한 처리 및 실패 관리를 직접 구현해야 합니다. 1,000개 인스턴스의 표준 패치 관리에는 Patch Manager보다 운영 부담이 크므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 AWS Systems Manager Patch Manager로 대상 EC2 인스턴스에 패치 기준선을 적용하고 실행 상태와 준수 여부를 관리합니다. 관리형 노드 전제하에 대규모 Linux 인스턴스의 긴급 패치 배포 요구사항에 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C의 Systems Manager 유지 관리 기간은 패치 실행 작업을 예약하는 데 사용할 수 있지만, 가능한 한 빨리 적용해야 하는 긴급 취약성 대응에는 예약 자체가 해법이 아닙니다. Patch Manager의 패치 관리 기능을 구성하는 선택지가 더 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 Systems Manager Run Command로 사용자 지정 명령을 대규모 인스턴스에 실행할 수 있습니다. 그러나 패치 기준선, 준수 추적 및 패치 수명 주기 관리를 Patch Manager보다 더 많이 직접 구성해야 하므로 적합하지 않습니다."
+    }
+  }
 }

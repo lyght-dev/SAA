@@ -14,5 +14,28 @@
     "AWS Secrets Manager",
     "IAM",
     "Amazon RDS"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "여러 웹 서버가 다중 AZ Amazon RDS for MySQL DB 인스턴스에 안전하게 연결해야 하고, 데이터베이스 자격 증명은 자주 교체해야 합니다. 자격 증명을 코드나 서버 파일 시스템에 고정하지 않고 중앙에서 보호하며, 회전 후 애플리케이션이 최신 값을 검색할 수 있어야 합니다. 따라서 데이터베이스 자격 증명 저장과 자동 교체를 지원하는 관리형 비밀 관리 서비스가 필요합니다.",
+    "awsServicesAnalysis": "AWS Secrets Manager는 데이터베이스 자격 증명 같은 비밀을 암호화하여 저장하고 IAM 정책으로 접근을 제어합니다. Amazon RDS와 통합하여 지원되는 데이터베이스 자격 증명의 자동 교체를 구성할 수 있으며, 애플리케이션은 API로 현재 비밀 값을 검색할 수 있습니다. AWS Systems Manager OpsCenter는 운영 문제를 관리하는 서비스이며 비밀 저장소가 아닙니다. Amazon S3 또는 서버 파일 시스템은 자격 증명 회전과 안전한 배포를 위한 전용 비밀 관리 기능을 제공하지 않습니다.",
+    "choicesAnalysis": "자주 교체되는 데이터베이스 자격 증명은 중앙 비밀 저장소에 보관하고 웹 서버 IAM 역할에 필요한 읽기 권한만 부여해야 합니다. Secrets Manager는 RDS 자격 증명 회전과 안전한 검색을 지원하므로 이 요구사항에 직접 부합합니다. 다른 선택지는 비밀 관리 또는 자동 회전 기능이 없고 자격 증명 노출 및 운영 부담을 늘립니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 Secrets Manager에 데이터베이스 자격 증명을 저장하고 IAM으로 웹 서버의 접근을 제한할 수 있습니다. RDS 자격 증명 회전도 지원하므로 안전한 연결과 빈번한 교체 요구사항에 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B의 Systems Manager OpsCenter는 운영 항목을 조사하고 관리하는 서비스이며 데이터베이스 자격 증명을 저장하거나 회전하는 비밀 관리 서비스가 아닙니다. 따라서 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 S3에 자격 증명을 저장해도 전용 비밀 관리 및 RDS 자격 증명 자동 교체 기능을 제공하지 않습니다. 따라서 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 자격 증명을 각 웹 서버 파일에 배포하고 회전 시 파일을 갱신해야 합니다. 중앙 관리와 자동 교체가 어려우므로 적합하지 않습니다."
+    }
+  }
 }

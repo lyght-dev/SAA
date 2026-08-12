@@ -12,5 +12,28 @@
   "contentTask": "안전한 워크로드 및 애플리케이션 설계",
   "awsServices": [
     "Amazon Rekognition"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "소셜 미디어 웹사이트는 사용자가 업로드한 이미지에 부적절한 콘텐츠가 있는지 확인해야 합니다. 개발 노력은 최소화해야 하며 자동 분류의 신뢰도가 낮은 경우에는 사람이 검토할 수 있어야 합니다. 따라서 이미지 콘텐츠 조정을 위한 사전 구축 기능과 신뢰도 기반 검토 흐름이 필요합니다.",
+    "awsServicesAnalysis": "Amazon Rekognition의 DetectModerationLabels API는 이미지에서 부적절하거나 불쾌감을 줄 수 있는 콘텐츠의 조정 레이블과 신뢰도 점수를 반환합니다. 출제 당시에는 Amazon Augmented AI와 직접 통합해 신뢰도 조건에 따른 인적 검토 워크플로를 구성할 수 있었습니다. Amazon A2I는 2026년 7월 30일부터 신규 고객에게 제공되지 않지만 기존 고객은 계속 사용할 수 있습니다. Amazon Comprehend는 자연어 텍스트 분석 서비스이고, Amazon SageMaker와 AWS Fargate를 사용한 사용자 지정 모델은 별도의 모델 개발 및 운영이 필요합니다.",
+    "choicesAnalysis": "사전 학습된 이미지 조정 기능을 사용하면 사용자 지정 모델을 구축하지 않고 부적절한 콘텐츠와 신뢰도 점수를 얻을 수 있습니다. 출제 당시에는 낮은 신뢰도 결과를 Amazon A2I 인적 검토로 연결할 수 있었으므로 B가 정답입니다. 현재 신규 고객도 Rekognition의 이미지 조정 API는 사용할 수 있지만 A2I 신규 접근은 종료되었으므로 인적 검토 단계에는 자체 워크플로 또는 다른 검토 솔루션이 필요합니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "Amazon Comprehend는 텍스트를 분석하는 서비스이며 업로드된 이미지의 부적절한 콘텐츠를 직접 감지하지 않으므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "Amazon Rekognition은 이미지 조정 레이블과 신뢰도 점수를 제공하므로 출제 맥락에서 가장 적합합니다. 기존 Amazon A2I 고객은 낮은 신뢰도 결과를 인적 검토로 연결할 수 있지만, 현재 신규 고객은 A2I 대신 별도 검토 워크플로를 구성해야 합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "Amazon SageMaker에서 사용자 지정 모델을 구축하고 운영해야 합니다. 이미지 조정에 사용할 사전 구축 Rekognition 기능보다 개발 및 운영 노력이 크므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "사용자 지정 모델을 컨테이너로 배포하고 운영해야 합니다. Fargate가 서버 관리를 줄이더라도 모델 개발과 검토 흐름 구현이 필요하므로 적합하지 않습니다."
+    }
+  }
 }

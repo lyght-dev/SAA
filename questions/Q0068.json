@@ -13,5 +13,28 @@
   "awsServices": [
     "AWS Direct Connect",
     "AWS Site-to-Site VPN"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 온프레미스와 AWS 리전 사이에 일관되게 낮은 지연 시간과 고가용성을 제공하는 연결을 원하지만 비용도 최소화해야 합니다. 기본 연결 장애 시에는 성능이 낮아져도 되는 백업 경로를 허용합니다. 따라서 정상 시에는 전용 네트워크 연결을 사용하고, 장애 시에는 더 저렴한 인터넷 기반 암호화 연결로 전환하는 구성이 필요합니다.",
+    "awsServicesAnalysis": "AWS Direct Connect는 온프레미스 환경과 AWS 사이의 전용 연결을 제공하여 인터넷 경로보다 일관된 네트워크 성능을 지원합니다. AWS Site-to-Site VPN은 인터넷을 통해 IPsec 터널을 구성하며 Direct Connect의 백업 연결로 사용할 수 있습니다. 두 개의 Direct Connect 연결은 더 높은 전용 연결 복원력을 제공하지만 비용이 증가합니다. AWS CLI에는 Direct Connect 장애 시 새 백업 연결을 자동 생성하는 속성이 없습니다.",
+    "choicesAnalysis": "Direct Connect를 기본 연결로 두고 Site-to-Site VPN을 백업으로 구성하면 정상 상태의 지연 시간 요구사항과 장애 시 연결 지속성을 모두 충족합니다. 백업 경로 성능 저하를 수용하므로 두 번째 Direct Connect의 비용은 필요하지 않습니다. VPN만으로는 일관된 저지연 기본 연결을 제공하기 어렵습니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "A는 AWS Direct Connect를 기본 경로로 사용하고 장애 시 Site-to-Site VPN으로 전환합니다. 비용이 더 낮은 VPN 백업을 사용하면서 정상 상태의 일관된 저지연 연결을 제공하므로 적합합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 VPN 터널만으로 기본 및 백업 연결을 구성합니다. 고가용성은 높일 수 있지만, 기본 연결에 요구되는 일관된 짧은 지연 시간을 보장하는 전용 연결을 제공하지 않으므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C는 두 번째 Direct Connect로 높은 복원력을 제공하지만, 성능이 낮은 백업을 허용하는 조건에서는 비용이 과도합니다. 비용 최소화 요구사항에 가장 적합한 선택이 아닙니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 AWS CLI로 장애 시 Direct Connect 백업 연결을 자동 생성할 수 있다는 전제가 올바르지 않습니다. 또한 새 물리적 연결은 즉시 장애 조치 경로로 사용할 수 없으므로 적합하지 않습니다."
+    }
+  }
 }

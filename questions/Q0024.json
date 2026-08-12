@@ -13,5 +13,28 @@
   "awsServices": [
     "Amazon EC2",
     "AWS Cost Explorer"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "솔루션 설계자는 최근 2개월의 Amazon EC2 비용을 인스턴스 유형별로 비교하는 그래프를 만들고, 원치 않는 인스턴스 유형 상향 변경의 원인을 심층 분석해야 합니다. 별도의 데이터 수집, 저장 또는 BI 시각화 환경을 구축하지 않고 필요한 기간과 비용 차원을 세분화하여 조사할 수 있어야 합니다. 따라서 내장 비용 분석 도구에서 기간, 서비스 및 인스턴스 유형을 필터링하고 그래프로 확인하는 것이 핵심입니다.",
+    "awsServicesAnalysis": "AWS Cost Explorer는 AWS 비용과 사용량을 시간대별 차트로 분석하고 서비스, 인스턴스 유형, 사용 유형, 리전 등의 차원으로 필터링하거나 그룹화할 수 있습니다. AWS Budgets는 예산 임계값과 비용/사용량 추적을 위한 예산 및 알림 기능을 제공합니다. AWS Billing and Cost Management 대시보드는 청구 정보를 요약해 보여 줍니다. AWS Cost and Usage Report는 상세 사용량 데이터를 S3로 전달할 수 있으며, Amazon QuickSight는 데이터 원본을 분석하고 대시보드를 만들 수 있습니다.",
+    "choicesAnalysis": "필요한 정보는 EC2 비용을 인스턴스 유형 기준으로 특정 기간에 분석하는 것이므로, 해당 차원에 대한 필터와 그래프를 기본 제공하는 도구가 가장 적합합니다. 예산 알림이나 청구 요약 그래프는 원인 분석을 위한 세분화 기능이 제한적이며, 비용 및 사용 보고서와 별도 시각화 도구를 구축하면 불필요한 운영 작업이 추가됩니다. 따라서 Cost Explorer에서 인스턴스 유형으로 필터링해 분석하는 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Budgets는 예산 설정과 임계값 알림에 적합하지만, 인스턴스 유형별 비용 증감의 근본 원인을 심층 분석하는 기본 도구는 아닙니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "적합합니다. Cost Explorer는 기간과 Amazon EC2 서비스를 지정하고 인스턴스 유형을 기준으로 비용을 필터링하거나 그룹화하여 차트를 만들 수 있습니다. 별도의 보고서 파이프라인 없이 비용 증가 원인을 분석할 수 있습니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. Billing and Cost Management 대시보드는 청구 요약을 제공하지만, 인스턴스 유형별로 비용을 세분화해 원인을 분석하는 Cost Explorer 수준의 기능을 제공하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. 비용 및 사용 보고서와 S3, QuickSight를 사용하면 맞춤형 분석은 가능하지만 보고서 전달, 데이터 원본 구성 및 시각화 작업이 필요합니다. Cost Explorer보다 운영 오버헤드가 큽니다."
+    }
+  }
 }

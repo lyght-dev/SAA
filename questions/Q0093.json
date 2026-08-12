@@ -12,5 +12,28 @@
   "contentTask": "고성능 데이터베이스 솔루션 결정",
   "awsServices": [
     "Amazon Aurora"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "회사는 읽기 활동이 많은 MySQL 기반 애플리케이션을 AWS로 마이그레이션하면서 가용성과 탄력성을 높여야 합니다. 4시간마다 수행하는 전체 내보내기와 스테이징 복원은 프로덕션 지연을 유발하고, 작업 중에는 스테이징 환경을 사용할 수 없게 합니다. 따라서 읽기 부하를 분산하고 운영 중인 스테이징을 지연 없이 새 데이터로 갱신할 수 있는 데이터베이스 아키텍처가 필요합니다.",
+    "awsServicesAnalysis": "Amazon Aurora MySQL 호환 DB 클러스터는 여러 가용 영역에 걸친 내구성 있는 스토리지를 사용하고 Aurora Replica로 읽기 확장을 지원합니다. Aurora 클론은 Copy-on-Write 방식을 사용하여 기존 DB 클러스터 볼륨에서 빠르게 생성되며, 원본 데이터와 공통 스토리지를 공유한 뒤 변경된 데이터만 별도로 저장합니다. Amazon RDS for MySQL의 다중 AZ 대기 인스턴스는 장애 조치용이며 읽기 트래픽을 처리하지 않습니다.",
+    "choicesAnalysis": "Aurora Replica는 읽기 요청을 분산해 프로덕션의 읽기 병목을 완화합니다. 요청 시 생성한 Aurora 클론은 전체 내보내기와 복원 없이 스테이징용 사본을 빠르게 제공하므로 기존 스테이징을 장시간 중단시키지 않습니다. mysqldump 기반 방식과 RDS 다중 AZ 대기 인스턴스는 이 두 요구사항을 함께 충족하지 못합니다. 따라서 B가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 Aurora Replica를 사용할 수 있지만 mysqldump 기반 내보내기와 복원은 프로덕션 부하와 스테이징 중단 문제를 계속 유발합니다. 따라서 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": true,
+      "explanation": "B는 Aurora Replica로 읽기 트래픽을 분산하고, 요청 시 Aurora 클론을 생성해 전체 내보내기 없이 스테이징 데이터를 제공할 수 있으므로 적합합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "C의 RDS 다중 AZ 대기 인스턴스는 읽기 요청을 처리하는 복제본이 아닙니다. 또한 대기 인스턴스를 스테이징 DB로 사용할 수 없으므로 적합하지 않습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 읽기 전용 복제본을 제공할 수 있지만 mysqldump 내보내기와 복원 방식이 지연 및 스테이징 중단 원인을 해소하지 못하므로 적합하지 않습니다."
+    }
+  }
 }

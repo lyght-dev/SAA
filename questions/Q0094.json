@@ -15,5 +15,28 @@
     "Amazon SQS",
     "AWS Lambda",
     "Amazon DynamoDB"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "사용자가 S3에 업로드하는 작은 파일은 업로드 직후 일회성으로 변환되어 JSON 형식의 결과 데이터로 저장되어야 합니다. 업로드량은 크게 변동하므로 유휴 상태의 서버나 클러스터를 관리하지 않고도 급증하는 이벤트를 처리할 수 있어야 합니다. 따라서 이벤트 기반으로 자동 확장되며 운영 오버헤드가 낮은 처리 파이프라인이 필요합니다.",
+    "awsServicesAnalysis": "Amazon S3 이벤트 알림은 객체 생성 이벤트를 Amazon SQS 같은 대상으로 전송할 수 있습니다. Amazon SQS는 생산자와 소비자를 분리하고 처리 요청을 버퍼링합니다. AWS Lambda는 SQS를 이벤트 소스로 사용해 메시지를 처리하며, 서버 관리 없이 수요에 맞춰 확장됩니다. Amazon DynamoDB는 서버리스 NoSQL 데이터베이스로 변환 결과 데이터를 저장할 수 있습니다. Amazon EMR과 EC2는 클러스터 또는 인스턴스 운영이 필요합니다.",
+    "choicesAnalysis": "S3 이벤트를 SQS로 전달하고 Lambda가 이를 비동기로 처리하면 업로드 급증을 버퍼링하면서 서버를 운영하지 않아도 됩니다. 처리 결과는 DynamoDB에 저장할 수 있습니다. EMR/EC2 또는 Aurora를 추가하는 대안은 일회성 소규모 파일 처리에 불필요한 운영 부담을 만듭니다. 또한 제시된 EventBridge에서 Kinesis Data Streams로의 흐름은 S3 객체 생성 이벤트의 직접 대상 구성이 아닙니다. 따라서 C가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": false,
+      "explanation": "A는 EMR 클러스터를 구성하고 Aurora DB 클러스터를 운영해야 합니다. 작은 파일의 가변적인 일회성 처리에는 운영 오버헤드가 크므로 적합하지 않습니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "B는 SQS로 이벤트를 버퍼링할 수 있지만 EC2 인스턴스의 확장과 운영을 관리해야 합니다. Lambda를 사용하는 방식보다 운영 오버헤드가 크므로 적합하지 않습니다."
+    },
+    "C": {
+      "isCorrect": true,
+      "explanation": "C는 S3 이벤트를 SQS로 전달하고 Lambda로 처리하여 수요에 따라 자동 확장할 수 있습니다. 별도 서버 관리 없이 결과 데이터를 DynamoDB에 저장할 수 있으므로 적합합니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "D는 S3 객체 생성 이벤트를 Kinesis Data Streams로 직접 전송하는 제시된 구성이 적절하지 않습니다. 또한 Aurora DB 클러스터 운영은 최소 운영 오버헤드 요구사항에 맞지 않으므로 적합하지 않습니다."
+    }
+  }
 }

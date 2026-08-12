@@ -15,5 +15,28 @@
     "Amazon EC2 Auto Scaling",
     "Elastic Load Balancing(ELB)",
     "AWS Global Accelerator"
-  ]
+  ],
+  "explanation": {
+    "requirementsAnalysis": "VoIP 서비스는 UDP 연결을 사용하며 여러 AWS 리전의 Auto Scaling EC2 인스턴스에서 실행됩니다. 사용자는 네트워크 지연 시간이 가장 낮은 리전으로 라우팅되어야 하고, 한 리전이나 엔드포인트에 장애가 발생하면 다른 리전으로 자동 장애 조치되어야 합니다. 따라서 UDP를 지원하는 리전별 로드 밸런싱과 글로벌 네트워크 기반의 지연 시간 최적화 및 상태 기반 장애 조치가 필요합니다.",
+    "awsServicesAnalysis": "Network Load Balancer는 TCP, UDP 및 TLS 트래픽을 대상 그룹의 인스턴스로 분산할 수 있고 Auto Scaling 그룹의 인스턴스를 대상으로 등록할 수 있습니다. Application Load Balancer는 HTTP와 HTTPS 같은 애플리케이션 계층 트래픽을 처리하며 UDP를 지원하지 않습니다. AWS Global Accelerator 표준 가속기는 정적 IP 주소를 진입점으로 제공하고 AWS 글로벌 네트워크를 통해 사용자 위치와 엔드포인트 상태 등을 고려해 정상 리전 엔드포인트로 트래픽을 라우팅합니다. Global Accelerator의 엔드포인트로 NLB를 지정할 수 있습니다. Amazon CloudFront는 주로 HTTP/HTTPS 콘텐츠 전송에 사용되며 UDP VoIP 트래픽의 프록시가 아닙니다. Route 53 지연 시간 기반 라우팅은 DNS 응답을 선택할 수 있습니다.",
+    "choicesAnalysis": "UDP 기반 VoIP 트래픽은 UDP를 지원하는 로드 밸런서를 거쳐야 하므로 ALB와 CloudFront 기반 구성은 제외됩니다. 글로벌 사용자에게 가장 낮은 지연 시간의 정상 리전으로 라우팅하고 리전 간 장애 조치를 제공하려면 DNS 응답만 선택하는 방식보다 Global Accelerator의 글로벌 애니캐스트 진입점과 상태 모니터링이 적합합니다. NLB를 각 리전 엔드포인트로 연결하면 프로토콜 요구사항도 충족합니다. 따라서 A가 정답입니다."
+  },
+  "choiceEvaluations": {
+    "A": {
+      "isCorrect": true,
+      "explanation": "적합합니다. 각 리전의 NLB는 UDP VoIP 트래픽을 Auto Scaling EC2 대상에 분산할 수 있습니다. AWS Global Accelerator는 정상 상태의 적절한 리전 엔드포인트로 글로벌 트래픽을 라우팅하므로 낮은 지연 시간과 리전 간 자동 장애 조치를 제공합니다."
+    },
+    "B": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. AWS Global Accelerator는 ALB를 엔드포인트로 사용할 수 있지만 ALB는 UDP 트래픽을 지원하지 않습니다. 따라서 VoIP의 UDP 연결 요구사항을 충족하지 못합니다."
+    },
+    "C": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. NLB와 Route 53 지연 시간 레코드는 일부 라우팅 요구사항에 도움이 될 수 있지만 CloudFront는 UDP VoIP 트래픽을 처리하지 않습니다. 또한 Global Accelerator가 제공하는 글로벌 정적 진입점과 상태 기반 전환 구성이 없습니다."
+    },
+    "D": {
+      "isCorrect": false,
+      "explanation": "적합하지 않습니다. ALB와 CloudFront는 UDP를 지원하지 않으며, Route 53 가중치 기반 라우팅은 사용자별 최저 지연 시간 리전을 자동으로 선택하는 정책이 아닙니다."
+    }
+  }
 }
