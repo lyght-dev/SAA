@@ -8,18 +8,24 @@ import {
   ChevronRight,
   Circle,
   CircleAlert,
+  House,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
-  Target,
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { CONTENT_DOMAINS, type ContentDomain, type Question } from "@/lib/question-types";
+import { createClient } from "@/utils/supabase/client";
 
 type QuestionStatus = "unanswered" | "correct" | "incorrect";
 type StatusMap = Record<string, QuestionStatus>;
+type AnswerMap = Record<string, string[]>;
+
+const FALLBACK_STATUS_KEY = "saa-db-fallback-status-v1";
+const FALLBACK_ANSWER_KEY = "saa-db-fallback-answers-v1";
+const LEGACY_STATUS_KEY = "saa-question-status";
+const LEGACY_ANSWER_KEY = "saa-question-answers";
 
 type Screen =
   | { name: "intro" }
@@ -43,7 +49,7 @@ const statusLabels: Record<QuestionStatus, string> = {
   incorrect: "틀린 문제",
 };
 
-function Header({ title, onBack }: { title: string; onBack?: () => void }) {
+function Header({ title, onBack, onHome }: { title: string; onBack?: () => void; onHome?: () => void }) {
   return (
     <header className="topbar">
       <div className="topbar-side">
@@ -57,7 +63,11 @@ function Header({ title, onBack }: { title: string; onBack?: () => void }) {
       </div>
       <p className="topbar-title">{title}</p>
       <div className="topbar-side topbar-side-end">
-        {onBack ? <span className="wordmark-dot" aria-hidden="true" /> : null}
+        {onHome ? (
+          <button className="icon-button" type="button" onClick={onHome} aria-label="홈으로 이동">
+            <House aria-hidden="true" size={19} strokeWidth={1.7} />
+          </button>
+        ) : null}
       </div>
     </header>
   );
@@ -87,14 +97,20 @@ function EmptyWrongList({ onGoBack }: { onGoBack: () => void }) {
   );
 }
 
-export function SaaApp({ questions }: { questions: Question[] }) {
+type ProgressRow = {
+  question_id: string;
+  selected_answers: string[];
+  is_correct: boolean;
+};
+
+export function SaaApp({ questions, userId }: { questions: Question[]; userId: string | null }) {
+  const [supabase] = useState(createClient);
   const [screen, setScreen] = useState<Screen>({ name: "intro" });
   const [statuses, setStatuses] = useState<StatusMap>({});
+  const [savedAnswers, setSavedAnswers] = useState<AnswerMap>({});
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
-  const [showClassification, setShowClassification] = useState(true);
   const [questionQueue, setQuestionQueue] = useState<string[]>([]);
   const [queueOrigin, setQueueOrigin] = useState<ContentDomain | "wrong" | null>(null);
-  const [hasLoadedProgress, setHasLoadedProgress] = useState(false);
 
   const questionById = useMemo(
     () => new Map(questions.map((question) => [question.id, question])),
@@ -102,27 +118,69 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   );
 
   useEffect(() => {
-    let savedStatuses: StatusMap = {};
-    try {
-      const saved = window.localStorage.getItem("saa-question-status");
-      if (saved) savedStatuses = JSON.parse(saved) as StatusMap;
-    } catch {
-      // The webview may disable local storage. The in-memory session still works.
-    }
-    window.queueMicrotask(() => {
-      setStatuses(savedStatuses);
-      setHasLoadedProgress(true);
-    });
-  }, []);
+    let active = true;
 
-  useEffect(() => {
-    if (!hasLoadedProgress) return;
-    try {
-      window.localStorage.setItem("saa-question-status", JSON.stringify(statuses));
-    } catch {
-      // Keep the current session usable when persistence is unavailable.
+    async function loadProgress() {
+      if (!userId) {
+        try {
+          const fallbackStatuses = window.localStorage.getItem(FALLBACK_STATUS_KEY);
+          const fallbackAnswers = window.localStorage.getItem(FALLBACK_ANSWER_KEY);
+          setStatuses(fallbackStatuses ? JSON.parse(fallbackStatuses) as StatusMap : {});
+          setSavedAnswers(fallbackAnswers ? JSON.parse(fallbackAnswers) as AnswerMap : {});
+        } catch {
+          setStatuses({});
+          setSavedAnswers({});
+        }
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("question_progress")
+        .select("question_id, selected_answers, is_correct")
+        .eq("user_id", userId);
+
+      if (!active) return;
+
+      if (error) {
+        console.error("Supabase progress load failed", error);
+        try {
+          const fallbackStatuses = window.localStorage.getItem(FALLBACK_STATUS_KEY);
+          const fallbackAnswers = window.localStorage.getItem(FALLBACK_ANSWER_KEY);
+          setStatuses(fallbackStatuses ? JSON.parse(fallbackStatuses) as StatusMap : {});
+          setSavedAnswers(fallbackAnswers ? JSON.parse(fallbackAnswers) as AnswerMap : {});
+        } catch {
+          setStatuses({});
+          setSavedAnswers({});
+        }
+        return;
+      }
+
+      const remoteStatuses: StatusMap = {};
+      const remoteAnswers: AnswerMap = {};
+      for (const row of (data ?? []) as ProgressRow[]) {
+        remoteStatuses[row.question_id] = row.is_correct ? "correct" : "incorrect";
+        remoteAnswers[row.question_id] = row.selected_answers;
+      }
+
+      try {
+        window.localStorage.removeItem(LEGACY_STATUS_KEY);
+        window.localStorage.removeItem(LEGACY_ANSWER_KEY);
+        window.localStorage.removeItem(FALLBACK_STATUS_KEY);
+        window.localStorage.removeItem(FALLBACK_ANSWER_KEY);
+      } catch {
+        // The database remains the source of truth when browser storage is unavailable.
+      }
+
+      if (!active) return;
+      setStatuses(remoteStatuses);
+      setSavedAnswers(remoteAnswers);
     }
-  }, [hasLoadedProgress, statuses]);
+
+    void loadProgress();
+    return () => {
+      active = false;
+    };
+  }, [supabase, userId]);
 
   useEffect(() => {
     if (screen.name !== "intro") return;
@@ -138,7 +196,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   const openQuestion = (question: Question, queue: Question[], origin: ContentDomain | "wrong") => {
     setQuestionQueue(queue.map((item) => item.id));
     setQueueOrigin(origin);
-    setSelectedAnswers([]);
+    setSelectedAnswers(savedAnswers[question.id] ?? []);
     setScreen({ name: "question", questionId: question.id });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -150,6 +208,54 @@ export function SaaApp({ questions }: { questions: Question[] }) {
     const isCorrect = normalizedSelection.every((answer, index) => answer === normalizedAnswer[index]);
     const result: QuestionStatus = isCorrect ? "correct" : "incorrect";
     setStatuses((current) => ({ ...current, [question.id]: result }));
+    setSavedAnswers((current) => ({ ...current, [question.id]: [...selectedAnswers] }));
+
+    const saveLocalFallback = () => {
+      try {
+        window.localStorage.setItem(
+          FALLBACK_STATUS_KEY,
+          JSON.stringify({ ...statuses, [question.id]: result }),
+        );
+        window.localStorage.setItem(
+          FALLBACK_ANSWER_KEY,
+          JSON.stringify({ ...savedAnswers, [question.id]: [...selectedAnswers] }),
+        );
+      } catch {
+        // The current in-memory session remains usable.
+      }
+    };
+
+    if (!userId) {
+      saveLocalFallback();
+      setScreen({ name: "explanation", questionId: question.id, selectedAnswers });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    void supabase
+      .from("question_progress")
+      .upsert(
+        {
+          user_id: userId,
+          question_id: question.id,
+          selected_answers: selectedAnswers,
+        },
+        { onConflict: "user_id,question_id" },
+      )
+      .then(({ error }) => {
+        if (!error) {
+          try {
+            window.localStorage.removeItem(FALLBACK_STATUS_KEY);
+            window.localStorage.removeItem(FALLBACK_ANSWER_KEY);
+          } catch {
+            // The database write succeeded, so no local fallback is required.
+          }
+          return;
+        }
+
+        console.error("Supabase progress save failed", error);
+        saveLocalFallback();
+      });
     setScreen({ name: "explanation", questionId: question.id, selectedAnswers });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -239,7 +345,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   if (screen.name === "domains") {
     return (
       <main className="mobile-shell">
-        <Header title="콘텐츠 도메인" onBack={() => setScreen({ name: "home" })} />
+        <Header title="콘텐츠 도메인" onBack={() => setScreen({ name: "home" })} onHome={() => setScreen({ name: "home" })} />
         <div className="screen-content">
           <section className="page-heading">
             <p className="eyebrow">Choose a domain</p>
@@ -287,7 +393,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
 
     return (
       <main className="mobile-shell">
-        <Header title={title} onBack={() => setScreen(isWrongList ? { name: "home" } : { name: "domains" })} />
+        <Header title={title} onBack={() => setScreen(isWrongList ? { name: "home" } : { name: "domains" })} onHome={() => setScreen({ name: "home" })} />
         <div className="screen-content list-content">
           <section className="page-heading list-heading">
             <p className="eyebrow">{isWrongList ? "Review notes" : "Question index"}</p>
@@ -332,7 +438,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   if (!activeQuestion) {
     return (
       <main className="mobile-shell">
-        <Header title="문제를 찾을 수 없음" onBack={() => setScreen({ name: "home" })} />
+        <Header title="문제를 찾을 수 없음" onBack={() => setScreen({ name: "home" })} onHome={() => setScreen({ name: "home" })} />
         <div className="empty-state"><CircleAlert /><h2>문제를 불러오지 못했어요.</h2></div>
       </main>
     );
@@ -345,28 +451,16 @@ export function SaaApp({ questions }: { questions: Question[] }) {
   if (screen.name === "question") {
     return (
       <main className="mobile-shell question-shell">
-        <Header title={`Question ${displayNumber}`} onBack={() => returnToQuestionList(activeQuestion)} />
+        <Header title={`Question ${displayNumber}`} onBack={() => returnToQuestionList(activeQuestion)} onHome={() => setScreen({ name: "home" })} />
         <div className="question-content">
           <section className="classification-bar">
             <div>
               <p className="section-label">Content domain {domainIndex + 1}</p>
-              {showClassification ? (
-                <div className="classification-detail">
-                  <strong>{activeQuestion.contentDomain}</strong>
-                  <span>{activeQuestion.contentTask}</span>
-                </div>
-              ) : null}
+              <div className="classification-detail">
+                <strong>{activeQuestion.contentDomain}</strong>
+                <span>{activeQuestion.contentTask}</span>
+              </div>
             </div>
-            <button
-              className={`toggle ${showClassification ? "toggle-on" : ""}`}
-              type="button"
-              role="switch"
-              aria-checked={showClassification}
-              aria-label="카테고리 및 문제 분류 표시"
-              onClick={() => setShowClassification((current) => !current)}
-            >
-              <span />
-            </button>
           </section>
 
           <section className="question-prompt">
@@ -378,11 +472,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
           </section>
 
           <fieldset className="choice-list">
-            <legend>
-              {activeQuestion.answer.length > 1
-                ? `정답을 ${activeQuestion.answer.length}개 선택하세요`
-                : "정답을 선택하세요"}
-            </legend>
+            <legend className="sr-only">선택지</legend>
             {activeQuestion.choices.map((choice) => {
               const selected = selectedAnswers.includes(choice.key);
               const isMultipleChoice = activeQuestion.answer.length > 1;
@@ -433,7 +523,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
 
   const moveToNext = () => {
     if (nextQuestionId) {
-      setSelectedAnswers([]);
+      setSelectedAnswers(savedAnswers[nextQuestionId] ?? []);
       setScreen({ name: "question", questionId: nextQuestionId });
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -443,13 +533,12 @@ export function SaaApp({ questions }: { questions: Question[] }) {
 
   return (
     <main className="mobile-shell explanation-shell">
-      <Header title="해설" onBack={() => setScreen({ name: "question", questionId: activeQuestion.id })} />
+      <Header title="해설" onBack={() => setScreen({ name: "question", questionId: activeQuestion.id })} onHome={() => setScreen({ name: "home" })} />
       <div className="screen-content explanation-content">
         <section className={`result-card ${isCorrect ? "result-correct" : "result-incorrect"}`}>
-          <div className="result-icon">{isCorrect ? <Check size={24} /> : <X size={24} />}</div>
+          <div className="result-icon">{isCorrect ? <Check size={29} strokeWidth={1.8} /> : <X size={29} strokeWidth={1.8} />}</div>
           <p className="eyebrow">Your answer · {screen.selectedAnswers.join(", ")}</p>
           <h1>{isCorrect ? "Correct" : "Incorrect"}</h1>
-          <p>{isCorrect ? "좋아요. 핵심 요구사항을 정확히 짚었어요." : `정답은 ${activeQuestion.answer.join(", ")}입니다. 분석 순서대로 다시 확인해 보세요.`}</p>
         </section>
 
         <section className="analysis-section">
@@ -458,7 +547,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
             <div><p className="section-label">Requirement</p><h2>요구사항 분석</h2></div>
           </div>
           <div className="analysis-card">
-            <Target size={21} strokeWidth={1.5} aria-hidden="true" />
+            <span className="analysis-icon-slot" aria-hidden="true" />
             <div>
               <strong>{activeQuestion.contentTask}</strong>
               <p>{activeQuestion.explanation.requirementsAnalysis}</p>
@@ -472,7 +561,7 @@ export function SaaApp({ questions }: { questions: Question[] }) {
             <div><p className="section-label">AWS services</p><h2>AWS 서비스 분석</h2></div>
           </div>
           <div className="service-card">
-            <Sparkles size={21} strokeWidth={1.5} aria-hidden="true" />
+            <span className="analysis-icon-slot" aria-hidden="true" />
             <div>
               <p>이 문제의 핵심 서비스</p>
               <div className="service-tags">

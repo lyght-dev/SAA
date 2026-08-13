@@ -10,6 +10,7 @@ import {
   type Question,
   type QuestionExplanation,
 } from "@/lib/question-types";
+import { createClient } from "@/utils/supabase/server";
 
 type RawQuestion = {
   questionNumber?: number;
@@ -58,7 +59,49 @@ function isCompleteQuestion(raw: RawQuestion): raw is Required<RawQuestion> {
   );
 }
 
-export async function getQuestions(): Promise<Question[]> {
+type QuestionRow = {
+  id: string;
+  question_number: number;
+  question: string;
+  choices: Record<string, string>;
+  answers: string[];
+  content_domain: string;
+  content_task: string;
+  aws_services: string[];
+  explanation: QuestionExplanation;
+  choice_evaluations: Record<string, ChoiceEvaluation>;
+};
+
+function mapQuestionRow(row: QuestionRow): Question | null {
+  const raw: RawQuestion = {
+    questionNumber: row.question_number,
+    question: row.question,
+    choices: row.choices,
+    answer: row.answers,
+    contentDomain: row.content_domain,
+    contentTask: row.content_task,
+    awsServices: row.aws_services,
+    explanation: row.explanation,
+    choiceEvaluations: row.choice_evaluations,
+  };
+
+  if (!isCompleteQuestion(raw)) return null;
+
+  return {
+    id: row.id,
+    questionNumber: raw.questionNumber,
+    question: raw.question,
+    choices: Object.entries(raw.choices).map(([key, text]) => ({ key, text })),
+    answer: Array.isArray(raw.answer) ? raw.answer : [raw.answer],
+    contentDomain: raw.contentDomain as ContentDomain,
+    contentTask: raw.contentTask,
+    awsServices: raw.awsServices ?? [],
+    explanation: raw.explanation,
+    choiceEvaluations: raw.choiceEvaluations,
+  };
+}
+
+async function getQuestionsFromFiles(): Promise<Question[]> {
   const questionsDirectory = path.join(process.cwd(), "questions");
   const files = (await fs.readdir(questionsDirectory))
     .filter((file) => /^Q\d{4}\.json$/.test(file))
@@ -89,4 +132,29 @@ export async function getQuestions(): Promise<Question[]> {
       }];
     })
     .sort((a, b) => a.questionNumber - b.questionNumber);
+}
+
+export async function getQuestions(): Promise<Question[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("questions")
+    .select(
+      "id, question_number, question, choices, answers, content_domain, content_task, aws_services, explanation, choice_evaluations",
+    )
+    .order("question_number");
+
+  if (!error && data?.length === 100) {
+    const questions = (data as QuestionRow[])
+      .map(mapQuestionRow)
+      .filter((question): question is Question => question !== null);
+
+    if (questions.length === 100) return questions;
+  }
+
+  console.warn(
+    error
+      ? `Supabase questions fallback: ${error.message}`
+      : `Supabase questions fallback: expected 100 valid rows, received ${data?.length ?? 0}`,
+  );
+  return getQuestionsFromFiles();
 }

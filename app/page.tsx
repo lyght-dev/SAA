@@ -1,7 +1,9 @@
-import { SaaApp } from "@/components/SaaApp";
+import { AnonymousAuthGate } from "@/components/AnonymousAuthGate";
 import { getQuestions } from "@/lib/questions";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const questions = await getQuestions();
-  return <SaaApp questions={questions} />;
+  return <AnonymousAuthGate questions={questions} />;
 }
