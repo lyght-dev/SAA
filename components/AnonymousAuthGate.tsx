@@ -5,6 +5,7 @@ import { ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { SaaApp } from "@/components/SaaApp";
+import type { MockExamSet } from "@/lib/mock-exam-types";
 import type { Question } from "@/lib/question-types";
 import { createClient } from "@/utils/supabase/client";
 
@@ -14,7 +15,13 @@ type AuthState =
   | { status: "signing-in" }
   | { status: "ready"; userId: string | null };
 
-export function AnonymousAuthGate({ questions }: { questions: Question[] }) {
+export function AnonymousAuthGate({
+  questions,
+  mockExamSets,
+}: {
+  questions: Question[];
+  mockExamSets: MockExamSet[];
+}) {
   const [supabase] = useState(createClient);
   const [authState, setAuthState] = useState<AuthState>({ status: "checking" });
   const turnstileRef = useRef<TurnstileInstance>(null);
@@ -60,7 +67,7 @@ export function AnonymousAuthGate({ questions }: { questions: Question[] }) {
   }
 
   if (authState.status === "ready") {
-    return <SaaApp questions={questions} userId={authState.userId} />;
+    return <SaaApp questions={questions} mockExamSets={mockExamSets} userId={authState.userId} />;
   }
 
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;

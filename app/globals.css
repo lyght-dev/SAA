@@ -573,6 +573,16 @@ input:focus-visible + span {
   color: white;
 }
 
+.action-card-exam {
+  border-color: var(--hairline-strong);
+  background: var(--canvas-soft);
+}
+
+.action-card:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
 .action-icon {
   display: grid;
   width: 44px;
@@ -584,6 +594,10 @@ input:focus-visible + span {
 
 .action-icon-light {
   background: var(--surface-strong);
+}
+
+.action-icon-exam {
+  background: rgb(200 184 224 / 0.3);
 }
 
 .action-copy {
@@ -617,6 +631,294 @@ input:focus-visible + span {
   font-size: 14px;
   font-style: italic;
   text-align: center;
+}
+
+/* Mock exams */
+.mock-exam-heading {
+  padding-bottom: 30px;
+}
+
+.mock-set-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mock-set-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 38px;
+  min-height: 174px;
+  padding: 21px 19px;
+  overflow: hidden;
+  gap: 15px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 20px;
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.mock-set-card::after {
+  position: absolute;
+  right: -55px;
+  bottom: -90px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(200 184 224 / 0.44), rgb(168 200 232 / 0.16) 48%, transparent 70%);
+  content: "";
+  pointer-events: none;
+}
+
+.mock-set-card:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mock-set-index,
+.mock-set-copy,
+.mock-set-progress,
+.mock-set-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.mock-set-index {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mock-set-copy {
+  display: flex;
+  grid-column: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-set-copy strong {
+  font-family: var(--display);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.mock-set-copy small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.mock-set-progress {
+  display: grid;
+  grid-column: 1;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.mock-set-progress > span {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-strong);
+}
+
+.mock-set-progress i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+}
+
+.mock-set-progress small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.mock-set-arrow {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / 4;
+  align-self: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.62);
+  place-items: center;
+}
+
+.mock-list-content {
+  padding-top: 14px;
+}
+
+.mock-sheet-summary {
+  position: relative;
+  min-height: 190px;
+  padding: 27px 23px 23px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--primary);
+  color: white;
+  isolation: isolate;
+}
+
+.mock-sheet-summary .eyebrow {
+  color: rgb(255 255 255 / 0.58);
+}
+
+.mock-sheet-summary h1 {
+  position: relative;
+  z-index: 1;
+  margin: 15px 0 22px;
+  font-family: var(--display);
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.mock-sheet-summary h1 span {
+  font-size: 19px;
+}
+
+.mock-sheet-stats {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 16px;
+  color: rgb(255 255 255 / 0.68);
+  font-size: 10px;
+}
+
+.mock-sheet-orb {
+  position: absolute;
+  z-index: -1;
+  right: -75px;
+  bottom: -105px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(200 184 224 / 0.65), rgb(168 200 232 / 0.2) 48%, transparent 70%);
+}
+
+.mock-domain-distribution {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  z-index: 1;
+  display: flex;
+  height: 3px;
+  overflow: hidden;
+  gap: 2px;
+  border-radius: 999px;
+}
+
+.mock-domain-distribution span:nth-child(1) { background: var(--mint); }
+.mock-domain-distribution span:nth-child(2) { background: var(--peach); }
+.mock-domain-distribution span:nth-child(3) { background: var(--lavender); }
+.mock-domain-distribution span:nth-child(4) { background: var(--sky); }
+
+.mock-answer-card {
+  margin-top: 15px;
+  padding: 21px 17px 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  background: var(--surface);
+}
+
+.mock-answer-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 0 3px 17px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.mock-answer-heading h2 {
+  margin: 4px 0 0;
+  font-family: var(--display);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.mock-answer-heading > small {
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 14px;
+}
+
+.mock-status-legend {
+  display: flex;
+  justify-content: flex-end;
+  padding: 13px 2px 16px;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.mock-status-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mock-question-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 11px 8px;
+}
+
+.mock-question-number {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.mock-question-number > span {
+  font-family: var(--display);
+  font-size: 16px;
+}
+
+.mock-question-number > i {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  display: grid;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--muted-soft);
+  color: white;
+  place-items: center;
+}
+
+.mock-question-number-correct {
+  border-color: rgb(22 163 74 / 0.48);
+  background: rgb(22 163 74 / 0.045);
+}
+
+.mock-question-number-correct > i {
+  background: var(--success);
+}
+
+.mock-question-number-incorrect {
+  border-color: rgb(220 38 38 / 0.42);
+  background: rgb(220 38 38 / 0.04);
+}
+
+.mock-question-number-incorrect > i {
+  background: var(--error);
 }
 
 /* Domains */

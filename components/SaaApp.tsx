@@ -8,6 +8,7 @@ import {
   ChevronRight,
   Circle,
   CircleAlert,
+  ClipboardList,
   House,
   RotateCcw,
   ShieldCheck,
@@ -15,6 +16,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import type { MockExamSet } from "@/lib/mock-exam-types";
 import { CONTENT_DOMAINS, type ContentDomain, type Question } from "@/lib/question-types";
 import { createClient } from "@/utils/supabase/client";
 
@@ -31,10 +33,17 @@ type Screen =
   | { name: "intro" }
   | { name: "home" }
   | { name: "domains" }
+  | { name: "mock-exams" }
+  | { name: "mock-list"; setNumber: number }
   | { name: "list"; domain: ContentDomain }
   | { name: "wrong-list" }
   | { name: "question"; questionId: string }
   | { name: "explanation"; questionId: string; selectedAnswers: string[] };
+
+type QueueOrigin =
+  | { type: "domain"; domain: ContentDomain }
+  | { type: "wrong" }
+  | { type: "mock-exam"; setNumber: number };
 
 const domainMeta = [
   { eyebrow: "Content domain 1", short: "Security", accent: "mint" },
@@ -103,18 +112,30 @@ type ProgressRow = {
   is_correct: boolean;
 };
 
-export function SaaApp({ questions, userId }: { questions: Question[]; userId: string | null }) {
+export function SaaApp({
+  questions,
+  mockExamSets,
+  userId,
+}: {
+  questions: Question[];
+  mockExamSets: MockExamSet[];
+  userId: string | null;
+}) {
   const [supabase] = useState(createClient);
   const [screen, setScreen] = useState<Screen>({ name: "intro" });
   const [statuses, setStatuses] = useState<StatusMap>({});
   const [savedAnswers, setSavedAnswers] = useState<AnswerMap>({});
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [questionQueue, setQuestionQueue] = useState<string[]>([]);
-  const [queueOrigin, setQueueOrigin] = useState<ContentDomain | "wrong" | null>(null);
+  const [queueOrigin, setQueueOrigin] = useState<QueueOrigin | null>(null);
 
   const questionById = useMemo(
     () => new Map(questions.map((question) => [question.id, question])),
     [questions],
+  );
+  const mockExamByNumber = useMemo(
+    () => new Map(mockExamSets.map((set) => [set.setNumber, set])),
+    [mockExamSets],
   );
 
   useEffect(() => {
@@ -193,7 +214,7 @@ export function SaaApp({ questions, userId }: { questions: Question[]; userId: s
   const wrongCount = questions.filter((question) => getStatus(question.id) === "incorrect").length;
   const solvedCount = correctCount + wrongCount;
 
-  const openQuestion = (question: Question, queue: Question[], origin: ContentDomain | "wrong") => {
+  const openQuestion = (question: Question, queue: Question[], origin: QueueOrigin) => {
     setQuestionQueue(queue.map((item) => item.id));
     setQueueOrigin(origin);
     setSelectedAnswers(savedAnswers[question.id] ?? []);
@@ -261,11 +282,15 @@ export function SaaApp({ questions, userId }: { questions: Question[]; userId: s
   };
 
   const returnToQuestionList = (question: Question) => {
-    if (queueOrigin === "wrong") {
+    if (queueOrigin?.type === "wrong") {
       setScreen({ name: "wrong-list" });
       return;
     }
-    setScreen({ name: "list", domain: question.contentDomain });
+    if (queueOrigin?.type === "mock-exam") {
+      setScreen({ name: "mock-list", setNumber: queueOrigin.setNumber });
+      return;
+    }
+    setScreen({ name: "list", domain: queueOrigin?.domain ?? question.contentDomain });
   };
 
   if (screen.name === "intro") {
@@ -326,6 +351,14 @@ export function SaaApp({ questions, userId }: { questions: Question[]; userId: s
               </span>
               <ArrowRight size={20} strokeWidth={1.7} />
             </button>
+            <button className="action-card action-card-exam" type="button" onClick={() => setScreen({ name: "mock-exams" })} disabled={!mockExamSets.length}>
+              <span className="action-icon action-icon-exam"><ClipboardList size={22} strokeWidth={1.5} /></span>
+              <span className="action-copy">
+                <strong>모의고사 풀기</strong>
+                <small>{mockExamSets.length ? `${mockExamSets.length}개의 실전 세트` : "준비된 모의고사가 없어요"}</small>
+              </span>
+              <ChevronRight size={20} strokeWidth={1.7} />
+            </button>
             <button className="action-card" type="button" onClick={() => setScreen({ name: "wrong-list" })}>
               <span className="action-icon action-icon-light"><RotateCcw size={22} strokeWidth={1.55} /></span>
               <span className="action-copy">
@@ -337,6 +370,123 @@ export function SaaApp({ questions, userId }: { questions: Question[]; userId: s
           </section>
 
           <p className="home-footnote">Small steps. Strong architecture.</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (screen.name === "mock-exams") {
+    return (
+      <main className="mobile-shell">
+        <Header title="모의고사" onBack={() => setScreen({ name: "home" })} onHome={() => setScreen({ name: "home" })} />
+        <div className="screen-content">
+          <section className="page-heading mock-exam-heading">
+            <p className="eyebrow">Mock examination</p>
+            <h1>실전처럼,<br />한 세트씩.</h1>
+            <p>출제 비중에 맞춰 구성된 모의고사를 선택하세요.</p>
+          </section>
+
+          <div className="mock-set-list">
+            {mockExamSets.map((set) => {
+              const availableIds = set.items.filter((item) => questionById.has(item.questionId));
+              const solved = availableIds.filter((item) => getStatus(item.questionId) !== "unanswered").length;
+              const progress = availableIds.length ? (solved / availableIds.length) * 100 : 0;
+              const complete = availableIds.length === set.questionCount;
+
+              return (
+                <button
+                  className="mock-set-card"
+                  type="button"
+                  key={set.setNumber}
+                  onClick={() => setScreen({ name: "mock-list", setNumber: set.setNumber })}
+                  disabled={!complete}
+                >
+                  <span className="mock-set-index">SET {String(set.setNumber).padStart(2, "0")}</span>
+                  <span className="mock-set-copy">
+                    <strong>모의고사 {set.setNumber}회</strong>
+                    <small>{set.questionCount}문항 · 4개 콘텐츠 도메인</small>
+                  </span>
+                  <span className="mock-set-progress" aria-label={`${solved}문항 풀이 완료`}>
+                    <span><i style={{ width: `${progress}%` }} /></span>
+                    <small>{complete ? `${solved} / ${set.questionCount}` : "문항 준비 중"}</small>
+                  </span>
+                  <span className="mock-set-arrow"><ArrowRight size={19} strokeWidth={1.6} /></span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  if (screen.name === "mock-list") {
+    const mockExam = mockExamByNumber.get(screen.setNumber);
+    const examItems = mockExam?.items.flatMap((item) => {
+      const question = questionById.get(item.questionId);
+      return question ? [{ item, question }] : [];
+    }).sort((a, b) => a.item.itemNumber - b.item.itemNumber) ?? [];
+    const examQuestions = examItems.map(({ question }) => question);
+    const solved = examQuestions.filter((question) => getStatus(question.id) !== "unanswered").length;
+    const correct = examQuestions.filter((question) => getStatus(question.id) === "correct").length;
+
+    if (!mockExam) {
+      return (
+        <main className="mobile-shell">
+          <Header title="모의고사를 찾을 수 없음" onBack={() => setScreen({ name: "mock-exams" })} onHome={() => setScreen({ name: "home" })} />
+          <div className="screen-content"><div className="empty-state"><CircleAlert /><h2>세트를 불러오지 못했어요.</h2></div></div>
+        </main>
+      );
+    }
+
+    return (
+      <main className="mobile-shell">
+        <Header title={`모의고사 ${mockExam.setNumber}회`} onBack={() => setScreen({ name: "mock-exams" })} onHome={() => setScreen({ name: "home" })} />
+        <div className="screen-content mock-list-content">
+          <section className="mock-sheet-summary">
+            <div className="mock-sheet-orb" aria-hidden="true" />
+            <p className="eyebrow">Set {String(mockExam.setNumber).padStart(2, "0")}</p>
+            <h1>{mockExam.questionCount}<span> questions</span></h1>
+            <div className="mock-sheet-stats">
+              <span>풀이 {solved}</span>
+              <span>정답 {correct}</span>
+              <span>남은 문제 {mockExam.questionCount - solved}</span>
+            </div>
+            <div className="mock-domain-distribution" aria-label="콘텐츠 도메인 출제 비중">
+              {mockExam.contentDomains.map((domain) => (
+                <span key={domain.code} style={{ flexGrow: domain.questionCount }} title={`${domain.name} ${domain.questionCount}문항`} />
+              ))}
+            </div>
+          </section>
+
+          <section className="mock-answer-card">
+            <div className="mock-answer-heading">
+              <div><p className="section-label">Answer sheet</p><h2>문제 목록</h2></div>
+              <small>{solved} / {mockExam.questionCount}</small>
+            </div>
+            <div className="mock-status-legend" aria-label="문제 상태 범례">
+              <span><i className="status-dot" />미풀이</span>
+              <span><i className="status-dot status-dot-correct" />정답</span>
+              <span><i className="status-dot status-dot-wrong" />오답</span>
+            </div>
+            <div className="mock-question-grid">
+              {examItems.map(({ item, question }) => {
+                const status = getStatus(question.id);
+                return (
+                  <button
+                    type="button"
+                    className={`mock-question-number mock-question-number-${status}`}
+                    key={question.id}
+                    onClick={() => openQuestion(question, examQuestions, { type: "mock-exam", setNumber: mockExam.setNumber })}
+                    aria-label={`${item.itemNumber}번, ${statusLabels[status]}`}
+                  >
+                    <span>{item.itemNumber}</span>
+                    <i><StatusMark status={status} /></i>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
         </div>
       </main>
     );
@@ -418,7 +568,11 @@ export function SaaApp({ questions, userId }: { questions: Question[]; userId: s
                       type="button"
                       className={`question-number question-number-${status}`}
                       key={question.id}
-                      onClick={() => openQuestion(question, list, isWrongList ? "wrong" : question.contentDomain)}
+                      onClick={() => openQuestion(
+                        question,
+                        list,
+                        isWrongList ? { type: "wrong" } : { type: "domain", domain: question.contentDomain },
+                      )}
                       aria-label={`${index + 1}번, ${statusLabels[status]}`}
                     >
                       <span>{index + 1}</span>
