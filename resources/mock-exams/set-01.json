@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "setNumber": 1,
+  "questionCount": 65,
+  "randomSeed": "87866bd0a9b76a51",
+  "randomAlgorithm": "lcg64-fisher-yates-v1",
+  "sourceQuestionRange": {
+    "from": 1,
+    "to": 100
+  },
+  "contentDomains": [
+    {
+      "code": "D1",
+      "name": "보안 아키텍처 설계",
+      "weightPercent": 30,
+      "questionCount": 19
+    },
+    {
+      "code": "D2",
+      "name": "복원력을 갖춘 아키텍처 설계",
+      "weightPercent": 26,
+      "questionCount": 17
+    },
+    {
+      "code": "D3",
+      "name": "고성능 아키텍처 설계",
+      "weightPercent": 24,
+      "questionCount": 16
+    },
+    {
+      "code": "D4",
+      "name": "비용에 최적화된 아키텍처 설계",
+      "weightPercent": 20,
+      "questionCount": 13
+    }
+  ],
+  "sampling": {
+    "withoutReplacement": true,
+    "allocationMethod": "largest-remainder"
+  },
+  "items": [
+    {
+      "itemNumber": 1,
+      "questionId": "Q0087",
+      "questionNumber": 87,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 2,
+      "questionId": "Q0083",
+      "questionNumber": 83,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 3,
+      "questionId": "Q0071",
+      "questionNumber": 71,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 4,
+      "questionId": "Q0032",
+      "questionNumber": 32,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 5,
+      "questionId": "Q0008",
+      "questionNumber": 8,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 6,
+      "questionId": "Q0092",
+      "questionNumber": 92,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 7,
+      "questionId": "Q0063",
+      "questionNumber": 63,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 8,
+      "questionId": "Q0067",
+      "questionNumber": 67,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 9,
+      "questionId": "Q0050",
+      "questionNumber": 50,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 10,
+      "questionId": "Q0039",
+      "questionNumber": 39,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 11,
+      "questionId": "Q0048",
+      "questionNumber": 48,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 12,
+      "questionId": "Q0085",
+      "questionNumber": 85,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 13,
+      "questionId": "Q0075",
+      "questionNumber": 75,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 14,
+      "questionId": "Q0030",
+      "questionNumber": 30,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 15,
+      "questionId": "Q0014",
+      "questionNumber": 14,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 16,
+      "questionId": "Q0021",
+      "questionNumber": 21,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 17,
+      "questionId": "Q0072",
+      "questionNumber": 72,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 18,
+      "questionId": "Q0093",
+      "questionNumber": 93,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 19,
+      "questionId": "Q0051",
+      "questionNumber": 51,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 20,
+      "questionId": "Q0068",
+      "questionNumber": 68,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 21,
+      "questionId": "Q0022",
+      "questionNumber": 22,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 22,
+      "questionId": "Q0006",
+      "questionNumber": 6,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 23,
+      "questionId": "Q0003",
+      "questionNumber": 3,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 24,
+      "questionId": "Q0081",
+      "questionNumber": 81,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 25,
+      "questionId": "Q0034",
+      "questionNumber": 34,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 26,
+      "questionId": "Q0046",
+      "questionNumber": 46,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 27,
+      "questionId": "Q0025",
+      "questionNumber": 25,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 28,
+      "questionId": "Q0078",
+      "questionNumber": 78,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 29,
+      "questionId": "Q0004",
+      "questionNumber": 4,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 30,
+      "questionId": "Q0028",
+      "questionNumber": 28,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 31,
+      "questionId": "Q0095",
+      "questionNumber": 95,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 32,
+      "questionId": "Q0029",
+      "questionNumber": 29,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 33,
+      "questionId": "Q0011",
+      "questionNumber": 11,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 34,
+      "questionId": "Q0098",
+      "questionNumber": 98,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 35,
+      "questionId": "Q0023",
+      "questionNumber": 23,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 36,
+      "questionId": "Q0035",
+      "questionNumber": 35,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 37,
+      "questionId": "Q0031",
+      "questionNumber": 31,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 38,
+      "questionId": "Q0062",
+      "questionNumber": 62,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 39,
+      "questionId": "Q0069",
+      "questionNumber": 69,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 40,
+      "questionId": "Q0079",
+      "questionNumber": 79,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 41,
+      "questionId": "Q0020",
+      "questionNumber": 20,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 42,
+      "questionId": "Q0019",
+      "questionNumber": 19,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 43,
+      "questionId": "Q0024",
+      "questionNumber": 24,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 44,
+      "questionId": "Q0042",
+      "questionNumber": 42,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 45,
+      "questionId": "Q0010",
+      "questionNumber": 10,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 46,
+      "questionId": "Q0052",
+      "questionNumber": 52,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 47,
+      "questionId": "Q0007",
+      "questionNumber": 7,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 48,
+      "questionId": "Q0036",
+      "questionNumber": 36,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 49,
+      "questionId": "Q0040",
+      "questionNumber": 40,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 50,
+      "questionId": "Q0097",
+      "questionNumber": 97,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 51,
+      "questionId": "Q0077",
+      "questionNumber": 77,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 52,
+      "questionId": "Q0018",
+      "questionNumber": 18,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 53,
+      "questionId": "Q0017",
+      "questionNumber": 17,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 54,
+      "questionId": "Q0066",
+      "questionNumber": 66,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 55,
+      "questionId": "Q0061",
+      "questionNumber": 61,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 56,
+      "questionId": "Q0053",
+      "questionNumber": 53,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 57,
+      "questionId": "Q0005",
+      "questionNumber": 5,
+      "contentDomainCode": "D2"
+    },
+    {
+      "itemNumber": 58,
+      "questionId": "Q0065",
+      "questionNumber": 65,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 59,
+      "questionId": "Q0013",
+      "questionNumber": 13,
+      "contentDomainCode": "D1"
+    },
+    {
+      "itemNumber": 60,
+      "questionId": "Q0090",
+      "questionNumber": 90,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 61,
+      "questionId": "Q0001",
+      "questionNumber": 1,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 62,
+      "questionId": "Q0009",
+      "questionNumber": 9,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 63,
+      "questionId": "Q0033",
+      "questionNumber": 33,
+      "contentDomainCode": "D3"
+    },
+    {
+      "itemNumber": 64,
+      "questionId": "Q0084",
+      "questionNumber": 84,
+      "contentDomainCode": "D4"
+    },
+    {
+      "itemNumber": 65,
+      "questionId": "Q0045",
+      "questionNumber": 45,
+      "contentDomainCode": "D2"
+    }
+  ]
+}

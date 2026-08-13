@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:mock-exams": "node scripts/generate-mock-exam-sets.mjs"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "1.6.0",
