@@ -161,6 +161,43 @@ input:focus-visible + span {
   line-height: 1.5;
 }
 
+.auth-code-form {
+  display: grid;
+  width: 100%;
+  margin-top: 5px;
+  gap: 8px;
+  text-align: left;
+}
+
+.auth-code-form label {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.auth-code-form input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.74);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.auth-code-form > p {
+  margin: -2px 0 5px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.auth-code-form .button {
+  width: 100%;
+}
+
 .auth-gate-loader {
   overflow: hidden;
   width: 92px;

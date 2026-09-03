@@ -116,10 +116,12 @@ export function SaaApp({
   questions,
   mockExamSets,
   userId,
+  progressMode,
 }: {
   questions: Question[];
   mockExamSets: MockExamSet[];
   userId: string | null;
+  progressMode: "browser" | "code";
 }) {
   const [supabase] = useState(createClient);
   const [screen, setScreen] = useState<Screen>({ name: "intro" });
@@ -142,6 +144,36 @@ export function SaaApp({
     let active = true;
 
     async function loadProgress() {
+      if (progressMode === "code") {
+        const mergeResponse = await fetch("/api/study-code/progress", { method: "POST" });
+        if (!mergeResponse.ok) {
+          console.error("Study code progress merge failed", await mergeResponse.text());
+        }
+
+        const response = await fetch("/api/study-code/progress");
+        if (!response.ok) {
+          console.error("Study code progress load failed", await response.text());
+          if (active) {
+            setStatuses({});
+            setSavedAnswers({});
+          }
+          return;
+        }
+
+        const { progress } = await response.json() as { progress: ProgressRow[] };
+        if (!active) return;
+
+        const remoteStatuses: StatusMap = {};
+        const remoteAnswers: AnswerMap = {};
+        for (const row of progress) {
+          remoteStatuses[row.question_id] = row.is_correct ? "correct" : "incorrect";
+          remoteAnswers[row.question_id] = row.selected_answers;
+        }
+        setStatuses(remoteStatuses);
+        setSavedAnswers(remoteAnswers);
+        return;
+      }
+
       if (!userId) {
         try {
           const fallbackStatuses = window.localStorage.getItem(FALLBACK_STATUS_KEY);
@@ -201,7 +233,7 @@ export function SaaApp({
     return () => {
       active = false;
     };
-  }, [supabase, userId]);
+  }, [progressMode, supabase, userId]);
 
   useEffect(() => {
     if (screen.name !== "intro") return;
@@ -245,6 +277,21 @@ export function SaaApp({
         // The current in-memory session remains usable.
       }
     };
+
+    if (progressMode === "code") {
+      void fetch("/api/study-code/progress", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ questionId: question.id, selectedAnswers }),
+      }).then(async (response) => {
+        if (!response.ok) {
+          console.error("Study code progress save failed", await response.text());
+        }
+      });
+      setScreen({ name: "explanation", questionId: question.id, selectedAnswers });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
     if (!userId) {
       saveLocalFallback();
