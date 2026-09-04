@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "generate:mock-exams": "node scripts/generate-mock-exam-sets.mjs"
+    "generate:mock-exams": "node scripts/generate-mock-exam-sets.mjs",
+    "deploy": "npx vercel --prod",
+    "supabase:migrate": "npx supabase@2.116.0 db push --project-ref wfbdauyahltgoqirecql"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "1.6.0",
@@ -24,6 +26,7 @@
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "vercel": "^59.11.2"
   }
 }
