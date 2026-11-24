@@ -1,0 +1,3 @@
+{
+  "postStartCommand": "npm install -g @openai/codex@latest && codex --version"
+}
